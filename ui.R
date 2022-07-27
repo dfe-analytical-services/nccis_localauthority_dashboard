@@ -37,19 +37,19 @@ ui <- function(input, output, session) {
 
     # Set metadata for browser ==================================================
 
-    tags$html(lang = "en"),
-    # meta_general(
-    #   application_name = "DfE Analytical Services R-Shiny Template",
-    #   description = "R-Shiny template for use by DfE external data dashboards",
-    #   robots = "index,follow",
-    #   generator = "R-Shiny",
-    #   subject = "Education data dashboards",
-    #   rating = "General",
-    #   referrer = "no-referrer"
+    #tags$html(lang = "en"),
+    #meta_general(
+     #  application_name = "NEET and not known scorecard",
+     #  description = "NEET and not known scorecards by local authority in England",
+     #  robots = "index,follow",
+     # generator = "R-Shiny",
+     #  subject = "NEET and not known scorecard",
+     #  rating = "General",
+     #  referrer = "no-referrer"
     # ),
 
     # Set title for search engines
-    HTML("<title>DfE Analytical Services R-Shiny Template</title>"),
+    HTML("<title>NEET and not known scorecard</title>"),
 
     # Navbar ====================================================================
 
@@ -75,60 +75,82 @@ ui <- function(input, output, session) {
           fluidRow(
             column(
               12,
-              h1("DfE Analytical Services R-Shiny data dashboard template"),
-              p("This app demonstrates the DfE Analytical Services R-Shiny data dashboard template."),
+              h1("NEET and not known scorecard"),
+              h2("Introduction"),
+              p("The Department for Education (DfE) publishes an estimate each year
+                of the proportion of young people not in education, employment or 
+                training (NEET).  However, evidence shows that there are a range of
+                factors that can affect the proportion NEET, and this scorecard aims
+                to put the headline figure into context by setting it alongside a 
+                range of other related information."),
               br(),
+              p("There is a separate scorecard for each local authority in England 
+                except the City of London and Isles of Scilly as data are not available
+                for all indicators and because small numbers can result in large changes
+                in percentages from one year to the next."),
               br()
             ),
 
             ## Left panel -------------------------------------------------------
 
             column(
-              6,
+              12,
               div(
                 div(
                   class = "panel panel-info",
                   div(
                     class = "panel-heading",
                     style = "color: white;font-size: 18px;font-style: bold; background-color: #1d70b8;",
-                    h2("Contents")
+                    h2("Scorecard Contents")
                   ),
                   div(
                     class = "panel-body",
-                    tags$div(
-                      title = "This section is useful if you want to understand how well different industries retain graduates.",
-                      h3(actionLink("link_to_app_content_tab", "App Content"))
-                    ),
+                    h3("Scorecard content from 2017"),
+                    br(),
+                    br("Changes by DfE from 1 September 2016 reduced the amount of information that local
+                    authorities are mandated to collect and record in their Client Caseload Information 
+                    Systems and submit to the DfE in monthly extracts. Local authorities are only required
+                    to submit extracts of information about young people of academic age 16 and 17, and were
+                    no longer required to collect and record information about young people beyond the end of
+                    the academic year in which they reach their 18th birthday. As such from 2017 the scorecard
+                    reflects information about 16 and 17 year olds only."),
+                    br("The headline measure in the scorecard combines NEET and not known figures for 16 and 17 year olds. This gives
+                       an accurate picture of local authority performance in terms of tracking and supporting 
+                       young people and means that low NEET figures cannot be masked by high levels of ‘not knowns’."),
+                    #tags$div(
+                      #title = "This section is useful if you want to understand how well different industries retain graduates.",
+                      #h3(actionLink("link_to_app_content_tab", "App Content"))
+                    #),
                     br()
                   )
-                )
+               )
               ),
             ),
 
             ## Right panel ------------------------------------------------------
 
-            column(
-              6,
-              div(
-                div(
-                  class = "panel panel-info",
-                  div(
-                    class = "panel-heading",
-                    style = "color: white;font-size: 18px;font-style: bold; background-color: #1d70b8;",
-                    h2("Background Info")
-                  ),
-                  div(
-                    class = "panel-body",
-                  )
-                )
-              )
-            )
+           # column(
+             # 6,
+             # div(
+             #  div(
+               #   class = "panel panel-info",
+              #    div(
+               #     class = "panel-heading",
+              #      style = "color: white;font-size: 18px;font-style: bold; background-color: #1d70b8;",
+               #     h2("Background Info")
+               #   ),
+               #   div(
+                #    class = "panel-body",
+                 # )
+                #)
+              #)
+            #)
           )
         )
       ),
       tabPanel(
-        value = "app_content",
-        "App content",
+        value = "la_scorecards",
+        "LA scorecards",
 
         # Define UI for application that draws a histogram
 
@@ -155,7 +177,7 @@ ui <- function(input, output, session) {
         )
       ),
 
-      # Create the accessibility statement-----------------
+           # Create the accessibility statement-----------------
       tabPanel(
         "Accessibility",
         h2("Accessibility statement"),
