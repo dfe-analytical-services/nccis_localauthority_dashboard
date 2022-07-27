@@ -146,36 +146,41 @@ ui <- function(input, output, session) {
               #)
             #)
           )
-        )
+       )
       ),
+      
+      #scorecard----------------------------------------------------
+      
       tabPanel(
         value = "la_scorecards",
         "LA scorecards",
-
-        # Define UI for application that draws a histogram
 
         # Sidebar with a slider input for number of bins
         sidebarLayout(
           sidebarPanel(
             width = 2,
-            sliderInput("bins",
-              "Number of bins:",
-              min = 1,
-              max = 50,
-              value = 30
+            p("View a local authority scorecard using the drop downs below."),
+            p("Switch between different indicators using the tabs on the right."),
+            selectInput("LA_choice",
+                        label = p(strong("Choose a local authority")),
+                        choices = c("LA1","LA2","England"),
+                        selected = "England"
             )
           ),
-
+          
           # Show a plot of the generated distribution
-          mainPanel(
-            width = 10,
-            valueBoxOutput("box_info", width = 6),
-            plotOutput("distPlot"),
-            br()
-            # add box to show user input
-          )
-        )
-      ),
+          
+      # Create the main content-----------------
+      mainPanel(
+        width = 10,
+        valueBoxOutput("box_info", width = 6),
+        plotOutput("distPlot"),
+        br()
+        # add box to show user input
+      )
+      )
+    ),
+
 
            # Create the accessibility statement-----------------
       tabPanel(
