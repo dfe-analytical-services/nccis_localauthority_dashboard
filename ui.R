@@ -117,7 +117,7 @@ ui <- function(input, output, session) {
                     br("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
                        at the end of March."),
                     br("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
-                       (this includes part-time education, work based learning and employment with study towards a regulated qualification."),
+                       (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
                     br("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September 
                        Guarantee. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
                        across their area."),
@@ -187,21 +187,180 @@ ui <- function(input, output, session) {
                         label = p(strong("Choose a local authority")),
                         choices = c("LA1","LA2","England"),
                         selected = "England"
+        #need to add the download buttons here once created.
             )
-          ),
-          
-          # Show a plot of the generated distribution
+        ),
+
           
       # Create the main content-----------------
       mainPanel(
         width = 10,
-        valueBoxOutput("box_info", width = 6),
-        plotOutput("distPlot"),
-        br()
+        h2(textOutput("data_description")),
+        br(),
+        tabsetPanel(
+          id = "tabs",
+          tabPanel(
+            value = "neet_tracking",
+            title = "NEET and tracking",
+            fluidPage(
+              fluidRow(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("Proportion NEET and not known"))
+                  #plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("Proportion NEET"))),
+                      p("Box with proportion NEET")
+                      #valueBoxOutput("estimated_additional_places", width = 6),
+                      #valueBoxOutput("estimated_spare_places", width = 6)
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("Proportion NK"))),
+                      p("Box with proportion NK")
+                    )
+                  )
+                )
+              )
+            )
+              ),
+              tabPanel(
+                value = "la_support",
+                title = "LA support",
+                fluidPage(
+                  fluidRow(
+                    column(width = 12, br()),
+                    column(
+                      6,
+                      p(strong("Proportion participating in education and training"))
+                      #plotlyOutput("places_chart") %>% withSpinner()
+                    ),
+                    column(
+                      6,
+                      fluidRow(
+                        column(
+                          12,
+                          p(strong(paste0("Proportion participating in the three groups"))),
+                          p("Full-time education, apprenticeships and other")
+                          #valueBoxOutput("estimated_additional_places", width = 6),
+                          #valueBoxOutput("estimated_spare_places", width = 6)
+                        )
+                      ),
+                      fluidRow(
+                        column(
+                          12,
+                        )
+                      ),
+                      fluidRow(
+                        column(
+                          12,
+                          p(strong(paste0("Proportion September Guarantee"))),
+                          p("September guarantee %")
+                        )
+                      )
+                    )
+                )
+              ),
+              uiOutput("la_support.bartext")
+            ),
+          tabPanel(
+            value = "contextual",
+            title = "Contextual information",
+            fluidPage(
+              fluidRow(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("Outcomes")),
+                  p("% 19 year olds achieving level 3"),
+                  p("% 19 year olds achieving GCSE 9-4 standard pass in English and maths (or equivalent) between ages 16 and 19,
+                    for those who had not achieved this level by 16"),
+                  br(),
+                  p(strong("School attendance")),
+                  p("Overall absence (% of sessions)"),
+                  p("Persistent absentees (% of pupils)")
+                  #plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("GCSE attainment"))),
+                      p("Average attainment 8 score per pupil"),
+                      p("9-4 standard pass in English and maths GCSEs"),
+                      br(),
+                      p(strong(paste0("16-17 LA population"))),
+                      p("ONS estimate"),
+                      p("Recorded on CCIS")
+                      #valueBoxOutput("estimated_additional_places", width = 6),
+                      #valueBoxOutput("estimated_spare_places", width = 6)
+                    )
+                  )
+                )
+              )
+            ),
+            uiOutput("contextual.bartext")
+          ),
+          tabPanel(
+            value = "vulnerable",
+            title = "Vulnerable Groups",
+            fluidPage(
+              fluidRow(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("SEND")),
+                  p("% NEET")
+                  #plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("SEN support"))),
+                      p("% NEET")
+                      #valueBoxOutput("estimated_additional_places", width = 6),
+                      #valueBoxOutput("estimated_spare_places", width = 6)
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("Vulnerable group"))),
+                      p("% NEET")
+                    )
+                  )
+                )
+              )
+            ),
+            uiOutput("vulnerable.bartext")
+          )
+          )
         # add box to show user input
       )
       )
-    ),
+      ),
+    
 
     # Create the tech notes-----------------
     tabPanel(
