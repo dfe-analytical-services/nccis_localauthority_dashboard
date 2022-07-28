@@ -59,10 +59,37 @@ server <- function(input, output, session) {
     updateTabsetPanel(session, "navbar", selected = "app_content")
   })
 
-
+  # Top lines -------------------------
+  ## create header on the scorecard so users know which LA it is showing
+  
+  output$data_description <- renderText({
+    paste0("Data for ", input$LA_choice)
+  })
+  
+  # NEET and not known rates-----------------
+  
+  #to finalise once we've got the data in - tweaked school places code for now
+  #output$NEET_nk <- renderValueBox({
+    
+    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+  # NEET_nk_perc <- live_scorecard_data() %>%
+  #    filter(name == "QuanRP") %>%
+   #   pull(value)
+    
+    # Put value into box to plug into app
+ #   shinydashboard::valueBox(
+  #    paste0(scales::comma(NEET_nk_perc)),
+    #  paste0("% 16-17 year olds NEET or whose activity is not known", plan_year),
+      # icon = icon("fas fa-signal"),
+    #  color = "blue"
+   # )
+ # })
+  
+  
   # Stop app ---------------------------------------------------------------------------------
 
   session$onSessionEnded(function() {
     stopApp()
   })
 }
+

@@ -188,7 +188,13 @@ ui <- function(input, output, session) {
                         choices = c("LA1","LA2","England"),
                         selected = "England"
         #need to add the download buttons here once created.
-            )
+            ),
+        br(),
+        p(strong("Download data for all local authorities")),
+        #insert dowload button here
+        br(),
+        p(strong("Download summary pdf for chosen local authority"))
+        #insert download report button here
         ),
 
           
@@ -206,33 +212,17 @@ ui <- function(input, output, session) {
               fluidRow(
                 column(width = 12, br()),
                 column(
-                  6,
-                  p(strong("Proportion NEET and not known"))
+                  12,
+                  p(strong("% 16-17 year olds NEET or whose activity is not known")),
+                  p("Box with proportion NEET/nk and comparisons, quintile chart"),
+                  valueBoxOutput("NEET_nk", width = 6),
                   #plotlyOutput("places_chart") %>% withSpinner()
-                ),
-                column(
-                  6,
-                  fluidRow(
-                    column(
-                      12,
-                      p(strong(paste0("Proportion NEET"))),
-                      p("Box with proportion NEET")
-                      #valueBoxOutput("estimated_additional_places", width = 6),
-                      #valueBoxOutput("estimated_spare_places", width = 6)
-                    )
-                  ),
-                  fluidRow(
-                    column(
-                      12,
-                    )
-                  ),
-                  fluidRow(
-                    column(
-                      12,
-                      p(strong(paste0("Proportion NK"))),
-                      p("Box with proportion NK")
-                    )
-                  )
+                  br(),
+                  p(strong("% 16-17 year olds NEET")),
+                  p("Box with proportion NEET and comparisons, quintile chart"),
+                  br(),
+                  p(strong("% 16-17 year olds whose activity is not known")),
+                  p("Box with proportion NK and comparisons, quintile chart")
                 )
               )
             )
@@ -244,37 +234,21 @@ ui <- function(input, output, session) {
                   fluidRow(
                     column(width = 12, br()),
                     column(
-                      6,
-                      p(strong("Proportion participating in education and training"))
+                      12,
+                      p(strong("% 16-17 year olds participating in education and training")),
+                      p("Box with % participating, comparisons and quintile chart"),
+                      br(),
+                      p(strong("Proportion participating in the three groups:")),
+                      p("Full-time education"),
+                      p("apprenticeships"),
+                      p("Other eeducation and training"),
+                      br(),
+                      p(strong("Proportion September Guarantee")),
+                      p("Box with Sept Guarantee, comparisons and quintile")
                       #plotlyOutput("places_chart") %>% withSpinner()
-                    ),
-                    column(
-                      6,
-                      fluidRow(
-                        column(
-                          12,
-                          p(strong(paste0("Proportion participating in the three groups"))),
-                          p("Full-time education, apprenticeships and other")
-                          #valueBoxOutput("estimated_additional_places", width = 6),
-                          #valueBoxOutput("estimated_spare_places", width = 6)
-                        )
-                      ),
-                      fluidRow(
-                        column(
-                          12,
-                        )
-                      ),
-                      fluidRow(
-                        column(
-                          12,
-                          p(strong(paste0("Proportion September Guarantee"))),
-                          p("September guarantee %")
-                        )
                       )
                     )
                 )
-              ),
-              uiOutput("la_support.bartext")
             ),
           tabPanel(
             value = "contextual",
@@ -410,7 +384,7 @@ ui <- function(input, output, session) {
       tabPanel(
         "Accessibility",
         h2("Accessibility statement"),
-        br("This accessibility statement applies to the **application name**.
+        br("This accessibility statement applies to the Local Authority (LA) NEET scorecard application.
             This application is run by the Department for Education. We want as many people as possible to be able to use this application,
             and have actively developed this application with accessibilty in mind."),
         h3("WCAG 2.1 compliance"),
