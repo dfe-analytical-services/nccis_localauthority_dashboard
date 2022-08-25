@@ -73,15 +73,18 @@ server <- function(input, output, session) {
   # NEET and not known
   output$NEET_nk <- renderValueBox({
     
-    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+    # Take filtered data, search for rate, pull the value and tidy the number up
    NEET_nk_perc <- filter(la_ud, la_name==input$LA_choice) %>%
-                          #geographic_level=="National",region_code=="z") %>%
       pull(as.numeric(NEET_not_known_perc))
     
+   NEET_nk_change <- filter(la_ud, la_name==input$LA_choice) %>%
+     pull(as.numeric(annual_change_ppts_NEET_not_known))
+   
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(NEET_nk_perc,"%"),
-     paste0("16-17 year olds NEET or whose activity is not known ", latest_year),
+     paste0("16-17 year olds NEET or whose activity is not known, end ", last_year
+            ,", ",NEET_nk_change, " percentage point change since last year."),
       # icon = icon("fas fa-signal"),
       color = "blue"
     )
@@ -90,15 +93,14 @@ server <- function(input, output, session) {
   #NEET
   output$NEET <- renderValueBox({
     
-    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+    # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_percent <- filter(la_ud, la_name==input$LA_choice) %>%
-      #geographic_level=="National",region_code=="z") %>%
       pull(as.numeric(NEET_perc))
     
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(NEET_percent,"%"),
-      paste0("16-17 year olds NEET ", latest_year),
+      paste0("16-17 year olds NEET, end ", last_year),
       # icon = icon("fas fa-signal"),
       color = "blue"
     )
@@ -107,20 +109,64 @@ server <- function(input, output, session) {
   #Not known
   output$Not_known <- renderValueBox({
     
-    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+    # Take filtered data, search for rate, pull the value and tidy the number up
     Not_known_percent <- filter(la_ud, la_name==input$LA_choice) %>%
-      #geographic_level=="National",region_code=="z") %>%
       pull(as.numeric(Notknown_perc))
     
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Not_known_percent,"%"),
-      paste0("16-17 year olds whose activity is not known ", latest_year),
+      paste0("16-17 year olds whose activity is not known, end ", last_year),
       # icon = icon("fas fa-signal"),
       color = "blue"
     )
   })
   
+  # LA support -----------------
+  # Participating in education and training
+  output$Participating <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    participating_perc <- filter(la_ud, la_name==input$LA_choice) %>%
+      pull(as.numeric(total_participating_in_education_training_perc))
+    
+    fte_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      pull(as.numeric(full_time_education_perc))
+    
+    Apprenticeship_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      pull(as.numeric(apprenticeship_perc))
+    
+    Other_ed_tr_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      pull(as.numeric(other_education_training_perc))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(participating_perc,"%"),
+      paste0("16-17 year olds participating in education and training, March ", latest_year,
+             ". Of which ",fte_percent,"% in full-time education, ",
+             Apprenticeship_percent, "% on an apprenticeship and ",
+             Other_ed_tr_percent, "% in other education and training."),
+      # icon = icon("fas fa-signal"),
+      color = "blue"
+    )
+  })
+  
+  #September Guarantee
+  output$Sept_Guarantee <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    Sept_Guar_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      #geographic_level=="National",region_code=="z") %>%
+      pull(as.numeric(september_guarantee_offer_made_perc))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(Sept_Guar_percent,"%"),
+      paste0("16-17 year olds made offer of an education place under September Guarantee ", last_year),
+      # icon = icon("fas fa-signal"),
+      color = "blue"
+    )
+  })
   
   
 #calculating quintiles 

@@ -231,8 +231,7 @@ ui <- function(input, output, session) {
                   #p(strong("% 16-17 year olds NEET")),
                   valueBoxOutput("NEET", width = 6),
                   #p("Box with proportion NEET and comparisons, quintile chart"),
-                  br(),
-                  br(),
+                  #br(),
                   br(),
                   br(),
                   br(),
@@ -265,22 +264,47 @@ ui <- function(input, output, session) {
                   fluidRow(
                     column(width = 12, br()),
                     column(
-                      12,
-                      p(strong("% 16-17 year olds participating in education and training")),
-                      p("Box with % participating, comparisons and quintile chart"),
+                      6,
+                      #p(strong("% 16-17 year olds participating in education and training")),
+                      #p("Box with % participating, comparisons and quintile chart"),
+                      valueBoxOutput("Participating", width = 6),
                       br(),
-                      p(strong("Proportion participating in the three groups:")),
-                      p("Full-time education"),
-                      p("apprenticeships"),
-                      p("Other eeducation and training"),
+                      #p(strong("Proportion participating in the three groups:")),
+                      #p("Full-time education"),
+                      #p("apprenticeships"),
+                      #p("Other education and training"),
                       br(),
-                      p(strong("Proportion September Guarantee")),
-                      p("Box with Sept Guarantee, comparisons and quintile")
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      #p(strong("Proportion September Guarantee")),
+                      valueBoxOutput("Sept_Guarantee", width = 6)
+                      #p("Box with Sept Guarantee, comparisons and quintile")
                       #plotlyOutput("places_chart") %>% withSpinner()
+                      ),
+                    column(
+                      6,
+                      fluidRow(
+                        column(
+                          12,
+                          p(strong(paste0("England and regional comparisons"))),
+                          br() 
+                        )
                       )
                     )
+                  )
                 )
-            ),
+              ),
           tabPanel(
             value = "contextual",
             title = "Contextual information",
