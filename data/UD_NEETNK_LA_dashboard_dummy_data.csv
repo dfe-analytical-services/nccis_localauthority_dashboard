@@ -1,0 +1,163 @@
+code,time_period,time_identifier,geographic_level,country_code,country_name,region_code,region_name,old_la_code,new_la_code,la_name,Age,Cohort_NEETNK,NEET_not_known_perc,NEET %,Notknown %,annual_change_ppts_NEET_not known,annualchange_NEET,annualchange_notknown,cohort_participation,TOTAL participating in education and training %,Full-time education %,Apprenticeship %,Other education and training %,annual_change_Participation_in_education_training,annual_change_FTE,annual_change_apprenticeship,annual_change_other_education_training,September guarantee_Offer made (%),September guarantee_annual change ppts,cohort_noSEN_percent,NEETNK_noSEN_percent,cohort_EHCP_percent,NEETNK_EHCP_percent,cohort_SENDsupport_percent,NEETNK_SENDsupport_percent,VG_cohort_DJF_avg,VG_cohort_percentage,VG_NEET_NK_percentage,Level_3,L2_em_GCSE_othL2,avg_att8,pt_l2basics_94,sess_overall_percent,sess_overall_percent_pa_10_exact,Age1617 ONS population
+E92000001,2022,Calendar year,National,E92000001,England,z,z,z,z,England,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000004,2022,Calendar year,Regional,E92000001,England,E12000004,East Midlands,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000015,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,831,E06000015,Derby,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000007,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,830,E10000007,Derbyshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000016,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,856,E06000016,Leicester,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000018,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,855,E10000018,Leicestershire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000019,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,925,E10000019,Lincolnshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000018,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,892,E06000018,Nottingham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000024,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,891,E10000024,Nottinghamshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000017,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,857,E06000017,Rutland,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000061,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,940,E06000061,North Northamptonshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000062,2022,Calendar year,Local authority,E92000001,England,E12000004,East Midlands,941,E06000062,West Northamptonshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000006,2022,Calendar year,Regional,E92000001,England,E12000006,East of England,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000055,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,822,E06000055,Bedford,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000003,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,873,E10000003,Cambridgeshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000056,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,823,E06000056,Central Bedfordshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000012,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,881,E10000012,Essex,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000015,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,919,E10000015,Hertfordshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000032,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,821,E06000032,Luton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000020,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,926,E10000020,Norfolk,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000031,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,874,E06000031,Peterborough,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000033,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,882,E06000033,Southend-on-Sea,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000029,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,935,E10000029,Suffolk,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000034,2022,Calendar year,Local authority,E92000001,England,E12000006,East of England,883,E06000034,Thurrock,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000007,2022,Calendar year,Regional,E92000001,England,E12000007,London,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000002,2022,Calendar year,Local authority,E92000001,England,E12000007,London,301,E09000002,Barking and Dagenham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000003,2022,Calendar year,Local authority,E92000001,England,E12000007,London,302,E09000003,Barnet,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000004,2022,Calendar year,Local authority,E92000001,England,E12000007,London,303,E09000004,Bexley,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000005,2022,Calendar year,Local authority,E92000001,England,E12000007,London,304,E09000005,Brent,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000006,2022,Calendar year,Local authority,E92000001,England,E12000007,London,305,E09000006,Bromley,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000007,2022,Calendar year,Local authority,E92000001,England,E12000007,London,202,E09000007,Camden,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000001,2022,Calendar year,Local authority,E92000001,England,E12000007,London,201,E09000001,City of London,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000008,2022,Calendar year,Local authority,E92000001,England,E12000007,London,306,E09000008,Croydon,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000009,2022,Calendar year,Local authority,E92000001,England,E12000007,London,307,E09000009,Ealing,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000010,2022,Calendar year,Local authority,E92000001,England,E12000007,London,308,E09000010,Enfield,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000011,2022,Calendar year,Local authority,E92000001,England,E12000007,London,203,E09000011,Greenwich,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000012,2022,Calendar year,Local authority,E92000001,England,E12000007,London,204,E09000012,Hackney,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000013,2022,Calendar year,Local authority,E92000001,England,E12000007,London,205,E09000013,Hammersmith and Fulham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000014,2022,Calendar year,Local authority,E92000001,England,E12000007,London,309,E09000014,Haringey,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000015,2022,Calendar year,Local authority,E92000001,England,E12000007,London,310,E09000015,Harrow,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000016,2022,Calendar year,Local authority,E92000001,England,E12000007,London,311,E09000016,Havering,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000017,2022,Calendar year,Local authority,E92000001,England,E12000007,London,312,E09000017,Hillingdon,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000018,2022,Calendar year,Local authority,E92000001,England,E12000007,London,313,E09000018,Hounslow,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000019,2022,Calendar year,Local authority,E92000001,England,E12000007,London,206,E09000019,Islington,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000020,2022,Calendar year,Local authority,E92000001,England,E12000007,London,207,E09000020,Kensington and Chelsea,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000021,2022,Calendar year,Local authority,E92000001,England,E12000007,London,314,E09000021,Kingston upon Thames,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000022,2022,Calendar year,Local authority,E92000001,England,E12000007,London,208,E09000022,Lambeth,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000023,2022,Calendar year,Local authority,E92000001,England,E12000007,London,209,E09000023,Lewisham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000024,2022,Calendar year,Local authority,E92000001,England,E12000007,London,315,E09000024,Merton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000025,2022,Calendar year,Local authority,E92000001,England,E12000007,London,316,E09000025,Newham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000026,2022,Calendar year,Local authority,E92000001,England,E12000007,London,317,E09000026,Redbridge,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000027,2022,Calendar year,Local authority,E92000001,England,E12000007,London,318,E09000027,Richmond upon Thames,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000028,2022,Calendar year,Local authority,E92000001,England,E12000007,London,210,E09000028,Southwark,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000029,2022,Calendar year,Local authority,E92000001,England,E12000007,London,319,E09000029,Sutton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000030,2022,Calendar year,Local authority,E92000001,England,E12000007,London,211,E09000030,Tower Hamlets,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000031,2022,Calendar year,Local authority,E92000001,England,E12000007,London,320,E09000031,Waltham Forest,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000032,2022,Calendar year,Local authority,E92000001,England,E12000007,London,212,E09000032,Wandsworth,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E09000033,2022,Calendar year,Local authority,E92000001,England,E12000007,London,213,E09000033,Westminster,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000001,2022,Calendar year,Regional,E92000001,England,E12000001,North East,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000005,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,841,E06000005,Darlington,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000037,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,390,E08000037,Gateshead,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000001,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,805,E06000001,Hartlepool,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000002,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,806,E06000002,Middlesbrough,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000021,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,391,E08000021,Newcastle upon Tyne,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000022,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,392,E08000022,North Tyneside,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000057,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,929,E06000057,Northumberland,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000003,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,807,E06000003,Redcar and Cleveland,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000023,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,393,E08000023,South Tyneside,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000004,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,808,E06000004,Stockton-on-Tees,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000024,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,394,E08000024,Sunderland,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000047,2022,Calendar year,Local authority,E92000001,England,E12000001,North East,840,E06000047,County Durham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000002,2022,Calendar year,Regional,E92000001,England,E12000002,North West,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000008,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,889,E06000008,Blackburn with Darwen,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000009,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,890,E06000009,Blackpool,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000001,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,350,E08000001,Bolton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000002,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,351,E08000002,Bury,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000049,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,895,E06000049,Cheshire East,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000050,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,896,E06000050,Cheshire West and Chester,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000006,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,909,E10000006,Cumbria,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000006,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,876,E06000006,Halton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000011,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,340,E08000011,Knowsley,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000017,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,888,E10000017,Lancashire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000012,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,341,E08000012,Liverpool,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000003,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,352,E08000003,Manchester,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000004,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,353,E08000004,Oldham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000005,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,354,E08000005,Rochdale,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000006,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,355,E08000006,Salford,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000014,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,343,E08000014,Sefton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000013,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,342,E08000013,St. Helens,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000007,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,356,E08000007,Stockport,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000008,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,357,E08000008,Tameside,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000009,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,358,E08000009,Trafford,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000007,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,877,E06000007,Warrington,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000010,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,359,E08000010,Wigan,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000015,2022,Calendar year,Local authority,E92000001,England,E12000002,North West,344,E08000015,Wirral,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000008,2022,Calendar year,Regional,E92000001,England,E12000008,South East,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000036,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,867,E06000036,Bracknell Forest,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000043,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,846,E06000043,Brighton and Hove,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000060,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,825,E06000060,Buckinghamshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000011,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,845,E10000011,East Sussex,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000014,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,850,E10000014,Hampshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000046,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,921,E06000046,Isle of Wight,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000016,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,886,E10000016,Kent,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000035,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,887,E06000035,Medway,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000042,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,826,E06000042,Milton Keynes,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000025,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,931,E10000025,Oxfordshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000044,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,851,E06000044,Portsmouth,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000038,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,870,E06000038,Reading,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000039,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,871,E06000039,Slough,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000045,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,852,E06000045,Southampton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000030,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,936,E10000030,Surrey,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000037,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,869,E06000037,West Berkshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000032,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,938,E10000032,West Sussex,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000040,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,868,E06000040,Windsor and Maidenhead,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000041,2022,Calendar year,Local authority,E92000001,England,E12000008,South East,872,E06000041,Wokingham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000009,2022,Calendar year,Regional,E92000001,England,E12000009,South West,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000022,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,800,E06000022,Bath and North East Somerset,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000023,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,801,E06000023,Bristol,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000052,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,908,E06000052,Cornwall,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000008,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,878,E10000008,Devon,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000059,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,838,E06000059,Dorset,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000013,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,916,E10000013,Gloucestershire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000024,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,802,E06000024,North Somerset,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000026,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,879,E06000026,Plymouth,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000027,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,933,E10000027,Somerset,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000025,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,803,E06000025,South Gloucestershire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000030,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,866,E06000030,Swindon,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000027,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,880,E06000027,Torbay,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000054,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,865,E06000054,Wiltshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000053,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,420,E06000053,Isles of Scilly,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000058,2022,Calendar year,Local authority,E92000001,England,E12000009,South West,839,E06000058,Bournemouth,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000005,2022,Calendar year,Regional,E92000001,England,E12000005,West Midlands,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000025,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,330,E08000025,Birmingham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000026,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,331,E08000026,Coventry,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000027,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,332,E08000027,Dudley,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000028,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,333,E08000028,Sandwell,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000051,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,893,E06000051,Shropshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000029,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,334,E08000029,Solihull,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000028,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,860,E10000028,Staffordshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000021,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,861,E06000021,Stoke-on-Trent,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000020,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,894,E06000020,Telford and Wrekin,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000030,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,335,E08000030,Walsall,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000031,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,937,E10000031,Warwickshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000031,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,336,E08000031,Wolverhampton,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000034,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,885,E10000034,Worcestershire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000019,2022,Calendar year,Local authority,E92000001,England,E12000005,West Midlands,884,E06000019,Herefordshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E12000003,2022,Calendar year,Regional,E92000001,England,E12000003,Yorkshire and The Humber,z,z,z,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000016,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,370,E08000016,Barnsley,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000032,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,380,E08000032,Bradford,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000033,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,381,E08000033,Calderdale,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000017,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,371,E08000017,Doncaster,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000011,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,811,E06000011,East Riding of Yorkshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000010,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,810,E06000010,Kingston upon Hull,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000034,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,382,E08000034,Kirklees,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000035,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,383,E08000035,Leeds,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000012,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,812,E06000012,North East Lincolnshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000013,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,813,E06000013,North Lincolnshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E10000023,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,815,E10000023,North Yorkshire,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000018,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,372,E08000018,Rotherham,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000019,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,373,E08000019,Sheffield,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E08000036,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,384,E08000036,Wakefield,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+E06000014,2022,Calendar year,Local authority,E92000001,England,E12000003,Yorkshire and The Humber,816,E06000014,York,16-17,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1

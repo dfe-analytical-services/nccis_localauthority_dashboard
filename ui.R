@@ -107,7 +107,7 @@ ui <- function(input, output, session) {
                     class = "panel-body",
                     h3("NEET and tracking"),
                     br("This section shows the proportion of 16 and 17 year olds living in each area who were not in education, 
-                       employment or training (NEET) or their activity was not known (NK) at the end of the year"),
+                       employment or training (NEET) or their activity was not known (NK) at the end of the year."),
                     br("The proportion not known indicator shows how effective the arrangements are in each area for tracking
                        young people's participation in education and training."),
                     br("Whilst local authorities are responsible for tracking, they depend on schools, colleges and other partners
@@ -138,7 +138,7 @@ ui <- function(input, output, session) {
                     br(" A young person is said to be in a vulnerable group if they have any of the following characteristics 
                        (taken from IC01 of the NCCIS returns): Looked after/In care (110), Parent-caring for own child (120), Refugee/Asylum seeker (130),
                        Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Alternative provision (200),
-                       Mental health flag (210)"),
+                       Mental health flag (210)."),
                     #tags$div(
                       #title = "This section is useful if you want to understand how well different industries retain graduates.",
                       #h3(actionLink("link_to_app_content_tab", "App Content"))
@@ -185,7 +185,9 @@ ui <- function(input, output, session) {
             p("Switch between different indicators using the tabs on the right."),
             selectInput("LA_choice",
                         label = p(strong("Choose a local authority")),
-                        choices = c("LA1","LA2","England"),
+                        choices = levels(LA_options),
+                        #choices = c("Darlington","LA2","England"),
+                        #choices = c(LA_options),
                         selected = "England"
         #need to add the download buttons here once created.
             ),
@@ -214,8 +216,8 @@ ui <- function(input, output, session) {
                 column(
                   12,
                   p(strong("% 16-17 year olds NEET or whose activity is not known")),
-                  p("Box with proportion NEET/nk and comparisons, quintile chart"),
-                  valueBoxOutput("NEET_nk", width = 6),
+                  #p("Box with proportion NEET/nk and comparisons, quintile chart"),
+                  valueBoxOutput("NEET_nk", width = 3),
                   #plotlyOutput("places_chart") %>% withSpinner()
                   br(),
                   p(strong("% 16-17 year olds NEET")),
