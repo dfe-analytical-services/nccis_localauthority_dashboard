@@ -186,9 +186,7 @@ ui <- function(input, output, session) {
             selectInput("LA_choice",
                         label = p(strong("Choose a local authority")),
                         choices = levels(LA_options),
-                        #choices = c("Darlington","LA2","England"),
-                        #choices = c(LA_options),
-                        selected = "England"
+                        selected = "Barking and Dagenham"
         #need to add the download buttons here once created.
             ),
         br(),
@@ -214,21 +212,52 @@ ui <- function(input, output, session) {
               fluidRow(
                 column(width = 12, br()),
                 column(
-                  12,
-                  p(strong("% 16-17 year olds NEET or whose activity is not known")),
+                  6,
+                  #p(strong("% 16-17 year olds NEET or whose activity is not known")),
                   #p("Box with proportion NEET/nk and comparisons, quintile chart"),
-                  valueBoxOutput("NEET_nk", width = 3),
+                  valueBoxOutput("NEET_nk", width = 6),
                   #plotlyOutput("places_chart") %>% withSpinner()
                   br(),
-                  p(strong("% 16-17 year olds NEET")),
-                  p("Box with proportion NEET and comparisons, quintile chart"),
                   br(),
-                  p(strong("% 16-17 year olds whose activity is not known")),
-                  p("Box with proportion NK and comparisons, quintile chart")
-                )
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  #p(strong("% 16-17 year olds NEET")),
+                  valueBoxOutput("NEET", width = 6),
+                  #p("Box with proportion NEET and comparisons, quintile chart"),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  #p(strong("% 16-17 year olds whose activity is not known")),
+                  valueBoxOutput("Not_known", width = 6)
+                  #p("Box with proportion NK and comparisons, quintile chart")
+                ),
+                column(
+                  6,
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("England and regional comparisons"))),
+                      br() 
               )
             )
-              ),
+              )
+            )
+            )
+            ),
               tabPanel(
                 value = "la_support",
                 title = "LA support",

@@ -18,6 +18,36 @@ library(shinytest)
 library(shinydashboard)
 library(shinyWidgets)
 library(shinyGovstyle)
+library(readr)
+library(dplyr)
+
+#Load the data required 
+la_ud <- read_csv('data/UD_NEETNK_LA_dashboard_dummy_data.csv', col_types = cols(.default = "c"))
+
+#Set year references
+latest_year <- 2022
+last_year   <- latest_year - 1
+
+# Creating useful functions
+# Here we create a function to say increased/decreased for yearly changes which we need in the text on the app. 
+
+change_ed <- function(numA, numB) {
+  
+  if(numA < numB) {return ('increased from')}
+  
+  if(numA > numB) {return ('decreased from')}
+  
+  else {return('stayed the same at')}
+  
+}
+
+#Filtering the data----------------------------------------
+
+# LA options - reordered
+LA_names <- filter(la_ud, la_name!="z")
+
+LA_options <- sort(unique(LA_names$la_name)) %>%
+  as.factor() 
 
 # Functions ---------------------------------------------------------------------------------
 

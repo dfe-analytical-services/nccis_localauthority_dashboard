@@ -18,29 +18,6 @@
 #
 # ---------------------------------------------------------
 
-library(readr)
-library(dplyr)
-
-#Load the data required 
-la_ud <- read_csv('data/UD_NEETNK_LA_dashboard_dummy_data.csv', col_types = cols(.default = "c"))
-
-#Set year references
-latest_year <- 2022
-last_year   <- latest_year - 1
-
-# Creating useful functions
-# Here we create a function to say increased/decreased for yearly changes which we need in the text on the app. 
-
-change_ed <- function(numA, numB) {
-  
-  if(numA < numB) {return ('increased from')}
-  
-  if(numA > numB) {return ('decreased from')}
-  
-  else {return('stayed the same at')}
-  
-}
-
 
 server <- function(input, output, session) {
 
@@ -82,14 +59,7 @@ server <- function(input, output, session) {
     updateTabsetPanel(session, "navbar", selected = "app_content")
   })
  
-  #Filtering the data----------------------------------------
-  #Not working currently - says object LA_options not found
-  #Tried to replicate the la school places scorecards code
-  
-  # LA options - reordered
-  LA_options <- sort(unique(la_ud$la_name)) %>%
-    as.factor() %>%
-    relevel("England")
+ 
 
   # Top lines -------------------------
   ## create header on the scorecard so users know which LA it is showing
@@ -98,9 +68,9 @@ server <- function(input, output, session) {
     paste0("Data for ", input$LA_choice)
   })
   
-  # NEET and not known rates-----------------
   
-  #to finalise once we've got the data in - tweaked school places code for now
+  # NEET and not known rates-----------------
+  # NEET and not known
   output$NEET_nk <- renderValueBox({
     
     # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
@@ -117,7 +87,42 @@ server <- function(input, output, session) {
     )
   })
   
-
+  #NEET
+  output$NEET <- renderValueBox({
+    
+    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+    NEET_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      #geographic_level=="National",region_code=="z") %>%
+      pull(as.numeric(NEET_perc))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(NEET_percent,"%"),
+      paste0("16-17 year olds NEET ", latest_year),
+      # icon = icon("fas fa-signal"),
+      color = "blue"
+    )
+  })
+  
+  #Not known
+  output$Not_known <- renderValueBox({
+    
+    # Take filtered data, search for NEET/nk rate, pull the value and tidy the number up
+    Not_known_percent <- filter(la_ud, la_name==input$LA_choice) %>%
+      #geographic_level=="National",region_code=="z") %>%
+      pull(as.numeric(Notknown_perc))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(Not_known_percent,"%"),
+      paste0("16-17 year olds whose activity is not known ", latest_year),
+      # icon = icon("fas fa-signal"),
+      color = "blue"
+    )
+  })
+  
+  
+  
 #calculating quintiles 
   #https://stackoverflow.com/questions/39693957/calculating-quintile-based-scores-on-r
 
