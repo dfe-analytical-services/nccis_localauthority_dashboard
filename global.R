@@ -11,18 +11,18 @@
 # Library calls ---------------------------------------------------------------------------------
 
 shhh(library(shiny))
-library(shinyjs)
-library(tools)
-library(testthat)
-library(shinytest)
-library(shinydashboard)
-library(shinyWidgets)
-library(shinyGovstyle)
-library(readr)
-library(dplyr)
+shhh(library(shinyjs))
+shhh(library(tools))
+shhh(library(testthat))
+shhh(library(shinytest))
+shhh(library(shinydashboard))
+shhh(library(shinyWidgets))
+shhh(library(shinyGovstyle))
+shhh(library(readr))
+shhh(library(dplyr))
 
-site_primary <- "https://department-for-education.shinyapps.io/dfe-shiny-template/"
-site_overflow <- "https://department-for-education.shinyapps.io/dfe-shiny-template-overflow/"
+site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
+site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
 
 # Load the data required
 la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_dummy_data.csv", col_types = cols(.default = "c"))

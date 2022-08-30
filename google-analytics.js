@@ -7,7 +7,7 @@ $(() => {
       dataLayer.push(arguments);
     };
     gtag('js', new Date());
-    gtag('config', 'G-Z967JJVQQX');
+    gtag('config', 'G-????');
     
 });
 

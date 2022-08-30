@@ -149,7 +149,7 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  fluidRow(
+                  gov_row(
                     column(
                       12,
                       p(strong(paste0("England and regional comparisons"))),
@@ -162,8 +162,7 @@ dashboard_panel <- function() {
             tabPanel(
               value = "vulnerable",
               title = "Vulnerable Groups",
-              fluidPage(
-                fluidRow(
+                gov_row(
                   column(width = 12, br()),
                   column(
                     6,
@@ -173,7 +172,7 @@ dashboard_panel <- function() {
                   ),
                   column(
                     6,
-                    fluidRow(
+                    gov_row(
                       column(
                         12,
                         p(strong(paste0("SEN support"))),
@@ -182,28 +181,26 @@ dashboard_panel <- function() {
                         # valueBoxOutput("estimated_spare_places", width = 6)
                       )
                     ),
-                    fluidRow(
+                    gov_row(
                       column(
                         12,
                       )
                     ),
-                    fluidRow(
+                    gov_row(
                       column(
                         12,
                         p(strong(paste0("Vulnerable group"))),
                         p("% NEET")
                       )
                     )
-                  )
-                )
               ),
               uiOutput("vulnerable.bartext")
+                )
             ),
             tabPanel(
               value = "participation",
               title = "Participation",
-              fluidPage(
-                fluidRow(
+                gov_row(
                   column(width = 12, br()),
                   column(
                     6,
@@ -221,22 +218,20 @@ dashboard_panel <- function() {
                   ),
                   column(
                     6,
-                    fluidRow(
+                    gov_row(
                       column(
                         12,
                         p(strong(paste0("England and regional comparisons"))),
                         br()
                       )
                     )
-                  )
                 )
               )
             ),
             tabPanel(
               value = "contextual",
               title = "Contextual information - outcomes and attendance",
-              fluidPage(
-                fluidRow(
+                gov_row(
                   column(width = 12, br()),
                   column(
                     6,
@@ -250,7 +245,7 @@ dashboard_panel <- function() {
                   ),
                   column(
                     6,
-                    fluidRow(
+                    gov_row(
                       column(
                         12,
                         p(strong(paste0("GCSE attainment"))),
@@ -264,10 +259,9 @@ dashboard_panel <- function() {
                         # valueBoxOutput("estimated_spare_places", width = 6)
                       )
                     )
-                  )
+                  ),
+                  uiOutput("contextual.bartext")
                 )
-              ),
-              uiOutput("contextual.bartext")
             )
 
             # add box to show user input
