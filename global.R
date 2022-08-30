@@ -10,7 +10,7 @@
 
 # Library calls ---------------------------------------------------------------------------------
 
-library(shiny)
+shhh(library(shiny))
 library(shinyjs)
 library(tools)
 library(testthat)
@@ -21,33 +21,38 @@ library(shinyGovstyle)
 library(readr)
 library(dplyr)
 
-#Load the data required 
-la_ud <- read_csv('data/UD_NEETNK_LA_dashboard_dummy_data.csv', col_types = cols(.default = "c"))
+site_primary <- "https://department-for-education.shinyapps.io/dfe-shiny-template/"
+site_overflow <- "https://department-for-education.shinyapps.io/dfe-shiny-template-overflow/"
 
-#Set year references
+# Load the data required
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_dummy_data.csv", col_types = cols(.default = "c"))
+
+# Set year references
 latest_year <- 2022
-last_year   <- latest_year - 1
+last_year <- latest_year - 1
 
 # Creating useful functions
-# Here we create a function to say increased/decreased for yearly changes which we need in the text on the app. 
+# Here we create a function to say increased/decreased for yearly changes which we need in the text on the app.
 
 change_ed <- function(numA, numB) {
-  
-  if(numA < numB) {return ('increased from')}
-  
-  if(numA > numB) {return ('decreased from')}
-  
-  else {return('stayed the same at')}
-  
+  if (numA < numB) {
+    return("increased from")
+  }
+
+  if (numA > numB) {
+    return("decreased from")
+  } else {
+    return("stayed the same at")
+  }
 }
 
-#Filtering the data----------------------------------------
+# Filtering the data----------------------------------------
 
 # LA options - reordered
-LA_names <- filter(la_ud, la_name!="z")
+LA_names <- filter(la_ud, la_name != "z")
 
 LA_options <- sort(unique(LA_names$la_name)) %>%
-  as.factor() 
+  as.factor()
 
 # Functions ---------------------------------------------------------------------------------
 
@@ -68,6 +73,9 @@ tidy_code_function <- function() {
   message("App scripts")
   message("----------------------------------------")
   app_scripts <- eval(styler::style_dir(recursive = FALSE)$changed)
+  message("R scripts")
+  message("----------------------------------------")
+  test_scripts <- eval(styler::style_dir("R/", filetype = "r")$changed)
   message("Test scripts")
   message("----------------------------------------")
   test_scripts <- eval(styler::style_dir("tests/", filetype = "r")$changed)
@@ -100,4 +108,3 @@ appLoadingCSS <- "
 }
 "
 
-source("R/support_links.R")

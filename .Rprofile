@@ -10,6 +10,9 @@
 
 source("renv/activate.R")
 
+
+shhh <- suppressPackageStartupMessages # It's a library, so shhh!
+
 # Tidy code function
 tidy_code <- function() {
   source("global.r")
@@ -33,3 +36,7 @@ run_tests_locally <- function() {
   message("")
   message("================================================================================")
 }
+
+
+# Install commit-hooks locally
+statusWriteCommit <- file.copy(".hooks/pre-commit.R", ".git/hooks/pre-commit", overwrite = TRUE)
