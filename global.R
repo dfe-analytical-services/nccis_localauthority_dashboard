@@ -107,4 +107,3 @@ appLoadingCSS <- "
   color: #FFFFFF;
 }
 "
-

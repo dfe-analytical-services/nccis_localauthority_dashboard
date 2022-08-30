@@ -104,7 +104,7 @@ dashboard_panel <- function() {
             class = "well",
             style = "min-height: 100%; height: 100%; overflow-y: visible",
             gov_row(
-              width=12,
+              width = 12,
               column(
                 width = 6,
                 p("View a local authority scorecard using the drop downs below."),
@@ -114,16 +114,16 @@ dashboard_panel <- function() {
                   choices = levels(LA_options),
                   selected = "Barking and Dagenham"
                 )
-                ),
-                column(
-                  width = 6,
-                  p(strong("Download data for all local authorities")),
-                  # insert dowload button here
-                  br(),
-                  p(strong("Download summary pdf for chosen local authority"))
-                )
+              ),
+              column(
+                width = 6,
+                p(strong("Download data for all local authorities")),
+                # insert dowload button here
+                br(),
+                p(strong("Download summary pdf for chosen local authority"))
               )
             )
+          )
         ),
         column(
           width = 12,
@@ -162,106 +162,106 @@ dashboard_panel <- function() {
             tabPanel(
               value = "vulnerable",
               title = "Vulnerable Groups",
-                gov_row(
-                  column(width = 12, br()),
-                  column(
-                    6,
-                    p(strong("SEND")),
-                    p("% NEET")
-                    # plotlyOutput("places_chart") %>% withSpinner()
-                  ),
-                  column(
-                    6,
-                    gov_row(
-                      column(
-                        12,
-                        p(strong(paste0("SEN support"))),
-                        p("% NEET")
-                        # valueBoxOutput("estimated_additional_places", width = 6),
-                        # valueBoxOutput("estimated_spare_places", width = 6)
-                      )
-                    ),
-                    gov_row(
-                      column(
-                        12,
-                      )
-                    ),
-                    gov_row(
-                      column(
-                        12,
-                        p(strong(paste0("Vulnerable group"))),
-                        p("% NEET")
-                      )
+              gov_row(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("SEND")),
+                  p("% NEET")
+                  # plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  gov_row(
+                    column(
+                      12,
+                      p(strong(paste0("SEN support"))),
+                      p("% NEET")
+                      # valueBoxOutput("estimated_additional_places", width = 6),
+                      # valueBoxOutput("estimated_spare_places", width = 6)
                     )
-              ),
-              uiOutput("vulnerable.bartext")
-                )
+                  ),
+                  gov_row(
+                    column(
+                      12,
+                    )
+                  ),
+                  gov_row(
+                    column(
+                      12,
+                      p(strong(paste0("Vulnerable group"))),
+                      p("% NEET")
+                    )
+                  )
+                ),
+                uiOutput("vulnerable.bartext")
+              )
             ),
             tabPanel(
               value = "participation",
               title = "Participation",
-                gov_row(
-                  column(width = 12, br()),
-                  column(
-                    6,
-                    # p(strong("% 16-17 year olds participating in education and training")),
-                    # p("Box with % participating, comparisons and quintile chart"),
-                    valueBoxOutput("Participating", width = 12),
-                    # p(strong("Proportion participating in the three groups:")),
-                    # p("Full-time education"),
-                    # p("apprenticeships"),
-                    # p("Other education and training"),
-                    # p(strong("Proportion September Guarantee")),
-                    valueBoxOutput("Sept_Guarantee", width = 12)
-                    # p("Box with Sept Guarantee, comparisons and quintile")
-                    # plotlyOutput("places_chart") %>% withSpinner()
-                  ),
-                  column(
-                    6,
-                    gov_row(
-                      column(
-                        12,
-                        p(strong(paste0("England and regional comparisons"))),
-                        br()
-                      )
+              gov_row(
+                column(width = 12, br()),
+                column(
+                  6,
+                  # p(strong("% 16-17 year olds participating in education and training")),
+                  # p("Box with % participating, comparisons and quintile chart"),
+                  valueBoxOutput("Participating", width = 12),
+                  # p(strong("Proportion participating in the three groups:")),
+                  # p("Full-time education"),
+                  # p("apprenticeships"),
+                  # p("Other education and training"),
+                  # p(strong("Proportion September Guarantee")),
+                  valueBoxOutput("Sept_Guarantee", width = 12)
+                  # p("Box with Sept Guarantee, comparisons and quintile")
+                  # plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  gov_row(
+                    column(
+                      12,
+                      p(strong(paste0("England and regional comparisons"))),
+                      br()
                     )
+                  )
                 )
               )
             ),
             tabPanel(
               value = "contextual",
               title = "Contextual information - outcomes and attendance",
-                gov_row(
-                  column(width = 12, br()),
-                  column(
-                    6,
-                    p(strong("Outcomes")),
-                    valueBoxOutput("level3", width = 12),
-                    valueBoxOutput("GCSE", width = 12),
-                    p(strong("School attendance")),
-                    valueBoxOutput("Overall_abs", width = 12),
-                    valueBoxOutput("Persistent_abs", width = 12)
-                    # plotlyOutput("places_chart") %>% withSpinner()
-                  ),
-                  column(
-                    6,
-                    gov_row(
-                      column(
-                        12,
-                        p(strong(paste0("GCSE attainment"))),
-                        p("Average attainment 8 score per pupil"),
-                        p("9-4 standard pass in English and maths GCSEs"),
-                        br(),
-                        p(strong(paste0("16-17 LA population"))),
-                        p("ONS estimate"),
-                        p("Recorded on CCIS")
-                        # valueBoxOutput("estimated_additional_places", width = 6),
-                        # valueBoxOutput("estimated_spare_places", width = 6)
-                      )
+              gov_row(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("Outcomes")),
+                  valueBoxOutput("level3", width = 12),
+                  valueBoxOutput("GCSE", width = 12),
+                  p(strong("School attendance")),
+                  valueBoxOutput("Overall_abs", width = 12),
+                  valueBoxOutput("Persistent_abs", width = 12)
+                  # plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  gov_row(
+                    column(
+                      12,
+                      p(strong(paste0("GCSE attainment"))),
+                      p("Average attainment 8 score per pupil"),
+                      p("9-4 standard pass in English and maths GCSEs"),
+                      br(),
+                      p(strong(paste0("16-17 LA population"))),
+                      p("ONS estimate"),
+                      p("Recorded on CCIS")
+                      # valueBoxOutput("estimated_additional_places", width = 6),
+                      # valueBoxOutput("estimated_spare_places", width = 6)
                     )
-                  ),
-                  uiOutput("contextual.bartext")
-                )
+                  )
+                ),
+                uiOutput("contextual.bartext")
+              )
             )
 
             # add box to show user input
