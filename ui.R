@@ -206,8 +206,8 @@ ui <- function(input, output, session) {
         tabsetPanel(
           id = "tabs",
           tabPanel(
-            value = "neet_tracking",
-            title = "NEET and tracking",
+            value = "neet",
+            title = "NEET",
             fluidPage(
               fluidRow(
                 column(width = 12, br()),
@@ -257,9 +257,49 @@ ui <- function(input, output, session) {
             )
             )
             ),
+          tabPanel(
+            value = "vulnerable",
+            title = "Vulnerable Groups",
+            fluidPage(
+              fluidRow(
+                column(width = 12, br()),
+                column(
+                  6,
+                  p(strong("SEND")),
+                  p("% NEET")
+                  #plotlyOutput("places_chart") %>% withSpinner()
+                ),
+                column(
+                  6,
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("SEN support"))),
+                      p("% NEET")
+                      #valueBoxOutput("estimated_additional_places", width = 6),
+                      #valueBoxOutput("estimated_spare_places", width = 6)
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                    )
+                  ),
+                  fluidRow(
+                    column(
+                      12,
+                      p(strong(paste0("Vulnerable group"))),
+                      p("% NEET")
+                    )
+                  )
+                )
+              )
+            ),
+            uiOutput("vulnerable.bartext")
+          ),
               tabPanel(
-                value = "la_support",
-                title = "LA support",
+                value = "participation",
+                title = "Participation",
                 fluidPage(
                   fluidRow(
                     column(width = 12, br()),
@@ -307,20 +347,48 @@ ui <- function(input, output, session) {
               ),
           tabPanel(
             value = "contextual",
-            title = "Contextual information",
+            title = "Contextual information - outcomes and attendance",
             fluidPage(
               fluidRow(
                 column(width = 12, br()),
                 column(
                   6,
                   p(strong("Outcomes")),
-                  p("% 19 year olds achieving level 3"),
-                  p("% 19 year olds achieving GCSE 9-4 standard pass in English and maths (or equivalent) between ages 16 and 19,
-                    for those who had not achieved this level by 16"),
+                  valueBoxOutput("level3", width = 6),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  valueBoxOutput("GCSE", width = 6),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
                   br(),
                   p(strong("School attendance")),
-                  p("Overall absence (% of sessions)"),
-                  p("Persistent absentees (% of pupils)")
+                  valueBoxOutput("Overall_abs", width = 6),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  valueBoxOutput("Persistent_abs", width = 6)
                   #plotlyOutput("places_chart") %>% withSpinner()
                 ),
                 column(
@@ -343,46 +411,6 @@ ui <- function(input, output, session) {
               )
             ),
             uiOutput("contextual.bartext")
-          ),
-          tabPanel(
-            value = "vulnerable",
-            title = "Vulnerable Groups",
-            fluidPage(
-              fluidRow(
-                column(width = 12, br()),
-                column(
-                  6,
-                  p(strong("SEND")),
-                  p("% NEET")
-                  #plotlyOutput("places_chart") %>% withSpinner()
-                ),
-                column(
-                  6,
-                  fluidRow(
-                    column(
-                      12,
-                      p(strong(paste0("SEN support"))),
-                      p("% NEET")
-                      #valueBoxOutput("estimated_additional_places", width = 6),
-                      #valueBoxOutput("estimated_spare_places", width = 6)
-                    )
-                  ),
-                  fluidRow(
-                    column(
-                      12,
-                    )
-                  ),
-                  fluidRow(
-                    column(
-                      12,
-                      p(strong(paste0("Vulnerable group"))),
-                      p("% NEET")
-                    )
-                  )
-                )
-              )
-            ),
-            uiOutput("vulnerable.bartext")
           )
           )
         # add box to show user input
