@@ -108,3 +108,10 @@ appLoadingCSS <- "
   color: #FFFFFF;
 }
 "
+# Create download button without the icon
+myDownloadButton <- function(outputId, label = "Download") {
+  tags$a(
+    id = outputId, class = "btn btn-default shiny-download-link", href = "",
+    target = "_blank", download = NA, NULL, label
+  )
+}

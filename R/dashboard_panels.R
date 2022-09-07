@@ -15,8 +15,8 @@ homepage_panel <- function() {
                 range of other related information."),
           br(),
           p("There is a separate scorecard for each local authority in England
-                except the City of London and Isles of Scilly as data are not available
-                for all indicators and because small numbers can result in large changes
+                except the City of London and Isles of Scilly as data is not available
+                for all indicators and small numbers can result in large changes
                 in percentages from one year to the next."),
           br()
         ),
@@ -35,7 +35,7 @@ homepage_panel <- function() {
               ),
               div(
                 class = "panel-body",
-                h3("NEET and tracking"),
+                h3("NEET and not known"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year."),
                 br("The proportion not known indicator shows how effective the arrangements are in each area for tracking
@@ -43,7 +43,15 @@ homepage_panel <- function() {
                 br("Whilst local authorities are responsible for tracking, they depend on schools, colleges and other partners
                        who work with young people sharing information with them. There is a risk that young people NEET have not been
                        identified in areas where effective tracking arrangements are not in place."),
-                h3("LA support"),
+                h3("Vulnerable groups NEET"),
+                br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
+                       employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
+                       and disability (SEND), SEN support or those that fall into the vulnerable group."),
+                br(" A young person is said to be in a vulnerable group if they have any of the following characteristics
+                       (taken from IC01 of the NCCIS returns): Looked after/In care (110), Parent-caring for own child (120), Refugee/Asylum seeker (130),
+                       Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Alternative provision (200),
+                       Mental health flag (210)."),
+                h3("Participation"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
                        at the end of March."),
                 br("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
@@ -61,14 +69,6 @@ homepage_panel <- function() {
                 br("Due to the coronavirus (COVID-19 pandemic all summer 2020 and 2021 exams were cancelled and absence statistics were
                        notably different to previous years. Therefore the contextual information on absence and attainment has not been
                        included in the scorecard this year."),
-                h3("Vulnerable groups"),
-                br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
-                       employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
-                       and disability (SEND), SEN support or those that fall into the vulnerable group."),
-                br(" A young person is said to be in a vulnerable group if they have any of the following characteristics
-                       (taken from IC01 of the NCCIS returns): Looked after/In care (110), Parent-caring for own child (120), Refugee/Asylum seeker (130),
-                       Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Alternative provision (200),
-                       Mental health flag (210)."),
                 # tags$div(
                 # title = "This section is useful if you want to understand how well different industries retain graduates.",
                 # h3(actionLink("link_to_app_content_tab", "App Content"))
@@ -96,7 +96,7 @@ dashboard_panel <- function() {
       gov_row(
         column(
           width = 12,
-          h1("Overall content title for this dashboard page (h1)"),
+          h1(textOutput("data_description")),
         ),
         column(
           width = 12,
@@ -107,18 +107,23 @@ dashboard_panel <- function() {
               width = 12,
               column(
                 width = 6,
-                p("View a local authority scorecard using the drop downs below."),
-                p("Switch between different indicators using the tabs on the right."),
+                p("View a local authority scorecard using the drop down below."),
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
                   selected = "Barking and Dagenham"
-                )
+                ),
+                p("Switch between different indicators using the tabs below.")
               ),
               column(
                 width = 6,
-                p(strong("Download data for all local authorities")),
-                # insert dowload button here
+                p(strong("Download data for all local authorities", style = "color:white")),
+                myDownloadButton(
+                  "download_ud",
+                  "Download data"
+                ),
+                # insert download button here
+                br(),
                 br(),
                 p(strong("Download summary pdf for chosen local authority"))
               )
@@ -131,7 +136,7 @@ dashboard_panel <- function() {
             id = "tabsetpanel",
             tabPanel(
               value = "neet",
-              title = "NEET",
+              title = "NEET and not known",
               gov_row(
                 column(width = 12, br()),
                 column(
@@ -161,7 +166,7 @@ dashboard_panel <- function() {
             ),
             tabPanel(
               value = "vulnerable",
-              title = "Vulnerable Groups",
+              title = "Vulnerable Groups NEET",
               gov_row(
                 column(width = 12, br()),
                 column(
@@ -230,7 +235,7 @@ dashboard_panel <- function() {
             ),
             tabPanel(
               value = "contextual",
-              title = "Contextual information - outcomes and attendance",
+              title = "Contextual info - outcomes and attendance",
               gov_row(
                 column(width = 12, br()),
                 column(

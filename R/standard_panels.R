@@ -6,7 +6,7 @@ a11y_panel <- function() {
         column(
           width = 12,
           h1("Accessibility statement"),
-          br("This accessibility statement applies to the **application name**.
+          br("This accessibility statement applies to the NEET LA scorecard.
             This application is run by the Department for Education. We want as many people as possible to be able to use this application,
             and have actively developed this application with accessibilty in mind."),
           h2("WCAG 2.1 compliance"),
@@ -30,7 +30,7 @@ a11y_panel <- function() {
           h2("Feedback"),
           br(
             "If you have any feedback on how we could further improve the accessibility of this application, please contact us at",
-            a(href = "mailto:email@education.gov.uk", "email@education.gov.uk")
+            a(href = "mailto:post16.statistics@education.gov.uk", "post16.statistics@education.gov.uk")
           )
         )
       )
@@ -61,7 +61,7 @@ support_links <- function() {
           br(),
           h2("Contact us"),
           "If you have questions about the dashboard or data within it, please contact us at ",
-          a(href = "mailto:statistics.development@education.gov.uk", "statistics.development@education.gov.uk", .noWS = c("after")), br(),
+          a(href = "mailto:post16.statistics@education.gov.uk", "post16.statistics@education.gov.uk", .noWS = c("after")), br(),
           h2("See the source code"),
           "The source code for this dashboard is available in our ",
           a(href = "https://github.com/dfe-analytical-services/shiny-template", "GitHub repository", .noWS = c("after")),

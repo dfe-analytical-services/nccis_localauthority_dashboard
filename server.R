@@ -246,7 +246,29 @@ server <- function(input, output, session) {
   #  qn = quantile(x, probs = (0:5)/5)
   #  result = as.numeric(cut(x, qn, include.lowest = T))
   # }
-
+  
+  # Files for download ------------------------------------------------------
+  
+  #all LAs
+  output$download_ud <- downloadHandler(
+    filename = function() {
+      paste("la_underlying_data",".csv", sep = "")
+      },
+    content = function(file) {
+      write.csv(la_ud, file, row.names = FALSE)
+    }
+  )
+ 
+  ##what we have in attainment 
+  #output$downloadmain_ud <- downloadHandler(
+  #  filename = function() {
+   #   paste("la_underlying_data", ".csv", sep = "")
+  #  },
+  #  content = function(file) {
+  #    write.csv(la_ud, file, row.names = FALSE)
+  #  }
+#  ) 
+#}
 
   # Stop app ---------------------------------------------------------------------------------
 
