@@ -259,16 +259,36 @@ server <- function(input, output, session) {
     }
   )
  
-  ##what we have in attainment 
-  #output$downloadmain_ud <- downloadHandler(
-  #  filename = function() {
-   #   paste("la_underlying_data", ".csv", sep = "")
-  #  },
-  #  content = function(file) {
-  #    write.csv(la_ud, file, row.names = FALSE)
-  #  }
-#  ) 
-#}
+ #selected LA pdf
+ 
+  function(input, output, session) {
+    # Define font family for charts
+    font_choice <- list(
+      family = "Arial",
+      size = 14
+    )
+    
+    output$pdfDownload <- downloadHandler(
+      filename = paste0("dashboard_output.pdf"),
+      content = function(file) {
+        # Add a loading modal, can probably make this prettier at a later date
+        showModal(modalDialog("Preparing PDF report...", footer = NULL))
+        on.exit(removeModal())
+        
+        # List of parameters to pass from shiny to the report
+        params <- input_la_choice = input$LA_choice
+         
+        
+        # Render the pdf file from the rmarkdown template
+        rmarkdown::render("Summary_scorecard.Rmd",
+                          output_file = file,
+                          params = params,
+                          output_format = "pdf_document",
+                          envir = new.env(parent = globalenv())
+        )
+      }
+    )
+  }
 
   # Stop app ---------------------------------------------------------------------------------
 

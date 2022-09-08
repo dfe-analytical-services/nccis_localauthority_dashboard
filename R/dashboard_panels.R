@@ -125,7 +125,11 @@ dashboard_panel <- function() {
                 # insert download button here
                 br(),
                 br(),
-                p(strong("Download summary pdf for chosen local authority"))
+                p(strong("Download summary pdf for chosen local authority")),
+                myDownloadButton(
+                  "pdfDownload",
+                  "Download report"
+                )
               )
             )
           )
