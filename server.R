@@ -27,6 +27,11 @@ server <- function(input, output, session) {
   hide(id = "loading-content", anim = TRUE, animType = "fade")
   show("app-content")
 
+  
+  lineLA <- reactive({
+    la_ud %>% filter(la_name == input$LA_choice)
+  })
+  
   # Simple server stuff goes here ------------------------------------------------------------
 
 
@@ -74,10 +79,10 @@ server <- function(input, output, session) {
   output$NEET_nk <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    NEET_nk_perc <- filter(la_ud, la_name == input$LA_choice) %>%
+    NEET_nk_perc <- lineLA() %>%
       pull(as.numeric(NEET_not_known_perc))
 
-    NEET_nk_change <- filter(la_ud, la_name == input$LA_choice) %>%
+    NEET_nk_change <- lineLA() %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
 
     # Put value into box to plug into app
@@ -94,10 +99,10 @@ server <- function(input, output, session) {
   
   #guage chart with annual change
   
-  output$NEET_nk_guage <- renderPlot({
+  output$NEET_nk_guage <- renderPlotly({
     plot_ly(
     domain = list(x = c(0, 1), y = c(0, 1)),
-    value = 1, #this needs to be the annual changes in NEET/nk for selected LA
+    value = lineLA() %>% pull(as.numeric(NEET_perc)), #this needs to be the annual changes in NEET/nk for selected LA
     title = list(text = "NEET or not known"),
     type = "indicator",
     mode = "gauge+number")
