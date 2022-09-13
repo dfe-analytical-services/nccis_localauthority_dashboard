@@ -103,6 +103,7 @@ server <- function(input, output, session) {
     plot_ly(
     domain = list(x = c(0, 1), y = c(0, 1)),
     value = lineLA() %>% pull(as.numeric(NEET_perc)), #this needs to be the annual changes in NEET/nk for selected LA
+    number = list(suffix = "%"),
     title = list(text = "NEET or not known"),
     type = "indicator",
     mode = "gauge+number")

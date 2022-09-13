@@ -149,7 +149,7 @@ dashboard_panel <- function() {
                   valueBoxOutput("NEET_nk", width = 6),
                   br(),
                   br(),
-                  plotlyOutput("NEET_nk_guage",width="50%"),
+                  plotlyOutput("NEET_nk_guage",width="100%"),
                   # p(strong("% 16-17 year olds NEET")),
                   valueBoxOutput("NEET", width = 6),
                   # p("Box with proportion NEET and comparisons, quintile chart"),
