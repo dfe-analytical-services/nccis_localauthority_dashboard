@@ -91,6 +91,20 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
+  
+  #guage chart with annual change
+  
+  output$NEET_nk_guage <- renderPlot({
+    plot_ly(
+    domain = list(x = c(0, 1), y = c(0, 1)),
+    value = 1, #this needs to be the annual changes in NEET/nk for selected LA
+    title = list(text = "NEET or not known"),
+    type = "indicator",
+    mode = "gauge+number")
+  })
+  
+  #output$NEET_nk_guage <- NEET_nk_guage %>%
+   # layout(margin = list(l=20,r=30))
 
   # NEET
   output$NEET <- renderValueBox({

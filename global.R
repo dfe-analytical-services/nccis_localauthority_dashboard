@@ -21,6 +21,7 @@ shhh(library(shinyWidgets))
 shhh(library(shinyGovstyle))
 shhh(library(readr))
 shhh(library(dplyr))
+shhh(library(plotly))
 
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
