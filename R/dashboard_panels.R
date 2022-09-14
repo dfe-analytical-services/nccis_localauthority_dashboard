@@ -144,17 +144,23 @@ dashboard_panel <- function() {
               gov_row(
                 column(
                   6,
+                  br(),
                   # p(strong("% 16-17 year olds NEET or whose activity is not known")),
                   # p("Box with proportion NEET/nk and comparisons, quintile chart"),
-                  valueBoxOutput("NEET_nk", width = 6),
+                  valueBoxOutput("NEET_nk", width = 12),
                   br(),
-                  br(),
-                  plotlyOutput("NEET_nk_guage",width="100%"),
+                  p(paste0("England and regional comparisons")),
+                  #br(),
+                  #plotlyOutput("NEET_nk_guage",width="100%"),
                   # p(strong("% 16-17 year olds NEET")),
-                  valueBoxOutput("NEET", width = 6),
+                  valueBoxOutput("NEET", width = 12),
+                  br(),
+                  p(paste0("England and regional comparisons")),
                   # p("Box with proportion NEET and comparisons, quintile chart"),
                   # p(strong("% 16-17 year olds whose activity is not known")),
-                  valueBoxOutput("Not_known", width = 6)
+                  valueBoxOutput("Not_known", width = 12),
+                  br(),
+                  p(paste0("England and regional comparisons"))
                   # p("Box with proportion NK and comparisons, quintile chart")
                 ),
                 column(
@@ -162,7 +168,8 @@ dashboard_panel <- function() {
                   gov_row(
                     column(
                       12,
-                      p(strong(paste0("England and regional comparisons"))),
+                      plotlyOutput("NEET_nk_guage",width="100%"),
+                      br(),
                       br()
                     )
                   )

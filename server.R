@@ -90,23 +90,38 @@ server <- function(input, output, session) {
       paste0(NEET_nk_perc, "%"),
       paste0(
         "16-17 year olds NEET or whose activity is not known, end ", last_year,
-        ", ", NEET_nk_change, " percentage point change since last year."
+        "."
+        #, NEET_nk_change, " percentage point change since last year."
       ),
       # icon = icon("fas fa-signal"),
       color = "blue"
     )
   })
   
-  #guage chart with annual change
+  #guage chart with NEET/Nk
   
   output$NEET_nk_guage <- renderPlotly({
     plot_ly(
     domain = list(x = c(0, 1), y = c(0, 1)),
-    value = lineLA() %>% pull(as.numeric(NEET_perc)), #this needs to be the annual changes in NEET/nk for selected LA
+    value = lineLA() %>% pull(as.numeric(NEET_not_known_perc)), 
     number = list(suffix = "%"),
     title = list(text = "NEET or not known"),
     type = "indicator",
-    mode = "gauge+number")
+    mode = "gauge+number",
+    gauge = list(
+      axis = list(range = list(NULL, 5), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+      bar = list(color = "darkblue"),
+      bgcolor = "white",
+      borderwidth = 1,
+      #bordercolor = "gray",
+      steps = list(
+        list(range = c(0, 1), color = "limegreen"), #need to make these the quintile boundaries
+        list(range = c(1, 2), color = "yellowgreen"),
+        list(range = c(2, 3), color = "yellow"),
+        list(range = c(3, 4), color = "gold"),
+        list(range = c(4, 5), color = "red")
+        )
+    ))
   })
   
   #output$NEET_nk_guage <- NEET_nk_guage %>%
@@ -116,7 +131,7 @@ server <- function(input, output, session) {
   output$NEET <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    NEET_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    NEET_percent <- lineLA() %>%
       pull(as.numeric(NEET_perc))
 
     # Put value into box to plug into app
@@ -132,7 +147,7 @@ server <- function(input, output, session) {
   output$Not_known <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    Not_known_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    Not_known_percent <- lineLA() %>%
       pull(as.numeric(Notknown_perc))
 
     # Put value into box to plug into app
@@ -149,16 +164,16 @@ server <- function(input, output, session) {
   output$Participating <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    participating_perc <- filter(la_ud, la_name == input$LA_choice) %>%
+    participating_perc <- lineLA() %>%
       pull(as.numeric(total_participating_in_education_training_perc))
 
-    fte_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    fte_percent <- lineLA() %>%
       pull(as.numeric(full_time_education_perc))
 
-    Apprenticeship_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    Apprenticeship_percent <- lineLA() %>%
       pull(as.numeric(apprenticeship_perc))
 
-    Other_ed_tr_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    Other_ed_tr_percent <- lineLA() %>%
       pull(as.numeric(other_education_training_perc))
 
     # Put value into box to plug into app
@@ -179,7 +194,7 @@ server <- function(input, output, session) {
   output$Sept_Guarantee <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    Sept_Guar_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    Sept_Guar_percent <- lineLA() %>%
       pull(as.numeric(september_guarantee_offer_made_perc))
 
     # Put value into box to plug into app
@@ -196,7 +211,7 @@ server <- function(input, output, session) {
   output$level3 <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    level3_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    level3_percent <- lineLA() %>%
       pull(as.numeric(level_3))
 
     # Put value into box to plug into app
@@ -212,7 +227,7 @@ server <- function(input, output, session) {
   output$GCSE <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    gcse_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    gcse_percent <- lineLA() %>%
       pull(as.numeric(l2_em_gcse_othL2))
 
     # Put value into box to plug into app
@@ -230,7 +245,7 @@ server <- function(input, output, session) {
   output$Overall_abs <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    overall_abs_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    overall_abs_percent <- lineLA() %>%
       pull(as.numeric(sess_overall_percent))
 
     # Put value into box to plug into app
@@ -246,7 +261,7 @@ server <- function(input, output, session) {
   output$Persistent_abs <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    persistent_abs_percent <- filter(la_ud, la_name == input$LA_choice) %>%
+    persistent_abs_percent <- lineLA() %>%
       pull(as.numeric(sess_overall_percent_pa_10_exact))
 
     # Put value into box to plug into app
