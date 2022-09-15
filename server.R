@@ -102,27 +102,29 @@ server <- function(input, output, session) {
   
   output$NEET_nk_guage <- renderPlotly({
     plot_ly(
-    domain = list(x = c(0, 1), y = c(0, 1)),
+    domain = list(x = c(0, 2), y = c(0, 2)),
     value = lineLA() %>% pull(as.numeric(NEET_not_known_perc)), 
     number = list(suffix = "%"),
-    title = list(text = "NEET or not known"),
+    title = list(text = "NEET or not known", font =list(size=36)),
     type = "indicator",
     mode = "gauge+number",
     gauge = list(
-      axis = list(range = list(NULL, 5), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+      axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
       bar = list(color = "darkblue"),
       bgcolor = "white",
       borderwidth = 1,
       #bordercolor = "gray",
       steps = list(
-        list(range = c(0, 1), color = "limegreen"), #need to make these the quintile boundaries
-        list(range = c(1, 2), color = "yellowgreen"),
-        list(range = c(2, 3), color = "yellow"),
-        list(range = c(3, 4), color = "gold"),
-        list(range = c(4, 5), color = "red")
+        list(range = c(1.4, 3.6), color = "limegreen"), #need to make these the quintile boundaries
+        list(range = c(3.6, 4.5), color = "yellowgreen"),
+        list(range = c(4.5, 5.4), color = "yellow"),
+        list(range = c(5.4, 6.7), color = "gold"),
+        list(range = c(6.7, 13.8), color = "red")
         )
     ))
   })
+  
+
   
   #output$NEET_nk_guage <- NEET_nk_guage %>%
    # layout(margin = list(l=20,r=30))
@@ -142,6 +144,32 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
+  
+  #guage chart with NEET
+  
+  output$NEET_guage <- renderPlotly({
+    plot_ly(
+      domain = list(x = c(0, 2), y = c(0, 2)),
+      value = lineLA() %>% pull(as.numeric(NEET_perc)), 
+      number = list(suffix = "%"),
+      title = list(text = "NEET", font =list(size=24)),
+      type = "indicator",
+      mode = "gauge+number",
+      gauge = list(
+        axis = list(range = list(0.8, 6.8), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+        bar = list(color = "darkblue"),
+        bgcolor = "white",
+        borderwidth = 1,
+        #bordercolor = "gray",
+        steps = list(
+          list(range = c(0.8, 1.8), color = "limegreen"), #need to make these the quintile boundaries
+          list(range = c(1.8, 2.3), color = "yellowgreen"),
+          list(range = c(2.3, 3.1), color = "yellow"),
+          list(range = c(3.1, 3.9), color = "gold"),
+          list(range = c(3.9, 6.8), color = "red")
+        )
+      ))
+  })
 
   # Not known
   output$Not_known <- renderValueBox({
@@ -159,6 +187,33 @@ server <- function(input, output, session) {
     )
   })
 
+  #guage chart with Not known
+  
+  output$Nk_guage <- renderPlotly({
+    plot_ly(
+      domain = list(x = c(0, 2), y = c(0, 2)),
+      value = lineLA() %>% pull(as.numeric(Notknown_perc)), 
+      number = list(suffix = "%"),
+      title = list(text = "Not known", font =list(size=24)),
+      type = "indicator",
+      mode = "gauge+number",
+      gauge = list(
+        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+        bar = list(color = "darkblue"),
+        bgcolor = "white",
+        borderwidth = 1,
+        #bordercolor = "gray",
+        steps = list(
+          list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
+          list(range = c(0.9, 1.4), color = "yellowgreen"),
+          list(range = c(1.4, 2.1), color = "yellow"),
+          list(range = c(2.1, 3.2), color = "gold"),
+          list(range = c(3.2, 12.1), color = "red")
+        )
+      ))
+  })
+  
+  
   # LA support -----------------
   # Participating in education and training
   output$Participating <- renderValueBox({

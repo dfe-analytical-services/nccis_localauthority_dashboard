@@ -145,22 +145,25 @@ dashboard_panel <- function() {
                 column(
                   6,
                   br(),
+                  p(strong("16-17 year olds")),
+                  plotlyOutput("NEET_nk_guage",width="85%"),
                   # p(strong("% 16-17 year olds NEET or whose activity is not known")),
                   # p("Box with proportion NEET/nk and comparisons, quintile chart"),
-                  valueBoxOutput("NEET_nk", width = 12),
-                  br(),
-                  p(paste0("England and regional comparisons")),
+                  #valueBoxOutput("NEET_nk", width = 12),
+                  p(paste0("Annual change")),
+                  p(paste0("England figure and annual change")),
+                  p(paste0("Region figure and annual change")),
                   #br(),
                   #plotlyOutput("NEET_nk_guage",width="100%"),
                   # p(strong("% 16-17 year olds NEET")),
-                  valueBoxOutput("NEET", width = 12),
-                  br(),
-                  p(paste0("England and regional comparisons")),
+                  #valueBoxOutput("NEET", width = 12),
+                  br()
+                  #p(paste0("England and regional comparisons")),
                   # p("Box with proportion NEET and comparisons, quintile chart"),
                   # p(strong("% 16-17 year olds whose activity is not known")),
-                  valueBoxOutput("Not_known", width = 12),
-                  br(),
-                  p(paste0("England and regional comparisons"))
+                  #valueBoxOutput("Not_known", width = 12),
+                  #br(),
+                  #p(paste0("England and regional comparisons"))
                   # p("Box with proportion NK and comparisons, quintile chart")
                 ),
                 column(
@@ -168,9 +171,15 @@ dashboard_panel <- function() {
                   gov_row(
                     column(
                       12,
-                      plotlyOutput("NEET_nk_guage",width="100%"),
-                      br(),
-                      br()
+                      plotlyOutput("NEET_guage",width="70%"),
+                      p(paste0("Annual change")),
+                      p(paste0("England figure and annual change")),
+                      p(paste0("Region figure and annual change")),
+                      #br(),
+                      plotlyOutput("Nk_guage",width="70%"),
+                      p(paste0("Annual change")),
+                      p(paste0("England figure and annual change")),
+                      p(paste0("Region figure and annual change"))
                     )
                   )
                 )
@@ -183,7 +192,13 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 column(
                   6,
-                  p(strong("SEND")),
+                  p(strong("No SEND")),
+                  p("% NEET"),
+                  br(),
+                  p(strong("SEND (EHCP)")),
+                  p("% NEET"),
+                  br(),
+                  p(strong(paste0("SEN support"))),
                   p("% NEET")
                   # plotlyOutput("places_chart") %>% withSpinner()
                 ),
@@ -192,24 +207,24 @@ dashboard_panel <- function() {
                   gov_row(
                     column(
                       12,
-                      p(strong(paste0("SEN support"))),
+                      p(strong(paste0("Vulnerable group"))),
                       p("% NEET")
                       # valueBoxOutput("estimated_additional_places", width = 6),
                       # valueBoxOutput("estimated_spare_places", width = 6)
                     )
-                  ),
-                  gov_row(
-                    column(
-                      12,
-                    )
-                  ),
-                  gov_row(
-                    column(
-                      12,
-                      p(strong(paste0("Vulnerable group"))),
-                      p("% NEET")
-                    )
                   )
+                  #gov_row(
+                  #  column(
+                  #    12,
+                  #  )
+                 # ),
+                 # gov_row(
+                   # column(
+                   #   12,
+                    #  p(strong(paste0("Vulnerable group"))),
+                    #  p("% NEET")
+                   # )
+                 # )
                 ),
                 uiOutput("vulnerable.bartext")
               )

@@ -56,6 +56,10 @@ LA_names <- filter(la_ud, la_name != "z")
 LA_options <- sort(unique(LA_names$la_name)) %>%
   as.factor()
 
+# Reducing white space around plots
+
+par(mar = c(4, 4, 0.1, 0.1))   
+
 # Functions ---------------------------------------------------------------------------------
 
 # Here's an example function for simplifying the code needed to commas separate numbers:
