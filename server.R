@@ -80,7 +80,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_nk_perc <- lineLA() %>%
-      pull(as.numeric(NEET_not_known_perc))
+      pull(as.numeric(NEET_not_known_percent))
 
     NEET_nk_change <- lineLA() %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
@@ -103,7 +103,7 @@ server <- function(input, output, session) {
   output$NEET_nk_guage <- renderPlotly({
     plot_ly(
     domain = list(x = c(0, 2), y = c(0, 2)),
-    value = lineLA() %>% pull(as.numeric(NEET_not_known_perc)), 
+    value = lineLA() %>% pull(as.numeric(NEET_not_known_percent)), 
     number = list(suffix = "%"),
     title = list(text = "NEET or not known", font =list(size=32)),
     type = "indicator",
@@ -134,7 +134,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_percent <- lineLA() %>%
-      pull(as.numeric(NEET_perc))
+      pull(as.numeric(NEET_percent))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -150,7 +150,7 @@ server <- function(input, output, session) {
   output$NEET_guage <- renderPlotly({
     plot_ly(
       domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(NEET_perc)), 
+      value = lineLA() %>% pull(round(as.numeric(NEET_percent),1)), 
       number = list(suffix = "%"),
       title = list(text = "NEET", font =list(size=24)),
       type = "indicator",
@@ -176,7 +176,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     Not_known_percent <- lineLA() %>%
-      pull(as.numeric(Notknown_perc))
+      pull(as.numeric(Notknown_percent))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -192,7 +192,7 @@ server <- function(input, output, session) {
   output$Nk_guage <- renderPlotly({
     plot_ly(
       domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(Notknown_perc)), 
+      value = lineLA() %>% pull(as.numeric(Notknown_percent)), 
       number = list(suffix = "%"),
       title = list(text = "Not known", font =list(size=24)),
       type = "indicator",
@@ -220,16 +220,16 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     participating_perc <- lineLA() %>%
-      pull(as.numeric(total_participating_in_education_training_perc))
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
 
     fte_percent <- lineLA() %>%
-      pull(as.numeric(full_time_education_perc))
+      pull(as.numeric(Full_time_education_percent))
 
     Apprenticeship_percent <- lineLA() %>%
-      pull(as.numeric(apprenticeship_perc))
+      pull(as.numeric(Apprenticeship_percent))
 
     Other_ed_tr_percent <- lineLA() %>%
-      pull(as.numeric(other_education_training_perc))
+      pull(as.numeric(Other_education_and_training_percent))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -250,7 +250,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     Sept_Guar_percent <- lineLA() %>%
-      pull(as.numeric(september_guarantee_offer_made_perc))
+      pull(as.numeric(September_guarantee_Offer_made_percent))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -267,7 +267,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     level3_percent <- lineLA() %>%
-      pull(as.numeric(level_3))
+      pull(as.numeric(Level_3))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -283,7 +283,7 @@ server <- function(input, output, session) {
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     gcse_percent <- lineLA() %>%
-      pull(as.numeric(l2_em_gcse_othL2))
+      pull(as.numeric(L2_em_GCSE_othL2))
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
@@ -328,15 +328,7 @@ server <- function(input, output, session) {
     )
   })
 
-  # calculating quintiles
-  # https://stackoverflow.com/questions/39693957/calculating-quintile-based-scores-on-r
-
-  # quintile = function(y) {
-  #  x = df$val[df$y == y]
-  #  qn = quantile(x, probs = (0:5)/5)
-  #  result = as.numeric(cut(x, qn, include.lowest = T))
-  # }
-  
+ 
   # Files for download ------------------------------------------------------
   
   #all LAs
