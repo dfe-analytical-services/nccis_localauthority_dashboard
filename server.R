@@ -32,6 +32,10 @@ server <- function(input, output, session) {
     la_ud %>% filter(la_name == input$LA_choice)
   })
   
+  England <- reactive({
+    la_ud %>% filter(geographic_level == "National")
+  })
+  
   # Simple server stuff goes here ------------------------------------------------------------
 
 
@@ -120,7 +124,11 @@ server <- function(input, output, session) {
         list(range = c(4.5, 5.4), color = "yellow"),
         list(range = c(5.4, 6.7), color = "gold"),
         list(range = c(6.7, 13.8), color = "red")
-        )
+        ),
+      threshold = list(
+        line = list(color = "black", width = 4),
+        thickness = 0.75,
+        value = England() %>% pull(round(as.numeric(NEET_not_known_percent),1)))
     ))
   })
   
@@ -167,7 +175,11 @@ server <- function(input, output, session) {
           list(range = c(2.3, 3.1), color = "yellow"),
           list(range = c(3.1, 3.9), color = "gold"),
           list(range = c(3.9, 6.8), color = "red")
-        )
+        ),
+        threshold = list(
+          line = list(color = "black", width = 4),
+          thickness = 0.75,
+          value = England() %>% pull(round(as.numeric(NEET_percent),1))) 
       ))
   })
 
@@ -209,7 +221,11 @@ server <- function(input, output, session) {
           list(range = c(1.4, 2.1), color = "yellow"),
           list(range = c(2.1, 3.2), color = "gold"),
           list(range = c(3.2, 12.1), color = "red")
-        )
+        ),
+        threshold = list(
+          line = list(color = "black", width = 4),
+          thickness = 0.75,
+          value = England() %>% pull(round(as.numeric(Notknown_percent),1)))
       ))
   })
   
