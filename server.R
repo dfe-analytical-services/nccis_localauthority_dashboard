@@ -105,11 +105,11 @@ server <- function(input, output, session) {
     domain = list(x = c(0, 2), y = c(0, 2)),
     value = lineLA() %>% pull(as.numeric(NEET_not_known_perc)), 
     number = list(suffix = "%"),
-    title = list(text = "NEET or not known", font =list(size=36)),
+    title = list(text = "NEET or not known", font =list(size=32)),
     type = "indicator",
     mode = "gauge+number",
     gauge = list(
-      axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+      axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(1.4,3.6,4.5,5.4,6.7,13.8)), #need to make this to the max % neet/nk
       bar = list(color = "darkblue"),
       bgcolor = "white",
       borderwidth = 1,
@@ -156,7 +156,7 @@ server <- function(input, output, session) {
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
-        axis = list(range = list(0.8, 6.8), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+        axis = list(range = list(0.8, 6.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.8,1.8,2.3,3.1,3.9,6.8)), #need to make this to the max % neet/nk
         bar = list(color = "darkblue"),
         bgcolor = "white",
         borderwidth = 1,
@@ -198,7 +198,7 @@ server <- function(input, output, session) {
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
-        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue"), #need to make this to the max % neet/nk
+        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
         bar = list(color = "darkblue"),
         bgcolor = "white",
         borderwidth = 1,
