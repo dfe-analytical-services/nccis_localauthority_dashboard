@@ -18,7 +18,18 @@ homepage_panel <- function() {
                 except the City of London and Isles of Scilly as data is not available
                 for all indicators and small numbers can result in large changes
                 in percentages from one year to the next."),
-          br()
+          br(),
+          p("Each area's performance is compared with that of other local authorities in England.
+            The best performing with the lowest NEET/highest participation fall into the
+            green quintile, whereas local authorities with the highest NEET/lowest participation fall 
+            into the red quintile."),
+          br(),
+          p("The average England percentage may not necessarily fall in the middle of quintile 3
+            because the average is calculated by averaging all the values; for example if some of the values
+            are particularly large compared with the other values, the average will be larger than the middle ranked
+            local authority and may fall outside the middle quintile."),
+          br(),
+          p("Local authorities with no value or a suppressed value are excluded from the quintile calculation")
         ),
 
         ## Left panel -------------------------------------------------------
@@ -142,48 +153,29 @@ dashboard_panel <- function() {
               value = "neet",
               title = "NEET and not known",
               gov_row(
-                column(
-                  6,
                   br(),
                   p(strong("16-17 year olds")),
-                  plotlyOutput("NEET_nk_guage",width="90%"),
-                  # p(strong("% 16-17 year olds NEET or whose activity is not known")),
-                  # p("Box with proportion NEET/nk and comparisons, quintile chart"),
-                  #valueBoxOutput("NEET_nk", width = 12),
+                  plotlyOutput("NEET_nk_guage",width="60%"),
+                  p(paste0("Annual change")),
+                  p(paste0("England figure and annual change")),
+                  p(paste0("Region figure and annual change"))
+                ),
+              gov_row(
+                  column(
+                  6,
+                  plotlyOutput("NEET_guage",width="80%"),
                   p(paste0("Annual change")),
                   p(paste0("England figure and annual change")),
                   p(paste0("Region figure and annual change")),
-                  #br(),
-                  #plotlyOutput("NEET_nk_guage",width="100%"),
-                  # p(strong("% 16-17 year olds NEET")),
-                  #valueBoxOutput("NEET", width = 12),
-                  br()
-                  #p(paste0("England and regional comparisons")),
-                  # p("Box with proportion NEET and comparisons, quintile chart"),
-                  # p(strong("% 16-17 year olds whose activity is not known")),
-                  #valueBoxOutput("Not_known", width = 12),
-                  #br(),
-                  #p(paste0("England and regional comparisons"))
-                  # p("Box with proportion NK and comparisons, quintile chart")
-                ),
-                column(
+                  ),
+                  column(
                   6,
-                  gov_row(
-                    column(
-                      12,
-                      plotlyOutput("NEET_guage",width="70%"),
-                      p(paste0("Annual change")),
-                      p(paste0("England figure and annual change")),
-                      p(paste0("Region figure and annual change")),
-                      #br(),
-                      plotlyOutput("Nk_guage",width="70%"),
-                      p(paste0("Annual change")),
-                      p(paste0("England figure and annual change")),
-                      p(paste0("Region figure and annual change"))
+                  plotlyOutput("Nk_guage",width="80%"),
+                  p(paste0("Annual change")),
+                  p(paste0("England figure and annual change")),
+                  p(paste0("Region figure and annual change"))
                     )
                   )
-                )
-              )
             ),
             tabPanel(
               value = "vulnerable",
