@@ -156,9 +156,9 @@ dashboard_panel <- function() {
                   br(),
                   p(strong("16-17 year olds")),
                   plotlyOutput("NEET_nk_guage",width="60%"),
-                  p(paste0("Annual change")),
-                  p(paste0("England figure and annual change")),
-                  p(paste0("Region figure and annual change"))
+                  valueBoxOutput("NEET_nk", width = 12)
+                  #p(paste0("England figure and annual change")),
+                  #p(paste0("Region figure and annual change"))
                 ),
               gov_row(
                   column(

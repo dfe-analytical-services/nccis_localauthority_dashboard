@@ -36,15 +36,20 @@ last_year <- latest_year - 1
 # Creating useful functions
 # Here we create a function to say increased/decreased for yearly changes which we need in the text on the app.
 
-change_ed <- function(numA, numB) {
-  if (numA < numB) {
-    return("increased from")
+change_ed <- function(numA) {
+  if(numA == 0) {
+    return("stable ")
+  }
+  if (numA < 0.0) {
+    return("down ")
   }
 
-  if (numA > numB) {
-    return("decreased from")
-  } else {
-    return("stayed the same at")
+  if (numA > 0.0) {
+    return("up ")
+  } 
+  
+    else {
+    return(" ")
   }
 }
 

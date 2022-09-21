@@ -36,6 +36,7 @@ server <- function(input, output, session) {
     la_ud %>% filter(geographic_level == "National")
   })
   
+  
   # Simple server stuff goes here ------------------------------------------------------------
 
 
@@ -79,28 +80,28 @@ server <- function(input, output, session) {
 
 
   # NEET and not known rates-----------------
-  # NEET and not known
-  output$NEET_nk <- renderValueBox({
+  # NEET and not known original value box - no longer using
+  #output$NEET_nk <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    NEET_nk_perc <- lineLA() %>%
-      pull(as.numeric(NEET_not_known_percent))
+   # NEET_nk_perc <- lineLA() %>%
+     # pull(as.numeric(NEET_not_known_percent))
 
-    NEET_nk_change <- lineLA() %>%
-      pull(as.numeric(annual_change_ppts_NEET_not_known))
+   # NEET_nk_change <- lineLA() %>%
+     # pull(as.numeric(annual_change_ppts_NEET_not_known))
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(NEET_nk_perc, "%"),
-      paste0(
-        "16-17 year olds NEET or whose activity is not known, end ", last_year,
-        "."
+   # shinydashboard::valueBox(
+     # paste0(NEET_nk_perc, "%"),
+    #  paste0(
+      #  "16-17 year olds NEET or whose activity is not known, end ", last_year,
+       # "."
         #, NEET_nk_change, " percentage point change since last year."
-      ),
+     # ),
       # icon = icon("fas fa-signal"),
-      color = "blue"
-    )
-  })
+     # color = "blue"
+   # )
+ # })
   
   #guage chart with NEET/Nk
   
@@ -127,15 +128,48 @@ server <- function(input, output, session) {
         ),
       threshold = list(
         line = list(color = "black", width = 4),
-        thickness = 0.75,
+        thickness = 1,
         value = England() %>% pull(round(as.numeric(NEET_not_known_percent),1)))
     ))
   })
   
-
+#annual change and national,regional comparison box
+  # NEET and not known
+  output$NEET_nk <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    NEET_nk_perc <- lineLA() %>%
+      pull(as.numeric(NEET_not_known_percent))
+    
+    NEET_nk_change <- lineLA() %>%
+      pull(as.numeric(annual_change_ppts_NEET_not_known))
+    
+    NEET_nk_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_not_known_percent))
+    
+    NEET_nk_change_Eng <- England() %>%
+      pull(as.numeric(annual_change_ppts_NEET_not_known))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    NEET_nk_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(NEET_not_known_percent))
+    
+    NEET_nk_change_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(annual_change_ppts_NEET_not_known))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(input$LA_choice, ": ",NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
+      paste0("England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.     ",
+             Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts."  ),
+      color = "blue"
+    )
+  })
   
-  #output$NEET_nk_guage <- NEET_nk_guage %>%
-   # layout(margin = list(l=20,r=30))
+  
+ 
 
   # NEET
   output$NEET <- renderValueBox({
@@ -158,7 +192,7 @@ server <- function(input, output, session) {
   output$NEET_guage <- renderPlotly({
     plot_ly(
       domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(round(as.numeric(NEET_percent),1)), 
+      value = lineLA() %>% pull(as.numeric(NEET_percent)), 
       number = list(suffix = "%"),
       title = list(text = "NEET", font =list(size=24)),
       type = "indicator",
@@ -178,7 +212,7 @@ server <- function(input, output, session) {
         ),
         threshold = list(
           line = list(color = "black", width = 4),
-          thickness = 0.75,
+          thickness = 1,
           value = England() %>% pull(round(as.numeric(NEET_percent),1))) 
       ))
   })
@@ -224,7 +258,7 @@ server <- function(input, output, session) {
         ),
         threshold = list(
           line = list(color = "black", width = 4),
-          thickness = 0.75,
+          thickness = 1,
           value = England() %>% pull(round(as.numeric(Notknown_percent),1)))
       ))
   })
