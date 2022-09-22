@@ -79,31 +79,10 @@ server <- function(input, output, session) {
   })
 
 
-  # NEET and not known rates-----------------
-  # NEET and not known original value box - no longer using
-  #output$NEET_nk <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-   # NEET_nk_perc <- lineLA() %>%
-     # pull(as.numeric(NEET_not_known_percent))
-
-   # NEET_nk_change <- lineLA() %>%
-     # pull(as.numeric(annual_change_ppts_NEET_not_known))
-
-    # Put value into box to plug into app
-   # shinydashboard::valueBox(
-     # paste0(NEET_nk_perc, "%"),
-    #  paste0(
-      #  "16-17 year olds NEET or whose activity is not known, end ", last_year,
-       # "."
-        #, NEET_nk_change, " percentage point change since last year."
-     # ),
-      # icon = icon("fas fa-signal"),
-     # color = "blue"
-   # )
- # })
-  
-  #guage chart with NEET/Nk
+  # NEET and not known tab-----------
+ 
+  ##NEET/NK----------------------------
+  ###Guage chart-----------------------
   
   output$NEET_nk_guage <- renderPlotly({
     plot_ly(
@@ -133,8 +112,8 @@ server <- function(input, output, session) {
     ))
   })
   
-#annual change and national,regional comparison box
-  # NEET and not known
+  ###Annual change and national,regional comparison box-------
+  
   output$NEET_nk <- renderValueBox({
     
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -163,31 +142,16 @@ server <- function(input, output, session) {
     shinydashboard::valueBox(
       paste0(input$LA_choice, ": ",NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
       paste0("England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.     ",
-             Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts."  ),
+             Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
+             (Annual changes are since end ", previous_year_end, ")."),
       color = "blue"
     )
   })
   
   
- 
-
-  # NEET
-  output$NEET <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    NEET_percent <- lineLA() %>%
-      pull(as.numeric(NEET_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(NEET_percent, "%"),
-      paste0("16-17 year olds NEET, end ", last_year),
-      # icon = icon("fas fa-signal"),
-      color = "blue"
-    )
-  })
+  ## NEET-------------------------
   
-  #guage chart with NEET
+  ###Guage chart-----------------
   
   output$NEET_guage <- renderPlotly({
     plot_ly(
@@ -217,7 +181,44 @@ server <- function(input, output, session) {
       ))
   })
 
-  # Not known
+  ###Annual change and national,regional comparison box-------
+  
+  output$NEET <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    NEET_perc <- lineLA() %>%
+      pull(as.numeric(NEET_percent))
+    
+    NEET_change <- lineLA() %>%
+      pull(as.numeric(annualchange_NEET))
+    
+    NEET_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_percent))
+    
+    NEET_change_Eng <- England() %>%
+      pull(as.numeric(annualchange_NEET))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    NEET_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(NEET_percent))
+    
+    NEET_change_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(annualchange_NEET))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
+      paste0("England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.     ",
+             Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.
+             (Annual changes are since end ", previous_year_end, ")."),
+      color = "blue"
+    )
+  })
+  
+  
+  ##Not known---------------------------
   output$Not_known <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -233,7 +234,7 @@ server <- function(input, output, session) {
     )
   })
 
-  #guage chart with Not known
+  ###Guage chart--------------------
   
   output$Nk_guage <- renderPlotly({
     plot_ly(
@@ -262,6 +263,43 @@ server <- function(input, output, session) {
           value = England() %>% pull(round(as.numeric(Notknown_percent),1)))
       ))
   })
+  
+  ###Annual change and national,regional comparison box-------
+  
+  output$Not_known <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    Nk_perc <- lineLA() %>%
+      pull(as.numeric(Notknown_percent))
+    
+    Nk_change <- lineLA() %>%
+      pull(as.numeric(annualchange_notknown))
+    
+    Nk_perc_Eng <- England() %>%
+      pull(as.numeric(Notknown_percent))
+    
+    Nk_change_Eng <- England() %>%
+      pull(as.numeric(annualchange_notknown))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    Nk_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(Notknown_percent))
+    
+    Nk_change_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(annualchange_notknown))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
+      paste0("England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.     ",
+             Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.
+             (Annual changes are since end ", previous_year_end, ")."),
+      color = "blue"
+    )
+  })
+  
   
   
   # LA support -----------------

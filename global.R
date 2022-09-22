@@ -29,9 +29,11 @@ site_overflow <- "https://department-for-education.shinyapps.io/nccis_localautho
 # Load the data required
 la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2021_vg_removed.csv", col_types = cols(.default = "c"))
 
-# Set year references
+# Set year references - TO BE UPDATED EVERY YEAR
 latest_year <- 2022
 last_year <- latest_year - 1
+latest_year_end <- latest_year - 1
+previous_year_end <- latest_year - 2
 
 # Creating useful functions
 # Here we create a function to say increased/decreased for yearly changes which we need in the text on the app.

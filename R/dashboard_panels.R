@@ -154,7 +154,7 @@ dashboard_panel <- function() {
               title = "NEET and not known",
               gov_row(
                   br(),
-                  p(strong("16-17 year olds")),
+                  p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
                   plotlyOutput("NEET_nk_guage",width="60%"),
                   valueBoxOutput("NEET_nk", width = 12)
                   #p(paste0("England figure and annual change")),
@@ -164,16 +164,18 @@ dashboard_panel <- function() {
                   column(
                   6,
                   plotlyOutput("NEET_guage",width="80%"),
-                  p(paste0("Annual change")),
-                  p(paste0("England figure and annual change")),
-                  p(paste0("Region figure and annual change")),
+                  valueBoxOutput("NEET", width = 12),
+                  #p(paste0("Annual change")),
+                  #p(paste0("England figure and annual change")),
+                  #p(paste0("Region figure and annual change")),
                   ),
                   column(
                   6,
                   plotlyOutput("Nk_guage",width="80%"),
-                  p(paste0("Annual change")),
-                  p(paste0("England figure and annual change")),
-                  p(paste0("Region figure and annual change"))
+                  valueBoxOutput("Not_known", width = 12)
+                  #p(paste0("Annual change")),
+                  #p(paste0("England figure and annual change")),
+                  #p(paste0("Region figure and annual change"))
                     )
                   )
             ),
