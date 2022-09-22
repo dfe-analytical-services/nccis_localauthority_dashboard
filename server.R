@@ -107,6 +107,7 @@ server <- function(input, output, session) {
         ),
       threshold = list(
         line = list(color = "black", width = 4),
+        displayvalue = "England",
         thickness = 1,
         value = England() %>% pull(round(as.numeric(NEET_not_known_percent),1)))
     ))
@@ -141,9 +142,9 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(input$LA_choice, ": ",NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
-      paste0("England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.     ",
-             Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
-             (Annual changes are since end ", previous_year_end, ")."),
+      paste0("England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.",
+              Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
+              Annual changes are since end ", previous_year_end, ")."),
       color = "blue"
     )
   })
@@ -219,20 +220,6 @@ server <- function(input, output, session) {
   
   
   ##Not known---------------------------
-  output$Not_known <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    Not_known_percent <- lineLA() %>%
-      pull(as.numeric(Notknown_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(Not_known_percent, "%"),
-      paste0("16-17 year olds whose activity is not known, end ", last_year),
-      # icon = icon("fas fa-signal"),
-      color = "blue"
-    )
-  })
 
   ###Guage chart--------------------
   
@@ -300,10 +287,106 @@ server <- function(input, output, session) {
     )
   })
   
+  #Vulnerable groups NEET tab---------------------------------
+  ##Vulnerable group--------------------------------
+  
+  ###Guage chart--------------------
+  
+  output$Vulnerable_guage <- renderPlotly({
+    plot_ly(
+      domain = list(x = c(0, 2), y = c(0, 2)),
+      value = lineLA() %>% pull(as.numeric(VG_NEET_NK_percentage)), 
+      number = list(suffix = "%"),
+      title = list(text = "NEET or not known", font =list(size=24)),
+      type = "indicator",
+      mode = "gauge+number",
+      gauge = list(
+        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
+        bar = list(color = "darkblue"),
+        bgcolor = "white",
+        borderwidth = 1,
+        #bordercolor = "gray",
+        steps = list(
+          list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
+          list(range = c(0.9, 1.4), color = "yellowgreen"),
+          list(range = c(1.4, 2.1), color = "yellow"),
+          list(range = c(2.1, 3.2), color = "gold"),
+          list(range = c(3.2, 12.1), color = "red")
+        ),
+        threshold = list(
+          line = list(color = "black", width = 4),
+          thickness = 1,
+          value = England() %>% pull(round(as.numeric(VG_NEET_NK_percentage),1)))
+      ))
+  })
+  
+  ###National,regional comparison box-------
+  
+  output$Vulnerable <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    Vul_perc <- lineLA() %>%
+      pull(as.numeric(VG_NEET_NK_percentage))
+    
+    Vul_cohort <- lineLA() %>%
+      pull(as.numeric(VG_cohort_DJF_avg))
+    
+    Vul_cohort_perc <- lineLA() %>%
+      pull(as.numeric(VG_cohort_percentage))
+    
+    Vul_perc_Eng <- England() %>%
+      pull(as.numeric(VG_NEET_NK_percentage))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    Vul_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(VG_NEET_NK_percentage))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(Vul_perc, "% (Cohort: ", Vul_cohort, "(",  Vul_cohort_perc, "% of LA)"),
+      paste0("England: ", Vul_perc_Eng, "%. ", Regionname, ": ", Vul_perc_region, "%, "),
+      color = "blue"
+    )
+  })
   
   
-  # LA support -----------------
-  # Participating in education and training
+  # Participating in education and training------------------
+  
+  ##Total participating-----------
+  
+  ###Gauge chart--------------------
+  
+  output$Participation_guage <- renderPlotly({
+    plot_ly(
+      domain = list(x = c(0, 2), y = c(0, 2)),
+      value = lineLA() %>% pull(as.numeric(TOTAL_participating_in_education_and_training_percent)), 
+      number = list(suffix = "%"),
+      title = list(text = "Total Participating", font =list(size=18)),
+      type = "indicator",
+      mode = "gauge+number",
+      gauge = list(
+        axis = list(range = list(87.4, 98.5), tickwidth = 1, tickcolor = "darkblue",tickvals=list(87.4,91.6,92.7,93.9,95.5,98.5)), #need to make this to the max % neet/nk
+        bar = list(color = "darkblue"),
+        bgcolor = "white",
+        borderwidth = 1,
+        #bordercolor = "gray",
+        steps = list(
+          list(range = c(87.4, 91.6), color = "limegreen"), #need to make these the quintile boundaries
+          list(range = c(91.6, 92.7), color = "yellowgreen"),
+          list(range = c(92.7, 93.9), color = "yellow"),
+          list(range = c(93.9, 95.5), color = "gold"),
+          list(range = c(95.5, 98.5), color = "red")
+        ),
+        threshold = list(
+          line = list(color = "black", width = 4),
+          thickness = 1,
+          value = England() %>% pull(round(as.numeric(TOTAL_participating_in_education_and_training_percent),1)))
+      ))
+  })
+  
+  ###value box
   output$Participating <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up

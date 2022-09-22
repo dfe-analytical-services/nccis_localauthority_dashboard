@@ -155,27 +155,19 @@ dashboard_panel <- function() {
               gov_row(
                   br(),
                   p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
-                  plotlyOutput("NEET_nk_guage",width="60%"),
+                  plotlyOutput("NEET_nk_guage",width="64%"),
                   valueBoxOutput("NEET_nk", width = 12)
-                  #p(paste0("England figure and annual change")),
-                  #p(paste0("Region figure and annual change"))
                 ),
               gov_row(
                   column(
                   6,
                   plotlyOutput("NEET_guage",width="80%"),
                   valueBoxOutput("NEET", width = 12),
-                  #p(paste0("Annual change")),
-                  #p(paste0("England figure and annual change")),
-                  #p(paste0("Region figure and annual change")),
                   ),
                   column(
                   6,
                   plotlyOutput("Nk_guage",width="80%"),
                   valueBoxOutput("Not_known", width = 12)
-                  #p(paste0("Annual change")),
-                  #p(paste0("England figure and annual change")),
-                  #p(paste0("Region figure and annual change"))
                     )
                   )
             ),
@@ -183,7 +175,8 @@ dashboard_panel <- function() {
               value = "vulnerable",
               title = "Vulnerable Groups NEET",
               gov_row(
-                column(width = 12, br()),
+                br(),
+                p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
                 column(
                   6,
                   p(strong("No SEND")),
@@ -198,27 +191,9 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  gov_row(
-                    column(
-                      12,
-                      p(strong(paste0("Vulnerable group"))),
-                      p("% NEET")
-                      # valueBoxOutput("estimated_additional_places", width = 6),
-                      # valueBoxOutput("estimated_spare_places", width = 6)
-                    )
-                  )
-                  #gov_row(
-                  #  column(
-                  #    12,
-                  #  )
-                 # ),
-                 # gov_row(
-                   # column(
-                   #   12,
-                    #  p(strong(paste0("Vulnerable group"))),
-                    #  p("% NEET")
-                   # )
-                 # )
+                  p(strong(paste0("Vulnerable group"))),
+                  plotlyOutput("Vulnerable_guage", width="60%"),
+                  valueBoxOutput("Vulnerable", width = 12)
                 ),
                 uiOutput("vulnerable.bartext")
               )
@@ -227,32 +202,24 @@ dashboard_panel <- function() {
               value = "participation",
               title = "Participation",
               gov_row(
-                column(width = 12, br()),
+                br(),
+                p(strong("16-17 year olds March ", latest_year)),
                 column(
                   6,
-                  # p(strong("% 16-17 year olds participating in education and training")),
-                  # p("Box with % participating, comparisons and quintile chart"),
+                  plotlyOutput("Participation_guage", width="80%"),
                   valueBoxOutput("Participating", width = 12),
-                  # p(strong("Proportion participating in the three groups:")),
-                  # p("Full-time education"),
-                  # p("apprenticeships"),
-                  # p("Other education and training"),
-                  # p(strong("Proportion September Guarantee")),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                   # p("Box with Sept Guarantee, comparisons and quintile")
                   # plotlyOutput("places_chart") %>% withSpinner()
                 ),
-                column(
-                  6,
                   gov_row(
                     column(
-                      12,
+                      6,
                       p(strong(paste0("England and regional comparisons"))),
                       br()
                     )
                   )
                 )
-              )
             ),
             tabPanel(
               value = "contextual",
