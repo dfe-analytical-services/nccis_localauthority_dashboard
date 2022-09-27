@@ -291,36 +291,36 @@ server <- function(input, output, session) {
   ##Vulnerable group--------------------------------
   
   ###Guage chart--------------------
-  
-  output$Vulnerable_guage <- renderPlotly({
-    plot_ly(
-      domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(VG_NEET_NK_percentage)), 
-      number = list(suffix = "%"),
-      title = list(text = "NEET or not known", font =list(size=24)),
-      type = "indicator",
-      mode = "gauge+number",
-      gauge = list(
-        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
-        bgcolor = "white",
-        borderwidth = 1,
+  #not doing this year
+  #output$Vulnerable_guage <- renderPlotly({
+   # plot_ly(
+     # domain = list(x = c(0, 2), y = c(0, 2)),
+     # value = lineLA() %>% pull(as.numeric(VG_NEET_NK_percentage)), 
+     # number = list(suffix = "%"),
+     # title = list(text = "NEET or not known", font =list(size=24)),
+     # type = "indicator",
+      #mode = "gauge+number",
+      #gauge = list(
+      #  axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
+      #  bar = list(color = "darkblue"),
+      #  bgcolor = "white",
+       # borderwidth = 1,
         #bordercolor = "gray",
-        steps = list(
-          list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
-          list(range = c(0.9, 1.4), color = "yellowgreen"),
-          list(range = c(1.4, 2.1), color = "yellow"),
-          list(range = c(2.1, 3.2), color = "gold"),
-          list(range = c(3.2, 12.1), color = "red")
-        ),
-        threshold = list(
-          line = list(color = "black", width = 4),
-          thickness = 1,
-          value = England() %>% pull(round(as.numeric(VG_NEET_NK_percentage),1)))
-      ))
-  })
+       # steps = list(
+       #   list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
+       #   list(range = c(0.9, 1.4), color = "yellowgreen"),
+       #   list(range = c(1.4, 2.1), color = "yellow"),
+       #   list(range = c(2.1, 3.2), color = "gold"),
+        #  list(range = c(3.2, 12.1), color = "red")
+       # ),
+       # threshold = list(
+        #  line = list(color = "black", width = 4),
+        #  thickness = 1,
+       #   value = England() %>% pull(round(as.numeric(VG_NEET_NK_percentage),1)))
+      #))
+  #})
   
-  ###National,regional comparison box-------
+  ###Value box, National,regional comparison-------
   
   output$Vulnerable <- renderValueBox({
     
@@ -328,8 +328,8 @@ server <- function(input, output, session) {
     Vul_perc <- lineLA() %>%
       pull(as.numeric(VG_NEET_NK_percentage))
     
-    Vul_cohort <- lineLA() %>%
-      pull(as.numeric(VG_cohort_DJF_avg))
+    #Vul_cohort <- lineLA() %>%
+      #pull(as.numeric(VG_cohort_DJF_avg))
     
     Vul_cohort_perc <- lineLA() %>%
       pull(as.numeric(VG_cohort_percentage))
@@ -345,12 +345,102 @@ server <- function(input, output, session) {
     
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(Vul_perc, "% (Cohort: ", Vul_cohort, "(",  Vul_cohort_perc, "% of LA)"),
-      paste0("England: ", Vul_perc_Eng, "%. ", Regionname, ": ", Vul_perc_region, "%, "),
+      paste0(Vul_perc, "%"),
+      paste0("(",  Vul_cohort_perc, "% of LA in the vulnerable group). England: ", Vul_perc_Eng,
+             "%. ", Regionname, ": ", Vul_perc_region, "%. "),
       color = "blue"
     )
   })
   
+  ##EHCP
+  ###Value box, National,regional comparison-------
+  
+  output$EHCP <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    EHCP_perc <- lineLA() %>%
+      pull(as.numeric(NEET_NK_EHCP_percent))
+    
+    EHCP_cohort_perc <- lineLA() %>%
+      pull(as.numeric(cohort_EHCP_percent))
+    
+    EHCP_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_NK_EHCP_percent))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    EHCP_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(NEET_NK_EHCP_percent))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(EHCP_perc, "%"),
+      paste0("(",  EHCP_cohort_perc, "% of LA with EHCP). England: ", EHCP_perc_Eng,
+             "%. ", Regionname, ": ", EHCP_perc_region, "%. "),
+      color = "blue"
+    )
+  })
+  
+  ##SEN support
+  ###Value box, National,regional comparison-------
+  
+  output$SEN_support <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    SEN_support_perc <- lineLA() %>%
+      pull(as.numeric(NEET_NK_SENDsupport_percent))
+    
+    SEN_support_cohort_perc <- lineLA() %>%
+      pull(as.numeric(cohort_SENDsupport_percent))
+    
+    SEN_support_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_NK_SENDsupport_percent))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    SEN_support_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(NEET_NK_SENDsupport_percent))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(SEN_support_perc, "%"),
+      paste0("(",  SEN_support_cohort_perc, "% of LA with SEN support). England: ", SEN_support_perc_Eng, 
+             "%. ", Regionname, ": ", SEN_support_perc_region, "%. "),
+      color = "blue"
+    )
+  })
+  
+  ##No SEN
+  ###Value box, National,regional comparison-------
+  
+  output$No_SEN <- renderValueBox({
+    
+    # Take filtered data, search for rate, pull the value and tidy the number up
+    No_SEN_perc <- lineLA() %>%
+      pull(as.numeric(NEET_NK_noSEN_percent))
+    
+    No_SEN_cohort_perc <- lineLA() %>%
+      pull(as.numeric(cohort_noSEN_percent))
+    
+    No_SEN_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_NK_noSEN_percent))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    No_SEN_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(NEET_NK_noSEN_percent))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(No_SEN_perc, "%"),
+      paste0("(",  No_SEN_cohort_perc, "% of LA with SEN support). England: ", No_SEN_perc_Eng,
+             "%. ", Regionname, ": ", No_SEN_perc_region, "%. "),
+      color = "blue"
+    )
+  })
   
   # Participating in education and training------------------
   

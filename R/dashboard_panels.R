@@ -176,23 +176,22 @@ dashboard_panel <- function() {
               title = "Vulnerable Groups NEET",
               gov_row(
                 br(),
-                p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
+                p(strong("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)")),
                 column(
                   6,
                   p(strong("No SEND")),
-                  p("% NEET"),
+                  valueBoxOutput("No_SEN", width = 12),
                   br(),
                   p(strong("SEND (EHCP)")),
-                  p("% NEET"),
+                  valueBoxOutput("EHCP", width = 12),
                   br(),
                   p(strong(paste0("SEN support"))),
-                  p("% NEET")
-                  # plotlyOutput("places_chart") %>% withSpinner()
+                  valueBoxOutput("SEN_support", width = 12)
                 ),
                 column(
                   6,
                   p(strong(paste0("Vulnerable group"))),
-                  plotlyOutput("Vulnerable_guage", width="60%"),
+                  #plotlyOutput("Vulnerable_guage", width="60%"),
                   valueBoxOutput("Vulnerable", width = 12)
                 ),
                 uiOutput("vulnerable.bartext")
