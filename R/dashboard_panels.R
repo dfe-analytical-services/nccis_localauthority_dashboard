@@ -203,10 +203,15 @@ dashboard_panel <- function() {
               gov_row(
                 br(),
                 p(strong("16-17 year olds March ", latest_year)),
+                br(),
+                p(strong("Proportion in education and training")),
                 column(
                   6,
                   plotlyOutput("Participation_guage", width="80%"),
                   valueBoxOutput("Participating", width = 12),
+                  br(),
+                  p(strong("September Guarantee: % offered an education place")),
+                  plotlyOutput("Sept_Guar_guage", width="80%"),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                   # p("Box with Sept Guarantee, comparisons and quintile")
                   # plotlyOutput("places_chart") %>% withSpinner()
@@ -214,7 +219,7 @@ dashboard_panel <- function() {
                   gov_row(
                     column(
                       6,
-                      p(strong(paste0("England and regional comparisons"))),
+                      p(strong(paste0("Breakdown of participation plot"))),
                       br()
                     )
                   )

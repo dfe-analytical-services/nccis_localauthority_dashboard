@@ -352,7 +352,7 @@ server <- function(input, output, session) {
     )
   })
   
-  ##EHCP
+  ##EHCP--------------------------------------------
   ###Value box, National,regional comparison-------
   
   output$EHCP <- renderValueBox({
@@ -382,7 +382,7 @@ server <- function(input, output, session) {
     )
   })
   
-  ##SEN support
+  ##SEN support---------------------------------------
   ###Value box, National,regional comparison-------
   
   output$SEN_support <- renderValueBox({
@@ -412,7 +412,7 @@ server <- function(input, output, session) {
     )
   })
   
-  ##No SEN
+  ##No SEN-----------------------------------------
   ###Value box, National,regional comparison-------
   
   output$No_SEN <- renderValueBox({
@@ -453,7 +453,7 @@ server <- function(input, output, session) {
       domain = list(x = c(0, 2), y = c(0, 2)),
       value = lineLA() %>% pull(as.numeric(TOTAL_participating_in_education_and_training_percent)), 
       number = list(suffix = "%"),
-      title = list(text = "Total Participating", font =list(size=18)),
+      #title = list(text = "Total Participating", font =list(size=18)),
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
@@ -476,48 +476,116 @@ server <- function(input, output, session) {
       ))
   })
   
-  ###value box
+  ###value box--------------------------------
   output$Participating <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
     participating_perc <- lineLA() %>%
       pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
-
-    fte_percent <- lineLA() %>%
-      pull(as.numeric(Full_time_education_percent))
-
-    Apprenticeship_percent <- lineLA() %>%
-      pull(as.numeric(Apprenticeship_percent))
-
-    Other_ed_tr_percent <- lineLA() %>%
-      pull(as.numeric(Other_education_and_training_percent))
-
+    
+    participating_change <- lineLA() %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+    
+    participating_perc_Eng <- England() %>%
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+    
+    participating_change_Eng <- England() %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    participating_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+    
+    participating_change_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+    
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(participating_perc, "%"),
-      paste0(
-        "16-17 year olds participating in education and training, March ", latest_year,
-        ". Of which ", fte_percent, "% in full-time education, ",
-        Apprenticeship_percent, "% on an apprenticeship and ",
-        Other_ed_tr_percent, "% in other education and training."
-      ),
-      # icon = icon("fas fa-signal"),
+      paste0(participating_perc, "%, ", change_ed(participating_change), participating_change, " ppts"),
+      paste0("England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.",
+             Regionname, ": ", participating_perc_region, "%, ", change_ed(participating_change_region), participating_change_region, " ppts.
+              (Annual changes are since March ", last_year, ")."),
       color = "blue"
     )
   })
+    
+  ##Participating breakdown plot-----------------------
+    #fte_percent <- lineLA() %>%
+      #pull(as.numeric(Full_time_education_percent))
 
-  # September Guarantee
+    #Apprenticeship_percent <- lineLA() %>%
+      #pull(as.numeric(Apprenticeship_percent))
+
+    #Other_ed_tr_percent <- lineLA() %>%
+      #pull(as.numeric(Other_education_and_training_percent))
+
+ 
+
+  ## September Guarantee------------------------------------
+  ###Gauge chart--------------------
+  
+  output$Sept_Guar_guage <- renderPlotly({
+    plot_ly(
+      domain = list(x = c(0, 2), y = c(0, 2)),
+      value = lineLA() %>% pull(as.numeric(September_guarantee_Offer_made_percent)), 
+      number = list(suffix = "%"),
+      #title = list(text = "Total Participating", font =list(size=18)),
+      type = "indicator",
+      mode = "gauge+number",
+      gauge = list(
+        axis = list(range = list(50.8, 99.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(50.8,93.2,95.1,96.7,97.8,99.8)), #need to make this to the max % neet/nk
+        bar = list(color = "darkblue"),
+        bgcolor = "white",
+        borderwidth = 1,
+        #bordercolor = "gray",
+        steps = list(
+          list(range = c(50.8, 93.2), color = "limegreen"), #need to make these the quintile boundaries
+          list(range = c(93.2, 95.1), color = "yellowgreen"),
+          list(range = c(95.1, 96.7), color = "yellow"),
+          list(range = c(96.7, 97.8), color = "gold"),
+          list(range = c(97.8, 99.8), color = "red")
+        ),
+        threshold = list(
+          line = list(color = "black", width = 4),
+          thickness = 1,
+          value = England() %>% pull(round(as.numeric(September_guarantee_Offer_made_percent),1)))
+      ))
+  })
+  
+  
+  ###Value box-------------------------------------
   output$Sept_Guarantee <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
-    Sept_Guar_percent <- lineLA() %>%
+    Sept_Guar_perc <- lineLA() %>%
       pull(as.numeric(September_guarantee_Offer_made_percent))
 
+    Sept_Guar_change <- lineLA() %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+    
+    Sept_Guar_perc_Eng <- England() %>%
+      pull(as.numeric(September_guarantee_Offer_made_percent))
+    
+    Sept_Guar_change_Eng <- England() %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    Sept_Guar_perc_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(September_guarantee_Offer_made_percent))
+    
+    Sept_Guar_change_region <- filter(la_ud, geographic_level=="Regional", region_name==Regionname) %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+    
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(Sept_Guar_percent, "%"),
-      paste0("16-17 year olds made offer of an education place under September Guarantee ", last_year),
-      # icon = icon("fas fa-signal"),
+      paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
+      paste0("England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts.",
+             Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.
+              (Annual changes are since March ", last_year, ")."),
       color = "blue"
     )
   })
