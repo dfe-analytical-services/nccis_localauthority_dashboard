@@ -155,18 +155,18 @@ dashboard_panel <- function() {
               gov_row(
                   br(),
                   p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
-                  plotlyOutput("NEET_nk_guage",width="64%"),
+                  plotlyOutput("NEET_nk_guage",width="64%") %>% withSpinner(),
                   valueBoxOutput("NEET_nk", width = 12)
                 ),
               gov_row(
                   column(
                   6,
-                  plotlyOutput("NEET_guage",width="80%"),
+                  plotlyOutput("NEET_guage",width="80%") %>% withSpinner(),
                   valueBoxOutput("NEET", width = 12),
                   ),
                   column(
                   6,
-                  plotlyOutput("Nk_guage",width="80%"),
+                  plotlyOutput("Nk_guage",width="80%") %>% withSpinner(),
                   valueBoxOutput("Not_known", width = 12)
                     )
                   )
@@ -204,14 +204,15 @@ dashboard_panel <- function() {
                 br(),
                 p(strong("16-17 year olds March ", latest_year)),
                 br(),
-                p(strong("Proportion in education and training")),
+                p(strong("Participating in education and training")),
                 column(
                   6,
-                  plotlyOutput("Participation_guage", width="80%"),
+                  plotlyOutput("Participation_guage", width="75%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
                   br(),
+                  br(),
                   p(strong("September Guarantee: % offered an education place")),
-                  plotlyOutput("Sept_Guar_guage", width="80%"),
+                  plotlyOutput("Sept_Guar_guage", width="75%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                   # p("Box with Sept Guarantee, comparisons and quintile")
                   # plotlyOutput("places_chart") %>% withSpinner()
@@ -219,7 +220,8 @@ dashboard_panel <- function() {
                   gov_row(
                     column(
                       6,
-                      p(strong(paste0("Breakdown of participation plot"))),
+                      p(strong(paste0("Type of education or training"))),
+                      plotlyOutput("participation_types") %>% withSpinner(),
                       br()
                     )
                   )

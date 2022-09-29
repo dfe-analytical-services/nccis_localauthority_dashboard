@@ -27,7 +27,13 @@ server <- function(input, output, session) {
   hide(id = "loading-content", anim = TRUE, animType = "fade")
   show("app-content")
 
+  # Define font family for charts
+  font_choice <- list(
+    family = "Arial",
+    size = 14
+  )
   
+  #Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
   })
@@ -36,6 +42,68 @@ server <- function(input, output, session) {
     la_ud %>% filter(geographic_level == "National")
   })
   
+  #Participation type data
+  
+  # reshape the data so it plots neatly!
+  participation_data_fte <- la_ud %>%
+    # select only participation types
+    select(geographic_level, region_name,la_name,Full_time_education_percent) %>%
+    # Put England and region name into LA name
+    mutate(la_name = case_when(
+      geographic_level=="National" ~ "England",
+      geographic_level=="Regional" ~ region_name,
+      TRUE ~ la_name
+    ),participation_type="FTE")
+  
+  colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
+  
+  participation_data_fte <- participation_data_fte %>%
+    select(la_name,participation_type, value)
+  
+  participation_data_app <- la_ud %>%
+    # select only participation types
+    select(geographic_level, region_name,la_name,Apprenticeship_percent) %>%
+    # Put England and region name into LA name
+    mutate(la_name = case_when(
+      geographic_level=="National" ~ "England",
+      geographic_level=="Regional" ~ region_name,
+      TRUE ~ la_name
+    ),participation_type="Apprenticeship")
+  
+  colnames(participation_data_app)[colnames(participation_data_app) == "Apprenticeship_percent"] <- "value"
+  
+  participation_data_app <- participation_data_app %>%
+    select(la_name,participation_type, value)
+  
+  participation_data_other <- la_ud %>%
+    # select only participation types
+    select(geographic_level, region_name,la_name,Other_education_and_training_percent) %>%
+    # Put England and region name into LA name
+    mutate(la_name = case_when(
+      geographic_level=="National" ~ "England",
+      geographic_level=="Regional" ~ region_name,
+      TRUE ~ la_name
+    ),participation_type="Other")
+  
+  colnames(participation_data_other)[colnames(participation_data_other) == "Other_education_and_training_percent"] <- "value"
+  
+  participation_data_other <- participation_data_other %>%
+    select(la_name,participation_type, value)
+  
+  #pull the types together into one file
+  participation_data <- bind_rows(participation_data_fte,participation_data_app,participation_data_other) 
+  
+  participation_data <-  participation_data %>%
+    mutate(value =as.numeric(value))
+  
+  
+  partLA <- reactive({
+    participation_data %>% filter(la_name == input$LA_choice)
+  })
+  
+  partEng <- reactive({
+    participation_data %>% filter(la_name == "England")
+  })
   
   # Simple server stuff goes here ------------------------------------------------------------
 
@@ -453,7 +521,7 @@ server <- function(input, output, session) {
       domain = list(x = c(0, 2), y = c(0, 2)),
       value = lineLA() %>% pull(as.numeric(TOTAL_participating_in_education_and_training_percent)), 
       number = list(suffix = "%"),
-      #title = list(text = "Total Participating", font =list(size=18)),
+      #title = list(text = "Participating in education and training", font =list(size=18)),
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
@@ -463,11 +531,11 @@ server <- function(input, output, session) {
         borderwidth = 1,
         #bordercolor = "gray",
         steps = list(
-          list(range = c(87.4, 91.6), color = "limegreen"), #need to make these the quintile boundaries
-          list(range = c(91.6, 92.7), color = "yellowgreen"),
+          list(range = c(87.4, 91.6), color = "red"), #need to make these the quintile boundaries
+          list(range = c(91.6, 92.7), color = "gold"),
           list(range = c(92.7, 93.9), color = "yellow"),
-          list(range = c(93.9, 95.5), color = "gold"),
-          list(range = c(95.5, 98.5), color = "red")
+          list(range = c(93.9, 95.5), color = "yellowgreen"),
+          list(range = c(95.5, 98.5), color = "limegreen")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
@@ -511,18 +579,56 @@ server <- function(input, output, session) {
     )
   })
     
-  ##Participating breakdown plot-----------------------
-    #fte_percent <- lineLA() %>%
-      #pull(as.numeric(Full_time_education_percent))
+  ##Participation type breakdown plot----------------------------
+  # Stacked bar instead of pie here for preference?
+  # Easier for users to interpret
 
-    #Apprenticeship_percent <- lineLA() %>%
-      #pull(as.numeric(Apprenticeship_percent))
-
-    #Other_ed_tr_percent <- lineLA() %>%
-      #pull(as.numeric(Other_education_and_training_percent))
-
- 
-
+  ##from LA place scorecard code    
+    output$participation_types <- renderPlotly({
+      
+          participation_types <- bind_rows(partLA(), partEng()) %>%
+        ggplot(aes(
+          y = value, x = "",
+          fill = participation_type,
+          text = paste(participation_type, ": ", value, "%")
+        )) +
+        geom_bar(stat= "identity", position =position_fill(reverse = TRUE)) +
+        coord_flip() +
+        facet_wrap(~la_name, nrow = 2) +
+        #geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
+        labs(x = "", y = "") +
+        guides(fill = guide_legend(title = "")) +
+        scale_fill_manual(values = c("#08519c", "#3182bd", "#6baed6")) +
+        scale_y_continuous(labels = scales::percent) +
+        theme_minimal() +
+        #labs(x="", y="Percent", title="Type of education and training") +
+        theme(
+          legend.position = "top",
+          text = element_text(size = 14, family = "Arial"),
+          strip.text.x = element_text(size = 20)
+        )
+      
+      
+      ggplotly(participation_types,
+               tooltip = c("text")
+      ) %>%
+        layout(
+          uniformtext = list(minsize = 12, mode = "hide"),
+          #xaxis = list(showticklabels = FALSE),
+          legend = list(
+            orientation = "h",
+            y = -0.1, x = 0.33,
+            font = font_choice
+          ),
+          title = list(
+            text = "Type of education or training",
+            font = list(color = "#ffffff")
+          )
+        ) %>%
+        config(displayModeBar = FALSE)
+    })
+    
+    
   ## September Guarantee------------------------------------
   ###Gauge chart--------------------
   
@@ -531,7 +637,7 @@ server <- function(input, output, session) {
       domain = list(x = c(0, 2), y = c(0, 2)),
       value = lineLA() %>% pull(as.numeric(September_guarantee_Offer_made_percent)), 
       number = list(suffix = "%"),
-      #title = list(text = "Total Participating", font =list(size=18)),
+      #title = list(text = "September Guarantee: % offered an education place", font =list(size=18)),
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
@@ -541,11 +647,11 @@ server <- function(input, output, session) {
         borderwidth = 1,
         #bordercolor = "gray",
         steps = list(
-          list(range = c(50.8, 93.2), color = "limegreen"), #need to make these the quintile boundaries
-          list(range = c(93.2, 95.1), color = "yellowgreen"),
+          list(range = c(50.8, 93.2), color = "red"), #need to make these the quintile boundaries
+          list(range = c(93.2, 95.1), color = "gold"),
           list(range = c(95.1, 96.7), color = "yellow"),
-          list(range = c(96.7, 97.8), color = "gold"),
-          list(range = c(97.8, 99.8), color = "red")
+          list(range = c(96.7, 97.8), color = "yellowgreen"),
+          list(range = c(97.8, 99.8), color = "limegreen")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
