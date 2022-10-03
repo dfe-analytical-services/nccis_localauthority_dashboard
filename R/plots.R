@@ -11,7 +11,9 @@ fig <- fig %>% add_trace(
   mode = "gauge+number",
   gauge = list(
     axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue",
-                tickvals=list(1.4,3.6,4.5,5.4,6.7,13.8)), #need to make this to the max % neet/nk
+                tickvals=list(1.4,3.6,4.5,5.4,6.7,13.8,valueEng),
+                ticktext=list(1.4,3.6,4.5,5.4,'6.7',13.8,'ENG'),
+                tickfont=list(size=15)), #need to make this to the max % neet/nk
     bar = list(color='rgba(0,0,0,0)'),
     bgcolor = "white",
     borderwidth = 1,
