@@ -66,7 +66,7 @@ LA_options <- sort(unique(LA_names$la_name)) %>%
 
 # Reducing white space around plots
 
-par(mar = c(4, 4, 0.1, 0.1))   
+par(mar = c(4, 4, 0.1, 0.1)) #doesn't seem to make a difference  
 
 # Functions ---------------------------------------------------------------------------------
 

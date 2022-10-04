@@ -42,6 +42,7 @@ server <- function(input, output, session) {
     la_ud %>% filter(geographic_level == "National")
   })
   
+  
   #Participation type data
   
   # reshape the data so it plots neatly!
@@ -104,6 +105,10 @@ server <- function(input, output, session) {
   partEng <- reactive({
     participation_data %>% filter(la_name == "England")
   })
+  
+  #partRegion <- reactive({
+   # participation_data %>% filter(la_name == Regionname)
+ # })
   
   # Simple server stuff goes here ------------------------------------------------------------
 
@@ -586,7 +591,12 @@ server <- function(input, output, session) {
   ##from LA place scorecard code    
     output$participation_types <- renderPlotly({
       
-          participation_types <- bind_rows(partLA(), partEng()) %>%
+      Regionname <- lineLA() %>%
+        pull(region_name)
+      
+      partRegion <- participation_data %>% filter(la_name == Regionname)
+      
+      participation_types <- bind_rows(partLA(), partRegion, partEng()) %>%
         ggplot(aes(
           y = value, x = "",
           fill = participation_type,
@@ -594,7 +604,7 @@ server <- function(input, output, session) {
         )) +
         geom_bar(stat= "identity", position =position_fill(reverse = TRUE)) +
         coord_flip() +
-        facet_wrap(~la_name, nrow = 2) +
+        facet_wrap(~la_name, nrow = 3) +
         #geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
         labs(x = "", y = "") +
         guides(fill = guide_legend(title = "")) +
