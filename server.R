@@ -602,20 +602,24 @@ server <- function(input, output, session) {
           fill = participation_type,
           text = paste(participation_type, ": ", value, "%")
         )) +
-        geom_bar(stat= "identity", position =position_fill(reverse = TRUE)) +
+        geom_bar(stat= "identity", na.rm=TRUE) +
+        #position =position_fill(reverse = TRUE)
         coord_flip() +
         facet_wrap(~la_name, nrow = 3) +
         #geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
         labs(x = "", y = "") +
         guides(fill = guide_legend(title = "")) +
-        scale_fill_manual(values = c("#08519c", "#3182bd", "#6baed6")) +
-        scale_y_continuous(labels = scales::percent) +
+        scale_fill_manual(values = c("#FFB90F", "#3182bd", "#8B8878")) +
+        scale_y_continuous(limits=c(0,100)) +
         theme_minimal() +
-        #labs(x="", y="Percent", title="Type of education and training") +
+        labs(x="", y="%") +
         theme(
           legend.position = "top",
           text = element_text(size = 14, family = "Arial"),
-          strip.text.x = element_text(size = 20)
+          strip.text.x = element_text(size = 16),
+          plot.background = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()
         )
       
       
@@ -627,7 +631,7 @@ server <- function(input, output, session) {
           #xaxis = list(showticklabels = FALSE),
           legend = list(
             orientation = "h",
-            y = -0.1, x = 0.33,
+            y = -0.3, x = 0.33,
             font = font_choice
           ),
           title = list(
