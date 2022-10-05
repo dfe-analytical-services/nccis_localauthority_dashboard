@@ -229,18 +229,26 @@ dashboard_panel <- function() {
             ),
             tabPanel(
               value = "contextual",
-              title = "Contextual info - outcomes and attendance",
+              title = "Contextual - attainment and attendance",
               gov_row(
                 column(width = 12, br()),
                 column(
                   6,
-                  p(strong("Outcomes")),
-                  valueBoxOutput("level3", width = 12),
-                  valueBoxOutput("GCSE", width = 12),
+                  p(strong("Post 16 attainment")),
+                  p(strong("% 19 year olds achieving level 3")),
+                  plotlyOutput("level3_plot") %>% withSpinner(),
+                  br(),
+                  p(strong("% 19 year olds achieving GCSE 9-4 standard pass in 
+                  English and maths (or equivalent) between ages 16 and 19, 
+                  for those who had not achieved this level by 16")),		
+                  plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                  br(),
                   p(strong("School attendance")),
-                  valueBoxOutput("Overall_abs", width = 12),
-                  valueBoxOutput("Persistent_abs", width = 12)
-                  # plotlyOutput("places_chart") %>% withSpinner()
+                  p(strong("Overall absence (% of sessions)")),
+                  plotlyOutput("overall_abs_plot")%>% withSpinner(),
+                  br(),
+                  p(strong("Persistent absentees (% of pupils)")),
+                  plotlyOutput("Persistent_abs_plot") %>% withSpinner()
                 ),
                 column(
                   6,
@@ -248,8 +256,11 @@ dashboard_panel <- function() {
                     column(
                       12,
                       p(strong(paste0("GCSE attainment"))),
-                      p("Average attainment 8 score per pupil"),
-                      p("9-4 standard pass in English and maths GCSEs"),
+                      p(strong("Average attainment 8 score per pupil")),
+                      plotlyOutput("Attainment8_plot") %>% withSpinner(),
+                      br(),
+                      p(strong("9-4 standard pass in English and maths GCSEs")),
+                      plotlyOutput("EM_pass_plot") %>% withSpinner(),
                       br(),
                       p(strong(paste0("16-17 LA population"))),
                       p("ONS estimate"),
