@@ -73,7 +73,9 @@ homepage_panel <- function() {
                 br("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual information"),
-                br("This section covers outcomes, GCSE attainment and school attendance of young people living in each area."),
+                br("This section covers ",a(href="https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes, "), 
+                   a(href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21","GCSE attainment")," and ",
+                   a(href="https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england","school attendance")," of young people living in each area."),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
                 br("Young people who have poor attendance or who are excluded from schools are at greater risk of becoming NEET."),
@@ -122,7 +124,7 @@ dashboard_panel <- function() {
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
-                  selected = "Barking and Dagenham"
+                  selected = "ToyTown"
                 ),
                 p("Switch between different indicators using the tabs below.")
               ),
