@@ -630,7 +630,7 @@ server <- function(input, output, session) {
         #geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
         labs(x = "", y = "") +
         guides(fill = guide_legend(title = "")) +
-        scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+        scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
         scale_y_continuous(limits=c(0,100)) +
         theme_minimal() +
         labs(x="", y="%") +
@@ -752,7 +752,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="%") +
@@ -792,7 +792,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="%") +
@@ -833,7 +833,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="%") +
@@ -873,7 +873,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="%") +
@@ -913,7 +913,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="Score") +
@@ -953,7 +953,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
       labs(x="", y="%") +
