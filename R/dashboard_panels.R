@@ -5,7 +5,7 @@ homepage_panel <- function() {
       gov_row(
         column(
           12,
-          h1("NEET and not known scorecard"),
+          h1("NEET and participation LA scorecard"),
           h2("Introduction"),
           p("The Department for Education (DfE) publishes an estimate each year
                 of the proportion of young people not in education, employment or
@@ -180,19 +180,23 @@ dashboard_panel <- function() {
                 column(
                   6,
                   p(strong("No SEND")),
-                  valueBoxOutput("No_SEN", width = 12),
+                  plotlyOutput("No_SEN_plot") %>% withSpinner(),
+                  #valueBoxOutput("No_SEN", width = 12),
                   br(),
                   p(strong("SEND (EHCP)")),
-                  valueBoxOutput("EHCP", width = 12),
+                  plotlyOutput("EHCP_plot") %>% withSpinner(),
+                  #valueBoxOutput("EHCP", width = 12),
                   br(),
                   p(strong(paste0("SEN support"))),
-                  valueBoxOutput("SEN_support", width = 12)
+                  plotlyOutput("SEN_support_plot") %>% withSpinner()
+                  #valueBoxOutput("SEN_support", width = 12)
                 ),
                 column(
                   6,
                   p(strong(paste0("Vulnerable group"))),
                   #plotlyOutput("Vulnerable_guage", width="60%"),
-                  valueBoxOutput("Vulnerable", width = 12)
+                  #valueBoxOutput("Vulnerable", width = 12)
+                  plotlyOutput("vulnerable_plot") %>% withSpinner()
                 ),
                 uiOutput("vulnerable.bartext")
               )
