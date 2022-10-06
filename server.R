@@ -560,11 +560,11 @@ server <- function(input, output, session) {
         borderwidth = 1,
         #bordercolor = "gray",
         steps = list(
-          list(range = c(87.4, 91.6), color = "F46A25"), #need to make these the quintile boundaries
-          list(range = c(91.6, 92.7), color = "#A285D1"),
-          list(range = c(92.7, 93.9), color = "#801650"),
-          list(range = c(93.9, 95.5), color = "#28A197"),
-          list(range = c(95.5, 98.5), color = "#12436D")
+          list(range = c(87.4, 91.6), color = "f03b20"), #need to make these the quintile boundaries
+          list(range = c(91.6, 92.7), color = "#feb24c"),
+          list(range = c(92.7, 93.9), color = "#ffffb2"),
+          list(range = c(93.9, 95.5), color = "#addd8e"),
+          list(range = c(95.5, 98.5), color = "#31a354")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
@@ -682,11 +682,11 @@ server <- function(input, output, session) {
         borderwidth = 1,
         #bordercolor = "gray",
         steps = list(
-          list(range = c(50.8, 93.2), color = "#F46A25"), #need to make these the quintile boundaries
-          list(range = c(93.2, 95.1), color = "#A285D1"),
-          list(range = c(95.1, 96.7), color = "#801650"),
-          list(range = c(96.7, 97.8), color = "#28A197"),
-          list(range = c(97.8, 99.8), color = "#12436D")
+          list(range = c(50.8, 93.2), color = "f03b20"), #need to make these the quintile boundaries
+          list(range = c(93.2, 95.1), color = "#feb24c"),
+          list(range = c(95.1, 96.7), color = "#ffffb2"),
+          list(range = c(96.7, 97.8), color = "#addd8e"),
+          list(range = c(97.8, 99.8), color = "#31a354")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
@@ -724,7 +724,7 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
-      paste0("England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts.",
+      paste0("England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ",
              Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.
               (Annual changes are since March ", last_year, ")."),
       color = "blue"
@@ -916,7 +916,7 @@ server <- function(input, output, session) {
       scale_fill_manual(values = c("#12436D", "#28A197", "#801650")) +
       scale_y_continuous(limits=c(0,100)) +
       theme_minimal() +
-      labs(x="", y="%") +
+      labs(x="", y="Score") +
       theme(
         legend.position = "none",
         text = element_text(size = 14, family = "Arial"),
@@ -976,12 +976,33 @@ server <- function(input, output, session) {
   ##Population-----------------------------------------------------------
   ###ONS-----------------------------------------------------------------
   
-  #output$ONS_pop <- lineLA() %>%
-    #pull(as.numeric(Age1617_ONS_population))
+  output$ONS_pop <- renderValueBox({
+    
+    ONS_population <- lineLA() %>%
+    pull(as.numeric(Age1617_ONS_population))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(ONS_population),
+      paste0("ONS estimate"),
+      color = "blue"
+    )
+  })
   
   ###NCCIS---------------------------------------------------------------
-  #output$NCCIS_pop <- lineLA() %>%
-   # pull(as.numeric(Cohort_DJFavg))
+  
+  output$NCCIS_pop <- renderValueBox({
+    
+    NCCIS_population <- lineLA() %>%
+      pull(as.numeric(Cohort_DJFavg))
+    
+    # Put value into box to plug into app
+    shinydashboard::valueBox(
+      paste0(NCCIS_population),
+      paste0("Recorded on CCIS"),
+      color = "blue"
+    )
+  })
   
   
   #Files for download ------------------------------------------------------

@@ -235,38 +235,50 @@ dashboard_panel <- function() {
                 column(
                   6,
                   p(strong("Post 16 attainment")),
+                  br(),
                   p(strong("% 19 year olds achieving level 3")),
                   plotlyOutput("level3_plot") %>% withSpinner(),
                   br(),
-                  p(strong("% 19 year olds achieving GCSE 9-4 standard pass in 
-                  English and maths (or equivalent) between ages 16 and 19, 
-                  for those who had not achieved this level by 16")),		
-                  plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                  br(),
+                  p(strong(paste0("GCSE attainment"))),
+                  p(strong("Average attainment 8 score per pupil")),
+                  plotlyOutput("Attainment8_plot") %>% withSpinner(),
+                  br(),
                   br(),
                   p(strong("School attendance")),
                   p(strong("Overall absence (% of sessions)")),
                   plotlyOutput("overall_abs_plot")%>% withSpinner(),
                   br(),
-                  p(strong("Persistent absentees (% of pupils)")),
-                  plotlyOutput("Persistent_abs_plot") %>% withSpinner()
+                  br(),
+                  p(strong(paste0("16-17 LA population"))),
+                  #p("ONS estimate"),
+                  valueBoxOutput("ONS_pop", width = 12)
                 ),
                 column(
                   6,
                   gov_row(
                     column(
                       12,
-                      p(strong(paste0("GCSE attainment"))),
-                      p(strong("Average attainment 8 score per pupil")),
-                      plotlyOutput("Attainment8_plot") %>% withSpinner(),
                       br(),
-                      p(strong("9-4 standard pass in English and maths GCSEs")),
+                      p(strong("% 19 year olds achieving GCSE 9-4 standard pass in 
+                      English and maths (or equivalent) between ages 16 and 19, 
+                      for those who had not achieved this level by 16")),		
+                      plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                      br(),
+                      br(),
+                      br(),
+                      p(strong("% 9-4 standard pass in English and maths GCSEs")),
                       plotlyOutput("EM_pass_plot") %>% withSpinner(),
                       br(),
-                      p(strong(paste0("16-17 LA population"))),
-                      p("ONS estimate"),
-                      p("Recorded on CCIS")
-                      # valueBoxOutput("estimated_additional_places", width = 6),
-                      # valueBoxOutput("estimated_spare_places", width = 6)
+                      br(),
+                      br(),
+                      br(),
+                      p(strong("Persistent absentees (% of pupils)")),
+                      plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                      br(),
+                      br(),
+                      br(),
+                      valueBoxOutput("NCCIS_pop", width = 12)
                     )
                   )
                 ),
