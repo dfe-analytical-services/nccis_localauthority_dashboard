@@ -26,8 +26,8 @@ gauge_plot <- function(value, valueEng, valueRegion,
       borderwidth = 1,
       # bordercolor = "gray",
       steps = list(
-        list(range = intervals[1:2], color = "#dbffdb"), # need to make these the quintile boundaries
-        list(range = intervals[2:3], color = "#d5e2be"),
+        list(range = intervals[1:2], color = "#cedbcb"), # need to make these the quintile boundaries
+        list(range = intervals[2:3], color = "#cdd0b7"),
         list(range = intervals[3:4], color = "#ccbf9b"),
         list(range = intervals[4:5], color = "#bb906f"),
         list(range = intervals[5:6], color = "#8c301b"),
