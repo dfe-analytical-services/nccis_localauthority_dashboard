@@ -64,7 +64,7 @@ LA_options <- sort(unique(LA_names$la_name)) %>%
 
 # Reducing white space around plots
 
-par(mar = c(4, 4, 0.1, 0.1))
+par(mar = c(4, 4, 0.1, 0.1)) #doesn't seem to make a difference  
 
 # Functions ---------------------------------------------------------------------------------
 
@@ -93,6 +93,16 @@ tidy_code_function <- function() {
   test_scripts <- eval(styler::style_dir("tests/", filetype = "r")$changed)
   script_changes <- c(app_scripts, test_scripts)
   return(script_changes)
+}
+
+
+#Conditional colour function for annual changes----------------------------------------------------
+cond_color <- function(condition, true_color = "green") {
+  if (is.na(condition)) {
+    return("black")
+  }
+  colours <- c("green", "#e00000")
+  return(ifelse(condition, true_color, colours[!colours == true_color]))
 }
 
 # Source scripts ---------------------------------------------------------------------------------

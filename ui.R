@@ -75,7 +75,7 @@ ui <- function(input, output, session) {
     shinyGovstyle::header(
       main_text = "DfE",
       main_link = "https://www.gov.uk/government/organisations/department-for-education",
-      secondary_text = "NEET Scorecard",
+      secondary_text = "NEET and participation LA scorecard",
       logo = "images/DfE_logo.png"
     ),
     shinyGovstyle::banner(

@@ -5,7 +5,7 @@ homepage_panel <- function() {
       gov_row(
         column(
           12,
-          h1("NEET and not known scorecard"),
+          h1("NEET and participation LA scorecard"),
           h2("Introduction"),
           p("The Department for Education (DfE) publishes an estimate each year
                 of the proportion of young people not in education, employment or
@@ -73,7 +73,9 @@ homepage_panel <- function() {
                 br("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual information"),
-                br("This section covers outcomes, GCSE attainment and school attendance of young people living in each area."),
+                br("This section covers ",a(href="https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes, "), 
+                   a(href="https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21","GCSE attainment")," and ",
+                   a(href="https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england","school attendance")," of young people living in each area."),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
                 br("Young people who have poor attendance or who are excluded from schools are at greater risk of becoming NEET."),
@@ -122,7 +124,7 @@ dashboard_panel <- function() {
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
-                  selected = "Barking and Dagenham"
+                  selected = "ToyTown"
                 ),
                 p("Switch between different indicators using the tabs below.")
               ),
@@ -187,19 +189,23 @@ dashboard_panel <- function() {
                 column(
                   6,
                   p(strong("No SEND")),
-                  valueBoxOutput("No_SEN", width = 12),
+                  plotlyOutput("No_SEN_plot") %>% withSpinner(),
+                  #valueBoxOutput("No_SEN", width = 12),
                   br(),
                   p(strong("SEND (EHCP)")),
-                  valueBoxOutput("EHCP", width = 12),
+                  plotlyOutput("EHCP_plot") %>% withSpinner(),
+                  #valueBoxOutput("EHCP", width = 12),
                   br(),
                   p(strong(paste0("SEN support"))),
-                  valueBoxOutput("SEN_support", width = 12)
+                  plotlyOutput("SEN_support_plot") %>% withSpinner()
+                  #valueBoxOutput("SEN_support", width = 12)
                 ),
                 column(
                   6,
                   p(strong(paste0("Vulnerable group"))),
-                  # plotlyOutput("Vulnerable_guage", width="60%"),
-                  valueBoxOutput("Vulnerable", width = 12)
+                  #plotlyOutput("Vulnerable_guage", width="60%"),
+                  #valueBoxOutput("Vulnerable", width = 12)
+                  plotlyOutput("vulnerable_plot") %>% withSpinner()
                 ),
                 uiOutput("vulnerable.bartext")
               )
@@ -236,33 +242,56 @@ dashboard_panel <- function() {
             ),
             tabPanel(
               value = "contextual",
-              title = "Contextual info - outcomes and attendance",
+              title = "Contextual - attainment and attendance",
               gov_row(
                 column(width = 12, br()),
                 column(
                   6,
-                  p(strong("Outcomes")),
-                  valueBoxOutput("level3", width = 12),
-                  valueBoxOutput("GCSE", width = 12),
+                  p(strong("Post 16 attainment")),
+                  br(),
+                  p(strong("% 19 year olds achieving level 3")),
+                  plotlyOutput("level3_plot") %>% withSpinner(),
+                  br(),
+                  br(),
+                  p(strong(paste0("GCSE attainment"))),
+                  p(strong("Average attainment 8 score per pupil")),
+                  plotlyOutput("Attainment8_plot") %>% withSpinner(),
+                  br(),
+                  br(),
                   p(strong("School attendance")),
-                  valueBoxOutput("Overall_abs", width = 12),
-                  valueBoxOutput("Persistent_abs", width = 12)
-                  # plotlyOutput("places_chart") %>% withSpinner()
+                  p(strong("Overall absence (% of sessions)")),
+                  plotlyOutput("overall_abs_plot")%>% withSpinner(),
+                  br(),
+                  br(),
+                  p(strong(paste0("16-17 LA population"))),
+                  #p("ONS estimate"),
+                  valueBoxOutput("ONS_pop", width = 12)
                 ),
                 column(
                   6,
                   gov_row(
                     column(
                       12,
-                      p(strong(paste0("GCSE attainment"))),
-                      p("Average attainment 8 score per pupil"),
-                      p("9-4 standard pass in English and maths GCSEs"),
                       br(),
-                      p(strong(paste0("16-17 LA population"))),
-                      p("ONS estimate"),
-                      p("Recorded on CCIS")
-                      # valueBoxOutput("estimated_additional_places", width = 6),
-                      # valueBoxOutput("estimated_spare_places", width = 6)
+                      p(strong("% 19 year olds achieving GCSE 9-4 standard pass in 
+                      English and maths (or equivalent) between ages 16 and 19, 
+                      for those who had not achieved this level by 16")),		
+                      plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                      br(),
+                      br(),
+                      br(),
+                      p(strong("% 9-4 standard pass in English and maths GCSEs")),
+                      plotlyOutput("EM_pass_plot") %>% withSpinner(),
+                      br(),
+                      br(),
+                      br(),
+                      br(),
+                      p(strong("Persistent absentees (% of pupils)")),
+                      plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                      br(),
+                      br(),
+                      br(),
+                      valueBoxOutput("NCCIS_pop", width = 12)
                     )
                   )
                 ),

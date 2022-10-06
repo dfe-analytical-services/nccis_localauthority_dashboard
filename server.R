@@ -41,9 +41,10 @@ server <- function(input, output, session) {
   England <- reactive({
     la_ud %>% filter(geographic_level == "National")
   })
-
-  # Participation type data
-
+  
+  #Reshaping data for plots-----------------------------------------
+  ##Participation type data-----------------------------------------
+  
   # reshape the data so it plots neatly!
   participation_data_fte <- la_ud %>%
     # select only participation types
@@ -104,7 +105,64 @@ server <- function(input, output, session) {
   partEng <- reactive({
     participation_data %>% filter(la_name == "England")
   })
+  
+  ##Vulnerable groups data---------------------------------------------
+  # reshape the data so it plots neatly!
+  vulnerable_data <- la_ud %>%
+    # select only contextual info
+    select(geographic_level, region_name,la_name,NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
+    # Put England and region name into LA name
+    mutate(la_name = case_when(
+      geographic_level=="National" ~ "England",
+      geographic_level=="Regional" ~ region_name,
+      TRUE ~ la_name
+    ))
+  
+  
+  vulnerable_data <- vulnerable_data %>%
+    select(la_name,NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage)
+  
+  vulnerable_data <-  vulnerable_data %>%
+    mutate(NEET_NK_noSEN_percent =as.numeric(NEET_NK_noSEN_percent), NEET_NK_EHCP_percent=as.numeric(NEET_NK_EHCP_percent), NEET_NK_SENDsupport_percent=as.numeric(NEET_NK_SENDsupport_percent),
+           VG_NEET_NK_percentage=as.numeric(VG_NEET_NK_percentage))
+  
+  vulnerableLA <- reactive({
+    vulnerable_data %>% filter(la_name == input$LA_choice)
+  })
+  
+  vulnerableEng <- reactive({
+    vulnerable_data %>% filter(la_name == "England")
+  })
 
+  
+  ##Contextual data---------------------------------------------
+  # reshape the data so it plots neatly!
+  contextual_data <- la_ud %>%
+    # select only contextual info
+    select(geographic_level, region_name,la_name,Level_3,L2_em_GCSE_othL2,avg_att8,pt_l2basics_94,sess_overall_percent,sess_overall_percent_pa_10_exact) %>%
+    # Put England and region name into LA name
+    mutate(la_name = case_when(
+      geographic_level=="National" ~ "England",
+      geographic_level=="Regional" ~ region_name,
+      TRUE ~ la_name
+    ))
+  
+  
+  contextual_data <- contextual_data %>%
+    select(la_name,Level_3,L2_em_GCSE_othL2,avg_att8,pt_l2basics_94,sess_overall_percent,sess_overall_percent_pa_10_exact)
+
+  contextual_data <-  contextual_data %>%
+    mutate(Level_3 =as.numeric(Level_3), L2_em_GCSE_othL2=as.numeric(L2_em_GCSE_othL2),avg_att8=as.numeric(avg_att8),
+           pt_l2basics_94=as.numeric(pt_l2basics_94), sess_overall_percent=as.numeric(sess_overall_percent),sess_overall_percent_pa_10_exact=as.numeric(sess_overall_percent_pa_10_exact))
+  
+  contextLA <- reactive({
+    contextual_data %>% filter(la_name == input$LA_choice)
+  })
+  
+  contextEng <- reactive({
+    contextual_data %>% filter(la_name == "England")
+  })
+  
   # Simple server stuff goes here ------------------------------------------------------------
 
 
@@ -153,11 +211,32 @@ server <- function(input, output, session) {
   ### Guage chart-----------------------
 
   output$NEET_nk_guage <- renderPlotly({
-    gauge_plot(
-      as.numeric(lineLA()$NEET_not_known_percent),
-      round(as.numeric(England()$NEET_not_known_percent), 1),
-      4.6
-    )
+    plot_ly(
+    domain = list(x = c(0, 2), y = c(0, 2)),
+    value = lineLA() %>% pull(as.numeric(NEET_not_known_percent)), 
+    number = list(suffix = "%"),
+    title = list(text = "NEET or not known", font =list(size=24)),
+    type = "indicator",
+    mode = "gauge+number",
+    gauge = list(
+      axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(1.4,3.6,4.5,5.4,6.7,13.8)), #need to make this to the max % neet/nk
+      bar = list(color = "darkblue"),
+      bgcolor = "white",
+      borderwidth = 1,
+      #bordercolor = "gray",
+      steps = list(
+        list(range = c(1.4, 3.6), color = "limegreen"), #need to make these the quintile boundaries
+        list(range = c(3.6, 4.5), color = "yellowgreen"),
+        list(range = c(4.5, 5.4), color = "yellow"),
+        list(range = c(5.4, 6.7), color = "gold"),
+        list(range = c(6.7, 13.8), color = "red")
+        ),
+      threshold = list(
+        line = list(color = "black", width = 4),
+        displayvalue = "England",
+        thickness = 1,
+        value = England() %>% pull(round(as.numeric(NEET_not_known_percent),1)))
+    ))
   })
 
   ### Annual change and national,regional comparison box-------
@@ -303,42 +382,12 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
-  # Vulnerable groups NEET tab---------------------------------
-  ## Vulnerable group--------------------------------
-
-  ### Guage chart--------------------
-  # not doing this year
-  # output$Vulnerable_guage <- renderPlotly({
-  # plot_ly(
-  # domain = list(x = c(0, 2), y = c(0, 2)),
-  # value = lineLA() %>% pull(as.numeric(VG_NEET_NK_percentage)),
-  # number = list(suffix = "%"),
-  # title = list(text = "NEET or not known", font =list(size=24)),
-  # type = "indicator",
-  # mode = "gauge+number",
-  # gauge = list(
-  #  axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
-  #  bar = list(color = "darkblue"),
-  #  bgcolor = "white",
-  # borderwidth = 1,
-  # bordercolor = "gray",
-  # steps = list(
-  #   list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
-  #   list(range = c(0.9, 1.4), color = "yellowgreen"),
-  #   list(range = c(1.4, 2.1), color = "yellow"),
-  #   list(range = c(2.1, 3.2), color = "gold"),
-  #  list(range = c(3.2, 12.1), color = "red")
-  # ),
-  # threshold = list(
-  #  line = list(color = "black", width = 4),
-  #  thickness = 1,
-  #   value = England() %>% pull(round(as.numeric(VG_NEET_NK_percentage),1)))
-  # ))
-  # })
-
-  ### Value box, National,regional comparison-------
-
+  
+  #Vulnerable groups NEET tab---------------------------------
+  ##Vulnerable group--------------------------------
+  
+   ###Value box, National,regional comparison-------
+  
   output$Vulnerable <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -370,10 +419,51 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
-  ## EHCP--------------------------------------------
-  ### Value box, National,regional comparison-------
-
+  
+  ###Plot vulnerable group------------------------------
+  
+  output$vulnerable_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
+    
+    vulnerable <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+      ggplot(aes(
+        y = VG_NEET_NK_percentage, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", VG_NEET_NK_percentage, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(vulnerable,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  
+  ##EHCP--------------------------------------------
+  ###Value box, National,regional comparison-------
+  
   output$EHCP <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -402,10 +492,50 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
-  ## SEN support---------------------------------------
-  ### Value box, National,regional comparison-------
-
+  
+  ###Plot EHCP------------------------------
+  
+  output$EHCP_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
+    
+    EHCP <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+      ggplot(aes(
+        y = NEET_NK_EHCP_percent, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", NEET_NK_EHCP_percent, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(EHCP,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  ##SEN support---------------------------------------
+  ###Value box, National,regional comparison-------
+  
   output$SEN_support <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -434,10 +564,51 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
-  ## No SEN-----------------------------------------
-  ### Value box, National,regional comparison-------
-
+  
+  ###Plot SEN support------------------------------
+  
+  output$SEN_support_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
+    
+    SEN_support <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+      ggplot(aes(
+        y = NEET_NK_SENDsupport_percent, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", NEET_NK_SENDsupport_percent, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(SEN_support,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  
+  ##No SEN-----------------------------------------
+  ###Value box, National,regional comparison-------
+  
   output$No_SEN <- renderValueBox({
 
     # Take filtered data, search for rate, pull the value and tidy the number up
@@ -466,7 +637,48 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
+  
+  ###Plot no SEN------------------------------
+  
+  output$No_SEN_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
+    
+    No_SEN <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+      ggplot(aes(
+        y = NEET_NK_noSEN_percent, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", NEET_NK_noSEN_percent, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(No_SEN,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  
   # Participating in education and training------------------
 
   ## Total participating-----------
@@ -482,17 +694,17 @@ server <- function(input, output, session) {
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
-        axis = list(range = list(87.4, 98.5), tickwidth = 1, tickcolor = "darkblue", tickvals = list(87.4, 91.6, 92.7, 93.9, 95.5, 98.5)), # need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
+        axis = list(range = list(87.4, 98.5), tickwidth = 1, tickcolor = "darkblue",tickvals=list(87.4,91.6,92.7,93.9,95.5,98.5)), #need to make this to the max % neet/nk
+        bar = list(color = "white"),
         bgcolor = "white",
         borderwidth = 1,
         # bordercolor = "gray",
         steps = list(
-          list(range = c(87.4, 91.6), color = "red"), # need to make these the quintile boundaries
-          list(range = c(91.6, 92.7), color = "gold"),
-          list(range = c(92.7, 93.9), color = "yellow"),
-          list(range = c(93.9, 95.5), color = "yellowgreen"),
-          list(range = c(95.5, 98.5), color = "limegreen")
+          list(range = c(87.4, 91.6), color = "f03b20"), #need to make these the quintile boundaries
+          list(range = c(91.6, 92.7), color = "#feb24c"),
+          list(range = c(92.7, 93.9), color = "#ffffb2"),
+          list(range = c(93.9, 95.5), color = "#addd8e"),
+          list(range = c(95.5, 98.5), color = "#31a354")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
@@ -539,56 +751,59 @@ server <- function(input, output, session) {
       color = "blue"
     )
   })
-
-  ## Participation type breakdown plot----------------------------
-  # Stacked bar instead of pie here for preference?
-  # Easier for users to interpret
-
-  ## from LA place scorecard code
-  output$participation_types <- renderPlotly({
-    participation_types <- bind_rows(partLA(), partEng()) %>%
-      ggplot(aes(
-        y = value, x = "",
-        fill = participation_type,
-        text = paste(participation_type, ": ", value, "%")
-      )) +
-      geom_bar(stat = "identity", position = position_fill(reverse = TRUE)) +
-      coord_flip() +
-      facet_wrap(~la_name, nrow = 2) +
-      # geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
-      labs(x = "", y = "") +
-      guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#08519c", "#3182bd", "#6baed6")) +
-      scale_y_continuous(labels = scales::percent) +
-      theme_minimal() +
-      # labs(x="", y="Percent", title="Type of education and training") +
-      theme(
-        legend.position = "top",
-        text = element_text(size = 14, family = "Arial"),
-        strip.text.x = element_text(size = 20)
-      )
-
-
-    ggplotly(participation_types,
-      tooltip = c("text")
-    ) %>%
-      layout(
-        uniformtext = list(minsize = 12, mode = "hide"),
-        # xaxis = list(showticklabels = FALSE),
-        legend = list(
-          orientation = "h",
-          y = -0.1, x = 0.33,
-          font = font_choice
-        ),
-        title = list(
-          text = "Type of education or training",
-          font = list(color = "#ffffff")
+    
+  ##Participation type breakdown plot----------------------------
+  
+    output$participation_types <- renderPlotly({
+      
+      Regionname <- lineLA() %>%
+        pull(region_name)
+      
+      partRegion <- participation_data %>% filter(la_name == Regionname)
+      
+      participation_types <- bind_rows(partLA(), partRegion, partEng()) %>%
+        ggplot(aes(
+          y = value, x = "",
+          fill = participation_type,
+          text = paste(participation_type, ": ", value, "%")
+        )) +
+        geom_bar(stat= "identity", na.rm=TRUE) +
+        #position =position_fill(reverse = TRUE)
+        coord_flip() +
+        facet_wrap(~la_name, nrow = 3) +
+        #geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
+        labs(x = "", y = "") +
+        guides(fill = guide_legend(title = "")) +
+        scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+        scale_y_continuous(limits=c(0,100)) +
+        theme_minimal() +
+        labs(x="", y="%") +
+        theme(
+          legend.position = "top",
+          text = element_text(size = 14, family = "Arial"),
+          strip.text.x = element_text(size = 14),
+          plot.background = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()
         )
       ) %>%
-      config(displayModeBar = FALSE)
-  })
-
-
+        layout(
+          uniformtext = list(minsize = 12, mode = "hide"),
+          #xaxis = list(showticklabels = FALSE),
+          legend = list(
+            orientation = "h",
+            y = -0.3, x = 0.33,
+            font = font_choice
+          ),
+          title = list(
+            text = "Type of education or training",
+            font = list(color = "#ffffff")
+          )
+        ) %>%
+        config(displayModeBar = FALSE)
+    })
+    
+    
   ## September Guarantee------------------------------------
   ### Gauge chart--------------------
 
@@ -601,17 +816,17 @@ server <- function(input, output, session) {
       type = "indicator",
       mode = "gauge+number",
       gauge = list(
-        axis = list(range = list(50.8, 99.8), tickwidth = 1, tickcolor = "darkblue", tickvals = list(50.8, 93.2, 95.1, 96.7, 97.8, 99.8)), # need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
+        axis = list(range = list(50.8, 99.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(50.8,93.2,95.1,96.7,97.8,99.8)), #need to make this to the max % neet/nk
+        bar = list(color = "white"),
         bgcolor = "white",
         borderwidth = 1,
         # bordercolor = "gray",
         steps = list(
-          list(range = c(50.8, 93.2), color = "red"), # need to make these the quintile boundaries
-          list(range = c(93.2, 95.1), color = "gold"),
-          list(range = c(95.1, 96.7), color = "yellow"),
-          list(range = c(96.7, 97.8), color = "yellowgreen"),
-          list(range = c(97.8, 99.8), color = "limegreen")
+          list(range = c(50.8, 93.2), color = "f03b20"), #need to make these the quintile boundaries
+          list(range = c(93.2, 95.1), color = "#feb24c"),
+          list(range = c(95.1, 96.7), color = "#ffffb2"),
+          list(range = c(96.7, 97.8), color = "#addd8e"),
+          list(range = c(97.8, 99.8), color = "#31a354")
         ),
         threshold = list(
           line = list(color = "black", width = 4),
@@ -651,86 +866,290 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
-      paste0(
-        "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts.",
-        Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.
-              (Annual changes are since March ", last_year, ")."
-      ),
+      paste0("England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ",
+             Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.
+              (Annual changes are since March ", last_year, ")."),
       color = "blue"
     )
   })
 
   # Contextual information--------------------------------------
-  # Outcomes - level 3
-  output$level3 <- renderValueBox({
+  ## Attainment outcomes - level 3------------------------------
+  
+  output$level3_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    level_3 <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = Level_3, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", Level_3, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(level_3,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
 
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    level3_percent <- lineLA() %>%
-      pull(as.numeric(Level_3))
+  ## Attainment outcomes - L2 EM GCSE------------------------------
+  
+  output$L2_EM_GCSE_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    L2_EM_GCSE <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = L2_em_GCSE_othL2, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", L2_em_GCSE_othL2, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(L2_EM_GCSE,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
 
+  ##School attendance - overall---------------------------------------
+  
+  output$overall_abs_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    overall_abs <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = sess_overall_percent, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", sess_overall_percent, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(overall_abs,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+
+  ##School attendance - persistent-------------------------------------
+
+  output$Persistent_abs_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    Persistent_abs <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = sess_overall_percent_pa_10_exact, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", sess_overall_percent_pa_10_exact, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(Persistent_abs,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  ##Average attainment 8 score------------------------------------------
+  
+  output$Attainment8_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    Attainment8 <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = avg_att8, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", avg_att8, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="Score") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(Attainment8,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  ##9-4 standard pass in English and maths GCSEs--------------------------
+  
+  output$EM_pass_plot <- renderPlotly({
+    
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    contextRegion <- contextual_data %>% filter(la_name == Regionname)
+    
+    EM_pass <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+      ggplot(aes(
+        y = pt_l2basics_94, x = "",
+        fill = la_name,
+        text = paste(la_name, ": ", pt_l2basics_94, "%")
+      )) +
+      geom_bar(stat= "identity", na.rm=TRUE) +
+      coord_flip() +
+      facet_wrap(~la_name, nrow = 3) +
+      labs(x = "", y = "") +
+      guides(fill = guide_legend(title = "")) +
+      scale_fill_manual(values = c("#28A197","#12436D", "#A285D1")) +
+      scale_y_continuous(limits=c(0,100)) +
+      theme_minimal() +
+      labs(x="", y="%") +
+      theme(
+        legend.position = "none",
+        text = element_text(size = 14, family = "Arial"),
+        strip.text.x = element_text(size = 14),
+        plot.background = element_blank(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()
+      )
+    
+    
+    ggplotly(EM_pass,
+             tooltip = c("text")
+    ) %>%
+      config(displayModeBar = FALSE)
+  })
+  
+  ##Population-----------------------------------------------------------
+  ###ONS-----------------------------------------------------------------
+  
+  output$ONS_pop <- renderValueBox({
+    
+    ONS_population <- lineLA() %>%
+    pull(as.numeric(Age1617_ONS_population))
+    
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(level3_percent, "%"),
-      paste0("19 year olds achieving level 3 ", last_year),
-      # icon = icon("fas fa-signal"),
+      paste0(ONS_population),
+      paste0("ONS estimate"),
       color = "blue"
     )
   })
-
-  # Outcomes - GCSE
-  output$GCSE <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    gcse_percent <- lineLA() %>%
-      pull(as.numeric(L2_em_GCSE_othL2))
-
+  
+  ###NCCIS---------------------------------------------------------------
+  
+  output$NCCIS_pop <- renderValueBox({
+    
+    NCCIS_population <- lineLA() %>%
+      pull(as.numeric(Cohort_DJFavg))
+    
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(gcse_percent, "%"),
-      paste0("19 year olds achieving GCSE 9-4 standard pass in
-             English and maths (or equivalent) between ages 16
-             and 19, for those who had not achieved this level by 16 ", last_year),
-      # icon = icon("fas fa-signal"),
+      paste0(NCCIS_population),
+      paste0("Recorded on CCIS"),
       color = "blue"
     )
   })
-
-  # School attendance - overall
-  output$Overall_abs <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    overall_abs_percent <- lineLA() %>%
-      pull(as.numeric(sess_overall_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(overall_abs_percent, "%"),
-      paste0("Overall absence (% of sessions)"),
-      # icon = icon("fas fa-signal"),
-      color = "blue"
-    )
-  })
-
-  # School attendance - persistent
-  output$Persistent_abs <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    persistent_abs_percent <- lineLA() %>%
-      pull(as.numeric(sess_overall_percent_pa_10_exact))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(persistent_abs_percent, "%"),
-      paste0("Persistent absentees (% of pupils)"),
-      # icon = icon("fas fa-signal"),
-      color = "blue"
-    )
-  })
-
-
-  # Files for download ------------------------------------------------------
-
-  # all LAs
+  
+  
+  #Files for download ------------------------------------------------------
+  
+  #all LAs
   output$download_ud <- downloadHandler(
     filename = function() {
       paste("la_underlying_data", ".csv", sep = "")
