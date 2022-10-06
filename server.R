@@ -153,32 +153,10 @@ server <- function(input, output, session) {
   ###Guage chart-----------------------
   
   output$NEET_nk_guage <- renderPlotly({
-    plot_ly(
-    domain = list(x = c(0, 2), y = c(0, 2)),
-    value = lineLA() %>% pull(as.numeric(NEET_not_known_percent)), 
-    number = list(suffix = "%"),
-    title = list(text = "NEET or not known", font =list(size=32)),
-    type = "indicator",
-    mode = "gauge+number",
-    gauge = list(
-      axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(1.4,3.6,4.5,5.4,6.7,13.8)), #need to make this to the max % neet/nk
-      bar = list(color = "darkblue"),
-      bgcolor = "white",
-      borderwidth = 1,
-      #bordercolor = "gray",
-      steps = list(
-        list(range = c(1.4, 3.6), color = "limegreen"), #need to make these the quintile boundaries
-        list(range = c(3.6, 4.5), color = "yellowgreen"),
-        list(range = c(4.5, 5.4), color = "yellow"),
-        list(range = c(5.4, 6.7), color = "gold"),
-        list(range = c(6.7, 13.8), color = "red")
-        ),
-      threshold = list(
-        line = list(color = "black", width = 4),
-        displayvalue = "England",
-        thickness = 1,
-        value = England() %>% pull(round(as.numeric(NEET_not_known_percent),1)))
-    ))
+    gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
+               round(as.numeric(England()$NEET_not_known_percent),1),
+               4.6
+    )
   })
   
   ###Annual change and national,regional comparison box-------
@@ -223,32 +201,14 @@ server <- function(input, output, session) {
   ###Guage chart-----------------
   
   output$NEET_guage <- renderPlotly({
-    plot_ly(
-      domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(NEET_percent)), 
-      number = list(suffix = "%"),
-      title = list(text = "NEET", font =list(size=24)),
-      type = "indicator",
-      mode = "gauge+number",
-      gauge = list(
-        axis = list(range = list(0.8, 6.8), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.8,1.8,2.3,3.1,3.9,6.8)), #need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
-        bgcolor = "white",
-        borderwidth = 1,
-        #bordercolor = "gray",
-        steps = list(
-          list(range = c(0.8, 1.8), color = "limegreen"), #need to make these the quintile boundaries
-          list(range = c(1.8, 2.3), color = "yellowgreen"),
-          list(range = c(2.3, 3.1), color = "yellow"),
-          list(range = c(3.1, 3.9), color = "gold"),
-          list(range = c(3.9, 6.8), color = "red")
-        ),
-        threshold = list(
-          line = list(color = "black", width = 4),
-          thickness = 1,
-          value = England() %>% pull(round(as.numeric(NEET_percent),1))) 
-      ))
-  })
+    gauge_plot(as.numeric(lineLA()$NEET_percent),
+               round(as.numeric(England()$NEET_percent),1),
+               4.6,
+               range=c(0.8,6.8),
+               intervals=c(0.8,1.8,2.3,3.1,3.9,6.8),
+               needle_length=0.7
+    )
+      })
 
   ###Annual change and national,regional comparison box-------
   
@@ -292,31 +252,13 @@ server <- function(input, output, session) {
   ###Guage chart--------------------
   
   output$Nk_guage <- renderPlotly({
-    plot_ly(
-      domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(Notknown_percent)), 
-      number = list(suffix = "%"),
-      title = list(text = "Not known", font =list(size=24)),
-      type = "indicator",
-      mode = "gauge+number",
-      gauge = list(
-        axis = list(range = list(0.0, 12.1), tickwidth = 1, tickcolor = "darkblue",tickvals=list(0.0,0.9,1.4,2.1,3.2,12.1)), #need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
-        bgcolor = "white",
-        borderwidth = 1,
-        #bordercolor = "gray",
-        steps = list(
-          list(range = c(0.0, 0.9), color = "limegreen"), #need to make these the quintile boundaries
-          list(range = c(0.9, 1.4), color = "yellowgreen"),
-          list(range = c(1.4, 2.1), color = "yellow"),
-          list(range = c(2.1, 3.2), color = "gold"),
-          list(range = c(3.2, 12.1), color = "red")
-        ),
-        threshold = list(
-          line = list(color = "black", width = 4),
-          thickness = 1,
-          value = England() %>% pull(round(as.numeric(Notknown_percent),1)))
-      ))
+    gauge_plot(as.numeric(lineLA()$Notknown_percent),
+               round(as.numeric(England()$Notknown_percent),1),
+               4.6,
+               range=c(0.0,12.1),
+               intervals=c(0.0,0.9,1.4,2.1,3.2,12.1),
+               needle_length=0.7
+    )
   })
   
   ###Annual change and national,regional comparison box-------
