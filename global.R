@@ -40,7 +40,7 @@ previous_year_end <- latest_year - 2
 # Here we create a function to say increased/decreased for yearly changes which we need in the text on the app.
 
 change_ed <- function(numA) {
-  if(numA == 0.0) {
+  if (numA == 0.0) {
     return("stable ")
   }
   if (numA < 0.0) {
@@ -49,9 +49,7 @@ change_ed <- function(numA) {
 
   if (numA > 0.0) {
     return("up ")
-  } 
-  
-    else {
+  } else {
     return(" ")
   }
 }

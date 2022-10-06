@@ -21,7 +21,7 @@ homepage_panel <- function() {
           br(),
           p("Each area's performance is compared with that of other local authorities in England.
             The best performing with the lowest NEET/highest participation fall into the
-            green quintile, whereas local authorities with the highest NEET/lowest participation fall 
+            green quintile, whereas local authorities with the highest NEET/lowest participation fall
             into the red quintile."),
           br(),
           p("The average England percentage may not necessarily fall in the middle of quintile 3
@@ -154,24 +154,31 @@ dashboard_panel <- function() {
             tabPanel(
               value = "neet",
               title = "NEET and not known",
-              gov_row(
-                  br(),
+              fluidRow(
+                column(
+                  width = 12,
                   p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
-                  plotlyOutput("NEET_nk_guage",width="64%") %>% withSpinner(),
+                  h2("NEET and not known"),
+                  column(width = 2),
+                  column(width = 8, plotlyOutput("NEET_nk_guage", width = "100%") %>% withSpinner()),
+                  column(width = 2),
                   valueBoxOutput("NEET_nk", width = 12)
-                ),
-              gov_row(
-                  column(
+                )
+              ),
+              fluidRow(
+                column(
                   6,
-                  plotlyOutput("NEET_guage",width="80%") %>% withSpinner(),
+                  h2("NEET"),
+                  plotlyOutput("NEET_guage", width = "100%") %>% withSpinner(),
                   valueBoxOutput("NEET", width = 12),
-                  ),
-                  column(
+                ),
+                column(
                   6,
-                  plotlyOutput("Nk_guage",width="80%") %>% withSpinner(),
+                  h2("Not known"),
+                  plotlyOutput("Nk_guage", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Not_known", width = 12)
-                    )
-                  )
+                )
+              )
             ),
             tabPanel(
               value = "vulnerable",
@@ -213,25 +220,25 @@ dashboard_panel <- function() {
                 p(strong("Participating in education and training")),
                 column(
                   6,
-                  plotlyOutput("Participation_guage", width="75%") %>% withSpinner(),
+                  plotlyOutput("Participation_guage", width = "75%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
                   br(),
                   br(),
                   p(strong("September Guarantee: % offered an education place")),
-                  plotlyOutput("Sept_Guar_guage", width="75%") %>% withSpinner(),
+                  plotlyOutput("Sept_Guar_guage", width = "75%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                   # p("Box with Sept Guarantee, comparisons and quintile")
                   # plotlyOutput("places_chart") %>% withSpinner()
                 ),
-                  gov_row(
-                    column(
-                      6,
-                      p(strong(paste0("Type of education or training"))),
-                      plotlyOutput("participation_types") %>% withSpinner(),
-                      br()
-                    )
+                gov_row(
+                  column(
+                    6,
+                    p(strong(paste0("Type of education or training"))),
+                    plotlyOutput("participation_types") %>% withSpinner(),
+                    br()
                   )
                 )
+              )
             ),
             tabPanel(
               value = "contextual",
