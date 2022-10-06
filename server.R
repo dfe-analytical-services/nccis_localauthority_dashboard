@@ -186,7 +186,7 @@ server <- function(input, output, session) {
     domain = list(x = c(0, 2), y = c(0, 2)),
     value = lineLA() %>% pull(as.numeric(NEET_not_known_percent)), 
     number = list(suffix = "%"),
-    title = list(text = "NEET or not known", font =list(size=32)),
+    title = list(text = "NEET or not known", font =list(size=24)),
     type = "indicator",
     mode = "gauge+number",
     gauge = list(

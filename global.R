@@ -97,6 +97,16 @@ tidy_code_function <- function() {
   return(script_changes)
 }
 
+
+#Conditional colour function for annual changes----------------------------------------------------
+cond_color <- function(condition, true_color = "green") {
+  if (is.na(condition)) {
+    return("black")
+  }
+  colours <- c("green", "#e00000")
+  return(ifelse(condition, true_color, colours[!colours == true_color]))
+}
+
 # Source scripts ---------------------------------------------------------------------------------
 
 # Source any scripts here. Scripts may be needed to process data before it gets to the server file.
