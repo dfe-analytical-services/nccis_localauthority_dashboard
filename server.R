@@ -785,8 +785,7 @@ server <- function(input, output, session) {
           plot.background = element_blank(),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()
-        )
-      ) %>%
+        ) %>%
         layout(
           uniformtext = list(minsize = 12, mode = "hide"),
           #xaxis = list(showticklabels = FALSE),
