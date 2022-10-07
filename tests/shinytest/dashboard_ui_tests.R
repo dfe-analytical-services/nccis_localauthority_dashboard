@@ -12,8 +12,8 @@ app$snapshot()
 
 
 # 2. Does the first dashboard panel load?
-app$setInputs(navlistPanel = "dashboard",wait_=FALSE, values_=FALSE)
-app$setInputs(tabsetpanel = "neet",timeout_=5.e3)
+app$setInputs(navlistPanel = "dashboard", wait_ = FALSE, values_ = FALSE)
+app$setInputs(tabsetpanel = "neet", timeout_ = 5.e3)
 app$snapshot(list(
   input = listInputs,
   output = c(
@@ -24,8 +24,8 @@ app$snapshot(list(
 ))
 
 # 3. Does the vulnerable dashboard panel load?
-app$setInputs(navlistPanel = "dashboard",wait_=FALSE, values_=FALSE)
-app$setInputs(tabsetpanel = "vulnerable",timeout_=5.e3)
+app$setInputs(navlistPanel = "dashboard", wait_ = FALSE, values_ = FALSE)
+app$setInputs(tabsetpanel = "vulnerable", timeout_ = 5.e3)
 app$snapshot(list(
   input = listInputs,
   output = c(
@@ -34,8 +34,8 @@ app$snapshot(list(
 ))
 
 # 4. Does the participation dashboard panel load?
-app$setInputs(navlistPanel = "dashboard",wait_=FALSE, values_=FALSE)
-app$setInputs(tabsetpanel = "participation",timeout_=5.e3)
+app$setInputs(navlistPanel = "dashboard", wait_ = FALSE, values_ = FALSE)
+app$setInputs(tabsetpanel = "participation", timeout_ = 5.e3)
 app$snapshot(list(
   input = listInputs,
   output = c(
@@ -45,8 +45,8 @@ app$snapshot(list(
 ))
 
 # 5. Does the contextual dashboard panel load?
-app$setInputs(navlistPanel = "dashboard",wait_=FALSE, values_=FALSE)
-app$setInputs(tabsetpanel = "contextual",timeout_=5.e3)
+app$setInputs(navlistPanel = "dashboard", wait_ = FALSE, values_ = FALSE)
+app$setInputs(tabsetpanel = "contextual", timeout_ = 5.e3)
 app$snapshot(list(
   input = listInputs,
   output = c(
@@ -55,4 +55,3 @@ app$snapshot(list(
     "contextual.bartext"
   )
 ))
-
