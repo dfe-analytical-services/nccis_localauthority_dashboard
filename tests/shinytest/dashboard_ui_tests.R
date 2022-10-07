@@ -1,5 +1,5 @@
 app <- ShinyDriver$new("../../", loadTimeout = 1.e4)
-app$snapshotInit("initial_load_test", screenshot = FALSE)
+app$snapshotInit("dashboard_ui_tests", screenshot = FALSE)
 
 app$snapshot(items = list(
   input = c("bins"),
