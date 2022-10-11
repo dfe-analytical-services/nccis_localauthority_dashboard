@@ -41,6 +41,7 @@ server <- function(input, output, session) {
   England <- reactive({
     la_ud %>% filter(geographic_level == "National")
   })
+  
 
   # Reshaping data for plots-----------------------------------------
   ## Participation type data-----------------------------------------
@@ -212,36 +213,21 @@ server <- function(input, output, session) {
   # NEET and not known tab-----------
 
   ## NEET/NK----------------------------
-  ### Guage chart-----------------------
+  ### Gauge chart-----------------------
 
-  output$NEET_nk_guage <- renderPlotly({
-    plot_ly(
-      domain = list(x = c(0, 2), y = c(0, 2)),
-      value = lineLA() %>% pull(as.numeric(NEET_not_known_percent)),
-      number = list(suffix = "%"),
-      title = list(text = "NEET or not known", font = list(size = 24)),
-      type = "indicator",
-      mode = "gauge+number",
-      gauge = list(
-        axis = list(range = list(1.4, 13.8), tickwidth = 1, tickcolor = "darkblue", tickvals = list(1.4, 3.6, 4.5, 5.4, 6.7, 13.8)), # need to make this to the max % neet/nk
-        bar = list(color = "darkblue"),
-        bgcolor = "white",
-        borderwidth = 1,
-        # bordercolor = "gray",
-        steps = list(
-          list(range = c(1.4, 3.6), color = "limegreen"), # need to make these the quintile boundaries
-          list(range = c(3.6, 4.5), color = "yellowgreen"),
-          list(range = c(4.5, 5.4), color = "yellow"),
-          list(range = c(5.4, 6.7), color = "gold"),
-          list(range = c(6.7, 13.8), color = "red")
-        ),
-        threshold = list(
-          line = list(color = "black", width = 4),
-          displayvalue = "England",
-          thickness = 1,
-          value = England() %>% pull(round(as.numeric(NEET_not_known_percent), 1))
-        )
-      )
+  output$NEET_nk_gauge <- renderPlotly({
+    Regionname <- lineLA() %>%
+      pull(region_name)
+    
+    NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(NEET_not_known_percent))
+    
+    gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
+               round(as.numeric(England()$NEET_not_known_percent), 1),
+               round(as.numeric(NEET_nk_perc_region), 1),
+               range = c(1.4, 13.8),
+               intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+               needle_length = 0.7
     )
   })
 
