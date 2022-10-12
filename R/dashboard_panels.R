@@ -159,10 +159,11 @@ dashboard_panel <- function() {
               fluidRow(
                 column(
                   width = 12,
+                  br(),
                   p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
                   h2("NEET and not known"),
                   column(width = 2),
-                  column(width = 8, plotlyOutput("NEET_nk_guage", width = "100%") %>% withSpinner()),
+                  column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
                   column(width = 2),
                   valueBoxOutput("NEET_nk", width = 12)
                 )
@@ -171,13 +172,13 @@ dashboard_panel <- function() {
                 column(
                   6,
                   h2("NEET"),
-                  plotlyOutput("NEET_guage", width = "100%") %>% withSpinner(),
+                  plotlyOutput("NEET_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("NEET", width = 12),
                 ),
                 column(
                   6,
                   h2("Not known"),
-                  plotlyOutput("Nk_guage", width = "100%") %>% withSpinner(),
+                  plotlyOutput("Nk_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Not_known", width = 12)
                 )
               )
@@ -215,29 +216,25 @@ dashboard_panel <- function() {
             tabPanel(
               value = "participation",
               title = "Participation",
-              gov_row(
-                br(),
-                p(strong("16-17 year olds March ", latest_year)),
-                br(),
-                p(strong("Participating in education and training")),
+              br(),
+              p(strong("16-17 year olds March ", latest_year)),
+              h2("Participating in education and training"),
+              fluidRow(
                 column(
-                  6,
-                  plotlyOutput("Participation_guage", width = "75%") %>% withSpinner(),
+                  8,
+                  plotlyOutput("Participation_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
                   br(),
                   br(),
-                  p(strong("September Guarantee: % offered an education place")),
-                  plotlyOutput("Sept_Guar_guage", width = "75%") %>% withSpinner(),
+                  h2("September Guarantee: % offered an education place"),
+                  plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
-                  # p("Box with Sept Guarantee, comparisons and quintile")
-                  # plotlyOutput("places_chart") %>% withSpinner()
                 ),
-                gov_row(
+                fluidRow(
                   column(
-                    6,
+                    4,
                     p(strong(paste0("Type of education or training"))),
-                    plotlyOutput("participation_types") %>% withSpinner(),
-                    br()
+                    plotlyOutput("participation_types") %>% withSpinner()
                   )
                 )
               )
