@@ -260,11 +260,10 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(input$LA_choice, ": ", NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
-      paste0(
-        "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.",
-        Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
-              Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.", br(),
+        "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts. ", br(),
+              "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })
@@ -319,11 +318,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
-      paste0(
-        "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.     ",
-        Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.
-             (Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.", br(),
+        "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
+             "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })
@@ -378,11 +377,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
-      paste0(
-        "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.     ",
-        Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.
-             (Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.", br(),
+        "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
+             "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })

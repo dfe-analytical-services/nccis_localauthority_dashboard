@@ -126,7 +126,7 @@ dashboard_panel <- function() {
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
-                  selected = "ToyTown"
+                  selected = "LA demo"
                 ),
                 p("Switch between different indicators using the tabs below.")
               ),
@@ -159,6 +159,7 @@ dashboard_panel <- function() {
               fluidRow(
                 column(
                   width = 12,
+                  br(),
                   p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
                   h2("NEET and not known"),
                   column(width = 2),
@@ -215,6 +216,7 @@ dashboard_panel <- function() {
             tabPanel(
               value = "participation",
               title = "Participation",
+              br(),
                 p(strong("16-17 year olds March ", latest_year)),
               h2("Participating in education and training"),
               fluidRow(
