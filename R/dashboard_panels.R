@@ -217,7 +217,7 @@ dashboard_panel <- function() {
               value = "participation",
               title = "Participation",
               br(),
-                p(strong("16-17 year olds March ", latest_year)),
+              p(strong("16-17 year olds March ", latest_year)),
               h2("Participating in education and training"),
               fluidRow(
                 column(
@@ -226,7 +226,7 @@ dashboard_panel <- function() {
                   valueBoxOutput("Participating", width = 12),
                   br(),
                   br(),
-                h2("September Guarantee: % offered an education place"),
+                  h2("September Guarantee: % offered an education place"),
                   plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                 ),
@@ -238,7 +238,7 @@ dashboard_panel <- function() {
                   )
                 )
               )
-              ),
+            ),
             tabPanel(
               value = "contextual",
               title = "Contextual - attainment and attendance",
