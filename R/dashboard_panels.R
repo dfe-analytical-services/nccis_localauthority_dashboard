@@ -58,10 +58,10 @@ homepage_panel <- function() {
                 br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
                        and disability (SEND), SEN support or those that fall into the vulnerable group."),
-                br(" A young person is said to be in a vulnerable group if they have any of the following characteristics
-                       (taken from IC01 of the NCCIS returns): Looked after/In care (110), Parent-caring for own child (120), Refugee/Asylum seeker (130),
-                       Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Alternative provision (200),
-                       Mental health flag (210)."),
+                br("A young person is said to be in a vulnerable group if they have any of the following characteristics
+                       (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130),
+                       Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190),
+                       Alternative provision (200), Mental health flag (210)."),
                 h3("Participation"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
                        at the end of March."),
