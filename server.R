@@ -41,7 +41,7 @@ server <- function(input, output, session) {
   England <- reactive({
     la_ud %>% filter(geographic_level == "National")
   })
-  
+
 
   # Reshaping data for plots-----------------------------------------
   ## Participation type data-----------------------------------------
@@ -218,16 +218,16 @@ server <- function(input, output, session) {
   output$NEET_nk_gauge <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-    
+
     NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(NEET_not_known_percent))
-    
+
     gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
-               round(as.numeric(England()$NEET_not_known_percent), 1),
-               round(as.numeric(NEET_nk_perc_region), 1),
-               range = c(1.4, 13.8),
-               intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
-               needle_length = 0.7
+      round(as.numeric(England()$NEET_not_known_percent), 1),
+      round(as.numeric(NEET_nk_perc_region), 1),
+      range = c(1.4, 13.8),
+      intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+      needle_length = 0.8
     )
   })
 
@@ -263,7 +263,7 @@ server <- function(input, output, session) {
       paste0(
         "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.",
         Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
-              Annual changes are since end ", previous_year_end, ")."
+              (Annual changes are since end ", previous_year_end, ")."
       ),
       color = "blue"
     )
@@ -277,16 +277,16 @@ server <- function(input, output, session) {
   output$NEET_gauge <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-    
+
     NEET_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(NEET_percent))
-    
+
     gauge_plot(as.numeric(lineLA()$NEET_percent),
       round(as.numeric(England()$NEET_percent), 1),
       round(as.numeric(NEET_perc_region), 1),
       range = c(0.8, 6.8),
       intervals = c(0.8, 1.8, 2.3, 3.1, 3.9, 6.8),
-      needle_length = 0.5
+      needle_length = 0.7
     )
   })
 
@@ -336,16 +336,16 @@ server <- function(input, output, session) {
   output$Nk_gauge <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-    
+
     Nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(Notknown_percent))
-    
+
     gauge_plot(as.numeric(lineLA()$Notknown_percent),
       round(as.numeric(England()$Notknown_percent), 1),
       round(as.numeric(Nk_perc_region), 1),
       range = c(0.0, 12.1),
       intervals = c(0.0, 0.9, 1.4, 2.1, 3.2, 12.1),
-      needle_length = 0.5
+      needle_length = 0.7
     )
   })
 
@@ -687,16 +687,16 @@ server <- function(input, output, session) {
   output$Participation_gauge <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-    
+
     participation_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
-    
+
     gauge_plot(as.numeric(lineLA()$TOTAL_participating_in_education_and_training_percent),
-               round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
-               round(as.numeric(participation_region), 1),
-               range = c(87.4, 98.5),
-               intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-               needle_length = 0.7
+      round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
+      round(as.numeric(participation_region), 1),
+      range = c(87.4, 98.5),
+      intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
+      needle_length = 0.7
     )
   })
 
@@ -771,7 +771,7 @@ server <- function(input, output, session) {
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank()
       )
-    ggplotly(participation_types,tooltip="text") %>%
+    ggplotly(participation_types, tooltip = "text") %>%
       layout(
         uniformtext = list(minsize = 12, mode = "hide"),
         # xaxis = list(showticklabels = FALSE),
@@ -795,16 +795,16 @@ server <- function(input, output, session) {
   output$Sept_Guar_gauge <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-    
+
     Sept_Guar_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(September_guarantee_Offer_made_percent))
-    
+
     gauge_plot(as.numeric(lineLA()$September_guarantee_Offer_made_percent),
-               round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
-               round(as.numeric(Sept_Guar_region), 1),
-               range = c(50.8, 99.8),
-               intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-               needle_length = 0.7
+      round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
+      round(as.numeric(Sept_Guar_region), 1),
+      range = c(50.8, 99.8),
+      intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
+      needle_length = 0.7
     )
   })
 
