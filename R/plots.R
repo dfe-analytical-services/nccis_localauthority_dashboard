@@ -7,7 +7,9 @@ gauge_plot <- function(value, valueEng, valueRegion,
   interval_text[abs(intervals - valueEng) < 0.2] <- ""
   interval_text[abs(intervals - valueRegion) < 0.2] <- ""
   quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")
-  if(reverse_colour){quantcols <- quantcols[5:1]}
+  if (reverse_colour) {
+    quantcols <- quantcols[5:1]
+  }
   fig <- plot_ly()
   domain <- list(x = c(0, 0.9), y = c(0, 1.8))
   value_size <- 42

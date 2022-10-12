@@ -697,7 +697,7 @@ server <- function(input, output, session) {
       range = c(87.4, 98.5),
       intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
       needle_length = 0.7,
-      reverse_colour=TRUE
+      reverse_colour = TRUE
     )
   })
 
@@ -806,7 +806,7 @@ server <- function(input, output, session) {
       range = c(50.8, 99.8),
       intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
       needle_length = 0.7,
-      reverse_colour=TRUE
+      reverse_colour = TRUE
     )
   })
 
