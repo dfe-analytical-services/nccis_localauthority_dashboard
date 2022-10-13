@@ -227,7 +227,7 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_nk_perc_region), 1),
       range = c(1.4, 13.8),
       intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
-      needle_length = 0.8
+      needle_length = 0.9
     )
   })
 
@@ -260,11 +260,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(input$LA_choice, ": ", NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
-      paste0(
-        "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.",
-        Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.
-              (Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.", br(),
+        "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts. ", br(),
+        "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })
@@ -319,11 +319,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
-      paste0(
-        "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.     ",
-        Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.
-             (Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.", br(),
+        "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
+        "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })
@@ -378,53 +378,20 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
-      paste0(
-        "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.     ",
-        Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.
-             (Annual changes are since end ", previous_year_end, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.", br(),
+        "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
+        "Annual changes are since end ", previous_year_end, "."
+      )),
       color = "blue"
     )
   })
 
   # Vulnerable groups NEET tab---------------------------------
+
   ## Vulnerable group--------------------------------
 
-  ### Value box, National,regional comparison-------
-
-  output$Vulnerable <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    Vul_perc <- lineLA() %>%
-      pull(as.numeric(VG_NEET_NK_percentage))
-
-    # Vul_cohort <- lineLA() %>%
-    # pull(as.numeric(VG_cohort_DJF_avg))
-
-    Vul_cohort_perc <- lineLA() %>%
-      pull(as.numeric(VG_cohort_percentage))
-
-    Vul_perc_Eng <- England() %>%
-      pull(as.numeric(VG_NEET_NK_percentage))
-
-    Regionname <- lineLA() %>%
-      pull(region_name)
-
-    Vul_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
-      pull(as.numeric(VG_NEET_NK_percentage))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(Vul_perc, "%"),
-      paste0(
-        "(", Vul_cohort_perc, "% of LA in the vulnerable group). England: ", Vul_perc_Eng,
-        "%. ", Regionname, ": ", Vul_perc_region, "%. "
-      ),
-      color = "blue"
-    )
-  })
-
-  ### Plot vulnerable group------------------------------
+  ### Plot------------------------------
 
   output$vulnerable_plot <- renderPlotly({
     Regionname <- lineLA() %>%
@@ -443,7 +410,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -465,38 +432,8 @@ server <- function(input, output, session) {
 
 
   ## EHCP--------------------------------------------
-  ### Value box, National,regional comparison-------
 
-  output$EHCP <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    EHCP_perc <- lineLA() %>%
-      pull(as.numeric(NEET_NK_EHCP_percent))
-
-    EHCP_cohort_perc <- lineLA() %>%
-      pull(as.numeric(cohort_EHCP_percent))
-
-    EHCP_perc_Eng <- England() %>%
-      pull(as.numeric(NEET_NK_EHCP_percent))
-
-    Regionname <- lineLA() %>%
-      pull(region_name)
-
-    EHCP_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
-      pull(as.numeric(NEET_NK_EHCP_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(EHCP_perc, "%"),
-      paste0(
-        "(", EHCP_cohort_perc, "% of LA with EHCP). England: ", EHCP_perc_Eng,
-        "%. ", Regionname, ": ", EHCP_perc_region, "%. "
-      ),
-      color = "blue"
-    )
-  })
-
-  ### Plot EHCP------------------------------
+  ### Plot------------------------------
 
   output$EHCP_plot <- renderPlotly({
     Regionname <- lineLA() %>%
@@ -515,7 +452,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -536,38 +473,8 @@ server <- function(input, output, session) {
   })
 
   ## SEN support---------------------------------------
-  ### Value box, National,regional comparison-------
 
-  output$SEN_support <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    SEN_support_perc <- lineLA() %>%
-      pull(as.numeric(NEET_NK_SENDsupport_percent))
-
-    SEN_support_cohort_perc <- lineLA() %>%
-      pull(as.numeric(cohort_SENDsupport_percent))
-
-    SEN_support_perc_Eng <- England() %>%
-      pull(as.numeric(NEET_NK_SENDsupport_percent))
-
-    Regionname <- lineLA() %>%
-      pull(region_name)
-
-    SEN_support_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
-      pull(as.numeric(NEET_NK_SENDsupport_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(SEN_support_perc, "%"),
-      paste0(
-        "(", SEN_support_cohort_perc, "% of LA with SEN support). England: ", SEN_support_perc_Eng,
-        "%. ", Regionname, ": ", SEN_support_perc_region, "%. "
-      ),
-      color = "blue"
-    )
-  })
-
-  ### Plot SEN support------------------------------
+  ### Plot------------------------------
 
   output$SEN_support_plot <- renderPlotly({
     Regionname <- lineLA() %>%
@@ -586,7 +493,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -608,38 +515,8 @@ server <- function(input, output, session) {
 
 
   ## No SEN-----------------------------------------
-  ### Value box, National,regional comparison-------
 
-  output$No_SEN <- renderValueBox({
-
-    # Take filtered data, search for rate, pull the value and tidy the number up
-    No_SEN_perc <- lineLA() %>%
-      pull(as.numeric(NEET_NK_noSEN_percent))
-
-    No_SEN_cohort_perc <- lineLA() %>%
-      pull(as.numeric(cohort_noSEN_percent))
-
-    No_SEN_perc_Eng <- England() %>%
-      pull(as.numeric(NEET_NK_noSEN_percent))
-
-    Regionname <- lineLA() %>%
-      pull(region_name)
-
-    No_SEN_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
-      pull(as.numeric(NEET_NK_noSEN_percent))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(No_SEN_perc, "%"),
-      paste0(
-        "(", No_SEN_cohort_perc, "% of LA with SEN support). England: ", No_SEN_perc_Eng,
-        "%. ", Regionname, ": ", No_SEN_perc_region, "%. "
-      ),
-      color = "blue"
-    )
-  })
-
-  ### Plot no SEN------------------------------
+  ### Plot------------------------------
 
   output$No_SEN_plot <- renderPlotly({
     Regionname <- lineLA() %>%
@@ -658,7 +535,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -730,11 +607,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(participating_perc, "%, ", change_ed(participating_change), participating_change, " ppts"),
-      paste0(
-        "England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.",
-        Regionname, ": ", participating_perc_region, "%, ", change_ed(participating_change_region), participating_change_region, " ppts.
-              (Annual changes are since March ", last_year, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", participating_perc_region, "%, ", change_ed(participating_change_region), participating_change_region, " ppts.", br(),
+        "England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.", br(),
+        "Annual changes are since March ", last_year, "."
+      )),
       color = "blue"
     )
   })
@@ -760,7 +637,7 @@ server <- function(input, output, session) {
       # geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -838,11 +715,11 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
-      paste0(
-        "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ",
-        Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.
-              (Annual changes are since March ", last_year, ")."
-      ),
+      HTML(paste0(
+        Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.", br(),
+        "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ", br(),
+        "Annual changes are since March ", last_year, "."
+      )),
       color = "blue"
     )
   })
@@ -867,7 +744,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -906,7 +783,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -946,7 +823,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -985,7 +862,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -1024,7 +901,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "Score") +
@@ -1063,7 +940,7 @@ server <- function(input, output, session) {
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#A285D1")) +
+      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
