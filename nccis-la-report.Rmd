@@ -1,0 +1,111 @@
+---
+params:
+  input_la_choice: Birmingham
+  input_phase_choice: Secondary
+title: "Education, children's social care and offending, descriptive statistics: a focus on `r params$input_la_choice`"
+author: "Department for Education"
+header-includes:
+- \usepackage{longtable}
+- \usepackage{graphics}
+- \usepackage{xparse}
+- \usepackage{moresize}
+- \usepackage{setspace}
+- \usepackage{tcolorbox}
+- \usepackage{wrapfig}
+- \usepackage{helvet}
+- \usepackage{sectsty}
+- \usepackage{fancyhdr}
+- \usepackage{xpatch}
+- \usepackage{booktabs}
+- \onehalfspacing
+- \pagestyle{fancy}
+- \definecolor{gssmidblue}{RGB}{32, 115, 188}
+- \definecolor{dfeheadingblue}{RGB}{16, 79, 117}
+- \renewcommand{\familydefault}{\sfdefault}
+- \allsectionsfont{\color{dfeheadingblue}}
+- \sectionfont{\color{dfeheadingblue}\fontsize{16}{18}\selectfont}
+- \fancyhead[C]{}
+- \fancyhead[L]{\nouppercase{\emph{\leftmark}}}
+- \fancyhead[R]{}
+- \fancyfoot[R]{\nouppercase{\emph{\rightmark}}}
+- \fancyfoot[L]{}
+- \renewcommand{\headrulewidth}{0pt}
+- \renewcommand{\footrulewidth}{0pt}
+- \futurelet\TMPfootrule\def\footrule{{\color{gssmidblue}\TMPfootrule}}
+- \usepackage{floatrow}
+- \floatsetup[figure]{capposition=top}
+- \usepackage[titles]{tocloft}
+- \renewcommand{\cftdot}{}
+- \AtBeginDocument{\let\maketitle\relax}
+- \usepackage{cellspace}
+- \usepackage{etoolbox}
+- \colorlet{headercolour}{DarkSeaGreen}
+
+output:
+  pdf_document:
+    df_print: paged
+    toc: true
+    includes:
+      before_body: title.sty
+urlcolor: blue
+fontsize: 12pt
+---
+
+```{r write title page, include=FALSE}
+connTitle <- file("title.sty")
+writeLines(c("\\resizebox{48mm}{!}{\\includegraphics{www/images/Department_for_Education.png}}\n",
+             "\\vspace*{0.24\\textheight}\n",
+             "\\Huge{\\color{dfeheadingblue}\\raggedright\\textbf{NEET and participation LA scorecard}} \n", 
+             paste0("\\huge{\\color{dfeheadingblue}\\textbf{",params$input_la_choice,"}}"),
+             "\\vspace*{2\\baselineskip} \n",
+             "\\normalsize \n \\newpage \n"), connTitle)
+close(connTitle)
+```
+
+
+```{r load packages, include=FALSE}
+library(tidyverse)
+library(dplyr)
+library(dbplyr)
+library(ggplot2)
+library(knitr)
+library(kableExtra)
+library(stringr)
+library(rmarkdown)
+library(formattable)
+
+#Set working directory
+knitr::opts_knit$set(root.dir = './')
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+source('global.R')
+source('R/plots.R')
+```
+
+# NEET and Not Known
+
+```{r gauge_chart_1, echo=FALSE,fig.dim = c(8, 6), fig.cap="This is a figure",fig.align='center'}
+lineLA  <- la_ud %>% filter(la_name == params$input_la_choice)
+England <- la_ud %>% filter(geographic_level == "National")
+
+Regionname <- lineLA %>% pull(region_name)
+NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(NEET_not_known_percent))
+
+    gauge_plot(as.numeric(lineLA$NEET_not_known_percent),
+      round(as.numeric(England$NEET_not_known_percent), 1),
+      round(as.numeric(NEET_nk_perc_region), 1),
+      range = c(1.4, 13.8),
+      intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+      needle_length = 0.9
+    )
+
+```
+
+# Vulnerable Groups NEET
+
+# Participation
+
+# Contextual - attainment and attendance
+
+
+
