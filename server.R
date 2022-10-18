@@ -616,7 +616,7 @@ server <- function(input, output, session) {
     )
   })
 
-  ## Participation type breakdown plot----------------------------
+  ### Participation type breakdown plot----------------------------
 
   output$participation_types <- renderPlotly({
     Regionname <- lineLA() %>%

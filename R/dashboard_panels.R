@@ -204,7 +204,7 @@ dashboard_panel <- function() {
                        (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130),
                        Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190),
                        Alternative provision (200), Mental health flag (210)."))
-              )
+                )
               ),
               fluidRow(
                 column(
@@ -222,7 +222,7 @@ dashboard_panel <- function() {
                   h2("SEN support"),
                   plotlyOutput("SEN_support_plot") %>% withSpinner()
                 )
-                )
+              )
             ),
             tabPanel(
               value = "participation",
@@ -300,9 +300,9 @@ dashboard_panel <- function() {
                       br(),
                       br(),
                       br(),
+                      br(),
                       p(strong("Persistent absentees (% of pupils)")),
                       plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
-                      br(),
                       br(),
                       br(),
                       br(),
