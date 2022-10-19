@@ -43,12 +43,27 @@ validateColor <- function(color) {
   )
 }
 
-up_arrow <- tags$i(
+icon_up_arrow <- tags$i(
   class = "fa fa-arrow-up",
-  style = paste("color:", acces_grad_palette[1])
+  style = paste("color:", gss_colour_palette[2])
 )
 
-down_arrow <- tags$i(
+icon_down_arrow <- tags$i(
   class = "fa fa-arrow-down",
   style = paste("color:", acces_grad_palette[5])
 )
+
+icon_no_change <- tags$i(
+  class = "fa fa-equals",
+  style = paste("color:", acces_grad_palette[3])
+)
+
+icon_change <- function(value) {
+  if (value > 0) {
+    icon_up_arrow
+  } else if (value == 0) {
+    icon_no_change
+  } else {
+    icon_down_arrow
+  }
+}
