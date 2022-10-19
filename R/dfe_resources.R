@@ -38,12 +38,12 @@ validateColor <- function(color) {
        paste(validColors, collapse = ", "), ".")
 }
 
-up <- tags$i(
+up_arrow <- tags$i(
   class = "fa fa-arrow-up", 
   style = paste("color:",acces_grad_palette[1])
 )
 
-down <- tags$i(
+down_arrow <- tags$i(
   class = "fa fa-arrow-down", 
   style = paste("color:",acces_grad_palette[5])
 )

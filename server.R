@@ -266,7 +266,7 @@ server <- function(input, output, session) {
         "Annual changes are since end ", previous_year_end, "."
       )),
       color = "blue",
-      icon = if(NEET_nk_change > 0) up else down
+      icon = if(NEET_nk_change > 0) up_arrow else down_arrow
     )
   })
 
