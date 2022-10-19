@@ -110,7 +110,7 @@ server <- function(input, output, session) {
   ## Vulnerable groups data---------------------------------------------
   # reshape the data so it plots neatly!
   vulnerable_data <- la_ud %>%
-    # select only contextual info
+    # select only vulnerable info
     select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
     # Put England and region name into LA name
     mutate(la_name = case_when(

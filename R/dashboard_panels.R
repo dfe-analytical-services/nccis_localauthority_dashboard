@@ -29,7 +29,8 @@ homepage_panel <- function() {
             are particularly large compared with the other values, the average will be larger than the middle ranked
             local authority and may fall outside the middle quintile."),
           br(),
-          p("Local authorities with no value or a suppressed value are excluded from the quintile calculation")
+          p("Local authorities with no value or a suppressed value are excluded from the quintile calculation.
+            No data is shown for local authorities with a suppressed value in the plots on the dashboard.")
         ),
 
         ## Left panel -------------------------------------------------------
