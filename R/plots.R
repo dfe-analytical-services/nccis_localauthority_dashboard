@@ -4,8 +4,9 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        needle_length = 1.0,
                        reverse_colour = FALSE) {
   interval_text <- format(intervals)
-  interval_text[abs(intervals - valueEng) < 0.2] <- ""
-  interval_text[abs(intervals - valueRegion) < 0.2] <- ""
+  mask_range <- (range[2]-range[1])/56
+  interval_text[abs(intervals - valueEng) < mask_range] <- ""
+  interval_text[abs(intervals - valueRegion) < mask_range] <- ""
   quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")
   if (reverse_colour) {
     quantcols <- quantcols[5:1]
@@ -24,7 +25,8 @@ gauge_plot <- function(value, valueEng, valueRegion,
         range = range, tickwidth = 1, tickcolor = "darkblue",
         tickvals = intervals,
         ticktext = interval_text,
-        tickfont = list(size = 15)
+        tickfont = list(size = 15),
+        tickangle = 36
       ), # need to make this to the max % neet/nk
       bar = list(color = "rgba(0,0,0,0)"),
       bgcolor = "white",
@@ -38,7 +40,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         list(range = intervals[5:6], color = quantcols[5]),
         list(range = c(valueEng, valueEng), line = list(color = "black", width = 3)),
         list(range = c(valueRegion, valueRegion), line = list(color = "black", width = 3)),
-        list(range = c(valueEng, valueEng), line = list(color = "white", width = 2)),
+        list(range = c(valueEng, valueEng), line = list(color = "#12436D", width = 2)),
         list(range = c(valueRegion, valueRegion), line = list(color = "#6BACE6", width = 2))
       )
     )
@@ -52,10 +54,37 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 2,
-        tickcolor = "black",
-        tickvals = list(valueRegion, valueEng),
-        ticktext = list(" Region ", " Eng "),
-        ticklen = 1, ticks = "outside", showticklabels = TRUE
+        tickcolor = "#1d70b8",
+        tickvals = list(valueRegion),
+        ticktext = list(" Region "),
+        tickfont= list(color='#1d70b8'),
+        ticklen = 1, 
+        ticks = "outside", 
+        showticklabels = TRUE,
+        tickangle = 36
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
+    )
+  )
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 2,
+        tickcolor = "#12436D",
+        tickvals = list(valueEng),
+        ticktext = list(" Eng "),
+        tickfont= list(color='#12436D'),
+        ticklen = 1, 
+        ticks = "outside", 
+        showticklabels = TRUE,
+        tickangle = 36
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
