@@ -12,7 +12,7 @@
       ]
     },
     "Sept_Guarantee": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>97.5%, down -0.2 ppts<\/h3>\n    <p>Region demo: 97.2%, up 0.4 ppts.<br/>England: 94.3%, down -0.7 ppts. <br/>Annual changes are since March 2021.<\/p>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>97.5%, down -0.2 ppts<\/h3>\n    <p>Region demo: 97.2%, up 0.4 ppts.<br/>England: 94.3%, down -0.7 ppts. <br/>Annual changes are since September 2020.<\/p>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]
