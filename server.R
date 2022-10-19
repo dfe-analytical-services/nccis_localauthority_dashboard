@@ -325,7 +325,8 @@ server <- function(input, output, session) {
         "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change(NEET_change)
     )
   })
 
@@ -384,7 +385,8 @@ server <- function(input, output, session) {
         "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change(Nk_change)
     )
   })
 

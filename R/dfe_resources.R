@@ -45,12 +45,12 @@ validateColor <- function(color) {
 
 icon_up_arrow <- tags$i(
   class = "fa fa-arrow-up",
-  style = paste("color:", gss_colour_palette[2])
+  style = paste("color:", acces_grad_palette[5])
 )
 
 icon_down_arrow <- tags$i(
   class = "fa fa-arrow-down",
-  style = paste("color:", acces_grad_palette[5])
+  style = paste("color:", gss_colour_palette[2])
 )
 
 icon_no_change <- tags$i(
