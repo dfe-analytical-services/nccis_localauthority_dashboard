@@ -58,6 +58,11 @@ icon_no_change <- tags$i(
   style = paste("color:", acces_grad_palette[3])
 )
 
+icon_not_available <- tags$i(
+  class = "",
+  style = paste("color:", acces_grad_palette[3])
+)
+
 icon_up_arrow_part <- tags$i(
   class = "fa fa-arrow-up",
   style = paste("color:", gss_colour_palette[2])
@@ -73,6 +78,8 @@ icon_change_neet <- function(value) {
     icon_up_arrow_neet
   } else if (value == 0) {
     icon_no_change
+  } else if (is.na(value)) {
+    icon_not_available
   } else {
     icon_down_arrow_neet
   }
