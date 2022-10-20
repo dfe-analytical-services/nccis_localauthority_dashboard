@@ -24,12 +24,14 @@ homepage_panel <- function() {
             green quintile, whereas local authorities with the highest NEET/lowest participation fall
             into the red quintile."),
           br(),
-          p("The average England percentage may not necessarily fall in the middle of quintile 3
-            because the average is calculated by averaging all the values; for example if some of the values
-            are particularly large compared with the other values, the average will be larger than the middle ranked
-            local authority and may fall outside the middle quintile."),
-          br(),
-          p("Local authorities with no value or a suppressed value are excluded from the quintile calculation")
+          p(strong("Some caution should be taken if using these figures due to the estimates being based on
+            management information and there being considerable variation at local authority level in
+            how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
+            estimates of the proportion NEET.")), 
+          p(strong("The Department for Education’s definitive measures for England
+            of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
+            published annually in the national statistics release", a(href ="https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
+                                                                      "'Participation in Education, Training and Employment age 16 to 18'.")))
         ),
 
         ## Left panel -------------------------------------------------------
