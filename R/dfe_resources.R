@@ -54,7 +54,7 @@ icon_down_arrow <- tags$i(
 )
 
 icon_no_change <- tags$i(
-  class = "fa fa-equals",
+  class = "fa fa-arrows-alt-h",
   style = paste("color:", acces_grad_palette[3])
 )
 
