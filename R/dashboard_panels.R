@@ -232,7 +232,7 @@ dashboard_panel <- function() {
               h2("Participating in education and training"),
               fluidRow(
                 column(
-                  8,
+                  7,
                   plotlyOutput("Participation_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
                   br(),
@@ -243,7 +243,7 @@ dashboard_panel <- function() {
                 ),
                 fluidRow(
                   column(
-                    4,
+                    5,
                     p(strong(paste0("Type of education or training"))),
                     plotlyOutput("participation_types") %>% withSpinner()
                   )
