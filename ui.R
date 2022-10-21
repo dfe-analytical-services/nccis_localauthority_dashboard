@@ -95,6 +95,7 @@ ui <- function(input, output, session) {
       well = FALSE,
       homepage_panel(),
       dashboard_panel(),
+      technical_notes(),
       a11y_panel(),
       support_links()
     ),

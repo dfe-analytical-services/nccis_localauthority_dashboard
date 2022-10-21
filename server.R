@@ -266,7 +266,7 @@ server <- function(input, output, session) {
         "Annual changes are since end ", previous_year_end, "."
       )),
       color = "blue",
-      icon = icon_change(NEET_nk_change)
+      icon = icon_change_neet(NEET_nk_change)
     )
   })
 
@@ -325,7 +325,8 @@ server <- function(input, output, session) {
         "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_neet(NEET_change)
     )
   })
 
@@ -384,7 +385,8 @@ server <- function(input, output, session) {
         "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_neet(Nk_change)
     )
   })
 
@@ -613,7 +615,8 @@ server <- function(input, output, session) {
         "England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.", br(),
         "Annual changes are since March ", last_year, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_part(participating_change)
     )
   })
 
@@ -721,7 +724,8 @@ server <- function(input, output, session) {
         "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ", br(),
         "Annual changes are since September ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_part(Sept_Guar_change)
     )
   })
 
