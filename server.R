@@ -637,7 +637,7 @@ server <- function(input, output, session) {
     partRegion <- participation_data %>% filter(la_name == Regionname)
 
     plotdata <- bind_rows(partLA(), partRegion, partEng())
-    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+    plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
     
     participation_types <- plotdata %>%
       ggplot(aes(
