@@ -9,7 +9,7 @@ technical_notes <- function() {
     br("Annual comparisons are not available for Northamptonshire  in 2022 due to boundary changes."),
     br("For further information on the data used in this dashboard please see the methodology document here **INSERT LINK."),
     h3("Quintiles"),
-    br("Each area's performance is compared with that of other local authorities in England. The best performing with the lowest NEET/highest participation fall into the green 
+    br("Each area's performance is compared with that of other local authorities in England. The best performing with the lowest NEET/highest participation fall into the green
       quintile, whereas local authorities with the highest NEET/lowest participation fall into the red quintile.  Comparisons between local authorities are made using data that has
       not been rounded."),
     br("The average England percentage may not necessarily fall in the middle of quintile 3 because the average is calculated by averaging
