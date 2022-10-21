@@ -401,7 +401,7 @@ server <- function(input, output, session) {
 
     plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
-    
+
     vulnerable <- plotdata %>%
       ggplot(aes(
         y = VG_NEET_NK_percentage, x = "",
@@ -443,7 +443,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -487,7 +487,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -532,7 +532,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -638,7 +638,7 @@ server <- function(input, output, session) {
 
     plotdata <- bind_rows(partLA(), partRegion, partEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
-    
+
     participation_types <- plotdata %>%
       ggplot(aes(
         y = value, x = "",
@@ -747,7 +747,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -789,7 +789,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -835,7 +835,7 @@ server <- function(input, output, session) {
 
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
-    
+
     overall_abs <- plotdata %>%
       ggplot(aes(
         y = sess_overall_percent, x = "",
@@ -874,7 +874,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -916,7 +916,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
@@ -958,7 +958,7 @@ server <- function(input, output, session) {
       pull(region_name)
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
-    
+
     plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
