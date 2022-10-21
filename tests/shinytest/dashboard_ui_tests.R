@@ -1,4 +1,4 @@
-app <- ShinyDriver$new("../../", loadTimeout = 6.e4)
+app <- ShinyDriver$new("../../", loadTimeout = 1.2e5)
 app$snapshotInit("dashboard_ui_tests", screenshot = FALSE)
 
 listInputs <- c(

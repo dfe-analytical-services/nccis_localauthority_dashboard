@@ -265,7 +265,8 @@ server <- function(input, output, session) {
         "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts. ", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change(NEET_nk_change)
     )
   })
 
@@ -585,7 +586,7 @@ server <- function(input, output, session) {
       round(as.numeric(participation_region), 1),
       range = c(87.4, 98.5),
       intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-      needle_length = 0.7,
+      needle_length = 0.9,
       reverse_colour = TRUE
     )
   })
@@ -628,7 +629,7 @@ server <- function(input, output, session) {
     )
   })
 
-  ## Participation type breakdown plot----------------------------
+  ### Participation type breakdown plot----------------------------
 
   output$participation_types <- renderPlotly({
     Regionname <- lineLA() %>%
@@ -697,7 +698,7 @@ server <- function(input, output, session) {
       round(as.numeric(Sept_Guar_region), 1),
       range = c(50.8, 99.8),
       intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-      needle_length = 0.7,
+      needle_length = 0.9,
       reverse_colour = TRUE
     )
   })
@@ -733,7 +734,7 @@ server <- function(input, output, session) {
       HTML(paste0(
         Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.", br(),
         "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ", br(),
-        "Annual changes are since March ", last_year, "."
+        "Annual changes are since September ", previous_year_end, "."
       )),
       color = "blue"
     )

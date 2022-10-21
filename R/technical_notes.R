@@ -18,7 +18,7 @@ technical_notes <- function() {
                     reflects information about 16 and 17 year olds only."),
     br("The headline measure in the scorecard combines NEET and not known figures for 16 and 17 year olds. This gives
                        an accurate picture of local authority performance in terms of tracking and supporting
-                       young people and means that low NEET figures cannot be masked by high levels of ‘not knowns’."),
+                       young people and means that low NEET figures cannot be masked by high levels of <U+2018>not knowns<U+2019>."),
     h3("Quintiles"),
     br("Each area's performance is compared with that of other local authorities in England.  The 1st quintile is always the indicator
       of best performance. Therefore, the 30 local authorities that have the lowest levels of 16-17 year olds NEET and not knowns will fall

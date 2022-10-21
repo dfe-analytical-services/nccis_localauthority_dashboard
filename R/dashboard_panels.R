@@ -187,31 +187,42 @@ dashboard_panel <- function() {
             tabPanel(
               value = "vulnerable",
               title = "Vulnerable Groups NEET",
-              gov_row(
+              fluidRow(
                 br(),
                 p(strong("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)")),
                 column(
                   6,
-                  p(strong("No SEND")),
-                  plotlyOutput("No_SEN_plot") %>% withSpinner(),
-                  # valueBoxOutput("No_SEN", width = 12),
-                  br(),
-                  p(strong("SEND (EHCP)")),
-                  plotlyOutput("EHCP_plot") %>% withSpinner(),
-                  # valueBoxOutput("EHCP", width = 12),
-                  br(),
-                  p(strong(paste0("SEN support"))),
-                  plotlyOutput("SEN_support_plot") %>% withSpinner()
-                  # valueBoxOutput("SEN_support", width = 12)
+                  h2("Vulnerable group"),
+                  plotlyOutput("vulnerable_plot") %>% withSpinner()
                 ),
                 column(
                   6,
-                  p(strong(paste0("Vulnerable group"))),
-                  # plotlyOutput("Vulnerable_guage", width="60%"),
-                  # valueBoxOutput("Vulnerable", width = 12)
-                  plotlyOutput("vulnerable_plot") %>% withSpinner()
+                  br(),
+                  br(),
+                  br(),
+                  br(),
+                  p(strong("A young person is said to be in a vulnerable group if they have any of the following characteristics
+                       (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130),
+                       Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190),
+                       Alternative provision (200), Mental health flag (210)."))
+                )
+              ),
+              fluidRow(
+                column(
+                  4,
+                  h2("No SEND"),
+                  plotlyOutput("No_SEN_plot") %>% withSpinner()
                 ),
-                uiOutput("vulnerable.bartext")
+                column(
+                  4,
+                  h2("SEND (EHCP)"),
+                  plotlyOutput("EHCP_plot") %>% withSpinner()
+                ),
+                column(
+                  4,
+                  h2("SEN support"),
+                  plotlyOutput("SEN_support_plot") %>% withSpinner()
+                )
               )
             ),
             tabPanel(
@@ -247,23 +258,23 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 column(
                   6,
-                  p(strong("Post 16 attainment")),
+                  h2("Post 16 attainment"),
                   br(),
                   p(strong("% 19 year olds achieving level 3")),
                   plotlyOutput("level3_plot") %>% withSpinner(),
                   br(),
                   br(),
-                  p(strong(paste0("GCSE attainment"))),
+                  h2("GCSE attainment"),
                   p(strong("Average attainment 8 score per pupil")),
                   plotlyOutput("Attainment8_plot") %>% withSpinner(),
                   br(),
                   br(),
-                  p(strong("School attendance")),
+                  h2("School attendance"),
                   p(strong("Overall absence (% of sessions)")),
                   plotlyOutput("overall_abs_plot") %>% withSpinner(),
                   br(),
                   br(),
-                  p(strong(paste0("16-17 LA population"))),
+                  h2("16-17 LA population"),
                   # p("ONS estimate"),
                   valueBoxOutput("ONS_pop", width = 12)
                 ),
@@ -273,10 +284,13 @@ dashboard_panel <- function() {
                     column(
                       12,
                       br(),
+                      br(),
                       p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
                       for those who had not achieved this level by 16")),
                       plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                      br(),
+                      br(),
                       br(),
                       br(),
                       br(),
@@ -286,8 +300,11 @@ dashboard_panel <- function() {
                       br(),
                       br(),
                       br(),
+                      br(),
+                      br(),
                       p(strong("Persistent absentees (% of pupils)")),
                       plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                      br(),
                       br(),
                       br(),
                       br(),
