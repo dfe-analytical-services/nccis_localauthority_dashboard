@@ -43,27 +43,54 @@ validateColor <- function(color) {
   )
 }
 
-icon_up_arrow <- tags$i(
+icon_up_arrow_neet <- tags$i(
+  class = "fa fa-arrow-up",
+  style = paste("color:", acces_grad_palette[5])
+)
+
+icon_down_arrow_neet <- tags$i(
+  class = "fa fa-arrow-down",
+  style = paste("color:", gss_colour_palette[2])
+)
+
+icon_no_change <- tags$i(
+  class = "fa fa-arrows-alt-h",
+  style = paste("color:", acces_grad_palette[3])
+)
+
+icon_not_available <- tags$i(
+  class = "",
+  style = paste("color:", acces_grad_palette[3])
+)
+
+icon_up_arrow_part <- tags$i(
   class = "fa fa-arrow-up",
   style = paste("color:", gss_colour_palette[2])
 )
 
-icon_down_arrow <- tags$i(
+icon_down_arrow_part <- tags$i(
   class = "fa fa-arrow-down",
   style = paste("color:", acces_grad_palette[5])
 )
 
-icon_no_change <- tags$i(
-  class = "fa fa-equals",
-  style = paste("color:", acces_grad_palette[3])
-)
-
-icon_change <- function(value) {
+icon_change_neet <- function(value) {
   if (value > 0) {
-    icon_up_arrow
+    icon_up_arrow_neet
+  } else if (value == 0) {
+    icon_no_change
+  } else if (is.na(value)) {
+    icon_not_available
+  } else {
+    icon_down_arrow_neet
+  }
+}
+
+icon_change_part <- function(value) {
+  if (value > 0) {
+    icon_up_arrow_part
   } else if (value == 0) {
     icon_no_change
   } else {
-    icon_down_arrow
+    icon_down_arrow_part
   }
 }
