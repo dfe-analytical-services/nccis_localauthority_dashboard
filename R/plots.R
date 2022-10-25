@@ -187,8 +187,10 @@ plot_nkgauge <- function(dfla, line_la, line_england,
 
 plot_vulnerablebar <- function(dfvulnerable, vulnerable_la,  line_la, vulnerable_england, 
                                plotcat='VG_NEET_NK_percentage'){
-  figtitles <- data.frame(flag=c(VG_NEET_NK_percentage, ), 
-                          figtitle=c("Vulnerable group"))
+  figtitles <- data.frame(flag=c("VG_NEET_NK_percentage", "NEET_NK_noSEN_percent", "NEET_NK_EHCP_percent", 
+                                 "NEET_NK_SENDsupport_percent"), 
+                          figtitle=c("Vulnerable group", "No SEND", "SEND (EHCP)", "SEN support"))
+  figtitle <- (figtitles %>% filter(flag==plotcat))$figtitle
   Regionname <- line_la %>% pull(region_name)
   vulnerableRegion <- dfvulnerable %>% filter(la_name == Regionname)
   

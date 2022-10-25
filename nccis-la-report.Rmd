@@ -72,7 +72,10 @@ source('R/plots.R')
 lineLA  <- filter(la_ud, la_name == params$input_la_choice)
 England <- la_ud %>% filter(geographic_level == "National")
 
-vulnerable_data <- la_ud %>% select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
+vulnerable_data <- la_ud %>% 
+  select(geographic_level, region_name, la_name,
+         NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, 
+         NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
     mutate(
       la_name = case_when(
       geographic_level == "National" ~ "England",
