@@ -48,6 +48,9 @@ change_ed <- function(numA) {
   if (numA == 0.0) {
     return("stable ")
   }
+  if (numA == "z") {
+    return("")
+  }
   if (numA < 0.0) {
     return("down ")
   }
@@ -55,7 +58,7 @@ change_ed <- function(numA) {
   if (numA > 0.0) {
     return("up ")
   } else {
-    return("annual change not available ")
+    return(" ")
   }
 }
 
