@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  25 OCT 2022 09:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2021.12.7)  25 OCT 2022 10:14
 entering extended mode
 **./nccis-la-report.tex
 (nccis-la-report.tex
@@ -1164,50 +1164,50 @@ File: bkm-pdftex.def 2019/06/04 v1.27 bookmark driver for pdfTeX (HO)
 )) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/xurl\xurl.sty
 Package: xurl 2020/12/30 v 0.09a modify URL breaks
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 105.
+Package hyperref Info: Option `colorlinks' set `true' on input line 106.
 (nccis-la-report.aux)
 \openout1 = `nccis-la-report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 112.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-12.
+13.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 112.
-LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 11
-2.
+3.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
-LaTeX Info: Redefining \microtypecontext on input line 112.
-Package microtype Info: Applying patch `item' on input line 112.
-Package microtype Info: Applying patch `toc' on input line 112.
-Package microtype Info: Applying patch `eqnum' on input line 112.
-Package microtype Info: Applying patch `footnote' on input line 112.
+LaTeX Info: Redefining \microtypecontext on input line 113.
+Package microtype Info: Applying patch `item' on input line 113.
+Package microtype Info: Applying patch `toc' on input line 113.
+Package microtype Info: Applying patch `eqnum' on input line 113.
+Package microtype Info: Applying patch `footnote' on input line 113.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 112.
+LaTeX Info: Redefining \showhyphens on input line 113.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1289,7 +1289,7 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 \c@FBLTpage=\count328
 )
 \AtBeginShipoutBox=\box77
-Package hyperref Info: Link coloring ON on input line 112.
+Package hyperref Info: Link coloring ON on input line 113.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex/latex/oberdiek\refcount.sty"
@@ -1299,21 +1299,21 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 112.
-LaTeX Info: Redefining \pageref on input line 112.
-LaTeX Info: Redefining \nameref on input line 112.
+LaTeX Info: Redefining \ref on input line 113.
+LaTeX Info: Redefining \pageref on input line 113.
+LaTeX Info: Redefining \nameref on input line 113.
 <www/images/Department_for_Education.png, id=6, 1204.5pt x 712.6625pt>
 File: www/images/Department_for_Education.png Graphic file (type png)
 <use www/images/Department_for_Education.png>
 Package pdftex.def Info: www/images/Department_for_Education.png  used on input
- line 115.
+ line 116.
 (pdftex.def)             Requested size: 469.75311pt x 277.93726pt.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <29.86> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 119.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 121.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 122.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 125.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 126.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1323,7 +1323,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 12
-5.
+6.
 ("C:\Program Files\MiKTeX 2.9\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (C:\Users\RBIELBY\AppData\Roaming\MiKTeX\2.9\tex/latex/microtype\mt-cmr.cfg
@@ -1334,19 +1334,19 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 {C:/Users/RBIELBY/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./www/ima
 ges/Department_for_Education.png>]
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 129.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <16> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 129.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 130.
 <nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf, id=16, 963.6pt x 
 321.2pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file 
 (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-
-1.pdf  used on input line 131.
+1.pdf  used on input line 132.
 (pdftex.def)             Requested size: 939.543pt x 313.181pt.
 
-Overfull \hbox (469.78798pt too wide) in paragraph at lines 131--132
+Overfull \hbox (469.78798pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -1356,10 +1356,10 @@ File: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf Graphic file (t
 ype pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neet-1.
-pdf  used on input line 135.
+pdf  used on input line 136.
 (pdftex.def)             Requested size: 939.543pt x 293.60716pt.
 
-Overfull \hbox (469.78798pt too wide) in paragraph at lines 135--136
+Overfull \hbox (469.78798pt too wide) in paragraph at lines 136--137
 [][] 
  []
 
@@ -1369,8 +1369,32 @@ File: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf Graphic file (typ
 e pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pd
-f  used on input line 142.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+f  used on input line 145.
+(pdftex.def)             Requested size: 263.061pt x 182.11916pt.
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=19, 469.755pt x 3
+25.215pt>
+File: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf Graphic file (ty
+pe pdf)
+<use nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf>
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.p
+df  used on input line 157.
+(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=20, 469.755pt x 3
+25.215pt>
+File: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf Graphic file (ty
+pe pdf)
+<use nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf>
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.p
+df  used on input line 158.
+(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=21, 469.755pt x 3
+25.215pt>
+File: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf Graphic file (ty
+pe pdf)
+<use nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.p
+df  used on input line 159.
+(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1380,31 +1404,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf> <./nccis-la-
-report_files/figure-latex/gauge_chart_neet-1.pdf>]
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=47, 469.755pt x 3
-25.215pt>
-File: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf Graphic file (ty
-pe pdf)
-<use nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.p
-df  used on input line 144.
-(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=48, 469.755pt x 3
-25.215pt>
-File: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf Graphic file (ty
-pe pdf)
-<use nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.p
-df  used on input line 145.
-(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=49, 469.755pt x 3
-25.215pt>
-File: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf Graphic file (ty
-pe pdf)
-<use nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.p
-df  used on input line 146.
-(pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
+report_files/figure-latex/gauge_chart_neet-1.pdf> <./nccis-la-report_files/figu
+re-latex/bar_chart_vuln-1.pdf>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1413,31 +1414,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-repo
-rt_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-la
-tex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln
-2-3.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
+[3 <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-rep
+ort_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-l
+atex/bar_chart_vuln2-3.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
 (nccis-la-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 155.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 168.
  ) 
 Here is how much of TeX's memory you used:
- 37382 strings out of 492452
- 692100 string characters out of 3129802
- 761072 words of memory out of 3000000
- 41202 multiletter control sequences out of 15000+200000
- 495060 words of font info for 74 fonts, out of 3000000 for 9000
+ 37403 strings out of 492452
+ 692310 string characters out of 3129802
+ 762078 words of memory out of 3000000
+ 41208 multiletter control sequences out of 15000+200000
+ 496778 words of font info for 84 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,12n,66p,1014b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,11n,66p,1014b,920s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}{C:/Program Files/Mi
 KTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (3 pages, 120001 bytes).
+a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on nccis-la-report.pdf (3 pages, 131340 bytes).
 PDF statistics:
- 108 PDF objects out of 1000 (max. 8388607)
+ 112 PDF objects out of 1000 (max. 8388607)
  12 named destinations out of 1000 (max. 500000)
- 28752 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 30800 words of extra memory for PDF output out of 35830 (max. 10000000)
 

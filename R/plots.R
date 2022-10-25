@@ -3,7 +3,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
                        needle_length = 1.0,
                        reverse_colour = FALSE,
-                       xdomain = c(0,1.96),
+                       xdomain = c(0,0.96),
                        fig = plot_ly()) {
   interval_text <- format(intervals)
   mask_range <- (range[2]-range[1])/56
@@ -13,7 +13,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
   if (reverse_colour) {
     quantcols <- quantcols[5:1]
   }
-  domain <- list(x = xdomain, y = c(0, 1.96))
+  domain <- list(x = xdomain, y = c(0, 0.96))
   value_size <- 42
   fig <- fig %>% add_trace(
     domain = domain,
@@ -187,6 +187,8 @@ plot_nkgauge <- function(dfla, line_la, line_england,
 
 plot_vulnerablebar <- function(dfvulnerable, vulnerable_la,  line_la, vulnerable_england, 
                                plotcat='VG_NEET_NK_percentage'){
+  figtitles <- data.frame(flag=c(VG_NEET_NK_percentage, ), 
+                          figtitle=c("Vulnerable group"))
   Regionname <- line_la %>% pull(region_name)
   vulnerableRegion <- dfvulnerable %>% filter(la_name == Regionname)
   
@@ -211,7 +213,8 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la,  line_la, vulnerable
       plot.background = element_blank(),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank()
-    )
+    ) + 
+    ggtitle(figtitle)
   
   }
 

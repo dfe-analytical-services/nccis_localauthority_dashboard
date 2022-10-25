@@ -17,6 +17,7 @@ header-includes:
 - \usepackage{fancyhdr}
 - \usepackage{xpatch}
 - \usepackage{booktabs}
+- \usepackage{wrapfig}
 - \onehalfspacing
 - \pagestyle{fancy}
 - \definecolor{gssmidblue}{RGB}{32, 115, 188}
@@ -102,10 +103,17 @@ plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>%
 \vspace{-4.8cm}
 
 # Vulnerable Groups NEET
-```{r bar_chart_vuln, echo=FALSE, out.width="64%"}
+
+\begin{wrapfigure}{l}{0.56\textwidth}
+```{r bar_chart_vuln, echo=FALSE, out.width="100%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
                                plotcat='VG_NEET_NK_percentage')
 ```
+\end{wrapfigure}
+
+A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
+
+---
 
 ```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
