@@ -2,7 +2,9 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        range = c(1.4, 13.8),
                        intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
                        needle_length = 1.0,
-                       reverse_colour = FALSE) {
+                       reverse_colour = FALSE,
+                       xdomain = c(0,1.96),
+                       fig = plot_ly()) {
   interval_text <- format(intervals)
   mask_range <- (range[2]-range[1])/56
   interval_text[abs(intervals - valueEng) < mask_range] <- ""
@@ -11,8 +13,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
   if (reverse_colour) {
     quantcols <- quantcols[5:1]
   }
-  fig <- plot_ly()
-  domain <- list(x = c(0, 0.9), y = c(0, 1.8))
+  domain <- list(x = xdomain, y = c(0, 1.96))
   value_size <- 42
   fig <- fig %>% add_trace(
     domain = domain,
@@ -126,3 +127,91 @@ gauge_plot <- function(value, valueEng, valueRegion,
   )
   return(fig)
 }
+
+
+plot_neetnkgauge <- function(dfla, line_la, line_england){
+  Regionname <- line_la %>% pull(region_name)
+  
+  NEET_nk_perc_region <- dfla %>% 
+    filter(geographic_level == "Regional", region_name == Regionname) %>%
+    pull(as.numeric(NEET_not_known_percent))
+  
+  gauge_plot(as.numeric(line_la$NEET_not_known_percent),
+             round(as.numeric(line_england$NEET_not_known_percent), 1),
+             round(as.numeric(NEET_nk_perc_region), 1),
+             range = c(1.4, 13.8),
+             intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+             needle_length = 0.9
+  )
+}
+
+plot_neetgauge <- function(dfla, line_la, line_england,xdomain=c(0,0.96)){
+  Regionname <- line_la %>%
+    pull(region_name)
+  
+  NEET_perc_region <- dfla %>%
+    filter(geographic_level == "Regional", region_name == Regionname) %>%
+    pull(as.numeric(NEET_percent))
+  
+  gauge_plot(as.numeric(line_la$NEET_percent),
+             round(as.numeric(line_england$NEET_percent), 1),
+             round(as.numeric(NEET_perc_region), 1),
+             range = c(0.8, 6.8),
+             intervals = c(0.8, 1.8, 2.3, 3.1, 3.9, 6.8),
+             needle_length = 0.7,
+             xdomain=xdomain
+  )
+}
+
+plot_nkgauge <- function(dfla, line_la, line_england,
+                         fig=plotly(),
+                         xdomain=c(0,1.9)){
+  Regionname <- line_la %>%
+    pull(region_name)
+  
+  nk_perc_region <- dfla %>%
+    filter(geographic_level == "Regional", region_name == Regionname) %>%
+    pull(as.numeric(Notknown_percent))
+  
+  gauge_plot(as.numeric(line_la$Notknown_percent),
+             round(as.numeric(line_england$Notknown_percent), 1),
+             round(as.numeric(nk_perc_region), 1),
+             range = c(0.0, 12.1),
+             intervals = c(0.0, 0.9, 1.4, 2.1, 3.2, 12.1),
+             needle_length = 0.7,
+             fig=fig,
+             xdomain=xdomain
+  )
+}
+
+
+plot_vulnerablebar <- function(dfvulnerable, vulnerable_la,  line_la, vulnerable_england, 
+                               plotcat='VG_NEET_NK_percentage'){
+  Regionname <- line_la %>% pull(region_name)
+  vulnerableRegion <- dfvulnerable %>% filter(la_name == Regionname)
+  
+  bind_rows(vulnerable_la, vulnerableRegion, vulnerable_england) %>%
+    ggplot(aes(
+      y = .data[[plotcat]], x = "",
+      fill = la_name,
+      text = paste(la_name, ": ", .data[[plotcat]], "%")
+    )) +
+    geom_bar(stat = "identity", na.rm = TRUE) +
+    coord_flip() +
+    facet_wrap(~la_name, nrow = 3) +
+    labs(x = "", y = "") +
+    guides(fill = guide_legend(title = "")) +
+    scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+    theme_minimal() +
+    labs(x = "", y = "%") +
+    theme(
+      legend.position = "none",
+      text = element_text(size = 14),
+      strip.text.x = element_text(size = 14),
+      plot.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank()
+    )
+  
+  }
+

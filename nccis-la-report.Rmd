@@ -1,6 +1,6 @@
 ---
 params:
-  input_la_choice: Birmingham
+  input_la_choice: LA demo
   input_phase_choice: Secondary
 title: "Education, children's social care and offending, descriptive statistics: a focus on `r params$input_la_choice`"
 author: "Department for Education"
@@ -44,7 +44,7 @@ header-includes:
 output:
   pdf_document:
     df_print: paged
-    toc: true
+    toc: false
     includes:
       before_body: title.sty
 urlcolor: blue
@@ -64,44 +64,58 @@ close(connTitle)
 
 
 ```{r load packages, include=FALSE}
-library(tidyverse)
-library(dplyr)
-library(dbplyr)
-library(ggplot2)
-library(knitr)
-library(kableExtra)
-library(stringr)
-library(rmarkdown)
-library(formattable)
-
-#Set working directory
 knitr::opts_knit$set(root.dir = './')
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 source('global.R')
 source('R/plots.R')
+lineLA  <- filter(la_ud, la_name == params$input_la_choice)
+England <- la_ud %>% filter(geographic_level == "National")
+
+vulnerable_data <- la_ud %>% select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
+    mutate(
+      la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    )
+    )
+vulnerable_la      <- filter(vulnerable_data, la_name == params$input_la_choice)
+vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
+
 ```
 
 # NEET and Not Known
 
-```{r gauge_chart_1, echo=FALSE,fig.dim = c(8, 6), fig.cap="This is a figure",fig.align='center'}
-lineLA  <- la_ud %>% filter(la_name == params$input_la_choice)
-England <- la_ud %>% filter(geographic_level == "National")
-
-Regionname <- lineLA %>% pull(region_name)
-NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
-      pull(as.numeric(NEET_not_known_percent))
-
-    gauge_plot(as.numeric(lineLA$NEET_not_known_percent),
-      round(as.numeric(England$NEET_not_known_percent), 1),
-      round(as.numeric(NEET_nk_perc_region), 1),
-      range = c(1.4, 13.8),
-      intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
-      needle_length = 0.9
-    )
-
+```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
+plot_neetnkgauge(la_ud, lineLA, England) %>% 
+  layout(autosize = F, width = 960, height = 320)
 ```
 
+\vspace{-4.8cm}
+
+```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
+fig <- plot_neetgauge(la_ud, lineLA, England, xdomain=c(0.04,0.46))
+plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>% 
+  layout(autosize = T, width = 960, height = 240)
+```
+
+\vspace{-4.8cm}
+
 # Vulnerable Groups NEET
+```{r bar_chart_vuln, echo=FALSE, out.width="64%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='VG_NEET_NK_percentage')
+```
+
+```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_EHCP_percent')
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_SENDsupport_percent')
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_noSEN_percent')
+```
+
 
 # Participation
 
