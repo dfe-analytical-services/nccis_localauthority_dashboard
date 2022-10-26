@@ -1,7 +1,6 @@
 ---
 params:
   input_la_choice: LA demo
-  input_phase_choice: Secondary
 title: "Education, children's social care and offending, descriptive statistics: a focus on `r params$input_la_choice`"
 author: "Department for Education"
 header-includes:
