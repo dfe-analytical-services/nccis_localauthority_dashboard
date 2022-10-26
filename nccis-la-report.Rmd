@@ -1,0 +1,135 @@
+---
+params:
+  input_la_choice: LA demo
+title: "Education, children's social care and offending, descriptive statistics: a focus on `r params$input_la_choice`"
+author: "Department for Education"
+header-includes:
+- \usepackage{longtable}
+- \usepackage{graphics}
+- \usepackage{xparse}
+- \usepackage{moresize}
+- \usepackage{setspace}
+- \usepackage{tcolorbox}
+- \usepackage{wrapfig}
+- \usepackage{helvet}
+- \usepackage{sectsty}
+- \usepackage{fancyhdr}
+- \usepackage{xpatch}
+- \usepackage{booktabs}
+- \usepackage{wrapfig}
+- \onehalfspacing
+- \pagestyle{fancy}
+- \definecolor{gssmidblue}{RGB}{32, 115, 188}
+- \definecolor{dfeheadingblue}{RGB}{16, 79, 117}
+- \renewcommand{\familydefault}{\sfdefault}
+- \allsectionsfont{\color{dfeheadingblue}}
+- \sectionfont{\color{dfeheadingblue}\fontsize{16}{18}\selectfont}
+- \fancyhead[C]{}
+- \fancyhead[L]{\nouppercase{\emph{\leftmark}}}
+- \fancyhead[R]{}
+- \fancyfoot[R]{\nouppercase{\emph{\rightmark}}}
+- \fancyfoot[L]{}
+- \renewcommand{\headrulewidth}{0pt}
+- \renewcommand{\footrulewidth}{0pt}
+- \futurelet\TMPfootrule\def\footrule{{\color{gssmidblue}\TMPfootrule}}
+- \usepackage{floatrow}
+- \floatsetup[figure]{capposition=top}
+- \usepackage[titles]{tocloft}
+- \renewcommand{\cftdot}{}
+- \AtBeginDocument{\let\maketitle\relax}
+- \usepackage{cellspace}
+- \usepackage{etoolbox}
+- \colorlet{headercolour}{DarkSeaGreen}
+
+output:
+  pdf_document:
+    df_print: paged
+    toc: false
+    includes:
+      before_body: title.sty
+urlcolor: blue
+fontsize: 12pt
+---
+
+```{r write title page, include=FALSE}
+connTitle <- file("title.sty")
+writeLines(c("\\resizebox{48mm}{!}{\\includegraphics{www/images/Department_for_Education.png}}\n",
+             "\\vspace*{0.24\\textheight}\n",
+             "\\Huge{\\color{dfeheadingblue}\\raggedright\\textbf{NEET and participation LA scorecard}} \n", 
+             paste0("\\huge{\\color{dfeheadingblue}\\textbf{",params$input_la_choice,"}}"),
+             "\\vspace*{2\\baselineskip} \n",
+             "\\normalsize \n \\newpage \n"), connTitle)
+close(connTitle)
+```
+
+
+```{r load packages, include=FALSE}
+knitr::opts_knit$set(root.dir = './')
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+source('global.R')
+source('R/plots.R')
+lineLA  <- filter(la_ud, la_name == params$input_la_choice)
+England <- la_ud %>% filter(geographic_level == "National")
+
+vulnerable_data <- la_ud %>% 
+  select(geographic_level, region_name, la_name,
+         NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, 
+         NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
+    mutate(
+      la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    )
+    )
+vulnerable_la      <- filter(vulnerable_data, la_name == params$input_la_choice)
+vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
+
+```
+
+# NEET and Not Known
+
+```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
+plot_neetnkgauge(la_ud, lineLA, England) %>% 
+  layout(autosize = F, width = 960, height = 320)
+```
+
+\vspace{-4.8cm}
+
+```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
+fig <- plot_neetgauge(la_ud, lineLA, England, xdomain=c(0.04,0.46))
+plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>% 
+  layout(autosize = T, width = 960, height = 240)
+```
+
+\vspace{-4.8cm}
+
+# Vulnerable Groups NEET
+
+\begin{wrapfigure}{l}{0.56\textwidth}
+```{r bar_chart_vuln, echo=FALSE, out.width="100%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='VG_NEET_NK_percentage')
+```
+\end{wrapfigure}
+
+A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
+
+---
+
+```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_EHCP_percent')
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_SENDsupport_percent')
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_noSEN_percent')
+```
+
+
+# Participation
+
+# Contextual - attainment and attendance
+
+
+

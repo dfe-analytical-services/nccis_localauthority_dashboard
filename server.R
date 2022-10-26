@@ -1040,28 +1040,19 @@ server <- function(input, output, session) {
     }
   )
 
-  # selected LA pdf
-
-  function(input, output, session) {
-    # Define font family for charts
-    font_choice <- list(
-      family = "Arial",
-      size = 14
-    )
 
     output$pdfDownload <- downloadHandler(
-      filename = paste0("dashboard_output.pdf"),
+      filename = function(){paste0(input$LA_choice, "_neet_comparator_scorecard.pdf")},
       content = function(file) {
         # Add a loading modal, can probably make this prettier at a later date
         showModal(modalDialog("Preparing PDF report...", footer = NULL))
         on.exit(removeModal())
 
         # List of parameters to pass from shiny to the report
-        params <- input_la_choice <- input$LA_choice
-
-
+        params <- list(input_la_choice = input$LA_choice)
+        print(params)
         # Render the pdf file from the rmarkdown template
-        rmarkdown::render("Summary_scorecard.Rmd",
+        rmarkdown::render("nccis-la-report.Rmd",
           output_file = file,
           params = params,
           output_format = "pdf_document",
@@ -1069,7 +1060,6 @@ server <- function(input, output, session) {
         )
       }
     )
-  }
 
   # Stop app ---------------------------------------------------------------------------------
 
