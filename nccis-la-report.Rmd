@@ -105,6 +105,7 @@ plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96)) %>%
   layout(autosize = T, width = 960, height = 240)
 ```
 
+\newpage
 
 # Vulnerable Groups NEET
 
@@ -117,6 +118,8 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
 \end{wrapfigure}
 
 A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
+
+\vspace{1cm}
 
 ---
 
