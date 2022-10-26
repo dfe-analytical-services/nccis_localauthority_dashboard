@@ -20,7 +20,6 @@
 
 
 server <- function(input, output, session) {
-
   # Loading screen ---------------------------------------------------------------------------
   # Call initial loading screen
 
@@ -173,7 +172,6 @@ server <- function(input, output, session) {
 
   # Define server logic required to draw a histogram
   output$distPlot <- renderPlot({
-
     # generate bins based on input$bins from ui.R
     x <- faithful[, 2]
     bins <- seq(min(x), max(x), length.out = input$bins + 1)
@@ -185,7 +183,6 @@ server <- function(input, output, session) {
   # Define server logic to create a box
 
   output$box_info <- renderValueBox({
-
     # Put value into box to plug into app
     shinydashboard::valueBox(
       # take input number
@@ -234,7 +231,6 @@ server <- function(input, output, session) {
   ### Annual change and national,regional comparison box-------
 
   output$NEET_nk <- renderValueBox({
-
     # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_nk_perc <- lineLA() %>%
       pull(as.numeric(NEET_not_known_percent))
@@ -294,7 +290,6 @@ server <- function(input, output, session) {
   ### Annual change and national,regional comparison box-------
 
   output$NEET <- renderValueBox({
-
     # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_perc <- lineLA() %>%
       pull(as.numeric(NEET_percent))
@@ -354,7 +349,6 @@ server <- function(input, output, session) {
   ### Annual change and national,regional comparison box-------
 
   output$Not_known <- renderValueBox({
-
     # Take filtered data, search for rate, pull the value and tidy the number up
     Nk_perc <- lineLA() %>%
       pull(as.numeric(Notknown_percent))
@@ -596,7 +590,6 @@ server <- function(input, output, session) {
 
   ### value box--------------------------------
   output$Participating <- renderValueBox({
-
     # Take filtered data, search for rate, pull the value and tidy the number up
     participating_perc <- lineLA() %>%
       pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
@@ -708,7 +701,6 @@ server <- function(input, output, session) {
 
   ### Value box-------------------------------------
   output$Sept_Guarantee <- renderValueBox({
-
     # Take filtered data, search for rate, pull the value and tidy the number up
     Sept_Guar_perc <- lineLA() %>%
       pull(as.numeric(September_guarantee_Offer_made_percent))
