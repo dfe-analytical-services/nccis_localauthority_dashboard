@@ -93,20 +93,18 @@ vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
 
 # NEET and Not Known
 
-```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
+```{r gauge_chart_neetnk, echo=FALSE, out.width="100%"}
 plot_neetnkgauge(la_ud, lineLA, England) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
-\vspace{-4.8cm}
 
-```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
+```{r gauge_chart_neet, echo=FALSE, out.width="100%"}
 fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46))
 plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96)) %>%
   layout(autosize = T, width = 960, height = 240)
 ```
 
-\vspace{-4.8cm}
 
 # Vulnerable Groups NEET
 
