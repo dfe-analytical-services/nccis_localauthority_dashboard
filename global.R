@@ -28,6 +28,7 @@ shhh(library(stringi))
 shhh(library(highr))
 shhh(library(tinytex))
 shhh(library(rmarkdown))
+shhh(library(webshot))
 
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"

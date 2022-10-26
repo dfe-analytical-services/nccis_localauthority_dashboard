@@ -66,6 +66,7 @@ close(connTitle)
 ```{r load packages, include=FALSE}
 knitr::opts_knit$set(root.dir = './')
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+webshot::install_phantomjs()
 source('global.R')
 source('R/plots.R')
 lineLA  <- filter(la_ud, la_name == params$input_la_choice)
