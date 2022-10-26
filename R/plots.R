@@ -3,7 +3,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
                        needle_length = 1.0,
                        reverse_colour = FALSE,
-                       xdomain = c(0, 0.96),
+                       xdomain = c(0, 0.92),
                        fig = plot_ly()) {
   interval_text <- format(intervals)
   mask_range <- (range[2] - range[1]) / 56
