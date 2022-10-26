@@ -110,7 +110,7 @@ server <- function(input, output, session) {
   ## Vulnerable groups data---------------------------------------------
   # reshape the data so it plots neatly!
   vulnerable_data <- la_ud %>%
-    # select only contextual info
+    # select only vulnerable info
     select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
     # Put England and region name into LA name
     mutate(la_name = case_when(
@@ -266,7 +266,7 @@ server <- function(input, output, session) {
         "Annual changes are since end ", previous_year_end, "."
       )),
       color = "blue",
-      icon = icon_change(NEET_nk_change)
+      icon = icon_change_neet(NEET_nk_change)
     )
   })
 
@@ -325,7 +325,8 @@ server <- function(input, output, session) {
         "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_neet(NEET_change)
     )
   })
 
@@ -384,7 +385,8 @@ server <- function(input, output, session) {
         "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
         "Annual changes are since end ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_neet(Nk_change)
     )
   })
 
@@ -400,7 +402,10 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    vulnerable <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    vulnerable <- plotdata %>%
       ggplot(aes(
         y = VG_NEET_NK_percentage, x = "",
         fill = la_name,
@@ -442,7 +447,10 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    EHCP <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    EHCP <- plotdata %>%
       ggplot(aes(
         y = NEET_NK_EHCP_percent, x = "",
         fill = la_name,
@@ -483,7 +491,10 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    SEN_support <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    SEN_support <- plotdata %>%
       ggplot(aes(
         y = NEET_NK_SENDsupport_percent, x = "",
         fill = la_name,
@@ -525,7 +536,10 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    No_SEN <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng()) %>%
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    No_SEN <- plotdata %>%
       ggplot(aes(
         y = NEET_NK_noSEN_percent, x = "",
         fill = la_name,
@@ -613,7 +627,8 @@ server <- function(input, output, session) {
         "England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.", br(),
         "Annual changes are since March ", last_year, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_part(participating_change)
     )
   })
 
@@ -625,7 +640,10 @@ server <- function(input, output, session) {
 
     partRegion <- participation_data %>% filter(la_name == Regionname)
 
-    participation_types <- bind_rows(partLA(), partRegion, partEng()) %>%
+    plotdata <- bind_rows(partLA(), partRegion, partEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
+
+    participation_types <- plotdata %>%
       ggplot(aes(
         y = value, x = "",
         fill = participation_type,
@@ -721,7 +739,8 @@ server <- function(input, output, session) {
         "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ", br(),
         "Annual changes are since September ", previous_year_end, "."
       )),
-      color = "blue"
+      color = "blue",
+      icon = icon_change_part(Sept_Guar_change)
     )
   })
 
@@ -734,7 +753,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    level_3 <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    level_3 <- plotdata %>%
       ggplot(aes(
         y = Level_3, x = "",
         fill = la_name,
@@ -773,7 +795,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    L2_EM_GCSE <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    L2_EM_GCSE <- plotdata %>%
       ggplot(aes(
         y = L2_em_GCSE_othL2, x = "",
         fill = la_name,
@@ -813,7 +838,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    overall_abs <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    overall_abs <- plotdata %>%
       ggplot(aes(
         y = sess_overall_percent, x = "",
         fill = la_name,
@@ -852,7 +880,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    Persistent_abs <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    Persistent_abs <- plotdata %>%
       ggplot(aes(
         y = sess_overall_percent_pa_10_exact, x = "",
         fill = la_name,
@@ -891,7 +922,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    Attainment8 <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    Attainment8 <- plotdata %>%
       ggplot(aes(
         y = avg_att8, x = "",
         fill = la_name,
@@ -930,7 +964,10 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    EM_pass <- bind_rows(contextLA(), contextRegion, contextEng()) %>%
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+
+    EM_pass <- plotdata %>%
       ggplot(aes(
         y = pt_l2basics_94, x = "",
         fill = la_name,
