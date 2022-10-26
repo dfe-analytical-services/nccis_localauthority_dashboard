@@ -117,11 +117,16 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
 ```
 \end{wrapfigure}
 
-A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
+A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): 
+
+Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
 
 \vspace{2.4cm}
 
 ---
+
+\vspace{2.4cm}
+
 
 ```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
