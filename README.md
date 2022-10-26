@@ -1,16 +1,8 @@
 <h1 align="center">
   <br>
-Shiny template app
+DfE NEET and participation dashboard
   <br>
 </h1>
-
-This template repository is for making accessible apps for published statistics in DfE. It includes a basic accessible shiny app with DfE styling, as well as templates for additional best practice documents like this README script, pull request templates and codes of conduct for contributing.
-
-To use this template, click the green "use this template" button at the top of the repo. This will create a copy for you to work off of. 
-
-Please delete this header section when you are writing up the README file for your own app.
-
-Please contact statistics.DEVELOPMENT@education.gov.uk if you have any questions, or raise an issue on here if you have spotted something specific that we should change.
 
 <p align="center">
   <a href="#introduction">Introduction</a> |
@@ -24,21 +16,29 @@ Please contact statistics.DEVELOPMENT@education.gov.uk if you have any questions
 
 ## Introduction 
 
-Give a brief overview of what your app is for here. 
+The dashboard provides users with an opportunity to investigate the proportion of 16 and 17 year olds not in education, employment or training (NEET) and participation information at a local authority level with national and regional comparisons. 
 
-Add links to where each version of your app is deployed - e.g.
+Live version of the dashboard can be accessed at
 
-- Production - https://rsconnect/rsc/dfe-published-data-qa
-- Pre-production - https://rsconnect-pp/rsc/dfe-published-data-qa
-- Development - https://rsconnect-pp/rsc/dev-dfe-published-data-qa
+************ add link here
+
+The dashboard is split across multiple tabs:
+
+- **NEET and not known** includes information on NEET and not known rates for 16 and 17 year olds with national and regional comparisons and annual changes.
+
+- **Vulnerable groups NEET** includes information on NEET and not known rates for those 16 and 17 year olds in a vulnerable group, with special educational need or disability (SEND), with special educational needs (SEN) support and no SEN.
+
+- **Participation** includes information on the proportion of 16 and 17 years old participating in education or training and the proportion of offers made under September Guarantee.
+
+- **Contextual - attainment and absence** includes information on post-16 attainment, GCSE attainment, absence and population.
+
+The dashboard also includes further information on the data itself on the homepage tab, alongside accessibility and information on where to find further support.
+
 
 
 ---
 
 ## Requirements
-
-You should list out the software and programming skills needed, as well as any access requirements = e.g.
-
 
 ### i. Software requirements (for running locally)
 
@@ -54,15 +54,10 @@ You should list out the software and programming skills needed, as well as any a
 
 - Particularly [R Shiny](https://shiny.rstudio.com/)
 
-### iii. Access requirements
-
-- Access to the Stats Development Team SQL modelling area (MA_SDT_NS_DATA) in T1PRANMSQL\SQLPROD,60125. Request access from Cam Race and forward on your request to the PDR mailbox (PupilData.REPOSITORY@education.gov.uk)
   
 ---
 
 ## How to use
-
-You should clearly lay out the steps needed to run your code here - generally, they will be similar to the below for Shiny apps:
 
 
 ### Running the app locally
@@ -105,7 +100,7 @@ The function tidy_code() is created in the Rprofile script and therefore is alwa
 
 ## How to contribute
 
-Details on how to contribute to the app should go here, e.g.
+Our contributing guidelines can be found at *****add link
 
 ### Flagging issues
 
@@ -113,10 +108,10 @@ If you spot any issues with the application, please flag it in the "Issues" tab 
 
 ### Merging pull requests
 
-Only members of the Statistics Development team can merge pull requests. Add lauraselby, cjrace and sarahmwong as requested reviewers, and the team will review before merging.
+Only members of the team can merge pull requests. Add AnnekaAlbon as requested reviewers, and the team will review before merging.
 
 ---
 
 ## Contact
 
-Add contact details of how to get in touch with your team.
+If you have any questions about the dashboard please contact post16.statistics@education.gov.uk

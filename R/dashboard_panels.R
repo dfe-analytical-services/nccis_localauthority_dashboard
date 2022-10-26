@@ -24,12 +24,16 @@ homepage_panel <- function() {
             green quintile, whereas local authorities with the highest NEET/lowest participation fall
             into the red quintile."),
           br(),
-          p("The average England percentage may not necessarily fall in the middle of quintile 3
-            because the average is calculated by averaging all the values; for example if some of the values
-            are particularly large compared with the other values, the average will be larger than the middle ranked
-            local authority and may fall outside the middle quintile."),
-          br(),
-          p("Local authorities with no value or a suppressed value are excluded from the quintile calculation")
+          p(strong("Some caution should be taken if using these figures due to the estimates being based on
+            management information and there being considerable variation at local authority level in
+            how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
+            estimates of the proportion NEET.")),
+          p(strong("The Department for Education’s definitive measures for England
+            of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
+            published annually in the national statistics release", a(
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
+            "'Participation in Education, Training and Employment age 16 to 18'."
+          )))
         ),
 
         ## Left panel -------------------------------------------------------
@@ -232,7 +236,7 @@ dashboard_panel <- function() {
               h2("Participating in education and training"),
               fluidRow(
                 column(
-                  8,
+                  7,
                   plotlyOutput("Participation_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
                   br(),
@@ -243,7 +247,7 @@ dashboard_panel <- function() {
                 ),
                 fluidRow(
                   column(
-                    4,
+                    5,
                     p(strong(paste0("Type of education or training"))),
                     plotlyOutput("participation_types") %>% withSpinner()
                   )
@@ -257,18 +261,18 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 column(
                   6,
-                  h2("Post 16 attainment"),
+                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Post 16 attainment")),
                   br(),
                   p(strong("% 19 year olds achieving level 3")),
                   plotlyOutput("level3_plot") %>% withSpinner(),
                   br(),
                   br(),
-                  h2("GCSE attainment"),
+                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment")),
                   p(strong("Average attainment 8 score per pupil")),
                   plotlyOutput("Attainment8_plot") %>% withSpinner(),
                   br(),
                   br(),
-                  h2("School attendance"),
+                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "School attendance")),
                   p(strong("Overall absence (% of sessions)")),
                   plotlyOutput("overall_abs_plot") %>% withSpinner(),
                   br(),
@@ -300,9 +304,9 @@ dashboard_panel <- function() {
                       br(),
                       br(),
                       br(),
-                      br(),
                       p(strong("Persistent absentees (% of pupils)")),
                       plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                      br(),
                       br(),
                       br(),
                       br(),

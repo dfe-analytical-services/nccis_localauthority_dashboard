@@ -56,7 +56,7 @@ change_ed <- function(numA) {
   if (numA > 0.0) {
     return("up ")
   } else {
-    return(" ")
+    return("annual change not available ")
   }
 }
 
