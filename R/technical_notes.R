@@ -15,7 +15,8 @@ technical_notes <- function() {
     br("The average England percentage may not necessarily fall in the middle of quintile 3 because the average is calculated by averaging
       all the values; for example if some of the values are particularly large compared with the other values, the average will be larger than
       the middle ranked LA and may fall outside the middle quintile."),
-    br("Local authorities with no value or a suppressed vale are excluded from the quintile calculation."),
+    br("The purpose of the quintiles is to compare the relative position of local authority NEET/Not known rates to other local authorities, rather than to make any judgement on national or regional rates"),
+    br("Local authorities with no value or a suppressed value are excluded from the quintile calculation."),
     br(),
     h3("Local authority direction"),
     br("Each area's performance is compared with the same period of the previous year.  A green arrow denotes those areas whose performance has improved (NEET gone down/participation gone up),
