@@ -105,6 +105,78 @@ plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>%
 
 \vspace{-4.8cm}
 
+```{r derive_neet_vbox_values, echo=FALSE}
+    NEET_perc <- lineLA %>%
+      pull(as.numeric(NEET_percent))
+
+    NEET_change <- lineLA %>%
+      pull(as.numeric(annualchange_NEET))
+
+    NEET_perc_Eng <- England %>%
+      pull(as.numeric(NEET_percent))
+
+    NEET_change_Eng <- England %>%
+      pull(as.numeric(annualchange_NEET))
+
+    Regionname <- lineLA %>%
+      pull(region_name)
+
+    NEET_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(NEET_percent))
+
+    NEET_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(annualchange_NEET))
+```
+
+\makebox[1.00\linewidth]{
+\centering
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(NEET_perc, "\\%, ", change_ed(NEET_change), NEET_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", NEET_perc_region, "\\%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.")`
+
+`r paste0("England: ", NEET_perc_Eng, "\\%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since end ", previous_year_end, ".")`
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(NEET_perc, "\\%, ", change_ed(NEET_change), NEET_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", NEET_perc_region, "\\%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.")`
+
+`r paste0("England: ", NEET_perc_Eng, "\\%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since end ", previous_year_end, ".")`
+\end{tcolorbox}
+}
+
+\newpage
+
 # Vulnerable Groups NEET
 
 \begin{wrapfigure}{l}{0.56\textwidth}
