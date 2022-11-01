@@ -1015,7 +1015,7 @@ server <- function(input, output, session) {
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(comma_format(NCCIS_population)),
+      paste0(NCCIS_population),
       paste0("Recorded on CCIS - end ",last_year),
       color = "blue"
     )

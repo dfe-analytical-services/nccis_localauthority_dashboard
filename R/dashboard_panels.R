@@ -171,7 +171,7 @@ dashboard_panel <- function() {
                 column(
                   width = 12,
                   br(),
-                  p(strong("16-17 year olds at end ", latest_year_end, "(average of December, January and February)")),
+                  h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
                   h2("NEET and not known"),
                   column(width = 2),
                   column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
@@ -199,7 +199,7 @@ dashboard_panel <- function() {
               title = "Vulnerable Groups NEET",
               fluidRow(
                 br(),
-                p(strong("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)")),
+                h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
                 column(
                   6,
                   h2("Vulnerable group"),
@@ -248,7 +248,7 @@ dashboard_panel <- function() {
               value = "participation",
               title = "Participation",
               br(),
-              p(strong("16-17 year olds March ", latest_year)),
+              h3("16-17 year olds March ", latest_year),
               h2("Participating in education and training"),
               fluidRow(
                 column(
