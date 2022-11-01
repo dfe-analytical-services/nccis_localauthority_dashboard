@@ -63,6 +63,14 @@ change_ed <- function(numA) {
   }
 }
 
+# Comma separating
+
+cs_num <- function(x) {
+  format(x, big.mark = ",", trim = TRUE)
+}
+
+
+
 # Filtering the data----------------------------------------
 
 # LA options - reordered

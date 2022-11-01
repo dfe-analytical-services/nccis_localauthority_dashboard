@@ -184,7 +184,7 @@ dashboard_panel <- function() {
                   6,
                   h2("NEET"),
                   plotlyOutput("NEET_gauge", width = "100%") %>% withSpinner(),
-                  valueBoxOutput("NEET", width = 12),
+                  valueBoxOutput("NEET", width = 12)
                 ),
                 column(
                   6,
@@ -257,15 +257,21 @@ dashboard_panel <- function() {
                   valueBoxOutput("Participating", width = 12),
                   br(),
                   br(),
-                  h2("September Guarantee: % offered an education place"),
+                  br(),
+                  br()
+                  ),
+                column(
+                  5,
+                  p(strong(paste0("Type of education or training"))),
+                  plotlyOutput("participation_types") %>% withSpinner()
+                )),
+              fluidRow(
+                h2("September Guarantee: % offered an education place"),
+                column(
+                  7,
                   plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
-                ),
-                  column(
-                    5,
-                    p(strong(paste0("Type of education or training"))),
-                    plotlyOutput("participation_types") %>% withSpinner()
-                  )
+                )
               )
             ),
             tabPanel(
@@ -273,70 +279,84 @@ dashboard_panel <- function() {
               title = "Contextual - attainment and attendance",
               gov_row(
                 column(width = 12, br()),
+                h2("Post 16 attainment"),
+                br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19")," release"),
+                br(),
                 column(
                   6,
-                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Post 16 attainment")),
+                  br(),
                   br(),
                   p(strong("% 19 year olds achieving level 3")),
                   plotlyOutput("level3_plot") %>% withSpinner(),
+                  br()
+                ),
+                column(
+                  6,
+                  p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
+                      English and maths (or equivalent) between ages 16 and 19,
+                      for those who had not achieved this level by 16")),
+                  plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
+                  br()
+                )
+                ),
+                gov_row(
+                  column(width = 12, br()),
                   br(),
+                  h2("GCSE attainment"),
+                  br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release"),
                   br(),
-                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment")),
+                  column(
+                    6,
                   p(strong("Average attainment 8 score per pupil")),
                   plotlyOutput("Attainment8_plot") %>% withSpinner(),
+                  br()
+                  ),
+                  column(
+                    6,
+                    p(strong("% 9-4 standard pass in English and maths GCSEs")),
+                    plotlyOutput("EM_pass_plot") %>% withSpinner(),
+                    br()
+                  )
+                ),
+                gov_row(
+                  column(width = 12, br()),
                   br(),
+                  h2("School attendance"),
+                  br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England")," release"),
                   br(),
-                  h2(a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "School attendance")),
+                  column(
+                    6,
                   p(strong("Overall absence (% of sessions)")),
                   plotlyOutput("overall_abs_plot") %>% withSpinner(),
-                  br(),
-                  br(),
+                  br()
+                  ),
+                  column(
+                    6,
+                    p(strong("Persistent absentees (% of pupils)")),
+                    plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                    br()
+                    )
+                ),
+                gov_row(
+                  column(width = 12, br()),
                   h2("16-17 LA population"),
                   # p("ONS estimate"),
+                  column(
+                    6,
                   valueBoxOutput("ONS_pop", width = 12)
                 ),
                 column(
                   6,
-                  gov_row(
-                    column(
-                      12,
-                      br(),
-                      br(),
-                      p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
-                      English and maths (or equivalent) between ages 16 and 19,
-                      for those who had not achieved this level by 16")),
-                      plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      p(strong("% 9-4 standard pass in English and maths GCSEs")),
-                      plotlyOutput("EM_pass_plot") %>% withSpinner(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      p(strong("Persistent absentees (% of pupils)")),
-                      plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      br(),
-                      valueBoxOutput("NCCIS_pop", width = 12)
+                 valueBoxOutput("NCCIS_pop", width = 12)
                     )
-                  )
-                ),
+                  ),
+                #),
                 uiOutput("contextual.bartext")
               )
-            )
-
+          )
             # add box to show user input
           )
         )
       )
     )
-  )
 }
