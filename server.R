@@ -582,7 +582,7 @@ server <- function(input, output, session) {
       round(as.numeric(participation_region), 1),
       range = c(87.4, 98.5),
       intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-      needle_length = 0.9,
+      needle_length = 0.64,
       reverse_colour = TRUE
     )
   })
@@ -694,7 +694,7 @@ server <- function(input, output, session) {
       round(as.numeric(Sept_Guar_region), 1),
       range = c(50.8, 99.8),
       intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-      needle_length = 0.9,
+      needle_length = 0.64,
       reverse_colour = TRUE
     )
   })
