@@ -226,6 +226,10 @@ dashboard_panel <- function() {
                   h2("SEN support"),
                   plotlyOutput("SEN_support_plot") %>% withSpinner()
                 )
+              ),
+              fluidRow(
+                br(),
+                p(strong("Please note that if the local authorties data has been suppressed to avoid disclosure, no bar will appear on the plot."))
               )
             ),
             tabPanel(

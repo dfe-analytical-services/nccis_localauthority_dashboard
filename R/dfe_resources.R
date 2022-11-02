@@ -76,9 +76,11 @@ icon_down_arrow_part <- tags$i(
 icon_change_neet <- function(value) {
   if (value > 0) {
     icon_up_arrow_neet
-  } else if (value == 0) {
+  }
+  if (value == 0) {
     icon_no_change
-  } else if (is.na(value)) {
+  }
+  if (value == "z") {
     icon_not_available
   } else {
     icon_down_arrow_neet
@@ -88,8 +90,12 @@ icon_change_neet <- function(value) {
 icon_change_part <- function(value) {
   if (value > 0) {
     icon_up_arrow_part
-  } else if (value == 0) {
+  }
+  if (value == 0) {
     icon_no_change
+  }
+  if (value == "z") {
+    icon_not_available
   } else {
     icon_down_arrow_part
   }
