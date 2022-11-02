@@ -1010,13 +1010,13 @@ server <- function(input, output, session) {
   output$NCCIS_pop <- renderValueBox({
     NCCIS_population <- lineLA() %>%
       pull(as.numeric(Cohort_DJFavg))
-    
-    #NCCIS_population_formatted <- formatC(NCCIS_population, big.mark=",")
+
+    # NCCIS_population_formatted <- formatC(NCCIS_population, big.mark=",")
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
       paste0(NCCIS_population),
-      paste0("Recorded on CCIS - end ",last_year),
+      paste0("Recorded on CCIS - end ", last_year),
       color = "blue"
     )
   })

@@ -62,13 +62,13 @@ homepage_panel <- function() {
                 br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
                        and disability (SEND), SEN support or those that fall into the vulnerable group."),
-                br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of 
+                br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
                    the NCCIS returns):"),
                 p("110 - Looked after/In care"),
                 p("130 - Refugee/Asylum seeker"),
                 p("140 - Carer-not own child"),
                 p("150 - Disclosed substance misuse"),
-                p("160 - Care leaver"), 
+                p("160 - Care leaver"),
                 p("170 - Supervised by YOT (Youth Offending Team)"),
                 p("190 - Parent-not caring for own child"),
                 p("200 - Alternative provision"),
@@ -85,16 +85,16 @@ homepage_panel <- function() {
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual information"),
                 br(
-                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes, "),
+                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment"), " and ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "school attendance"), " of young people living in each area."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
                 br("Young people who have poor attendance or who are excluded from schools are at greater risk of becoming NEET."),
-                #br("Due to the coronavirus (COVID-19) pandemic, all summer 2020 and 2021 exams were cancelled and absence statistics were
-                       #notably different to previous years. Therefore the contextual information on absence and attainment has not been
-                       #included in the scorecard this year."),
+                # br("Due to the coronavirus (COVID-19) pandemic, all summer 2020 and 2021 exams were cancelled and absence statistics were
+                # notably different to previous years. Therefore the contextual information on absence and attainment has not been
+                # included in the scorecard this year."),
                 # tags$div(
                 # title = "This section is useful if you want to understand how well different industries retain graduates.",
                 # h3(actionLink("link_to_app_content_tab", "App Content"))
@@ -217,7 +217,7 @@ dashboard_panel <- function() {
                   p(strong("130 - Refugee/Asylum seeker")),
                   p(strong("140 - Carer-not own child")),
                   p(strong("150 - Disclosed substance misuse")),
-                  p(strong("160 - Care leaver")), 
+                  p(strong("160 - Care leaver")),
                   p(strong("170 - Supervised by YOT (Youth Offending Team)")),
                   p(strong("190 - Parent-not caring for own child")),
                   p(strong("200 - Alternative provision")),
@@ -259,12 +259,13 @@ dashboard_panel <- function() {
                   br(),
                   br(),
                   br()
-                  ),
+                ),
                 column(
                   5,
                   p(strong(paste0("Type of education or training"))),
                   plotlyOutput("participation_types") %>% withSpinner()
-                )),
+                )
+              ),
               fluidRow(
                 h2("September Guarantee: % offered an education place"),
                 column(
@@ -280,7 +281,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19")," release"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19"), " release"),
                 br(),
                 column(
                   6,
@@ -298,65 +299,65 @@ dashboard_panel <- function() {
                   plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner(),
                   br()
                 )
-                ),
-                gov_row(
-                  column(width = 12, br()),
-                  br(),
-                  h2("GCSE attainment"),
-                  br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release"),
-                  br(),
-                  column(
-                    6,
+              ),
+              gov_row(
+                column(width = 12, br()),
+                br(),
+                h2("GCSE attainment"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release"),
+                br(),
+                column(
+                  6,
                   p(strong("Average attainment 8 score per pupil")),
                   plotlyOutput("Attainment8_plot") %>% withSpinner(),
                   br()
-                  ),
-                  column(
-                    6,
-                    p(strong("% 9-4 standard pass in English and maths GCSEs")),
-                    plotlyOutput("EM_pass_plot") %>% withSpinner(),
-                    br()
-                  )
                 ),
-                gov_row(
-                  column(width = 12, br()),
-                  br(),
-                  h2("School attendance"),
-                  br("The following figures can be found in the ",a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England")," release"),
-                  br(),
-                  column(
-                    6,
+                column(
+                  6,
+                  p(strong("% 9-4 standard pass in English and maths GCSEs")),
+                  plotlyOutput("EM_pass_plot") %>% withSpinner(),
+                  br()
+                )
+              ),
+              gov_row(
+                column(width = 12, br()),
+                br(),
+                h2("School attendance"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England"), " release"),
+                br(),
+                column(
+                  6,
                   p(strong("Overall absence (% of sessions)")),
                   plotlyOutput("overall_abs_plot") %>% withSpinner(),
                   br()
-                  ),
-                  column(
-                    6,
-                    p(strong("Persistent absentees (% of pupils)")),
-                    plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
-                    br()
-                    )
                 ),
-                gov_row(
-                  column(width = 12, br()),
-                  h2("16-17 LA population"),
-                  # p("ONS estimate"),
-                  column(
-                    6,
+                column(
+                  6,
+                  p(strong("Persistent absentees (% of pupils)")),
+                  plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
+                  br()
+                )
+              ),
+              gov_row(
+                column(width = 12, br()),
+                h2("16-17 LA population"),
+                # p("ONS estimate"),
+                column(
+                  6,
                   valueBoxOutput("ONS_pop", width = 12)
                 ),
                 column(
                   6,
-                 valueBoxOutput("NCCIS_pop", width = 12)
-                    )
-                  ),
-                #),
-                uiOutput("contextual.bartext")
-              )
+                  valueBoxOutput("NCCIS_pop", width = 12)
+                )
+              ),
+              # ),
+              uiOutput("contextual.bartext")
+            )
           )
-            # add box to show user input
-          )
+          # add box to show user input
         )
       )
     )
+  )
 }
