@@ -54,7 +54,7 @@ server <- function(input, output, session) {
       geographic_level == "National" ~ "England",
       geographic_level == "Regional" ~ region_name,
       TRUE ~ la_name
-    ), participation_type = "FTE")
+    ), participation_type = "Full-time education")
 
   colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
 
@@ -224,7 +224,7 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_nk_perc_region), 1),
       range = c(1.4, 13.8),
       intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
-      needle_length = 0.9
+      needle_length = 1.4
     )
   })
 
@@ -283,7 +283,7 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_perc_region), 1),
       range = c(0.8, 6.8),
       intervals = c(0.8, 1.8, 2.3, 3.1, 3.9, 6.8),
-      needle_length = 0.7
+      needle_length = 1.0
     )
   })
 
@@ -342,7 +342,7 @@ server <- function(input, output, session) {
       round(as.numeric(Nk_perc_region), 1),
       range = c(0.0, 12.1),
       intervals = c(0.0, 0.9, 1.4, 2.1, 3.2, 12.1),
-      needle_length = 0.7
+      needle_length = 1.0
     )
   })
 
@@ -582,7 +582,7 @@ server <- function(input, output, session) {
       round(as.numeric(participation_region), 1),
       range = c(87.4, 98.5),
       intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-      needle_length = 0.64,
+      needle_length = 1.0,
       reverse_colour = TRUE
     )
   })
@@ -694,7 +694,7 @@ server <- function(input, output, session) {
       round(as.numeric(Sept_Guar_region), 1),
       range = c(50.8, 99.8),
       intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-      needle_length = 0.64,
+      needle_length = 1.0,
       reverse_colour = TRUE
     )
   })
