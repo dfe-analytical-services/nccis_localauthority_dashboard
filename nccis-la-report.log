@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.26)  3 NOV 2022 14:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  3 NOV 2022 15:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **nccis-la-report.tex
 (./nccis-la-report.tex
-LaTeX2e <2022-06-01> patch level 5
-L3 programming layer <2022-09-28> (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+LaTeX2e <2022-11-01>
+L3 programming layer <2022-11-02> (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+File: size12.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count185
 \c@section=\count186
@@ -20,7 +20,7 @@ File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \c@table=\count192
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen138
+\bibindent=\dimen140
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip49
@@ -30,10 +30,10 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks16
-\ex@=\dimen139
+\ex@=\dimen141
 )) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
+\pmbraise@=\dimen142
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
@@ -54,7 +54,7 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen141
+\big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count198
@@ -72,12 +72,12 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count269
 \maxfields@=\count270
 \andhelp@=\toks18
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
+\eqnshift@=\dimen144
+\alignsep@=\dimen145
+\tagshift@=\dimen146
+\tagwidth@=\dimen147
+\totwidth@=\dimen148
+\lineht@=\dimen149
 \@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
@@ -148,8 +148,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
-\stockwidth=\dimen148
-\stockheight=\dimen149
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
@@ -218,9 +216,9 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@chunks=\count278
 \LT@p@ftn=\toks25
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-09-28 L3 programming layer (loader) 
+Package: expl3 2022-11-02 L3 programming layer (loader) 
 (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-10-26 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count279
 \l__pdf_internal_box=\box58
 ))
@@ -371,7 +369,7 @@ Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
 )) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks36
 \verbatim@line=\toks37
 \verbatim@in@stream=\read3
@@ -534,7 +532,7 @@ Package: cellspace 2022/01/04 v1.9.0 Spacing table cells (JN)
 (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 ) (c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen283
 \ar@mcellbox=\box78
 \extrarowheight=\dimen284
@@ -754,7 +752,7 @@ Package hyperref Info: Link coloring ON on input line 113.
 \@outlinefile=\write4
 \openout4 = `nccis-la-report.out'.
 
-<www/images/Department_for_Education.png, id=27, 1204.5pt x 712.6625pt>
+<www/images/Department_for_Education.png, id=23, 1204.5pt x 712.6625pt>
 File: www/images/Department_for_Education.png Graphic file (type png)
 <use www/images/Department_for_Education.png>
 Package pdftex.def Info: www/images/Department_for_Education.png  used on input line 116.
@@ -771,13 +769,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1
 
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./www/images/Department_for_Education.png>]
-<nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf, id=37, 963.6pt x 321.2pt>
+<nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf, id=33, 963.6pt x 321.2pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf  used on input line 132.
-(pdftex.def)             Requested size: 939.543pt x 313.181pt.
+(pdftex.def)             Requested size: 610.70294pt x 203.56764pt.
 
-Overfull \hbox (469.78798pt too wide) in paragraph at lines 132--133
+Overfull \hbox (140.94792pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -791,40 +789,33 @@ Underfull \hbox (badness 4872) in paragraph at lines 155--156
 []\T1/phv/b/n/12 Annual changes are since end
  []
 
-<nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf, id=38, 963.6pt x 301.125pt>
+<nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf, id=34, 963.6pt x 301.125pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf  used on input line 162.
-(pdftex.def)             Requested size: 939.543pt x 293.60716pt.
+Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf  used on input line 159.
+(pdftex.def)             Requested size: 610.70294pt x 190.84465pt.
 
-Overfull \hbox (469.78798pt too wide) in paragraph at lines 162--163
-[] 
+Overfull \hbox (140.94792pt too wide) in paragraph at lines 159--160
+[][] 
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>]
-Underfull \hbox (badness 2005) in paragraph at lines 211--211
+Underfull \hbox (badness 2005) in paragraph at lines 208--208
 []\T1/phv/b/n/12 Region demo: 3.3%, down -0.5
  []
 
 
-Underfull \hbox (badness 4872) in paragraph at lines 211--211
+Underfull \hbox (badness 4872) in paragraph at lines 208--208
 []\T1/phv/b/n/12 Annual changes are since end
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 211--211
+Underfull \hbox (badness 2005) in paragraph at lines 208--208
 []\T1/phv/b/n/12 Region demo: 1.3%, down -0.3
  []
 
 
-Underfull \hbox (badness 4872) in paragraph at lines 211--211
+Underfull \hbox (badness 4872) in paragraph at lines 208--208
 []\T1/phv/b/n/12 Annual changes are since end
  []
 
@@ -835,36 +826,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3 <./nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>]
-<nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf, id=70, 469.755pt x 325.215pt>
+[2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf> <./nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>]
+<nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf, id=61, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf  used on input line 220.
-(pdftex.def)             Requested size: 263.061pt x 182.11916pt.
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf  used on input line 217.
+(pdftex.def)             Requested size: 289.36711pt x 200.33107pt.
 
-Underfull \hbox (badness 1137) in paragraph at lines 223--229
-\T1/phv/m/n/12 seeker (130), Carer-not own child
+Overfull \hbox (26.30545pt too wide) in paragraph at lines 217--218
+ [][] 
  []
 
-
-Underfull \hbox (badness 1694) in paragraph at lines 223--229
-\T1/phv/m/n/12 (140), Dis-closed sub-stance misue
- []
-
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=71, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=62, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf  used on input line 232.
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf  used on input line 234.
 (pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=72, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=63, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf  used on input line 233.
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf  used on input line 235.
 (pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=73, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=64, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>
-Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf  used on input line 234.
+Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf  used on input line 236.
 (pdftex.def)             Requested size: 150.32466pt x 104.07092pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -873,23 +859,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>] (./nccis-la-report.aux)
+[3 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>] (./nccis-la-report.aux)
 Package rerunfilecheck Info: File `nccis-la-report.out' has not changed.
-(rerunfilecheck)             Checksum: B9A186436AC1DB15554C2AF207714781;722.
+(rerunfilecheck)             Checksum: 6C671CC3C1E8C988429B3D8CD80634C5;658.
  ) 
 Here is how much of TeX's memory you used:
- 23752 strings out of 477031
- 448616 string characters out of 5826140
- 771076 words of memory out of 5000000
- 44467 multiletter control sequences out of 15000+600000
+ 23739 strings out of 476931
+ 448189 string characters out of 5823764
+ 774756 words of memory out of 5000000
+ 44560 multiletter control sequences out of 15000+600000
  497320 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,11n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (4 pages, 128543 bytes).
+Output written on nccis-la-report.pdf (3 pages, 126293 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 88 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 

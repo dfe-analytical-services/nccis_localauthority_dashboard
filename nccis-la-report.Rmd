@@ -90,12 +90,12 @@ vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
 
 # NEET and not known
 
-```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
+```{r gauge_chart_neetnk, echo=FALSE, out.width="130%"}
 plot_neetnkgauge(la_ud, lineLA, England) %>% 
   layout(autosize = F, width = 960, height = 320)
 ```
 
-\vspace{-4.8cm}
+\vspace{-2.8cm}
 
 ```{r derive_neetnk_vbox_values, echo=FALSE}
     NEET_nk_perc <- lineLA %>%
@@ -144,15 +144,14 @@ plot_neetnkgauge(la_ud, lineLA, England) %>%
 \end{tcolorbox}
 \end{center}
 
-# NEET
 
-```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
+```{r gauge_chart_neet, echo=FALSE, out.width="130%"}
 fig <- plot_neetgauge(la_ud, lineLA, England, xdomain=c(0.04,0.46))
 plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>% 
   layout(autosize = T, width = 960, height = 240)
 ```
 
-\vspace{-4.8cm}
+\vspace{-2.8cm}
 
 ```{r derive_neet_vbox_values, echo=FALSE}
     NEET_perc <- lineLA %>%
@@ -252,13 +251,22 @@ plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>%
 # Vulnerable Groups NEET
 
 \begin{wrapfigure}{l}{0.56\textwidth}
-```{r bar_chart_vuln, echo=FALSE, out.width="100%"}
+```{r bar_chart_vuln, echo=FALSE, out.width="110%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
                                plotcat='VG_NEET_NK_percentage')
 ```
 \end{wrapfigure}
 
-A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
+A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns):     
+110 - Looked after/In care  
+130 - Refugee/Asylum seeker  
+140 - Carer-not own child  
+150 - Disclosed substance misuse   
+160 - Care leaver   
+170 - Supervised by YOT  
+190 - Parent-not caring for own child  
+200 - Alternative provision  
+210 - Mental health flag  
 
 ---
 
