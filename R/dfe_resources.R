@@ -73,30 +73,40 @@ icon_down_arrow_part <- tags$i(
   style = paste("color:", acces_grad_palette[5])
 )
 
+# icon_change_neet <- function(value) {
+# if (value > 0) {
+#    icon_up_arrow_neet
+# }
+# else if (value == 0) {
+#   icon_no_change
+# }
+# else if (value == "z") {
+#   icon_not_available
+# } else {
+#   icon_down_arrow_neet
+#  }
+# }
+
 icon_change_neet <- function(value) {
-  if (value > 0) {
-    icon_up_arrow_neet
-  }
   if (value == 0) {
     icon_no_change
-  }
-  if (value == "z") {
+  } else if (value == "z") {
     icon_not_available
+  } else if (value > 0) {
+    icon_up_arrow_neet
   } else {
-    icon_down_arrow_neet
+    return(icon_down_arrow_neet)
   }
 }
 
 icon_change_part <- function(value) {
-  if (value > 0) {
-    icon_up_arrow_part
-  }
   if (value == 0) {
     icon_no_change
-  }
-  if (value == "z") {
+  } else if (value == "z") {
     icon_not_available
+  } else if (value > 0) {
+    icon_up_arrow_part
   } else {
-    icon_down_arrow_part
+    return(icon_down_arrow_part)
   }
 }

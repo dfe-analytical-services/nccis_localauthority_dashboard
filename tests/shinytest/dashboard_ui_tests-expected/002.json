@@ -18,7 +18,7 @@
       ]
     },
     "Not_known": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>0.9%, stable 0 ppts<\/h3>\n    <p>Region demo: 1.3%, down -0.3 ppts.<br/>England: 2.7%, down -0.1 ppts.<br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-down\" style=\"color: #28A197\"><\/i>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>0.9%, stable 0 ppts<\/h3>\n    <p>Region demo: 1.3%, down -0.3 ppts.<br/>England: 2.7%, down -0.1 ppts.<br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrows-alt-h\" style=\"color: #ccbf9b\"><\/i>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]
