@@ -281,7 +281,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19"), " release"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19"), " release."),
                 br(),
                 column(
                   6,
@@ -293,6 +293,7 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
+                  br(),
                   p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
                       for those who had not achieved this level by 16")),
@@ -304,7 +305,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("GCSE attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release."),
                 br(),
                 column(
                   6,
@@ -323,7 +324,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England"), " release"),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England"), " release."),
                 br(),
                 column(
                   6,
