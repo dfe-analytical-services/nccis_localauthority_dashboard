@@ -644,7 +644,8 @@ server <- function(input, output, session) {
         fill = participation_type,
         text = paste(participation_type, ": ", value, "%")
       )) +
-      geom_bar(stat = "identity", na.rm = TRUE) +
+      geom_bar(stat = "identity", na.rm = TRUE,
+               position = position_stack(reverse = TRUE)) +
       coord_flip() +
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
