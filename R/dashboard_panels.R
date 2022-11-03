@@ -15,7 +15,7 @@ homepage_panel <- function() {
                 range of other related information."),
           br(),
           p("There is a separate scorecard for each local authority in England
-                except the City of London and Isles of Scilly. For these two local authorities data is not available
+                except the City of London and Isles of Scilly. For these two local authorities, data is not available
                 for all indicators and small numbers can result in large changes
                 in percentages from one year to the next."),
           br(),
@@ -245,7 +245,7 @@ dashboard_panel <- function() {
               ),
               fluidRow(
                 br(),
-                p(strong("Please note that if the local authorties data has been suppressed to avoid disclosure, no bar will appear on the plot."))
+                p(strong("Please note that if the local authority has suppressed data to avoid disclosure, no bar will appear on the plot."))
               )
             ),
             tabPanel(
