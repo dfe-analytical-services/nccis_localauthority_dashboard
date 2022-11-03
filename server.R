@@ -995,12 +995,13 @@ server <- function(input, output, session) {
 
   output$ONS_pop <- renderValueBox({
     ONS_population <- lineLA() %>%
-      pull(as.numeric(Age1617_ONS_population))
+      pull(Age1617_ONS_population) %>%
+      as.numeric()
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(ONS_population),
-      paste0("ONS estimate"),
+      format(ONS_population, big.mark = ","),
+      paste0("ONS estimate - January ", latest_year),
       color = "blue"
     )
   })
@@ -1009,16 +1010,16 @@ server <- function(input, output, session) {
 
   output$NCCIS_pop <- renderValueBox({
     NCCIS_population <- lineLA() %>%
-      pull(as.numeric(Cohort_DJFavg))
+      pull(Cohort_DJFavg) %>%
+      as.numeric()
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(NCCIS_population),
+      format(NCCIS_population, big.mark = ","),
       paste0("Recorded on CCIS"),
       color = "blue"
     )
   })
-
 
   # Files for download ------------------------------------------------------
 

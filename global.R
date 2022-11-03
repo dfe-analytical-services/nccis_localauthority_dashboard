@@ -30,6 +30,7 @@ shhh(library(tinytex))
 shhh(library(rmarkdown))
 shhh(library(markdown))
 shhh(library(webshot))
+shhh(library(scales))
 
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
@@ -65,6 +66,14 @@ change_ed <- function(numA) {
     return(" ")
   }
 }
+
+# Comma separating
+
+cs_num <- function(x) {
+  format(x, big.mark = ",", trim = TRUE)
+}
+
+
 
 # Filtering the data----------------------------------------
 
