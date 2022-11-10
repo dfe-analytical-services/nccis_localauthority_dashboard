@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  3 NOV 2022 15:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  10 NOV 2022 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,9 +773,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf  used on input line 132.
-(pdftex.def)             Requested size: 610.70294pt x 203.56764pt.
+(pdftex.def)             Requested size: 939.543pt x 313.181pt.
 
-Overfull \hbox (140.94792pt too wide) in paragraph at lines 132--133
+Overfull \hbox (469.78798pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -793,9 +793,9 @@ Underfull \hbox (badness 4872) in paragraph at lines 155--156
 File: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf  used on input line 159.
-(pdftex.def)             Requested size: 610.70294pt x 190.84465pt.
+(pdftex.def)             Requested size: 939.543pt x 293.60716pt.
 
-Overfull \hbox (140.94792pt too wide) in paragraph at lines 159--160
+Overfull \hbox (469.78798pt too wide) in paragraph at lines 159--160
 [][] 
  []
 
@@ -872,7 +872,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,11n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (3 pages, 126293 bytes).
+Output written on nccis-la-report.pdf (3 pages, 126247 bytes).
 PDF statistics:
  118 PDF objects out of 1000 (max. 8388607)
  88 compressed objects within 1 object stream
