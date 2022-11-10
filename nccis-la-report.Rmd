@@ -86,6 +86,53 @@ vulnerable_data <- la_ud %>%
 vulnerable_la      <- filter(vulnerable_data, la_name == params$input_la_choice)
 vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
 
+participation_data_fte <- la_ud %>%
+    select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
+    mutate(la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ), participation_type = "Full-time education")
+
+  colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
+
+  participation_data_fte <- participation_data_fte %>%
+    select(la_name, participation_type, value)
+
+  participation_data_app <- la_ud %>%
+    select(geographic_level, region_name, la_name, Apprenticeship_percent) %>%
+    mutate(la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ), participation_type = "Apprenticeship")
+
+  colnames(participation_data_app)[colnames(participation_data_app) == "Apprenticeship_percent"] <- "value"
+
+  participation_data_app <- participation_data_app %>%
+    select(la_name, participation_type, value)
+
+  participation_data_other <- la_ud %>%
+    select(geographic_level, region_name, la_name, Other_education_and_training_percent) %>%
+    mutate(la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ), participation_type = "Other")
+
+  colnames(participation_data_other)[colnames(participation_data_other) == "Other_education_and_training_percent"] <- "value"
+
+  participation_data_other <- participation_data_other %>%
+    select(la_name, participation_type, value)
+
+  # pull the types together into one file
+  participation_data <- bind_rows(participation_data_fte, participation_data_app, participation_data_other)
+
+  participation_data <- participation_data %>%
+    mutate(value = as.numeric(value))
+
+participation_la      <- filter(participation_data, la_name == params$input_la_choice)
+participation_england <- participation_data %>% filter(la_name == "England")
 ```
 
 # NEET and not known
@@ -279,8 +326,126 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england,
                                plotcat='NEET_NK_noSEN_percent')
 ```
 
+\newpage
 
 # Participation
+## Participating in education and training
+
+```{r gauge_chart_part, echo=FALSE, out.width="200%"}
+plot_partgauge(la_ud, lineLA, England) %>% 
+  layout(autosize = F, width = 960, height = 320)
+```
+
+\vspace{-5.8cm}
+
+```{r derive_part_vbox_values, echo=FALSE}
+    participating_perc <- lineLA %>%
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+    participating_change <- lineLA %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+
+    participating_perc_Eng <- England %>%
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+    participating_change_Eng <- England %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+
+    Regionname <- lineLA %>%
+      pull(region_name)
+
+    participating_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+   participating_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(annual_change_Participation_in_education_training))
+```
+
+\begin{center}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(participating_perc, "\\%, ", change_ed(participating_change), participating_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", participating_perc_region, "\\%, ", change_ed(participating_change_region), participating_change_region, " ppts.")`
+
+`r paste0("England: ", participating_perc_Eng, "\\%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since March ", last_year, ".")`
+\end{tcolorbox}
+\end{center}
+
+```{r bar_chart_part, echo=FALSE, out.hold=TRUE, out.width="100%"}
+plot_participationbar(participation_data, participation_la,  lineLA, participation_england)
+```
+
+
+## September Guarantee: % offered an education place
+
+```{r gauge_chart_Sept_Guar, echo=FALSE, out.width="200%"}
+Sept_Guar_gauge(la_ud, lineLA, England) %>% 
+  layout(autosize = F, width = 960, height = 320)
+```
+
+
+\vspace{-5.8cm}
+
+```{r derive_septguar_vbox_values, echo=FALSE}
+    Sept_Guar_perc <- lineLA %>%
+      pull(as.numeric(September_guarantee_Offer_made_percent))
+
+    Sept_Guar_change <- lineLA %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+
+    Sept_Guar_perc_Eng <- England %>%
+      pull(as.numeric(September_guarantee_Offer_made_percent))
+
+    Sept_Guar_change_Eng <- England %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+
+    Regionname <- lineLA %>%
+      pull(region_name)
+
+    Sept_Guar_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(September_guarantee_Offer_made_percent))
+
+   Sept_Guar_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+      pull(as.numeric(September_guarantee_annual_change_ppts))
+```
+
+\begin{center}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(Sept_Guar_perc, "\\%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", Sept_Guar_perc_region, "\\%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.")`
+
+`r paste0("England: ", Sept_Guar_perc_Eng, "\\%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since September ", previous_year_end, ".")`
+\end{tcolorbox}
+\end{center}
+
+\newpage
 
 # Contextual - attainment and attendance
 

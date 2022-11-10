@@ -222,3 +222,82 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
     ) +
     ggtitle(figtitle)
 }
+
+plot_partgauge <- function(dfla, line_la, line_england) {
+  Regionname <- line_la %>% pull(region_name)
+  
+  part_perc_region <- dfla %>%
+    filter(geographic_level == "Regional", region_name == Regionname) %>%
+    pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+  
+  gauge_plot(as.numeric(line_la$TOTAL_participating_in_education_and_training_percent),
+             round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
+             round(as.numeric(part_perc_region), 1),
+             range = c(87.4, 98.5),
+             intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
+             needle_length = 0.9,
+             reverse_colour = TRUE
+  )
+}
+
+
+plot_participationbar <- function(dfparticipation, participation_la, line_la, participation_england) {
+  
+  Regionname <- line_la %>% pull(region_name)
+  
+  partRegion <- dfparticipation %>% filter(la_name == Regionname)
+  
+  plotdata <- bind_rows(participation_la, partRegion, participation_england) 
+  plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
+  
+  participation_types <- plotdata %>% 
+    ggplot(aes(
+      y = value, x = "",
+      fill = participation_type,
+      text = paste(participation_type, ": ", value, "%")
+    )) +
+    geom_bar(stat = "identity", na.rm = TRUE) +
+    coord_flip() +
+    facet_wrap(~la_name, nrow = 3) +
+    labs(x = "", y = "") +
+    guides(fill = guide_legend(title = "")) +
+    scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+    scale_y_continuous(limits = c(0, 100)) +
+    theme_minimal() +
+    labs(x = "", y = "%") +
+    theme(
+      legend.position = "top",
+      text = element_text(size = 14),
+      strip.text.x = element_text(size = 14),
+      plot.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank()
+    )
+  ggplotly(participation_types, tooltip = "text") %>%
+    layout(
+      uniformtext = list(minsize = 12, mode = "hide"),
+      # xaxis = list(showticklabels = FALSE),
+      legend = list(
+        orientation = "h",
+        y = -0.3, x = 0.33
+      ))
+}
+
+
+
+Sept_Guar_gauge <- function(dfla, line_la, line_england) {
+  Regionname <- line_la %>% pull(region_name)
+  
+  Sept_Guar_region <- dfla %>%
+    filter(geographic_level == "Regional", region_name == Regionname) %>%
+    pull(as.numeric(September_guarantee_Offer_made_percent))
+  
+  gauge_plot(as.numeric(line_la$September_guarantee_Offer_made_percent),
+             round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
+             round(as.numeric(Sept_Guar_region), 1),
+             range = c(50.8, 99.8),
+             intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
+             needle_length = 0.9,
+             reverse_colour = TRUE
+  )
+}
