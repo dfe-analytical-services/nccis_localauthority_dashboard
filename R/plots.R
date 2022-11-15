@@ -317,7 +317,10 @@ plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_
   Regionname <- line_la %>% pull(region_name)
   contextualRegion <- dfcontextual %>% filter(la_name == Regionname)
   
-  bind_rows(contextual_la, contextualRegion, contextual_england) %>%
+  plotdata <- bind_rows(contextual_la, contextualRegion, contextual_england)
+  plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+  
+  plotdata %>%
     ggplot(aes(
       y = .data[[plotcat]], x = "",
       fill = la_name,
