@@ -301,3 +301,47 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england) {
              reverse_colour = TRUE
   )
 }
+
+
+plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_england,
+                               plotcat = "Level_3") {
+  figtitles <- data.frame(
+    flag = c(
+      "Level_3", "L2_em_GCSE_othL2", "avg_att8",
+      "pt_l2basics_94","sess_overall_percent","sess_overall_percent_pa_10_exact"
+    ),
+    figtitle = c("% 19 year olds achieving level 3", 
+                 "% 19 year olds achieving GCSE 9-4 standard pass in English and maths (or equivalent) between ages 16 and 19, for those who had not achieved this level by 16", 
+                 "Average attainment 8 score per pupil", 
+                 "% 9-4 standard pass in English and maths GCSEs",
+                 "Overall absence (% of sessions)",
+                 "Persistent absentees (% of pupils)")
+  )
+  figtitle <- (figtitles %>% filter(flag == plotcat))$figtitle
+  Regionname <- line_la %>% pull(region_name)
+  contextualRegion <- dfcontextual %>% filter(la_name == Regionname)
+  
+  bind_rows(contextual_la, contextualRegion, contextual_england) %>%
+    ggplot(aes(
+      y = .data[[plotcat]], x = "",
+      fill = la_name,
+      text = paste(la_name, ": ", .data[[plotcat]], "%")
+    )) +
+    geom_bar(stat = "identity", na.rm = TRUE) +
+    coord_flip() +
+    facet_wrap(~la_name, nrow = 3) +
+    labs(x = "", y = "") +
+    guides(fill = guide_legend(title = "")) +
+    scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+    theme_minimal() +
+    labs(x = "", y = "%") +
+    theme(
+      legend.position = "none",
+      text = element_text(size = 14),
+      strip.text.x = element_text(size = 14),
+      plot.background = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank()
+    ) +
+    ggtitle(figtitle)
+}

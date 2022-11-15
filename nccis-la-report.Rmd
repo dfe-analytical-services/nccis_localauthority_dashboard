@@ -133,6 +133,27 @@ participation_data_fte <- la_ud %>%
 
 participation_la      <- filter(participation_data, la_name == params$input_la_choice)
 participation_england <- participation_data %>% filter(la_name == "England")
+
+ contextual_data <- la_ud %>%
+    select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact) %>%
+    mutate(la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ))
+
+
+  contextual_data <- contextual_data %>%
+    select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact)
+
+  contextual_data <- contextual_data %>%
+    mutate(
+      Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), avg_att8 = as.numeric(avg_att8),
+      pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), sess_overall_percent_pa_10_exact = as.numeric(sess_overall_percent_pa_10_exact)
+    )
+
+contextual_la      <- filter(contextual_data, la_name == params$input_la_choice)
+contextual_england <- contextual_data %>% filter(la_name == "England")
 ```
 
 # NEET and not known
@@ -444,6 +465,77 @@ Sept_Guar_gauge(la_ud, lineLA, England) %>%
 \newpage
 
 # Contextual - attainment and attendance
+### Post 16 attainment
+
+```{r bar_chart_contextual1, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='Level_3')
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='L2_em_GCSE_othL2')
+```
+
+### GCSE attainment
+```{r bar_chart_contextual2, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='avg_att8')
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='pt_l2basics_94')
+```
+
+### School attendance
+```{r bar_chart_contextual3, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='sess_overall_percent')
+plot_contextualbar(contextual_data, contextual_la,  lineLA, contextual_england, 
+                               plotcat='sess_overall_percent_pa_10_exact')
+```
+
+### 16-17 LA population
+```{r derive_pop_ons_vbox_values, echo=FALSE}
+    ONS_population <- lineLA %>%
+      pull(as.numeric(Age1617_ONS_population))
+```
+
+```{r derive_pop_nccis_vbox_values, echo=FALSE}
+    NCCIS_population <- lineLA %>%
+      pull(as.numeric(Cohort_DJFavg))
+```
+
+\makebox[1.00\linewidth]{
+\centering
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(ONS_population)`
+\tcblower
+`r paste0("ONS estimate")`
+\end{tcolorbox}
 
 
-
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(NCCIS_population)`
+\tcblower
+`r paste0("Recorded on CCIS")`
+\end{tcolorbox}
+}
