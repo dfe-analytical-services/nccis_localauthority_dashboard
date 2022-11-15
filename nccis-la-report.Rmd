@@ -331,12 +331,14 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england,
 # Participation
 ## Participating in education and training
 
-```{r gauge_chart_part, echo=FALSE, out.width="200%"}
-plot_partgauge(la_ud, lineLA, England) %>% 
-  layout(autosize = F, width = 960, height = 320)
+```{r part_charts, echo=FALSE, out.hold=TRUE, out.width="60%"}
+plot_partgauge(la_ud, lineLA, England) 
+plot_participationbar(participation_data, participation_la,  lineLA, participation_england)
 ```
 
-\vspace{-5.8cm}
+---
+
+\vspace{-2.8cm}
 
 ```{r derive_part_vbox_values, echo=FALSE}
     participating_perc <- lineLA %>%
@@ -384,10 +386,7 @@ plot_partgauge(la_ud, lineLA, England) %>%
 \end{tcolorbox}
 \end{center}
 
-```{r bar_chart_part, echo=FALSE, out.hold=TRUE, out.width="100%"}
-plot_participationbar(participation_data, participation_la,  lineLA, participation_england)
-```
-
+---
 
 ## September Guarantee: % offered an education place
 
@@ -395,7 +394,6 @@ plot_participationbar(participation_data, participation_la,  lineLA, participati
 Sept_Guar_gauge(la_ud, lineLA, England) %>% 
   layout(autosize = F, width = 960, height = 320)
 ```
-
 
 \vspace{-5.8cm}
 
