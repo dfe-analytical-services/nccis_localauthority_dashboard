@@ -83,6 +83,13 @@ vulnerable_data <- la_ud %>%
       TRUE ~ la_name
     )
     )
+
+vulnerable_data <- vulnerable_data %>%
+    mutate(
+      NEET_NK_noSEN_percent = as.numeric(NEET_NK_noSEN_percent), NEET_NK_EHCP_percent = as.numeric(NEET_NK_EHCP_percent), NEET_NK_SENDsupport_percent = as.numeric(NEET_NK_SENDsupport_percent),
+      VG_NEET_NK_percentage = as.numeric(VG_NEET_NK_percentage)
+    )
+
 vulnerable_la      <- filter(vulnerable_data, la_name == params$input_la_choice)
 vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
 
@@ -188,7 +195,6 @@ plot_neetnkgauge(la_ud, lineLA, England) %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
 ```
 
-
 \begin{center}
 \begin{tcolorbox}[colback=gssmidblue, 
  leftright skip=0.1cm,
@@ -198,7 +204,7 @@ plot_neetnkgauge(la_ud, lineLA, England) %>%
  fontlower={\normalsize \bfseries},
  sharp corners, 
  colframe=gssmidblue,
- width=0.49\linewidth,
+ width=0.75\linewidth,
  boxrule=0pt,
  equal height group=introbox
  ]
@@ -211,7 +217,6 @@ plot_neetnkgauge(la_ud, lineLA, England) %>%
 `r paste0("Annual changes are since end ", previous_year_end, ".")`
 \end{tcolorbox}
 \end{center}
-
 
 ```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
 fig <- plot_neetgauge(la_ud, lineLA, England, xdomain=c(0.04,0.46))
@@ -319,7 +324,7 @@ plot_nkgauge(la_ud, lineLA, England, fig=fig, xdomain=c(0.54,0.96)) %>%
 # Vulnerable Groups NEET
 
 \begin{wrapfigure}{l}{0.56\textwidth}
-```{r bar_chart_vuln, echo=FALSE, out.width="110%"}
+```{r bar_chart_vuln, echo=FALSE, out.width="100%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
                                plotcat='VG_NEET_NK_percentage')
 ```
@@ -338,13 +343,13 @@ A young person is said to be in a vulnerable group if they have any of the follo
 
 ---
 
-```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
+```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="35%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
+                               plotcat='NEET_NK_noSEN_percent')
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
                                plotcat='NEET_NK_EHCP_percent')
 plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
                                plotcat='NEET_NK_SENDsupport_percent')
-plot_vulnerablebar(vulnerable_data, vulnerable_la,  lineLA, vulnerable_england, 
-                               plotcat='NEET_NK_noSEN_percent')
 ```
 
 \newpage

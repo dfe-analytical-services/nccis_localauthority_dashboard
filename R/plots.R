@@ -198,7 +198,10 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
   Regionname <- line_la %>% pull(region_name)
   vulnerableRegion <- dfvulnerable %>% filter(la_name == Regionname)
 
-  bind_rows(vulnerable_la, vulnerableRegion, vulnerable_england) %>%
+  plotdata <- bind_rows(vulnerable_la, vulnerableRegion, vulnerable_england)
+  plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
+  
+  plotdata %>%
     ggplot(aes(
       y = .data[[plotcat]], x = "",
       fill = la_name,
@@ -210,6 +213,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
     labs(x = "", y = "") +
     guides(fill = guide_legend(title = "")) +
     scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+    scale_y_continuous(limits = c(0, 100)) +
     theme_minimal() +
     labs(x = "", y = "%") +
     theme(
@@ -250,7 +254,7 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
   plotdata <- bind_rows(participation_la, partRegion, participation_england) 
   plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
   
-  participation_types <- plotdata %>% 
+  plotdata %>% 
     ggplot(aes(
       y = value, x = "",
       fill = participation_type,
@@ -273,14 +277,6 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank()
     )
-  ggplotly(participation_types, tooltip = "text") %>%
-    layout(
-      uniformtext = list(minsize = 12, mode = "hide"),
-      # xaxis = list(showticklabels = FALSE),
-      legend = list(
-        orientation = "h",
-        y = -0.3, x = 0.33
-      ))
 }
 
 
