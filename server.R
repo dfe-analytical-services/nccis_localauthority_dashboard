@@ -635,21 +635,22 @@ server <- function(input, output, session) {
 
     plotdata <- bind_rows(partLA(), partRegion, partEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
-
+    plotdata$participation_type <- factor(plotdata$participation_type,
+                                          levels = c('Full-time education','Apprenticeship','Other'))
+    
     participation_types <- plotdata %>%
       ggplot(aes(
         y = value, x = "",
         fill = participation_type,
         text = paste(participation_type, ": ", value, "%")
       )) +
-      geom_bar(stat = "identity", na.rm = TRUE) +
-      # position =position_fill(reverse = TRUE)
+      geom_bar(stat = "identity", na.rm = TRUE,
+               position = position_stack(reverse = TRUE)) +
       coord_flip() +
       facet_wrap(~la_name, nrow = 3) +
-      # geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+      scale_fill_manual(values = c("#12436D", "#28A197", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
