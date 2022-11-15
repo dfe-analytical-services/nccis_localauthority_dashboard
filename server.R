@@ -636,16 +636,19 @@ server <- function(input, output, session) {
     plotdata <- bind_rows(partLA(), partRegion, partEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
     plotdata$participation_type <- factor(plotdata$participation_type,
-                                          levels = c('Full-time education','Apprenticeship','Other'))
-    
+      levels = c("Full-time education", "Apprenticeship", "Other")
+    )
+
     participation_types <- plotdata %>%
       ggplot(aes(
         y = value, x = "",
         fill = participation_type,
         text = paste(participation_type, ": ", value, "%")
       )) +
-      geom_bar(stat = "identity", na.rm = TRUE,
-               position = position_stack(reverse = TRUE)) +
+      geom_bar(
+        stat = "identity", na.rm = TRUE,
+        position = position_stack(reverse = TRUE)
+      ) +
       coord_flip() +
       facet_wrap(~la_name, nrow = 3) +
       labs(x = "", y = "") +
