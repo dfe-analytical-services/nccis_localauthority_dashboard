@@ -200,7 +200,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
 
   plotdata <- bind_rows(vulnerable_la, vulnerableRegion, vulnerable_england)
   plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
-  
+
   plotdata %>%
     ggplot(aes(
       y = .data[[plotcat]], x = "",
@@ -229,38 +229,43 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
 
 plot_partgauge <- function(dfla, line_la, line_england) {
   Regionname <- line_la %>% pull(region_name)
-  
+
   part_perc_region <- dfla %>%
     filter(geographic_level == "Regional", region_name == Regionname) %>%
     pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
-  
+
   gauge_plot(as.numeric(line_la$TOTAL_participating_in_education_and_training_percent),
-             round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
-             round(as.numeric(part_perc_region), 1),
-             range = c(87.4, 98.5),
-             intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-             needle_length = 0.9,
-             reverse_colour = TRUE
+    round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
+    round(as.numeric(part_perc_region), 1),
+    range = c(87.4, 98.5),
+    intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
+    needle_length = 0.9,
+    reverse_colour = TRUE
   )
 }
 
 
 plot_participationbar <- function(dfparticipation, participation_la, line_la, participation_england) {
-  
   Regionname <- line_la %>% pull(region_name)
-  
+
   partRegion <- dfparticipation %>% filter(la_name == Regionname)
-  
-  plotdata <- bind_rows(participation_la, partRegion, participation_england) 
+
+  plotdata <- bind_rows(participation_la, partRegion, participation_england)
   plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
-  
-  plotdata %>% 
+  plotdata$participation_type <- factor(plotdata$participation_type,
+    levels = c("Full-time education", "Apprenticeship", "Other")
+  )
+
+  plotdata %>%
     ggplot(aes(
       y = value, x = "",
       fill = participation_type,
       text = paste(participation_type, ": ", value, "%")
     )) +
-    geom_bar(stat = "identity", na.rm = TRUE) +
+    geom_bar(
+      stat = "identity", na.rm = TRUE,
+      position = position_stack(reverse = TRUE)
+    ) +
     coord_flip() +
     facet_wrap(~la_name, nrow = 3) +
     labs(x = "", y = "") +
@@ -283,18 +288,18 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
 
 Sept_Guar_gauge <- function(dfla, line_la, line_england) {
   Regionname <- line_la %>% pull(region_name)
-  
+
   Sept_Guar_region <- dfla %>%
     filter(geographic_level == "Regional", region_name == Regionname) %>%
     pull(as.numeric(September_guarantee_Offer_made_percent))
-  
+
   gauge_plot(as.numeric(line_la$September_guarantee_Offer_made_percent),
-             round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
-             round(as.numeric(Sept_Guar_region), 1),
-             range = c(50.8, 99.8),
-             intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-             needle_length = 0.9,
-             reverse_colour = TRUE
+    round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
+    round(as.numeric(Sept_Guar_region), 1),
+    range = c(50.8, 99.8),
+    intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
+    needle_length = 0.9,
+    reverse_colour = TRUE
   )
 }
 
@@ -304,22 +309,25 @@ plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_
   figtitles <- data.frame(
     flag = c(
       "Level_3", "L2_em_GCSE_othL2", "avg_att8",
-      "pt_l2basics_94","sess_overall_percent","sess_overall_percent_pa_10_exact"
+      "pt_l2basics_94", "sess_overall_percent", "sess_overall_percent_pa_10_exact"
     ),
-    figtitle = c("% 19 year olds achieving level 3", 
-                 "% 19 year olds achieving GCSE 9-4 standard pass in English and maths (or equivalent) between ages 16 and 19, for those who had not achieved this level by 16", 
-                 "Average attainment 8 score per pupil", 
-                 "% 9-4 standard pass in English and maths GCSEs",
-                 "Overall absence (% of sessions)",
-                 "Persistent absentees (% of pupils)")
+    figtitle = c(
+      "% 19 year olds achieving level 3",
+      "% 19 year olds achieving GCSE 9-4 standard pass in
+                 English and maths between ages 16 and 19",
+      "Average attainment 8 score per pupil",
+      "% 9-4 standard pass in English and maths GCSEs",
+      "Overall absence (% of sessions)",
+      "Persistent absentees (% of pupils)"
+    )
   )
   figtitle <- (figtitles %>% filter(flag == plotcat))$figtitle
   Regionname <- line_la %>% pull(region_name)
   contextualRegion <- dfcontextual %>% filter(la_name == Regionname)
-  
+
   plotdata <- bind_rows(contextual_la, contextualRegion, contextual_england)
   plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
-  
+
   plotdata %>%
     ggplot(aes(
       y = .data[[plotcat]], x = "",
