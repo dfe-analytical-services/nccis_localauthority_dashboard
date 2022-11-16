@@ -166,13 +166,14 @@ dashboard_panel <- function() {
             id = "tabsetpanel",
             tabPanel(
               value = "neet",
-              title = "NEET and not known",
+              title = "NEET and activity not known",
               fluidRow(
                 column(
                   width = 12,
                   br(),
                   h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-                  h2("NEET and not known"),
+                  paste0("Gauges below show where the LA rate sits within the quintile range of all LAs and regional/England averages."),
+                  h2("NEET and activity not known"),
                   column(width = 2),
                   column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
                   column(width = 2),
@@ -188,7 +189,7 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  h2("Not known"),
+                  h2("Activity not known"),
                   plotlyOutput("Nk_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Not_known", width = 12)
                 )

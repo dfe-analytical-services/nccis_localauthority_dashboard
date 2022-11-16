@@ -41,7 +41,8 @@ server <- function(input, output, session) {
     la_ud %>% filter(geographic_level == "National")
   })
 
-
+  
+  
   # Reshaping data for plots-----------------------------------------
   ## Participation type data-----------------------------------------
 
