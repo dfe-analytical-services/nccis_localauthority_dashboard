@@ -28,7 +28,7 @@ homepage_panel <- function() {
             management information and there being considerable variation at local authority level in
             how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
             estimates of the proportion NEET.")),
-          p(strong("The Department for Education<U+2019>s definitive measures for England
+          p(strong("The Department for Education's definitive measures for England
             of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
             published annually in the national statistics release", a(
             href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
@@ -50,7 +50,7 @@ homepage_panel <- function() {
               ),
               div(
                 class = "panel-body",
-                h3("NEET and not known"),
+                h3("NEET and activity not known"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year."),
                 br("The proportion not known indicator shows how effective the arrangements are in each area for tracking
@@ -86,11 +86,12 @@ homepage_panel <- function() {
                        across their area."),
                 br("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
                        contacted. These young people are at risk of becoming NEET."),
-                h3("Contextual information"),
+                h3("Contextual - attainment and attendence"),
                 br(
                   "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "post 16 attainment"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment"), " and ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "school attendance"), " of young people living in each area."
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "school attendance"), " of young people living in each area.
+                  It also provides the Office for National Statistics (ONS) population estimate and the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
@@ -175,7 +176,7 @@ dashboard_panel <- function() {
                   width = 12,
                   br(),
                   h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-                  paste0("Gauges below show where the LA rate sits within the quintile range of all LAs and regional/England averages."),
+                  p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."),
                   h2("NEET and activity not known"),
                   column(width = 2),
                   column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
@@ -257,13 +258,14 @@ dashboard_panel <- function() {
               title = "Participation",
               br(),
               h3("16-17 year olds March ", latest_year),
-              paste0("Gauges below show where the LA rate sits within the quintile range of all LAs and regional/England averages."),
+              p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."),
               h2("Participating in education and training"),
               fluidRow(
                 column(
                   7,
                   plotlyOutput("Participation_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
+                  br(),
                   br(),
                   br(),
                   br(),
@@ -279,7 +281,7 @@ dashboard_panel <- function() {
                 h2("September Guarantee: % offered an education or training place"),
                 column(
                   7,
-                  plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
+                  plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                 )
               )
