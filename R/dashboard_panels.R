@@ -28,7 +28,7 @@ homepage_panel <- function() {
             management information and there being considerable variation at local authority level in
             how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
             estimates of the proportion NEET.")),
-          p(strong("The Department for Education<U+2019>s definitive measures for England
+          p(strong("The Department for Education's definitive measures for England
             of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
             published annually in the national statistics release", a(
             href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
@@ -50,7 +50,7 @@ homepage_panel <- function() {
               ),
               div(
                 class = "panel-body",
-                h3("NEET and not known"),
+                h3("NEET and activity not known"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year."),
                 br("The proportion not known indicator shows how effective the arrangements are in each area for tracking
@@ -61,7 +61,7 @@ homepage_panel <- function() {
                 h3("Vulnerable groups NEET"),
                 br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
-                       and disability (SEND), SEN support or those that fall into the vulnerable group."),
+                       and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."),
                 br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
                    the NCCIS returns):"),
                 p("110 - Looked after/In care"),
@@ -79,15 +79,19 @@ homepage_panel <- function() {
                 br("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
                        (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
                 br("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
-                       Guarantee. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
+                       Guarantee. The September Guarantee is a guarantee of an offer, made by the end of September, of an
+                      appropriate place in post-16 education or training for every young person completing compulsory
+                      education. This is particularly important as it helps young people make a seamless transition into
+                      post-16 learning or employment with training. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
                        across their area."),
                 br("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
                        contacted. These young people are at risk of becoming NEET."),
-                h3("Contextual information"),
+                h3("Contextual - attainment and attendence"),
                 br(
-                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes"), ", ",
+                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "post 16 attainment"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment"), " and ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "school attendance"), " of young people living in each area."
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "school attendance"), " of young people living in each area.
+                  It also provides the Office for National Statistics (ONS) population estimate and the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
@@ -166,13 +170,14 @@ dashboard_panel <- function() {
             id = "tabsetpanel",
             tabPanel(
               value = "neet",
-              title = "NEET and not known",
+              title = "NEET and activity not known",
               fluidRow(
                 column(
                   width = 12,
                   br(),
                   h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-                  h2("NEET and not known"),
+                  p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."),
+                  h2("NEET and activity not known"),
                   column(width = 2),
                   column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
                   column(width = 2),
@@ -188,7 +193,7 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  h2("Not known"),
+                  h2("Activity not known"),
                   plotlyOutput("Nk_gauge", width = "100%") %>% withSpinner(),
                   valueBoxOutput("Not_known", width = 12)
                 )
@@ -253,12 +258,14 @@ dashboard_panel <- function() {
               title = "Participation",
               br(),
               h3("16-17 year olds March ", latest_year),
+              p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."),
               h2("Participating in education and training"),
               fluidRow(
                 column(
                   7,
                   plotlyOutput("Participation_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Participating", width = 12),
+                  br(),
                   br(),
                   br(),
                   br(),
@@ -271,10 +278,10 @@ dashboard_panel <- function() {
                 )
               ),
               fluidRow(
-                h2("September Guarantee: % offered an education place"),
+                h2("September Guarantee: % offered an education or training place"),
                 column(
                   7,
-                  plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
+                  plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
                 )
               )
@@ -285,7 +292,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment age 16 to 25"), " release."),
                 br(),
                 column(
                   6,
@@ -297,7 +304,6 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  br(),
                   p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
                       for those who had not achieved this level by 16")),
@@ -328,7 +334,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "pupil absence in schools in England"), " release."),
                 br(),
                 column(
                   6,

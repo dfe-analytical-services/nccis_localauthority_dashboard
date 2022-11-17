@@ -20,7 +20,7 @@ The dashboard provides users with an opportunity to investigate the proportion o
 
 Live version of the dashboard can be accessed at
 
-************ add link here
+- https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/
 
 The dashboard is split across multiple tabs:
 
@@ -100,7 +100,7 @@ The function tidy_code() is created in the Rprofile script and therefore is alwa
 
 ## How to contribute
 
-Our contributing guidelines can be found at *****add link
+Our contributing guidelines can be found at https://github.com/dfe-analytical-services/nccis_localauthority_dashboard/blob/main/CONTRIBUTING.md
 
 ### Flagging issues
 

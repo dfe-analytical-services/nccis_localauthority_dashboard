@@ -42,6 +42,7 @@ server <- function(input, output, session) {
   })
 
 
+
   # Reshaping data for plots-----------------------------------------
   ## Participation type data-----------------------------------------
 
@@ -1020,9 +1021,18 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       format(NCCIS_population, big.mark = ","),
-      paste0("Recorded on CCIS"),
+      paste0("Recorded on CCIS - end ", last_year),
       color = "blue"
     )
+  })
+
+  # links to tech notes
+  observeEvent(input$link_to_tech_notes1, {
+    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
+  })
+
+  observeEvent(input$link_to_tech_notes2, {
+    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
   })
 
   # Files for download ------------------------------------------------------

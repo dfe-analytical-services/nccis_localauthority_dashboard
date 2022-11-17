@@ -23,4 +23,4 @@ All code is styled using the styleR package. Running the `tidy_code()` function 
 
 ## Any other questions
 
-If you have any other questions, please do not hesitate to contact us at Statistics.DEVELOPMENT@education.gov.uk
+If you have any other questions, please do not hesitate to contact us at post16.statistics@education.gov.uk
