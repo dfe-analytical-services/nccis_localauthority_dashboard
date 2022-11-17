@@ -61,7 +61,7 @@ homepage_panel <- function() {
                 h3("Vulnerable groups NEET"),
                 br("This section includes the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
-                       and disability (SEND), SEN support or those that fall into the vulnerable group."),
+                       and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."),
                 br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
                    the NCCIS returns):"),
                 p("110 - Looked after/In care"),
@@ -79,15 +79,18 @@ homepage_panel <- function() {
                 br("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
                        (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
                 br("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
-                       Guarantee. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
+                       Guarantee. The September Guarantee is a guarantee of an offer, made by the end of September, of an
+                      appropriate place in post-16 education or training for every young person completing compulsory
+                      education. This is particularly important as it helps young people make a seamless transition into
+                      post-16 learning or employment with training. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
                        across their area."),
                 br("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual information"),
                 br(
-                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "outcomes"), ", ",
+                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "post 16 attainment"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "GCSE attainment"), " and ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "school attendance"), " of young people living in each area."
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "school attendance"), " of young people living in each area."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
@@ -254,6 +257,7 @@ dashboard_panel <- function() {
               title = "Participation",
               br(),
               h3("16-17 year olds March ", latest_year),
+              paste0("Gauges below show where the LA rate sits within the quintile range of all LAs and regional/England averages."),
               h2("Participating in education and training"),
               fluidRow(
                 column(
@@ -272,7 +276,7 @@ dashboard_panel <- function() {
                 )
               ),
               fluidRow(
-                h2("September Guarantee: % offered an education place"),
+                h2("September Guarantee: % offered an education or training place"),
                 column(
                   7,
                   plotlyOutput("Sept_Guar_gauge", width = "100%") %>% withSpinner(),
@@ -286,7 +290,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment by young people aged 19"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment age 16 to 25"), " release."),
                 br(),
                 column(
                   6,
@@ -298,7 +302,6 @@ dashboard_panel <- function() {
                 ),
                 column(
                   6,
-                  br(),
                   p(strong("% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
                       for those who had not achieved this level by 16")),
@@ -329,7 +332,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england", "pupil absence in schools in England"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "pupil absence in schools in England"), " release."),
                 br(),
                 column(
                   6,
