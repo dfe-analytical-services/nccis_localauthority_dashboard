@@ -1,6 +1,7 @@
 gauge_plot <- function(value, valueEng, valueRegion,
                        range = c(1.4, 13.8),
                        intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+                       title=NULL,
                        needle_length = 1.0,
                        reverse_colour = FALSE,
                        xdomain = c(0, 0.96),
@@ -13,12 +14,13 @@ gauge_plot <- function(value, valueEng, valueRegion,
   if (reverse_colour) {
     quantcols <- quantcols[5:1]
   }
-  domain <- list(x = xdomain, y = c(0, 0.96))
+  domain <- list(x = xdomain, y = c(0, 0.82))
   value_size <- 42
   fig <- fig %>% add_trace(
     domain = domain,
     value = value,
     number = list(suffix = "%", font = list(size = value_size)),
+    title=list(text=title,font=list(size=16)),
     type = "indicator",
     mode = "gauge+number",
     gauge = list(
@@ -44,6 +46,39 @@ gauge_plot <- function(value, valueEng, valueRegion,
         list(range = c(valueEng, valueEng), line = list(color = "#12436D", width = 2)),
         list(range = c(valueRegion, valueRegion), line = list(color = "#6BACE6", width = 2))
       )
+    )
+  )
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 4, tickcolor = "black",
+        tickvals = list(value), ticklen = 160 * needle_length, ticks = "inside", showticklabels = FALSE
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
+    )
+  )
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 2, tickcolor = "#2073BC",
+        tickvals = list(value), ticklen = 160 * needle_length,
+        ticks = "inside", showticklabels = FALSE
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
     )
   )
   fig <- fig %>% add_trace(
@@ -92,44 +127,12 @@ gauge_plot <- function(value, valueEng, valueRegion,
       borderwidth = 1
     )
   )
-  fig <- fig %>% add_trace(
-    domain = domain,
-    value = value,
-    number = list(suffix = "%", font = list(size = value_size)),
-    type = "indicator",
-    mode = "gauge",
-    gauge = list(
-      axis = list(
-        range = range, tickwidth = 4, tickcolor = "black",
-        tickvals = list(value), ticklen = 160 * needle_length, ticks = "inside", showticklabels = FALSE
-      ),
-      bgcolor = "rgba(0,0,0,0)",
-      bar = list(color = "rgba(0,0,0,0)"),
-      borderwidth = 1
-    )
-  )
-  fig <- fig %>% add_trace(
-    domain = domain,
-    value = value,
-    number = list(suffix = "%", font = list(size = value_size)),
-    type = "indicator",
-    mode = "gauge",
-    gauge = list(
-      axis = list(
-        range = range, tickwidth = 2, tickcolor = "#2073BC",
-        tickvals = list(value), ticklen = 160 * needle_length,
-        ticks = "inside", showticklabels = FALSE
-      ),
-      bgcolor = "rgba(0,0,0,0)",
-      bar = list(color = "rgba(0,0,0,0)"),
-      borderwidth = 1
-    )
-  )
   return(fig)
 }
 
 
-plot_neetnkgauge <- function(dfla, line_la, line_england) {
+plot_neetnkgauge <- function(dfla, line_la, line_england, title=FALSE) {
+  if (title){title_string<-"NEET and Not known"} else {title_string<-NULL}
   Regionname <- line_la %>% pull(region_name)
 
   NEET_nk_perc_region <- dfla %>%
@@ -139,13 +142,16 @@ plot_neetnkgauge <- function(dfla, line_la, line_england) {
   gauge_plot(as.numeric(line_la$NEET_not_known_percent),
     round(as.numeric(line_england$NEET_not_known_percent), 1),
     round(as.numeric(NEET_nk_perc_region), 1),
+    title=title_string,
     range = c(1.4, 13.8),
     intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
     needle_length = 0.9
   )
 }
 
-plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96)) {
+plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96),
+                           title=FALSE) {
+  if (title){title_string<-"NEET"} else {title_string<-NULL}
   Regionname <- line_la %>%
     pull(region_name)
 
@@ -156,6 +162,7 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96)) {
   gauge_plot(as.numeric(line_la$NEET_percent),
     round(as.numeric(line_england$NEET_percent), 1),
     round(as.numeric(NEET_perc_region), 1),
+    title=title_string,
     range = c(0.8, 6.8),
     intervals = c(0.8, 1.8, 2.3, 3.1, 3.9, 6.8),
     needle_length = 0.7,
@@ -165,7 +172,9 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96)) {
 
 plot_nkgauge <- function(dfla, line_la, line_england,
                          fig = plotly(),
-                         xdomain = c(0, 1.9)) {
+                         xdomain = c(0, 1.9),
+                         title=FALSE) {
+  if (title){title_string<-"Not known"} else {title_string<-NULL}
   Regionname <- line_la %>%
     pull(region_name)
 
@@ -176,6 +185,7 @@ plot_nkgauge <- function(dfla, line_la, line_england,
   gauge_plot(as.numeric(line_la$Notknown_percent),
     round(as.numeric(line_england$Notknown_percent), 1),
     round(as.numeric(nk_perc_region), 1),
+    title=title_string,
     range = c(0.0, 12.1),
     intervals = c(0.0, 0.9, 1.4, 2.1, 3.2, 12.1),
     needle_length = 0.7,
@@ -227,7 +237,8 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
     ggtitle(figtitle)
 }
 
-plot_partgauge <- function(dfla, line_la, line_england) {
+plot_partgauge <- function(dfla, line_la, line_england, title=FALSE) {
+  if (title){title_string<-"Not known"} else {title_string<-NULL}
   Regionname <- line_la %>% pull(region_name)
 
   part_perc_region <- dfla %>%
@@ -237,6 +248,7 @@ plot_partgauge <- function(dfla, line_la, line_england) {
   gauge_plot(as.numeric(line_la$TOTAL_participating_in_education_and_training_percent),
     round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
     round(as.numeric(part_perc_region), 1),
+    title=title_string,
     range = c(87.4, 98.5),
     intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
     needle_length = 0.9,
@@ -286,7 +298,8 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
 
 
 
-Sept_Guar_gauge <- function(dfla, line_la, line_england) {
+Sept_Guar_gauge <- function(dfla, line_la, line_england, title=FALSE) {
+  if (title){title_string<-"Not known"} else {title_string<-NULL}
   Regionname <- line_la %>% pull(region_name)
 
   Sept_Guar_region <- dfla %>%
@@ -296,6 +309,7 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england) {
   gauge_plot(as.numeric(line_la$September_guarantee_Offer_made_percent),
     round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
     round(as.numeric(Sept_Guar_region), 1),
+    title=title_string,
     range = c(50.8, 99.8),
     intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
     needle_length = 0.9,
@@ -305,7 +319,7 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england) {
 
 
 plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_england,
-                               plotcat = "Level_3") {
+                               plotcat = "Level_3", title=FALSE) {
   figtitles <- data.frame(
     flag = c(
       "Level_3", "L2_em_GCSE_othL2", "avg_att8",

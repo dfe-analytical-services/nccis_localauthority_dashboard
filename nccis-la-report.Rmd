@@ -170,7 +170,7 @@ contextual_england <- contextual_data %>% filter(la_name == "England")
 # NEET and not known
 
 ```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
-plot_neetnkgauge(la_ud, lineLA, England) %>%
+plot_neetnkgauge(la_ud, lineLA, England,title=TRUE) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
@@ -224,8 +224,8 @@ NEET_nk_change_region <- filter(la_ud, geographic_level == "Regional", region_na
 
 
 ```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
-fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46))
-plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96)) %>%
+fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46),title=TRUE)
+plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96),title=TRUE) %>%
   layout(autosize = T, width = 960, height = 240)
 ```
 
@@ -290,7 +290,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
  colframe=gssmidblue,
  width=0.49\linewidth,
  boxrule=0pt,
- equal height group=introbox
+ equal height group=neetbox
  ]
 `r paste0(NEET_perc, "\\%, ", change_ed(NEET_change), NEET_change, " ppts")`
 \tcblower
@@ -312,7 +312,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
  colframe=gssmidblue,
  width=0.49\linewidth,
  boxrule=0pt,
- equal height group=introbox
+ equal height group=neetbox
  ]
 `r paste0(Nk_perc, "\\%, ", change_ed(Nk_change), Nk_change, " ppts")`
 \tcblower
@@ -368,7 +368,7 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
 
 ```{r part_guage, echo=FALSE, out.width="200%"}
 plot_partgauge(la_ud, lineLA, England) %>%
-  layout(autosize = F, width = 960, height = 320)
+  layout(autosize = F, width = 960, height = 360)
 ```
 
 \vspace{-5.8cm}
@@ -540,7 +540,7 @@ NCCIS_population <- lineLA %>%
  colframe=gssmidblue,
  width=0.49\linewidth,
  boxrule=0pt,
- equal height group=introbox
+ equal height group=popbox
  ]
 `r format(ONS_population, big.mark = ",")`
 \tcblower
@@ -558,7 +558,7 @@ NCCIS_population <- lineLA %>%
  colframe=gssmidblue,
  width=0.49\linewidth,
  boxrule=0pt,
- equal height group=introbox
+ equal height group=popbox
  ]
 `r format(NCCIS_population, big.mark = ",")`
 \tcblower
