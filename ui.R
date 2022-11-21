@@ -54,10 +54,11 @@
 #    https://github.com/moj-analytical-services/shinyGovstyle
 #
 
-
+library(shinya11y)
 
 ui <- function(input, output, session) {
   fluidPage(
+    use_tota11y(),
     title = tags$head(tags$link(
       rel = "shortcut icon",
       href = "dfefavicon.png"

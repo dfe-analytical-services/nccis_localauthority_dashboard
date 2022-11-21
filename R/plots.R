@@ -77,31 +77,8 @@ gauge_plot <- function(value, valueEng, valueRegion,
     mode = "gauge",
     gauge = list(
       axis = list(
-        range = range, tickwidth = 2,
-        tickcolor = "#12436D",
-        tickvals = list(valueEng),
-        ticktext = list(" Eng "),
-        tickfont = list(color = "#12436D"),
-        ticklen = 1,
-        ticks = "outside",
-        showticklabels = TRUE,
-        tickangle = 36
-      ),
-      bgcolor = "rgba(0,0,0,0)",
-      bar = list(color = "rgba(0,0,0,0)"),
-      borderwidth = 1
-    )
-  )
-  fig <- fig %>% add_trace(
-    domain = domain,
-    value = value,
-    number = list(suffix = "%", font = list(size = value_size)),
-    type = "indicator",
-    mode = "gauge",
-    gauge = list(
-      axis = list(
         range = range, tickwidth = 4, tickcolor = "black",
-        tickvals = list(value), ticklen = 160 * needle_length, ticks = "inside", showticklabels = FALSE
+        tickvals = list(value), ticklen = 80 * needle_length, ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
@@ -117,8 +94,31 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 2, tickcolor = "#2073BC",
-        tickvals = list(value), ticklen = 160 * needle_length,
+        tickvals = list(value), ticklen = 80 * needle_length,
         ticks = "inside", showticklabels = FALSE
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
+    )
+  )
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 2,
+        tickcolor = "#12436D",
+        tickvals = list(valueEng),
+        ticktext = list(" Eng "),
+        tickfont = list(color = "#12436D"),
+        ticklen = 1,
+        ticks = "outside",
+        showticklabels = TRUE,
+        tickangle = 36
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),

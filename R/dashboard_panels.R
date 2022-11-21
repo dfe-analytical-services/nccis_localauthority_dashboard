@@ -174,7 +174,7 @@ dashboard_panel <- function() {
                   h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
                   h2("NEET and not known"),
                   column(width = 2),
-                  column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
+                  column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
                   column(width = 2),
                   valueBoxOutput("NEET_nk", width = 12)
                 )
