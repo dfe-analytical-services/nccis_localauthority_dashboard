@@ -1035,7 +1035,7 @@ server <- function(input, output, session) {
 
   output$pdfDownload <- downloadHandler(
     filename = function() {
-      paste0(gsub(",","",gsub(" ","-",input$LA_choice)), "_neet_comparator_scorecard.pdf")
+      paste0(gsub(",", "", gsub(" ", "-", input$LA_choice)), "_neet_comparator_scorecard.pdf")
     },
     content = function(file) {
       # Add a loading modal, can probably make this prettier at a later date

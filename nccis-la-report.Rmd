@@ -170,7 +170,7 @@ contextual_england <- contextual_data %>% filter(la_name == "England")
 # NEET and not known
 
 ```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
-plot_neetnkgauge(la_ud, lineLA, England,title=TRUE) %>%
+plot_neetnkgauge(la_ud, lineLA, England, title = TRUE) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
@@ -224,8 +224,8 @@ NEET_nk_change_region <- filter(la_ud, geographic_level == "Regional", region_na
 
 
 ```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
-fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46),title=TRUE)
-plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96),title=TRUE) %>%
+fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46), title = TRUE)
+plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96), title = TRUE) %>%
   layout(autosize = T, width = 960, height = 240)
 ```
 
