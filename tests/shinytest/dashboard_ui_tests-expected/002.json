@@ -12,7 +12,7 @@
       ]
     },
     "NEET_nk": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>LA demo: 4.5%, up z ppts<\/h3>\n    <p>Region demo: 4.2%, down -0.4 ppts.<br/>England: 5.5%, stable 0 ppts. <br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-up\" style=\"color: #8c301b\"><\/i>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>LA demo: 4.5%, z ppts<\/h3>\n    <p>Region demo: 4.2%, down -0.4 ppts.<br/>England: 5.5%, stable 0 ppts. <br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"\" style=\"color: #ccbf9b\"><\/i>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]

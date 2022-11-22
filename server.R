@@ -42,6 +42,7 @@ server <- function(input, output, session) {
   })
 
 
+
   # Reshaping data for plots-----------------------------------------
   ## Participation type data-----------------------------------------
 
@@ -54,7 +55,7 @@ server <- function(input, output, session) {
       geographic_level == "National" ~ "England",
       geographic_level == "Regional" ~ region_name,
       TRUE ~ la_name
-    ), participation_type = "FTE")
+    ), participation_type = "Full-time education")
 
   colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
 
@@ -224,7 +225,7 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_nk_perc_region), 1),
       range = c(1.4, 13.8),
       intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
-      needle_length = 0.9
+      needle_length = 1.1
     )
   })
 
@@ -582,7 +583,7 @@ server <- function(input, output, session) {
       round(as.numeric(participation_region), 1),
       range = c(87.4, 98.5),
       intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
-      needle_length = 0.64,
+      needle_length = 0.7,
       reverse_colour = TRUE
     )
   })
@@ -635,6 +636,9 @@ server <- function(input, output, session) {
 
     plotdata <- bind_rows(partLA(), partRegion, partEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
+    plotdata$participation_type <- factor(plotdata$participation_type,
+      levels = c("Full-time education", "Apprenticeship", "Other")
+    )
 
     participation_types <- plotdata %>%
       ggplot(aes(
@@ -642,14 +646,15 @@ server <- function(input, output, session) {
         fill = participation_type,
         text = paste(participation_type, ": ", value, "%")
       )) +
-      geom_bar(stat = "identity", na.rm = TRUE) +
-      # position =position_fill(reverse = TRUE)
+      geom_bar(
+        stat = "identity", na.rm = TRUE,
+        position = position_stack(reverse = TRUE)
+      ) +
       coord_flip() +
       facet_wrap(~la_name, nrow = 3) +
-      # geom_text(aes(label = paste0(value, "%")), colour = "#ffffff", size = 4, position = position_fill(reverse = TRUE, vjust = 0.5)) +
       labs(x = "", y = "") +
       guides(fill = guide_legend(title = "")) +
-      scale_fill_manual(values = c("#28A197", "#12436D", "#F46A25")) +
+      scale_fill_manual(values = c("#12436D", "#28A197", "#F46A25")) +
       scale_y_continuous(limits = c(0, 100)) +
       theme_minimal() +
       labs(x = "", y = "%") +
@@ -694,7 +699,7 @@ server <- function(input, output, session) {
       round(as.numeric(Sept_Guar_region), 1),
       range = c(50.8, 99.8),
       intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
-      needle_length = 0.64,
+      needle_length = 0.7,
       reverse_colour = TRUE
     )
   })
@@ -995,12 +1000,13 @@ server <- function(input, output, session) {
 
   output$ONS_pop <- renderValueBox({
     ONS_population <- lineLA() %>%
-      pull(as.numeric(Age1617_ONS_population))
+      pull(Age1617_ONS_population) %>%
+      as.numeric()
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(ONS_population),
-      paste0("ONS estimate"),
+      format(ONS_population, big.mark = ","),
+      paste0("ONS estimate - January ", latest_year),
       color = "blue"
     )
   })
@@ -1009,16 +1015,25 @@ server <- function(input, output, session) {
 
   output$NCCIS_pop <- renderValueBox({
     NCCIS_population <- lineLA() %>%
-      pull(as.numeric(Cohort_DJFavg))
+      pull(Cohort_DJFavg) %>%
+      as.numeric()
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(NCCIS_population),
-      paste0("Recorded on CCIS"),
+      format(NCCIS_population, big.mark = ","),
+      paste0("Recorded on CCIS - end ", last_year),
       color = "blue"
     )
   })
 
+  # links to tech notes
+  observeEvent(input$link_to_tech_notes1, {
+    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
+  })
+
+  observeEvent(input$link_to_tech_notes2, {
+    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
+  })
 
   # Files for download ------------------------------------------------------
 
