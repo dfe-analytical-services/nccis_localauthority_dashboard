@@ -139,8 +139,8 @@ plot_neetnkgauge <- function(dfla, line_la, line_england) {
   gauge_plot(as.numeric(line_la$NEET_not_known_percent),
     round(as.numeric(line_england$NEET_not_known_percent), 1),
     round(as.numeric(NEET_nk_perc_region), 1),
-    range = c(1.4, 13.8),
-    intervals = c(1.4, 3.6, 4.5, 5.4, 6.7, 13.8),
+    range = c(1.4, 14.7),
+    intervals = c(1.4, 3.0, 3.8, 4.9, 5.9, 14.7),
     needle_length = 0.9
   )
 }
@@ -156,8 +156,8 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96)) {
   gauge_plot(as.numeric(line_la$NEET_percent),
     round(as.numeric(line_england$NEET_percent), 1),
     round(as.numeric(NEET_perc_region), 1),
-    range = c(0.8, 6.8),
-    intervals = c(0.8, 1.8, 2.3, 3.1, 3.9, 6.8),
+    range = c(0.2, 5.8),
+    intervals = c(0.2, 1.7, 2.1, 2.8, 3.6, 5.8),
     needle_length = 0.7,
     xdomain = xdomain
   )
@@ -176,8 +176,8 @@ plot_nkgauge <- function(dfla, line_la, line_england,
   gauge_plot(as.numeric(line_la$Notknown_percent),
     round(as.numeric(line_england$Notknown_percent), 1),
     round(as.numeric(nk_perc_region), 1),
-    range = c(0.0, 12.1),
-    intervals = c(0.0, 0.9, 1.4, 2.1, 3.2, 12.1),
+    range = c(0.0, 11.8),
+    intervals = c(0.0, 0.7, 1.1, 1.7, 2.9, 11.8),
     needle_length = 0.7,
     fig = fig,
     xdomain = xdomain

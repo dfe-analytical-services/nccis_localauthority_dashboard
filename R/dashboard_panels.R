@@ -141,7 +141,7 @@ dashboard_panel <- function() {
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
-                  selected = "LA demo"
+                  selected = "Barking and Dagenham"
                 ),
                 p("Switch between different indicators using the tabs below.")
               ),
