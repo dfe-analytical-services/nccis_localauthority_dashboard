@@ -37,7 +37,7 @@ site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthor
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2021_vg_removed.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2022_final.csv",
   col_types = cols(.default = "c")
 )
 

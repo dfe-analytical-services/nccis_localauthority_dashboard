@@ -1,18 +1,18 @@
 {
   "input": {
-    "LA_choice": "LA demo",
+    "LA_choice": "Barking and Dagenham",
     "navlistPanel": "dashboard",
     "tabsetpanel": "contextual"
   },
   "output": {
     "NCCIS_pop": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,595<\/h3>\n    <p>Recorded on CCIS - end 2021<\/p>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,536<\/h3>\n    <p>Recorded on CCIS - end 2021<\/p>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]
     },
     "ONS_pop": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>4,237<\/h3>\n    <p>ONS estimate - January 2022<\/p>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,265<\/h3>\n    <p>ONS estimate - January 2022<\/p>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]
