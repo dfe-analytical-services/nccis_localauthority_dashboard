@@ -141,7 +141,7 @@ dashboard_panel <- function() {
                 selectInput("LA_choice",
                   label = p(strong("Choose a local authority")),
                   choices = levels(LA_options),
-                  selected = "LA demo"
+                  selected = "Barking and Dagenham"
                 ),
                 p("Switch between different indicators using the tabs below.")
               ),
@@ -250,7 +250,7 @@ dashboard_panel <- function() {
               ),
               fluidRow(
                 br(),
-                p(strong("Please note that if the local authority has suppressed data to avoid disclosure, no bar will appear on the plot."))
+                p(strong("Please note that if the local authority has suppressed data to avoid disclosure or their data is not available, no bar will appear on the plot."))
               )
             ),
             tabPanel(
@@ -297,7 +297,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "Level 2 and 3 attainment age 16 to 25"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2020-21", "'Level 2 and 3 attainment age 16 to 25: 2020/21'"), " release."),
                 br(),
                 column(
                   6,
@@ -320,7 +320,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("GCSE attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "key stage 4 performance"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2020-21", "'Key stage 4 performance: 2020/21'"), " release."),
                 br(),
                 column(
                   6,
@@ -339,7 +339,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "pupil absence in schools in England"), " release."),
+                br("The following state-funded secondary school attendance figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2020-21", "'Pupil absence in schools in England: 2020/21'"), " release."),
                 br(),
                 column(
                   6,
