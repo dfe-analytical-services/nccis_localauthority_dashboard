@@ -274,7 +274,7 @@ dashboard_panel <- function() {
                 column(
                   5,
                   p(strong(paste0("Type of education or training"))),
-                  plotlyOutput("participation_types") %>% withSpinner()
+                  plotlyOutput("participation_types_plot") %>% withSpinner()
                 )
               ),
               fluidRow(

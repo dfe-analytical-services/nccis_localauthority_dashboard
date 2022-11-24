@@ -628,12 +628,10 @@ server <- function(input, output, session) {
 
   ### Participation type breakdown plot----------------------------
 
-  output$participation_types <- renderPlotly({
+  output$participation_types_plot <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
-
     partRegion <- participation_data %>% filter(la_name == Regionname)
-
     plotdata <- bind_rows(partLA(), partRegion, partEng())
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
     plotdata$participation_type <- factor(plotdata$participation_type,
