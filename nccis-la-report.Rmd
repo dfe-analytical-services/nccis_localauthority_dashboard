@@ -87,63 +87,481 @@ vulnerable_data <- la_ud %>%
       TRUE ~ la_name
     )
   )
+
+vulnerable_data <- vulnerable_data %>%
+  mutate(
+    NEET_NK_noSEN_percent = as.numeric(NEET_NK_noSEN_percent), NEET_NK_EHCP_percent = as.numeric(NEET_NK_EHCP_percent), NEET_NK_SENDsupport_percent = as.numeric(NEET_NK_SENDsupport_percent),
+    VG_NEET_NK_percentage = as.numeric(VG_NEET_NK_percentage)
+  )
+
 vulnerable_la <- filter(vulnerable_data, la_name == params$input_la_choice)
 vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
+
+participation_data_fte <- la_ud %>%
+  select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
+  mutate(la_name = case_when(
+    geographic_level == "National" ~ "England",
+    geographic_level == "Regional" ~ region_name,
+    TRUE ~ la_name
+  ), participation_type = "Full-time education")
+
+colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
+
+participation_data_fte <- participation_data_fte %>%
+  select(la_name, participation_type, value)
+
+participation_data_app <- la_ud %>%
+  select(geographic_level, region_name, la_name, Apprenticeship_percent) %>%
+  mutate(la_name = case_when(
+    geographic_level == "National" ~ "England",
+    geographic_level == "Regional" ~ region_name,
+    TRUE ~ la_name
+  ), participation_type = "Apprenticeship")
+
+colnames(participation_data_app)[colnames(participation_data_app) == "Apprenticeship_percent"] <- "value"
+
+participation_data_app <- participation_data_app %>%
+  select(la_name, participation_type, value)
+
+participation_data_other <- la_ud %>%
+  select(geographic_level, region_name, la_name, Other_education_and_training_percent) %>%
+  mutate(la_name = case_when(
+    geographic_level == "National" ~ "England",
+    geographic_level == "Regional" ~ region_name,
+    TRUE ~ la_name
+  ), participation_type = "Other")
+
+colnames(participation_data_other)[colnames(participation_data_other) == "Other_education_and_training_percent"] <- "value"
+
+participation_data_other <- participation_data_other %>%
+  select(la_name, participation_type, value)
+
+# pull the types together into one file
+participation_data <- bind_rows(participation_data_fte, participation_data_app, participation_data_other)
+
+participation_data <- participation_data %>%
+  mutate(value = as.numeric(value))
+
+participation_la <- filter(participation_data, la_name == params$input_la_choice)
+participation_england <- participation_data %>% filter(la_name == "England")
+
+contextual_data <- la_ud %>%
+  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact) %>%
+  mutate(la_name = case_when(
+    geographic_level == "National" ~ "England",
+    geographic_level == "Regional" ~ region_name,
+    TRUE ~ la_name
+  ))
+
+
+contextual_data <- contextual_data %>%
+  select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact)
+
+contextual_data <- contextual_data %>%
+  mutate(
+    Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), avg_att8 = as.numeric(avg_att8),
+    pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), sess_overall_percent_pa_10_exact = as.numeric(sess_overall_percent_pa_10_exact)
+  )
+
+contextual_la <- filter(contextual_data, la_name == params$input_la_choice)
+contextual_england <- contextual_data %>% filter(la_name == "England")
 ```
 
-# NEET and Not Known
+# NEET and not known
 
-```{r gauge_chart_neetnk, echo=FALSE, out.width="100%"}
-plot_neetnkgauge(la_ud, lineLA, England) %>%
+```{r gauge_chart_neetnk, echo=FALSE, out.width="200%"}
+plot_neetnkgauge(la_ud, lineLA, England, title = TRUE) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
+\vspace{-5.8cm}
 
-```{r gauge_chart_neet, echo=FALSE, out.width="100%"}
-fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46))
-plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96)) %>%
+```{r derive_neetnk_vbox_values, echo=FALSE}
+NEET_nk_perc <- lineLA %>%
+  pull(as.numeric(NEET_not_known_percent))
+
+NEET_nk_change <- lineLA %>%
+  pull(as.numeric(annual_change_ppts_NEET_not_known))
+
+NEET_nk_perc_Eng <- England %>%
+  pull(as.numeric(NEET_not_known_percent))
+
+NEET_nk_change_Eng <- England %>%
+  pull(as.numeric(annual_change_ppts_NEET_not_known))
+
+Regionname <- lineLA %>%
+  pull(region_name)
+
+NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(NEET_not_known_percent))
+
+NEET_nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(annual_change_ppts_NEET_not_known))
+```
+
+\begin{center}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.75\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(NEET_nk_perc, "\\%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", NEET_nk_perc_region, "\\%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.")`
+
+`r paste0("England: ", NEET_nk_perc_Eng, "\\%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since end ", previous_year_end, ".")`
+\end{tcolorbox}
+\end{center}
+
+
+```{r gauge_chart_neet, echo=FALSE, out.width="200%"}
+fig <- plot_neetgauge(la_ud, lineLA, England, xdomain = c(0.04, 0.46), title = TRUE)
+plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96), title = TRUE) %>%
   layout(autosize = T, width = 960, height = 240)
 ```
+
+\vspace{-5.8cm}
+
+```{r derive_neet_vbox_values, echo=FALSE}
+NEET_perc <- lineLA %>%
+  pull(as.numeric(NEET_percent))
+
+NEET_change <- lineLA %>%
+  pull(as.numeric(annualchange_NEET))
+
+NEET_perc_Eng <- England %>%
+  pull(as.numeric(NEET_percent))
+
+NEET_change_Eng <- England %>%
+  pull(as.numeric(annualchange_NEET))
+
+Regionname <- lineLA %>%
+  pull(region_name)
+
+NEET_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(NEET_percent))
+
+NEET_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(annualchange_NEET))
+```
+
+```{r derive_nk_vbox_values, echo=FALSE}
+Nk_perc <- lineLA %>%
+  pull(as.numeric(Notknown_percent))
+
+Nk_change <- lineLA %>%
+  pull(as.numeric(annualchange_notknown))
+
+Nk_perc_Eng <- England %>%
+  pull(as.numeric(Notknown_percent))
+
+Nk_change_Eng <- England %>%
+  pull(as.numeric(annualchange_notknown))
+
+Regionname <- lineLA %>%
+  pull(region_name)
+
+Nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(Notknown_percent))
+
+Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(annualchange_notknown))
+```
+
+\makebox[1.00\linewidth]{
+\centering
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=neetbox
+ ]
+`r paste0(NEET_perc, "\\%, ", change_ed(NEET_change), NEET_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", NEET_perc_region, "\\%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.")`
+
+`r paste0("England: ", NEET_perc_Eng, "\\%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since end ", previous_year_end, ".")`
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=neetbox
+ ]
+`r paste0(Nk_perc, "\\%, ", change_ed(Nk_change), Nk_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", Nk_perc_region, "\\%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.")`
+
+`r paste0("England: ", Nk_perc_Eng, "\\%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since end ", previous_year_end, ".")`
+\end{tcolorbox}
+}
 
 \newpage
 
 # Vulnerable Groups NEET
 
 \begin{wrapfigure}{l}{0.56\textwidth}
-```{r bar_chart_vuln, echo=FALSE, out.width="100%"}
+```{r bar_chart_vuln, echo=FALSE, out.width="105%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
   plotcat = "VG_NEET_NK_percentage"
 )
 ```
 \end{wrapfigure}
 
-A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns): 
-
-Looked after/In care (110), Refugee/Asylum seeker (130), Carer-not own child (140), Disclosed substance misue (150), Care leaver (160), Supervised by YOT (170), Parent-not caring for own child (190), Alternative provision (200), Mental health flag (210).
-
-\vspace{2.4cm}
+A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of the NCCIS returns):     
+110 - Looked after/In care  
+130 - Refugee/Asylum seeker  
+140 - Carer-not own child  
+150 - Disclosed substance misuse   
+160 - Care leaver   
+170 - Supervised by YOT  
+190 - Parent-not caring for own child  
+200 - Alternative provision  
+210 - Mental health flag  
 
 ---
 
-\vspace{2.4cm}
-
-
-```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="32%"}
+```{r bar_chart_vuln2, echo=FALSE, out.hold=TRUE, out.width="35%"}
+plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
+  plotcat = "NEET_NK_noSEN_percent"
+)
 plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
   plotcat = "NEET_NK_EHCP_percent"
 )
 plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
   plotcat = "NEET_NK_SENDsupport_percent"
 )
-plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
-  plotcat = "NEET_NK_noSEN_percent"
-)
+```
+
+\newpage
+
+# Participation
+## Participating in education and training
+
+```{r part_guage, echo=FALSE, out.width="200%"}
+plot_partgauge(la_ud, lineLA, England) %>%
+  layout(autosize = F, width = 960, height = 360)
+```
+
+\vspace{-5.8cm}
+
+```{r derive_part_vbox_values, echo=FALSE}
+participating_perc <- lineLA %>%
+  pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+participating_change <- lineLA %>%
+  pull(as.numeric(annual_change_Participation_in_education_training))
+
+participating_perc_Eng <- England %>%
+  pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+participating_change_Eng <- England %>%
+  pull(as.numeric(annual_change_Participation_in_education_training))
+
+Regionname <- lineLA %>%
+  pull(region_name)
+
+participating_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
+
+participating_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(annual_change_Participation_in_education_training))
+```
+
+\begin{center}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.75\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(participating_perc, "\\%, ", change_ed(participating_change), participating_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", participating_perc_region, "\\%, ", change_ed(participating_change_region), participating_change_region, " ppts.")`
+
+`r paste0("England: ", participating_perc_Eng, "\\%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since March ", last_year, ".")`
+\end{tcolorbox}
+\end{center}
+
+### Type of education and training
+```{r part_bar, echo=FALSE, out.width="50%"}
+plot_participationbar(participation_data, participation_la, lineLA, participation_england)
 ```
 
 
-# Participation
+## September Guarantee: % offered an education place
+
+```{r gauge_chart_Sept_Guar, echo=FALSE, out.width="200%"}
+Sept_Guar_gauge(la_ud, lineLA, England) %>%
+  layout(autosize = F, width = 960, height = 320)
+```
+
+\vspace{-5.8cm}
+
+```{r derive_septguar_vbox_values, echo=FALSE}
+Sept_Guar_perc <- lineLA %>%
+  pull(as.numeric(September_guarantee_Offer_made_percent))
+
+Sept_Guar_change <- lineLA %>%
+  pull(as.numeric(September_guarantee_annual_change_ppts))
+
+Sept_Guar_perc_Eng <- England %>%
+  pull(as.numeric(September_guarantee_Offer_made_percent))
+
+Sept_Guar_change_Eng <- England %>%
+  pull(as.numeric(September_guarantee_annual_change_ppts))
+
+Regionname <- lineLA %>%
+  pull(region_name)
+
+Sept_Guar_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(September_guarantee_Offer_made_percent))
+
+Sept_Guar_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
+  pull(as.numeric(September_guarantee_annual_change_ppts))
+```
+
+\begin{center}
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.75\linewidth,
+ boxrule=0pt,
+ equal height group=introbox
+ ]
+`r paste0(Sept_Guar_perc, "\\%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts")`
+\tcblower
+`r paste0(Regionname, ": ", Sept_Guar_perc_region, "\\%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.")`
+
+`r paste0("England: ", Sept_Guar_perc_Eng, "\\%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts.")`
+
+`r paste0("Annual changes are since September ", previous_year_end, ".")`
+\end{tcolorbox}
+\end{center}
+
+\newpage
 
 # Contextual - attainment and attendance
+### Post 16 attainment
+
+```{r bar_chart_contextual1, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "Level_3"
+)
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "L2_em_GCSE_othL2"
+)
+```
+
+### GCSE attainment
+```{r bar_chart_contextual2, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "avg_att8"
+)
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "pt_l2basics_94"
+)
+```
+
+### School attendance
+```{r bar_chart_contextual3, echo=FALSE, out.hold=TRUE, out.width="50%"}
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "sess_overall_percent"
+)
+plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
+  plotcat = "sess_overall_percent_pa_10_exact"
+)
+```
+
+### 16-17 LA population
+```{r derive_pop_ons_vbox_values, echo=FALSE}
+ONS_population <- lineLA %>%
+  pull(Age1617_ONS_population) %>%
+  as.numeric()
+```
+
+```{r derive_pop_nccis_vbox_values, echo=FALSE}
+NCCIS_population <- lineLA %>%
+  pull(Cohort_DJFavg) %>%
+  as.numeric()
+```
+
+\makebox[1.00\linewidth]{
+\centering
+
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=popbox
+ ]
+`r format(ONS_population, big.mark = ",")`
+\tcblower
+`r paste0("ONS estimate")`
+\end{tcolorbox}
 
 
-
+\begin{tcolorbox}[colback=gssmidblue, 
+ leftright skip=0.1cm,
+ coltext=white, 
+ halign=left, 
+ fontupper={\Large \bfseries},
+ fontlower={\normalsize \bfseries},
+ sharp corners, 
+ colframe=gssmidblue,
+ width=0.49\linewidth,
+ boxrule=0pt,
+ equal height group=popbox
+ ]
+`r format(NCCIS_population, big.mark = ",")`
+\tcblower
+`r paste0("Recorded on CCIS")`
+\end{tcolorbox}
+}
