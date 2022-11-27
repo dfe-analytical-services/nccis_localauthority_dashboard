@@ -117,7 +117,7 @@ homepage_panel <- function() {
 dashboard_panel <- function() {
   tabPanel(
     value = "dashboard",
-    "Dashboard",
+    "Scorecard",
 
     # Define UI for application that draws a histogram
 
