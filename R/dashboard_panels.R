@@ -274,7 +274,7 @@ dashboard_panel <- function() {
                 column(
                   5,
                   p(strong(paste0("Type of education or training"))),
-                  plotlyOutput("participation_types_plot") %>% withSpinner()
+                  plotlyOutput("participation_types") %>% withSpinner()
                 )
               ),
               fluidRow(
@@ -283,11 +283,6 @@ dashboard_panel <- function() {
                   7,
                   plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12)
-                ),
-                column(
-                  5,
-                  p(strong(paste0("Type of education or training"))),
-                  plotlyOutput("participation_types") %>% withSpinner()
                 )
               )
             ),
