@@ -171,35 +171,6 @@ server <- function(input, output, session) {
   # Simple server stuff goes here ------------------------------------------------------------
 
 
-  # Define server logic required to draw a histogram
-  output$distPlot <- renderPlot({
-    # generate bins based on input$bins from ui.R
-    x <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = "darkgray", border = "white")
-  })
-
-  # Define server logic to create a box
-
-  output$box_info <- renderValueBox({
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      # take input number
-      input$bins,
-      # add subtitle to explain what it's showing
-      paste0("Number that user has inputted"),
-      color = "blue"
-    )
-  })
-
-  observeEvent(input$link_to_app_content_tab, {
-    updateTabsetPanel(session, "navbar", selected = "app_content")
-  })
-
-
-
   # Top lines -------------------------
   ## create header on the scorecard so users know which LA it is showing
 
