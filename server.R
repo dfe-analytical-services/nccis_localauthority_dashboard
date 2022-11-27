@@ -40,136 +40,19 @@ server <- function(input, output, session) {
   England <- reactive({
     la_ud %>% filter(geographic_level == "National")
   })
-
-
-
-  # Reshaping data for plots-----------------------------------------
-  ## Participation type data-----------------------------------------
-
-  # reshape the data so it plots neatly!
-  participation_data_fte <- la_ud %>%
-    # select only participation types
-    select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
-    # Put England and region name into LA name
-    mutate(la_name = case_when(
-      geographic_level == "National" ~ "England",
-      geographic_level == "Regional" ~ region_name,
-      TRUE ~ la_name
-    ), participation_type = "Full-time education")
-
-  colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
-
-  participation_data_fte <- participation_data_fte %>%
-    select(la_name, participation_type, value)
-
-  participation_data_app <- la_ud %>%
-    # select only participation types
-    select(geographic_level, region_name, la_name, Apprenticeship_percent) %>%
-    # Put England and region name into LA name
-    mutate(la_name = case_when(
-      geographic_level == "National" ~ "England",
-      geographic_level == "Regional" ~ region_name,
-      TRUE ~ la_name
-    ), participation_type = "Apprenticeship")
-
-  colnames(participation_data_app)[colnames(participation_data_app) == "Apprenticeship_percent"] <- "value"
-
-  participation_data_app <- participation_data_app %>%
-    select(la_name, participation_type, value)
-
-  participation_data_other <- la_ud %>%
-    # select only participation types
-    select(geographic_level, region_name, la_name, Other_education_and_training_percent) %>%
-    # Put England and region name into LA name
-    mutate(la_name = case_when(
-      geographic_level == "National" ~ "England",
-      geographic_level == "Regional" ~ region_name,
-      TRUE ~ la_name
-    ), participation_type = "Other")
-
-  colnames(participation_data_other)[colnames(participation_data_other) == "Other_education_and_training_percent"] <- "value"
-
-  participation_data_other <- participation_data_other %>%
-    select(la_name, participation_type, value)
-
-  # pull the types together into one file
-  participation_data <- bind_rows(participation_data_fte, participation_data_app, participation_data_other)
-
-  participation_data <- participation_data %>%
-    mutate(value = as.numeric(value))
-
-
+  
+  contextLA <- reactive({
+    contextual_data %>% filter(la_name == input$LA_choice)
+  })
+  
   partLA <- reactive({
     participation_data %>% filter(la_name == input$LA_choice)
   })
 
-  partEng <- reactive({
-    participation_data %>% filter(la_name == "England")
-  })
-
-  ## Vulnerable groups data---------------------------------------------
-  # reshape the data so it plots neatly!
-  vulnerable_data <- la_ud %>%
-    # select only vulnerable info
-    select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
-    # Put England and region name into LA name
-    mutate(la_name = case_when(
-      geographic_level == "National" ~ "England",
-      geographic_level == "Regional" ~ region_name,
-      TRUE ~ la_name
-    ))
-
-
-  vulnerable_data <- vulnerable_data %>%
-    select(la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage)
-
-  vulnerable_data <- vulnerable_data %>%
-    mutate(
-      NEET_NK_noSEN_percent = as.numeric(NEET_NK_noSEN_percent), NEET_NK_EHCP_percent = as.numeric(NEET_NK_EHCP_percent), NEET_NK_SENDsupport_percent = as.numeric(NEET_NK_SENDsupport_percent),
-      VG_NEET_NK_percentage = as.numeric(VG_NEET_NK_percentage)
-    )
-
   vulnerableLA <- reactive({
     vulnerable_data %>% filter(la_name == input$LA_choice)
   })
-
-  vulnerableEng <- reactive({
-    vulnerable_data %>% filter(la_name == "England")
-  })
-
-
-  ## Contextual data---------------------------------------------
-  # reshape the data so it plots neatly!
-  contextual_data <- la_ud %>%
-    # select only contextual info
-    select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact) %>%
-    # Put England and region name into LA name
-    mutate(la_name = case_when(
-      geographic_level == "National" ~ "England",
-      geographic_level == "Regional" ~ region_name,
-      TRUE ~ la_name
-    ))
-
-
-  contextual_data <- contextual_data %>%
-    select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact)
-
-  contextual_data <- contextual_data %>%
-    mutate(
-      Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), avg_att8 = as.numeric(avg_att8),
-      pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), sess_overall_percent_pa_10_exact = as.numeric(sess_overall_percent_pa_10_exact)
-    )
-
-  contextLA <- reactive({
-    contextual_data %>% filter(la_name == input$LA_choice)
-  })
-
-  contextEng <- reactive({
-    contextual_data %>% filter(la_name == "England")
-  })
-
-  # Simple server stuff goes here ------------------------------------------------------------
-
+  
 
   # Top lines -------------------------
   ## create header on the scorecard so users know which LA it is showing
@@ -368,7 +251,7 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     vulnerable <- plotdata %>%
@@ -413,7 +296,7 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     EHCP <- plotdata %>%
@@ -457,7 +340,7 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     SEN_support <- plotdata %>%
@@ -502,7 +385,7 @@ server <- function(input, output, session) {
 
     vulnerableRegion <- vulnerable_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng())
+    plotdata <- bind_rows(vulnerableLA(), vulnerableRegion, vulnerableEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     No_SEN <- plotdata %>%
@@ -599,11 +482,11 @@ server <- function(input, output, session) {
 
   ### Participation type breakdown plot----------------------------
 
-  output$participation_types_plot <- renderPlotly({
+  output$participation_types <- renderPlotly({
     Regionname <- lineLA() %>%
       pull(region_name)
     partRegion <- participation_data %>% filter(la_name == Regionname)
-    plotdata <- bind_rows(partLA(), partRegion, partEng())
+    plotdata <- bind_rows(partLA(), partRegion, partEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = unique(plotdata$la_name))
     plotdata$participation_type <- factor(plotdata$participation_type,
       levels = c("Full-time education", "Apprenticeship", "Other")
@@ -719,7 +602,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     level_3 <- plotdata %>%
@@ -761,7 +644,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     L2_EM_GCSE <- plotdata %>%
@@ -804,7 +687,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     overall_abs <- plotdata %>%
@@ -846,7 +729,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     Persistent_abs <- plotdata %>%
@@ -888,7 +771,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     Attainment8 <- plotdata %>%
@@ -930,7 +813,7 @@ server <- function(input, output, session) {
 
     contextRegion <- contextual_data %>% filter(la_name == Regionname)
 
-    plotdata <- bind_rows(contextLA(), contextRegion, contextEng())
+    plotdata <- bind_rows(contextLA(), contextRegion, contextEng)
     plotdata$la_name <- factor(plotdata$la_name, levels = plotdata$la_name)
 
     EM_pass <- plotdata %>%
