@@ -40,11 +40,11 @@ server <- function(input, output, session) {
   England <- reactive({
     la_ud %>% filter(geographic_level == "National")
   })
-  
+
   contextLA <- reactive({
     contextual_data %>% filter(la_name == input$LA_choice)
   })
-  
+
   partLA <- reactive({
     participation_data %>% filter(la_name == input$LA_choice)
   })
@@ -52,7 +52,7 @@ server <- function(input, output, session) {
   vulnerableLA <- reactive({
     vulnerable_data %>% filter(la_name == input$LA_choice)
   })
-  
+
 
   # Top lines -------------------------
   ## create header on the scorecard so users know which LA it is showing
