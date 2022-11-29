@@ -1,6 +1,6 @@
 ---
 params:
-  input_la_choice: LA demo
+  input_la_choice: Barking and Dagenham
 title: "Education, children's social care and offending, descriptive statistics: a focus on `r params$input_la_choice`"
 author: "Department for Education"
 header-includes:
@@ -174,7 +174,7 @@ plot_neetnkgauge(la_ud, lineLA, England, title = TRUE) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
-\vspace{-5.8cm}
+
 
 ```{r derive_neetnk_vbox_values, echo=FALSE}
 NEET_nk_perc <- lineLA %>%
@@ -229,7 +229,7 @@ plot_nkgauge(la_ud, lineLA, England, fig = fig, xdomain = c(0.54, 0.96), title =
   layout(autosize = T, width = 960, height = 240)
 ```
 
-\vspace{-5.8cm}
+
 
 ```{r derive_neet_vbox_values, echo=FALSE}
 NEET_perc <- lineLA %>%
@@ -371,7 +371,7 @@ plot_partgauge(la_ud, lineLA, England) %>%
   layout(autosize = F, width = 960, height = 360)
 ```
 
-\vspace{-5.8cm}
+
 
 ```{r derive_part_vbox_values, echo=FALSE}
 participating_perc <- lineLA %>%
@@ -432,7 +432,7 @@ Sept_Guar_gauge(la_ud, lineLA, England) %>%
   layout(autosize = F, width = 960, height = 320)
 ```
 
-\vspace{-5.8cm}
+
 
 ```{r derive_septguar_vbox_values, echo=FALSE}
 Sept_Guar_perc <- lineLA %>%
