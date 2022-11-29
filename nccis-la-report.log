@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,9 +773,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf  used on input line 132.
-(pdftex.def)             Requested size: 704.65724pt x 234.88574pt.
+(pdftex.def)             Requested size: 587.20702pt x 195.73567pt.
 
-Overfull \hbox (234.90222pt too wide) in paragraph at lines 132--133
+Overfull \hbox (117.452pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -802,15 +802,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf> <./nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3]
-<nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf, id=93, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf, id=89, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf  used on input line 213.
@@ -820,17 +812,17 @@ Overfull \hbox (13.1524pt too wide) in paragraph at lines 213--214
  [][] 
  []
 
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=94, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf, id=90, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf  used on input line 230.
 (pdftex.def)             Requested size: 164.41672pt x 113.82695pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=95, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf, id=91, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf  used on input line 231.
 (pdftex.def)             Requested size: 164.41672pt x 113.82695pt.
-<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=96, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf, id=92, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf  used on input line 232.
@@ -847,37 +839,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>]
-<nccis-la-report_files/figure-latex/part_guage-1.pdf, id=123, 963.6pt x 361.35pt>
+[3 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>]
+<nccis-la-report_files/figure-latex/part_guage-1.pdf, id=119, 963.6pt x 361.35pt>
 File: nccis-la-report_files/figure-latex/part_guage-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/part_guage-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/part_guage-1.pdf  used on input line 243.
-(pdftex.def)             Requested size: 704.65724pt x 264.24646pt.
+(pdftex.def)             Requested size: 587.20702pt x 220.20262pt.
 
-Overfull \hbox (234.90222pt too wide) in paragraph at lines 243--244
+Overfull \hbox (117.452pt too wide) in paragraph at lines 243--244
 [] 
  []
 
-<nccis-la-report_files/figure-latex/part_bar-1.pdf, id=124, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/part_bar-1.pdf, id=120, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/part_bar-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/part_bar-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/part_bar-1.pdf  used on input line 272.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[5 <./nccis-la-report_files/figure-latex/part_guage-1.pdf>]
-<nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf, id=142, 963.6pt x 321.2pt>
+<nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf, id=121, 963.6pt x 321.2pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf  used on input line 278.
-(pdftex.def)             Requested size: 704.65724pt x 234.88574pt.
+(pdftex.def)             Requested size: 587.20702pt x 195.73567pt.
 
-Overfull \hbox (234.90222pt too wide) in paragraph at lines 278--279
+Overfull \hbox (117.452pt too wide) in paragraph at lines 278--279
 [] 
  []
 
@@ -888,17 +872,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6 <./nccis-la-report_files/figure-latex/part_bar-1.pdf> <./nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf>]
+[4 <./nccis-la-report_files/figure-latex/part_guage-1.pdf> <./nccis-la-report_files/figure-latex/part_bar-1.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5 <./nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 310.
 
-<nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf, id=164, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf, id=160, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf  used on input line 312.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf, id=165, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf, id=161, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf  used on input line 313.
@@ -908,12 +900,12 @@ Overfull \hbox (2.54282pt too wide) in paragraph at lines 312--314
 [] [] 
  []
 
-<nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf, id=166, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf, id=162, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf  used on input line 318.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf, id=167, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf, id=163, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf  used on input line 319.
@@ -923,12 +915,12 @@ Overfull \hbox (2.54282pt too wide) in paragraph at lines 318--320
 [] [] 
  []
 
-<nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf, id=168, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf, id=164, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf  used on input line 324.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf, id=169, 469.755pt x 325.215pt>
+<nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf, id=165, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf  used on input line 325.
@@ -945,7 +937,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7 <./nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf>]
+[6 <./nccis-la-report_files/figure-latex/bar_chart_contextual1-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual1-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual2-2.pdf>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -953,23 +945,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8 <./nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf>] (./nccis-la-report.aux)
+[7 <./nccis-la-report_files/figure-latex/bar_chart_contextual3-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_contextual3-2.pdf>] (./nccis-la-report.aux)
 Package rerunfilecheck Info: File `nccis-la-report.out' has not changed.
 (rerunfilecheck)             Checksum: 37C763A22C7D789A49288C29D8BE0696;2038.
  ) 
 Here is how much of TeX's memory you used:
- 23889 strings out of 476931
- 454412 string characters out of 5823764
- 773316 words of memory out of 5000000
+ 23888 strings out of 476931
+ 454406 string characters out of 5823764
+ 774316 words of memory out of 5000000
  44681 multiletter control sequences out of 15000+600000
  501786 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  83i,11n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (8 pages, 179115 bytes).
+Output written on nccis-la-report.pdf (7 pages, 178294 bytes).
 PDF statistics:
- 244 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 239 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
  181 words of extra memory for PDF output out of 10000 (max. 10000000)
 
