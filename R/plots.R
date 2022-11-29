@@ -265,8 +265,8 @@ plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
     round(as.numeric(part_perc_region), 1),
     title = title_string,
-    range = c(87.4, 98.5),
-    intervals = c(87.4, 91.6, 92.7, 93.9, 95.5, 98.5),
+    range = c(84.5, 98.4),
+    intervals = c(84.5, 91.0, 92.4, 93.6, 95.5, 98.4),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
@@ -330,8 +330,8 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
     round(as.numeric(Sept_Guar_region), 1),
     title = title_string,
-    range = c(50.8, 99.8),
-    intervals = c(50.8, 93.2, 95.1, 96.7, 97.8, 99.8),
+    range = c(67.2, 100.0),
+    intervals = c(67.2, 94.5, 95.8, 96.8, 98.1, 100.0),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
