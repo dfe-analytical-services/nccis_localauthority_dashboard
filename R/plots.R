@@ -16,6 +16,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
   }
   domain <- list(x = xdomain, y = c(0, 0.82))
   value_size <- 42
+  tick_angle <- 90-180.*valueEng/(range[2]-range[1])
   fig <- fig %>% add_trace(
     domain = domain,
     value = value,
@@ -29,7 +30,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         tickvals = intervals,
         ticktext = interval_text,
         tickfont = list(size = 15),
-        tickangle = 36
+        tickangle = tick_angle
       ), # need to make this to the max % neet/nk
       bar = list(color = "rgba(0,0,0,0)"),
       bgcolor = "white",
@@ -65,7 +66,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         ticklen = 1,
         ticks = "outside",
         showticklabels = TRUE,
-        tickangle = 36
+        tickangle = tick_angle
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
@@ -122,7 +123,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         ticklen = 1,
         ticks = "outside",
         showticklabels = TRUE,
-        tickangle = 36
+        tickangle = tick_angle
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
