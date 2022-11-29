@@ -171,7 +171,7 @@ contextual_england <- contextual_data %>% filter(la_name == "England")
 
 ```{r gauge_chart_neetnk, echo=FALSE, out.width="125%"}
 plot_neetnkgauge(la_ud, lineLA, England, title = TRUE) %>%
-  layout(autosize = F, width = 960, height = 320)
+  layout(autosize = F, width = 860, height = 300)
 ```
 
 
@@ -368,7 +368,7 @@ plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
 
 ```{r part_guage, echo=FALSE, out.width="125%"}
 plot_partgauge(la_ud, lineLA, England) %>%
-  layout(autosize = F, width = 960, height = 360)
+  layout(autosize = F, width = 860, height = 300)
 ```
 
 
@@ -429,7 +429,7 @@ plot_participationbar(participation_data, participation_la, lineLA, participatio
 
 ```{r gauge_chart_Sept_Guar, echo=FALSE, out.width="125%"}
 Sept_Guar_gauge(la_ud, lineLA, England) %>%
-  layout(autosize = F, width = 960, height = 320)
+  layout(autosize = F, width = 860, height = 300)
 ```
 
 

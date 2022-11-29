@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 13:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -769,13 +769,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1
 
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./www/images/Department_for_Education.png>]
-<nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf, id=61, 963.6pt x 321.2pt>
+<nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf, id=61, 863.225pt x 301.125pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf  used on input line 132.
-(pdftex.def)             Requested size: 587.20702pt x 195.73567pt.
+(pdftex.def)             Requested size: 587.20917pt x 204.8404pt.
 
-Overfull \hbox (117.452pt too wide) in paragraph at lines 132--133
+Overfull \hbox (117.45415pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -840,13 +840,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3 <./nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-1.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-2.pdf> <./nccis-la-report_files/figure-latex/bar_chart_vuln2-3.pdf>]
-<nccis-la-report_files/figure-latex/part_guage-1.pdf, id=119, 963.6pt x 361.35pt>
+<nccis-la-report_files/figure-latex/part_guage-1.pdf, id=119, 863.225pt x 301.125pt>
 File: nccis-la-report_files/figure-latex/part_guage-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/part_guage-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/part_guage-1.pdf  used on input line 243.
-(pdftex.def)             Requested size: 587.20702pt x 220.20262pt.
+(pdftex.def)             Requested size: 587.20917pt x 204.8404pt.
 
-Overfull \hbox (117.452pt too wide) in paragraph at lines 243--244
+Overfull \hbox (117.45415pt too wide) in paragraph at lines 243--244
 [] 
  []
 
@@ -855,13 +855,13 @@ File: nccis-la-report_files/figure-latex/part_bar-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/part_bar-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/part_bar-1.pdf  used on input line 272.
 (pdftex.def)             Requested size: 234.87692pt x 162.6071pt.
-<nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf, id=121, 963.6pt x 321.2pt>
+<nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf, id=121, 863.225pt x 301.125pt>
 File: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf  used on input line 278.
-(pdftex.def)             Requested size: 587.20702pt x 195.73567pt.
+(pdftex.def)             Requested size: 587.20917pt x 204.8404pt.
 
-Overfull \hbox (117.452pt too wide) in paragraph at lines 278--279
+Overfull \hbox (117.45415pt too wide) in paragraph at lines 278--279
 [] 
  []
 
@@ -958,7 +958,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  83i,11n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (7 pages, 178294 bytes).
+Output written on nccis-la-report.pdf (7 pages, 178295 bytes).
 PDF statistics:
  239 PDF objects out of 1000 (max. 8388607)
  184 compressed objects within 2 object streams
