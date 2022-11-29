@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 10:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.3)  29 NOV 2022 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -773,9 +773,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf  used on input line 132.
-(pdftex.def)             Requested size: 822.09277pt x 274.03091pt.
+(pdftex.def)             Requested size: 704.65724pt x 234.88574pt.
 
-Overfull \hbox (352.33775pt too wide) in paragraph at lines 132--133
+Overfull \hbox (234.90222pt too wide) in paragraph at lines 132--133
 [] 
  []
 
@@ -783,20 +783,8 @@ Overfull \hbox (352.33775pt too wide) in paragraph at lines 132--133
 File: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf  used on input line 157.
-(pdftex.def)             Requested size: 822.09277pt x 256.90398pt.
+(pdftex.def)             Requested size: 469.75679pt x 146.79898pt.
 
-Overfull \hbox (352.33775pt too wide) in paragraph at lines 157--158
-[][] 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf>]
 Underfull \hbox (badness 4872) in paragraph at lines 204--204
 []\T1/phv/b/n/12 Annual changes are since end
  []
@@ -813,7 +801,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3 <./nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>]
+[2 <./nccis-la-report_files/figure-latex/gauge_chart_neetnk-1.pdf> <./nccis-la-report_files/figure-latex/gauge_chart_neet-1.pdf>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[3]
 <nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf, id=93, 469.755pt x 325.215pt>
 File: nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/bar_chart_vuln-1.pdf>
@@ -856,9 +852,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: nccis-la-report_files/figure-latex/part_guage-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/part_guage-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/part_guage-1.pdf  used on input line 243.
-(pdftex.def)             Requested size: 822.09277pt x 308.28479pt.
+(pdftex.def)             Requested size: 704.65724pt x 264.24646pt.
 
-Overfull \hbox (352.33775pt too wide) in paragraph at lines 243--244
+Overfull \hbox (234.90222pt too wide) in paragraph at lines 243--244
 [] 
  []
 
@@ -879,9 +875,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf Graphic file (type pdf)
 <use nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf>
 Package pdftex.def Info: nccis-la-report_files/figure-latex/gauge_chart_Sept_Guar-1.pdf  used on input line 278.
-(pdftex.def)             Requested size: 822.09277pt x 274.03091pt.
+(pdftex.def)             Requested size: 704.65724pt x 234.88574pt.
 
-Overfull \hbox (352.33775pt too wide) in paragraph at lines 278--279
+Overfull \hbox (234.90222pt too wide) in paragraph at lines 278--279
 [] 
  []
 
@@ -968,9 +964,9 @@ Here is how much of TeX's memory you used:
  44681 multiletter control sequences out of 15000+600000
  501786 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 83i,12n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,11n,80p,448b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}<c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb><c:/Users/aalbon/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on nccis-la-report.pdf (8 pages, 179120 bytes).
+Output written on nccis-la-report.pdf (8 pages, 179115 bytes).
 PDF statistics:
  244 PDF objects out of 1000 (max. 8388607)
  188 compressed objects within 2 object streams
