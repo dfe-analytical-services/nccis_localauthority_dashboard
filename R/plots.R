@@ -4,7 +4,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        title = NULL,
                        needle_length = 1.0,
                        reverse_colour = FALSE,
-                       xdomain = c(0, 0.92),
+                       xdomain = c(0, 0.9),
                        fig = plot_ly()) {
   interval_text <- format(intervals)
   mask_range <- (range[2] - range[1]) / 56
@@ -16,7 +16,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
   }
   domain <- list(x = xdomain, y = c(0, 0.82))
   value_size <- 42
-  tick_angle <- 90-180.*valueEng/(range[2]-range[1])
+  tick_angle <- 30.*(1.-2.*(valueEng-range[1])/(range[2]-range[1]))
   fig <- fig %>% add_trace(
     domain = domain,
     value = value,

@@ -54,7 +54,7 @@
 #    https://github.com/moj-analytical-services/shinyGovstyle
 #
 
-library(shinya11y)
+#library(shinya11y)
 
 ui <- function(input, output, session) {
   fluidPage(
@@ -63,6 +63,7 @@ ui <- function(input, output, session) {
       href = "dfefavicon.png"
     )),
     shinyjs::useShinyjs(),
+    customDisconnectMessage(),
     useShinydashboard(),
     tags$head(includeHTML(("google-analytics.html"))),
     tags$head(
@@ -84,10 +85,7 @@ ui <- function(input, output, session) {
       "beta banner",
       "beta",
       paste0(
-        "This Dashboard is in beta phase and we are still reviewing performance and reliability. ",
-        "In case of slowdown or connection issues due to high demand, we have produced two instances of this site which can be accessed at the following links: ",
-        "<a href=", site_primary, " id='link_site_1'>Site 1</a> and ",
-        "<a href=", site_overflow, " id='link_site_2'>Site 2</a>."
+        "This Dashboard is in beta phase and we are still reviewing performance and reliability. "
       )
     ),
     shiny::navlistPanel(
