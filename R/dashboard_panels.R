@@ -73,6 +73,11 @@ homepage_panel <- function() {
                 p("190 - Parent-not caring for own child"),
                 p("200 - Alternative provision"),
                 p("210 - Mental health flag"),
+                p(strong("Caution should be used in interpreting these figures due to variation in local authority reporting of these characteristics.
+                    The proportion of the 16/17 cohort classified as being in the vulnerable group ranges from 0.1 percent to 8.7 percent.
+                   Due to this variation and likely inaccuracy in some local authorities in identifying the full vulnerable group cohort,
+                   NEET/not known rates may not be representative for the vulnerable group cohort. The underlying data accompanying this scorecard
+                   includes the proportion of each local authority's cohort identified as having one of the vulnerable characteristics (VG_cohort_percentage).")),
                 h3("Participation"),
                 br("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
                        at the end of March."),
