@@ -188,4 +188,3 @@ customDisconnectMessage <- function(refresh = "Refresh page",
     ))
   )
 }
-
