@@ -110,7 +110,7 @@ server <- function(input, output, session) {
 
     # Put value into box to plug into app
     shinydashboard::valueBox(
-      paste0(input$LA_choice, ": ", NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts"),
+      HTML(paste0(NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts")),
       HTML(paste0(
         Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.", br(),
         "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts. ", br(),

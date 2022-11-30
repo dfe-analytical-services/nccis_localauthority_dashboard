@@ -12,7 +12,7 @@
       ]
     },
     "NEET_nk": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>Barking and Dagenham: 2.9%, down -0.8 ppts<\/h3>\n    <p>London: 3.4%, down -0.6 ppts.<br/>England: 4.7%, down -0.8 ppts. <br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-down\" style=\"color: #28A197\"><\/i>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>2.9%, down -0.8 ppts<\/h3>\n    <p>London: 3.4%, down -0.6 ppts.<br/>England: 4.7%, down -0.8 ppts. <br/>Annual changes are since end 2020.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-down\" style=\"color: #28A197\"><\/i>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]

@@ -122,7 +122,7 @@ homepage_panel <- function() {
 dashboard_panel <- function() {
   tabPanel(
     value = "dashboard",
-    "Dashboard",
+    "Scorecard",
 
     # Define UI for application that draws a histogram
 
@@ -180,11 +180,11 @@ dashboard_panel <- function() {
                 column(
                   width = 12,
                   br(),
-                  h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+                  tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
                   p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."),
                   h2("NEET and activity not known"),
                   column(width = 2),
-                  column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%") %>% withSpinner()),
+                  column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
                   column(width = 2),
                   valueBoxOutput("NEET_nk", width = 12)
                 )
@@ -209,7 +209,7 @@ dashboard_panel <- function() {
               title = "Vulnerable Groups NEET",
               fluidRow(
                 br(),
-                h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+                tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
                 column(
                   6,
                   h2("Vulnerable group"),
@@ -262,7 +262,7 @@ dashboard_panel <- function() {
               value = "participation",
               title = "Participation",
               br(),
-              h3("16-17 year olds March ", latest_year),
+              tags$b("16-17 year olds March ", latest_year),
               p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."),
               h2("Participating in education and training"),
               fluidRow(

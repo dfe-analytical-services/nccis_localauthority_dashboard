@@ -4,7 +4,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        title = NULL,
                        needle_length = 1.0,
                        reverse_colour = FALSE,
-                       xdomain = c(0, 0.92),
+                       xdomain = c(0, 0.9),
                        fig = plot_ly()) {
   interval_text <- format(intervals)
   mask_range <- (range[2] - range[1]) / 56
@@ -16,6 +16,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
   }
   domain <- list(x = xdomain, y = c(0, 0.82))
   value_size <- 42
+  tick_angle <- 30. * (1. - 2. * (valueEng - range[1]) / (range[2] - range[1]))
   fig <- fig %>% add_trace(
     domain = domain,
     value = value,
@@ -29,7 +30,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         tickvals = intervals,
         ticktext = interval_text,
         tickfont = list(size = 15),
-        tickangle = 36
+        tickangle = tick_angle
       ), # need to make this to the max % neet/nk
       bar = list(color = "rgba(0,0,0,0)"),
       bgcolor = "white",
@@ -48,39 +49,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
       )
     )
   )
-  fig <- fig %>% add_trace(
-    domain = domain,
-    value = value,
-    number = list(suffix = "%", font = list(size = value_size)),
-    type = "indicator",
-    mode = "gauge",
-    gauge = list(
-      axis = list(
-        range = range, tickwidth = 4, tickcolor = "black",
-        tickvals = list(value), ticklen = 96 * needle_length, ticks = "inside", showticklabels = FALSE
-      ),
-      bgcolor = "rgba(0,0,0,0)",
-      bar = list(color = "rgba(0,0,0,0)"),
-      borderwidth = 1
-    )
-  )
-  fig <- fig %>% add_trace(
-    domain = domain,
-    value = value,
-    number = list(suffix = "%", font = list(size = value_size)),
-    type = "indicator",
-    mode = "gauge",
-    gauge = list(
-      axis = list(
-        range = range, tickwidth = 2, tickcolor = "#2073BC",
-        tickvals = list(value), ticklen = 96 * needle_length,
-        ticks = "inside", showticklabels = FALSE
-      ),
-      bgcolor = "rgba(0,0,0,0)",
-      bar = list(color = "rgba(0,0,0,0)"),
-      borderwidth = 1
-    )
-  )
+  # Add the Region marker
   fig <- fig %>% add_trace(
     domain = domain,
     value = value,
@@ -97,7 +66,41 @@ gauge_plot <- function(value, valueEng, valueRegion,
         ticklen = 1,
         ticks = "outside",
         showticklabels = TRUE,
-        tickangle = 36
+        tickangle = tick_angle
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
+    )
+  )
+  # Add the needle
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 4, tickcolor = "black",
+        tickvals = list(value), ticklen = 80 * needle_length, ticks = "inside", showticklabels = FALSE
+      ),
+      bgcolor = "rgba(0,0,0,0)",
+      bar = list(color = "rgba(0,0,0,0)"),
+      borderwidth = 1
+    )
+  )
+  fig <- fig %>% add_trace(
+    domain = domain,
+    value = value,
+    number = list(suffix = "%", font = list(size = value_size)),
+    type = "indicator",
+    mode = "gauge",
+    gauge = list(
+      axis = list(
+        range = range, tickwidth = 2, tickcolor = "#2073BC",
+        tickvals = list(value), ticklen = 80 * needle_length,
+        ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
@@ -120,7 +123,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
         ticklen = 1,
         ticks = "outside",
         showticklabels = TRUE,
-        tickangle = 36
+        tickangle = tick_angle
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
