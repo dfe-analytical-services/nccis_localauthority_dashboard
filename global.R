@@ -36,8 +36,8 @@ shhh(library(scales))
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
 sites_list <- c(site_primary) # We can add further mirrors where necessary. Each one can generally handle about 2,500 users simultaneously
-ees_pub_name <- "Participation in Education, Training and Employment age 16 to 18" # Update this with your parent publication name (e.g. the EES publication)
-ees_publication <- "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment/" # Update with parent publication link
+ees_pub_name <- "Participation in education training and NEET age 16 to 17 by local authority" # Update this with your parent publication name (e.g. the EES publication)
+ees_publication <- "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority" # Update with parent publication link
 team_email <- "post16.statistics@education.gov.uk"
 
 # Load the data required
