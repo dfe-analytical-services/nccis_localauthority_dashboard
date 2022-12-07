@@ -148,6 +148,9 @@ dashboard_panel <- function() {
                   choices = levels(LA_options),
                   selected = "Barking and Dagenham"
                 ),
+                switchInput("acc_colour_scheme",label = "Colours",
+                            onLabel = "Accessible", offLabel="Hi-vis",
+                            value=TRUE),
                 p("Switch between different indicators using the tabs below.")
               ),
               column(
