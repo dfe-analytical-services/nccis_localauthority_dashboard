@@ -152,7 +152,6 @@ dashboard_panel <- function() {
                 switchInput("acc_colour_scheme",label = "Colours",
                             onLabel = "Accessible", offLabel="Hi-vis",
                             value=TRUE),
-                tags$b("Different indicators can be viewed by switching between the tabs below.")
               ),
               column(
                 width = 6,
@@ -169,6 +168,9 @@ dashboard_panel <- function() {
                   "pdfDownload",
                   "Download report"
                 )
+              ),
+              column(12,
+                     tags$b("Different indicators can be viewed by switching between the tabs below.")
               )
             )
           )
