@@ -148,10 +148,11 @@ dashboard_panel <- function() {
                   choices = levels(LA_options),
                   selected = "Barking and Dagenham"
                 ),
-                p("Switch between accessible and hi-vis gauge chart colour schemes"),
-                switchInput("acc_colour_scheme",label = "Colours",
-                            onLabel = "Accessible", offLabel="Hi-vis",
-                            value=TRUE),
+                radioGroupButtons(
+                  inputId = "acc_colour_scheme", label = "Switch between accessible and hi-vis gauge chart colour schemes", 
+                  choiceNames = c("Hi-vis", "Accessible"),
+                  choiceValues =c(FALSE, TRUE),
+                )
               ),
               column(
                 width = 6,
