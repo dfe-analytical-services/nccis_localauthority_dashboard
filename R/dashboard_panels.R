@@ -148,7 +148,7 @@ dashboard_panel <- function() {
                   choices = levels(LA_options),
                   selected = "Barking and Dagenham"
                 ),
-                p("Switch between accessible and hi-vis colour schemes"),
+                p("Switch between accessible and hi-vis gauge chart colour schemes"),
                 switchInput("acc_colour_scheme",label = "Colours",
                             onLabel = "Accessible", offLabel="Hi-vis",
                             value=TRUE),
