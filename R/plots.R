@@ -87,7 +87,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 4, tickcolor = "black",
-        tickvals = list(value), ticklen = 120 * needle_length, ticks = "inside", showticklabels = FALSE
+        tickvals = list(value), ticklen = 100 * needle_length, ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
@@ -103,7 +103,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 2, tickcolor = "#2073BC",
-        tickvals = list(value), ticklen = 120 * needle_length,
+        tickvals = list(value), ticklen = 100 * needle_length,
         ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
