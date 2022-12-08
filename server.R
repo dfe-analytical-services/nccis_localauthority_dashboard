@@ -79,7 +79,8 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_nk_perc_region), 1),
       range = c(1.4, 14.7),
       intervals = c(1.4, 3.0, 3.8, 4.9, 5.9, 14.7),
-      needle_length = 1.1
+      needle_length = 1.1,
+      accessible = input$acc_colour_scheme
     )
   })
 
@@ -138,7 +139,8 @@ server <- function(input, output, session) {
       round(as.numeric(NEET_perc_region), 1),
       range = c(0.2, 5.8),
       intervals = c(0.2, 1.7, 2.1, 2.8, 3.6, 5.8),
-      needle_length = 0.7
+      needle_length = 0.7,
+      accessible = input$acc_colour_scheme
     )
   })
 
@@ -197,7 +199,8 @@ server <- function(input, output, session) {
       round(as.numeric(Nk_perc_region), 1),
       range = c(0.0, 11.8),
       intervals = c(0.0, 0.7, 1.1, 1.7, 2.9, 11.8),
-      needle_length = 0.7
+      needle_length = 0.7,
+      accessible = input$acc_colour_scheme
     )
   })
 
@@ -438,7 +441,8 @@ server <- function(input, output, session) {
       range = c(84.5, 98.4),
       intervals = c(84.5, 91.0, 92.4, 93.6, 95.5, 98.4),
       needle_length = 0.7,
-      reverse_colour = TRUE
+      reverse_colour = TRUE,
+      accessible = input$acc_colour_scheme
     )
   })
 
@@ -552,7 +556,8 @@ server <- function(input, output, session) {
       range = c(67.2, 100.0),
       intervals = c(67.2, 94.5, 95.8, 96.8, 98.1, 100.0),
       needle_length = 0.7,
-      reverse_colour = TRUE
+      reverse_colour = TRUE,
+      accessible = input$acc_colour_scheme
     )
   })
 

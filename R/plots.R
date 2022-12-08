@@ -5,12 +5,17 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        needle_length = 1.0,
                        reverse_colour = FALSE,
                        xdomain = c(0, 0.9),
-                       fig = plot_ly()) {
+                       fig = plot_ly(),
+                       accessible = TRUE) {
   interval_text <- format(intervals)
   mask_range <- (range[2] - range[1]) / 56
   interval_text[abs(intervals - valueEng) < mask_range] <- ""
   interval_text[abs(intervals - valueRegion) < mask_range] <- ""
-  quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")
+  if (accessible) {
+    quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")
+  } else {
+    quantcols <- c("#33a02c", "#b2df8a", "#ffff99", "#ff7f00", "f90d10")
+  }
   if (reverse_colour) {
     quantcols <- quantcols[5:1]
   }
@@ -83,7 +88,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 4, tickcolor = "black",
-        tickvals = list(value), ticklen = 80 * needle_length, ticks = "inside", showticklabels = FALSE
+        tickvals = list(value), ticklen = 100 * needle_length, ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
       bar = list(color = "rgba(0,0,0,0)"),
@@ -99,7 +104,7 @@ gauge_plot <- function(value, valueEng, valueRegion,
     gauge = list(
       axis = list(
         range = range, tickwidth = 2, tickcolor = "#2073BC",
-        tickvals = list(value), ticklen = 80 * needle_length,
+        tickvals = list(value), ticklen = 100 * needle_length,
         ticks = "inside", showticklabels = FALSE
       ),
       bgcolor = "rgba(0,0,0,0)",
