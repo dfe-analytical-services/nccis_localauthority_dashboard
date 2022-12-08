@@ -149,9 +149,9 @@ dashboard_panel <- function() {
                   selected = "Barking and Dagenham"
                 ),
                 radioGroupButtons(
-                  inputId = "acc_colour_scheme", label = "Switch between accessible and hi-vis gauge chart colour schemes", 
+                  inputId = "acc_colour_scheme", label = "Switch between accessible and hi-vis gauge chart colour schemes",
                   choiceNames = c("Hi-vis", "Accessible"),
-                  choiceValues =c(FALSE, TRUE),
+                  choiceValues = c(FALSE, TRUE),
                 )
               ),
               column(
@@ -170,8 +170,9 @@ dashboard_panel <- function() {
                   "Download report"
                 )
               ),
-              column(12,
-                     tags$b("Different indicators can be viewed by switching between the tabs below.")
+              column(
+                12,
+                tags$b("Different indicators can be viewed by switching between the tabs below.")
               )
             )
           )

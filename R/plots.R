@@ -6,13 +6,14 @@ gauge_plot <- function(value, valueEng, valueRegion,
                        reverse_colour = FALSE,
                        xdomain = c(0, 0.9),
                        fig = plot_ly(),
-                       accessible=TRUE) {
+                       accessible = TRUE) {
   interval_text <- format(intervals)
   mask_range <- (range[2] - range[1]) / 56
   interval_text[abs(intervals - valueEng) < mask_range] <- ""
   interval_text[abs(intervals - valueRegion) < mask_range] <- ""
-  if(accessible){
-  quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")} else {
+  if (accessible) {
+    quantcols <- c("#cedbcb", "#cdd0b7", "#ccbf9b", "#bb906f", "#8c301b")
+  } else {
     quantcols <- c("#33a02c", "#b2df8a", "#ffff99", "#ff7f00", "f90d10")
   }
   if (reverse_colour) {
