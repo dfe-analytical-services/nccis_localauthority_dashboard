@@ -230,17 +230,17 @@ dashboard_panel <- function() {
                   br(),
                   tags$b(textOutput("vg_cohort")),
                   br(),
-                  p(strong("A young person is said to be in a vulnerable group if they have any of the following characteristics
-                       (taken from IC01 of the NCCIS returns):")),
-                  p(strong("110 - Looked after/In care")),
-                  p(strong("130 - Refugee/Asylum seeker")),
-                  p(strong("140 - Carer-not own child")),
-                  p(strong("150 - Disclosed substance misuse")),
-                  p(strong("160 - Care leaver")),
-                  p(strong("170 - Supervised by YOT (Youth Offending Team)")),
-                  p(strong("190 - Parent-not caring for own child")),
-                  p(strong("200 - Alternative provision")),
-                  p(strong("210 - Mental health flag"))
+                  p("A young person is said to be in a vulnerable group if they have any of the following characteristics
+                       (taken from IC01 of the NCCIS returns):"),
+                  p("110 - Looked after/In care"),
+                  p("130 - Refugee/Asylum seeker"),
+                  p("140 - Carer-not own child"),
+                  p("150 - Disclosed substance misuse"),
+                  p("160 - Care leaver"),
+                  p("170 - Supervised by YOT (Youth Offending Team)"),
+                  p("190 - Parent-not caring for own child"),
+                  p("200 - Alternative provision"),
+                  p("210 - Mental health flag")
                 )
               ),
               fluidRow(
