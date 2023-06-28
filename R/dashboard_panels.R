@@ -228,7 +228,8 @@ dashboard_panel <- function() {
                   6,
                   br(),
                   br(),
-                  tags$b(textOutput("vg_cohort")),
+                  #tags$b(textOutput("vg_cohort")),
+                  h3(textOutput("vg_cohort"),style = "color:#28A197"),
                   br(),
                   p("A young person is said to be in a vulnerable group if they have any of the following characteristics
                        (taken from IC01 of the NCCIS returns):"),
