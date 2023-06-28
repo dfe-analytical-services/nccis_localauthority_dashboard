@@ -238,6 +238,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
       text = paste(la_name, ": ", .data[[plotcat]], "%")
     )) +
     geom_bar(stat = "identity", na.rm = TRUE) +
+    geom_text(aes(label = paste(.data[[plotcat]], "%")),position = position_stack(vjust=0.5)) +
     coord_flip() +
     facet_wrap(~la_name, nrow = 3) +
     labs(x = "", y = "") +
@@ -254,7 +255,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank()
     ) +
-    ggtitle(figtitle)
+    ggtitle(figtitle) 
 }
 
 plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
@@ -377,6 +378,7 @@ plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_
       text = paste(la_name, ": ", .data[[plotcat]], "%")
     )) +
     geom_bar(stat = "identity", na.rm = TRUE) +
+    geom_text(aes(label = .data[[plotcat]]),position = position_stack(vjust=0.5)) +
     coord_flip() +
     facet_wrap(~la_name, nrow = 3) +
     labs(x = "", y = "") +
