@@ -28,12 +28,12 @@ homepage_panel <- function() {
             management information and there being considerable variation at local authority level in
             how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
             estimates of the proportion NEET.")),
-          #p(strong("The Department for Education's definitive measures for England
-           # of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
-            #published annually in the national statistics release", a(
-            #href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
-            #"'Participation in Education, Training and Employment age 16 to 18'."
-          #)))
+          # p(strong("The Department for Education's definitive measures for England
+          # of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
+          # published annually in the national statistics release", a(
+          # href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
+          # "'Participation in Education, Training and Employment age 16 to 18'."
+          # )))
         ),
 
         ## Left panel -------------------------------------------------------
@@ -96,7 +96,7 @@ homepage_panel <- function() {
                   "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2021-22", "post 16 attainment"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2021-22", "GCSE attainment"), " and ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2021-22", "school attendance"), " of young people living in each area.
-                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority. In previous years we have also included the Office for National Statistics (ONS) population estimate for comparison. 
+                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority. In previous years we have also included the Office for National Statistics (ONS) population estimate for comparison.
                   However, there is delay to the latest ONS population updates so this information is not available in the dashboard this year."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
@@ -228,8 +228,8 @@ dashboard_panel <- function() {
                   6,
                   br(),
                   br(),
-                  #tags$b(textOutput("vg_cohort")),
-                  h3(textOutput("vg_cohort"),style = "color:#28A197"),
+                  # tags$b(textOutput("vg_cohort")),
+                  h3(textOutput("vg_cohort"), style = "color:#28A197"),
                   br(),
                   p("A young person is said to be in a vulnerable group if they have any of the following characteristics
                        (taken from IC01 of the NCCIS returns):"),
@@ -299,7 +299,7 @@ dashboard_panel <- function() {
                   plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
                   valueBoxOutput("Sept_Guarantee", width = 12),
                   p("In some instances, a local authority may have slightly over 100% offers made.
-                    This is due to additional young people being added after the September Guarantee cohort is fixed.") 
+                    This is due to additional young people being added after the September Guarantee cohort is fixed.")
                 ),
               )
             ),
@@ -374,10 +374,10 @@ dashboard_panel <- function() {
                   6,
                   valueBoxOutput("NCCIS_pop", width = 12)
                 ),
-                #column(
-                 # 6,
-                 # valueBoxOutput("NCCIS_pop", width = 12)
-                #)
+                # column(
+                # 6,
+                # valueBoxOutput("NCCIS_pop", width = 12)
+                # )
               ),
               # ),
               uiOutput("contextual.bartext")

@@ -32,7 +32,7 @@ server <- function(input, output, session) {
     size = 14
   )
 
- 
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
@@ -290,15 +290,15 @@ server <- function(input, output, session) {
   })
 
   ## create header so users can see the proportion of the cohort in a vulnerable group
-  
+
   output$vg_cohort <- renderText({
     vgcohort <- lineLA() %>%
       pull(as.numeric(VG_cohort_percentage))
-    
-    paste0("In ", input$LA_choice, " local authority ",vgcohort,"%  of the 16-17 year old cohort were reported in a vulnerable group.")
+
+    paste0("In ", input$LA_choice, " local authority ", vgcohort, "%  of the 16-17 year old cohort were reported in a vulnerable group.")
   })
-  
-  
+
+
   ## EHCP--------------------------------------------
 
   ### Plot------------------------------
@@ -865,18 +865,18 @@ server <- function(input, output, session) {
   ## Population-----------------------------------------------------------
   ### ONS-----------------------------------------------------------------
 
-  #output$ONS_pop <- renderValueBox({
-   # ONS_population <- lineLA() %>%
-    #  pull(Age1617_ONS_population) %>%
-     # as.numeric()
+  # output$ONS_pop <- renderValueBox({
+  # ONS_population <- lineLA() %>%
+  #  pull(Age1617_ONS_population) %>%
+  # as.numeric()
 
-    # Put value into box to plug into app
-    #shinydashboard::valueBox(
-   #   format(ONS_population, big.mark = ","),
-   #   paste0("ONS estimate - January ", latest_year),
-   #   color = "blue"
+  # Put value into box to plug into app
+  # shinydashboard::valueBox(
+  #   format(ONS_population, big.mark = ","),
+  #   paste0("ONS estimate - January ", latest_year),
+  #   color = "blue"
   #  )
- # })
+  # })
 
   ### NCCIS---------------------------------------------------------------
 
