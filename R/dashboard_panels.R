@@ -189,9 +189,10 @@ dashboard_panel <- function() {
                 column(
                   width = 12,
                   br(),
-                  tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-                  p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."),
+                  #tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+                  p(strong("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages.")),
                   h2("NEET and activity not known"),
+                  h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
                   column(width = 2),
                   column(width = 8, plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
                   column(width = 2),
@@ -218,18 +219,18 @@ dashboard_panel <- function() {
               title = "Vulnerable Groups NEET",
               fluidRow(
                 br(),
-                tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+                #tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
                 column(
                   6,
                   h2("Vulnerable group"),
+                  h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
                   plotlyOutput("vulnerable_plot") %>% withSpinner()
                 ),
                 column(
                   6,
                   br(),
                   br(),
-                  # tags$b(textOutput("vg_cohort")),
-                  h3(textOutput("vg_cohort"), style = "color:#28A197"),
+                  br(),
                   br(),
                   p("A young person is said to be in a vulnerable group if they have any of the following characteristics
                        (taken from IC01 of the NCCIS returns):"),
@@ -241,7 +242,8 @@ dashboard_panel <- function() {
                   p("170 - Supervised by YOT (Youth Offending Team)"),
                   p("190 - Parent-not caring for own child"),
                   p("200 - Alternative provision"),
-                  p("210 - Mental health flag")
+                  p("210 - Mental health flag"),
+                  h4(textOutput("vg_cohort"), style = "color:#28A197")
                 )
               ),
               fluidRow(
@@ -272,9 +274,10 @@ dashboard_panel <- function() {
               value = "participation",
               title = "Participation",
               br(),
-              tags$b("16-17 year olds March ", latest_year),
-              p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."),
+              #tags$b("16-17 year olds March ", latest_year),
+              p(strong("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages.")),
               h2("Participating in education and training"),
+              h3("16-17 year olds March ", latest_year),
               fluidRow(
                 column(
                   7,
