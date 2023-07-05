@@ -6,9 +6,8 @@ technical_notes <- function() {
     br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; ie their age on 31 August."),
     br("Data is collected using the National Client Caseload Information System (NCCIS), which draws together local databases used to support young people to engage in education and training and plan services that meet young people's needs."),
     br("The cohort does not include young adult offenders in custody."),
-    br("Annual comparisons are not available for Northamptonshire  in 2022 due to boundary changes. These annual changes appear as a 'z' in the dashboard"),
     br("For further information on the data used in this dashboard please see the methodology document on the main release page ", a(
-      href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority/2021-22",
+      href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
       "here."
     )),
     h3("Quintiles"),
@@ -19,7 +18,7 @@ technical_notes <- function() {
     br("The average England percentage may not necessarily fall in the middle of quintile 3 because the average is calculated by averaging
       all the values; for example if some of the values are particularly large compared with the other values, the average will be larger than
       the middle ranked LA and may fall outside the middle quintile."),
-    br("The purpose of the quintiles is to compare the relative position of local authority NEET/Not known rates to other local authorities, rather than to make any judgement on national or regional rates"),
+    br("The purpose of the quintiles is to compare the relative position of local authority NEET/Not known rates to other local authorities, rather than to make any judgement on national or regional rates."),
     br("Local authorities with no value or a suppressed value are excluded from the quintile calculation."),
     h3("Local authority direction"),
     br("Each area's performance is compared with the same period of the previous year.  A green arrow denotes those areas whose performance has improved (NEET gone down/participation gone up),
