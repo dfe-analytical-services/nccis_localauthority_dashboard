@@ -6,13 +6,7 @@
   },
   "output": {
     "NCCIS_pop": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,536<\/h3>\n    <p>Recorded on CCIS - end 2021<\/p>\n  <\/div>\n<\/div>",
-      "deps": [
-
-      ]
-    },
-    "ONS_pop": {
-      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,265<\/h3>\n    <p>ONS estimate - January 2022<\/p>\n  <\/div>\n<\/div>",
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>6,874<\/h3>\n    <p>Recorded on CCIS - end 2022 (average of December, January, February)<\/p>\n  <\/div>\n<\/div>",
       "deps": [
 
       ]

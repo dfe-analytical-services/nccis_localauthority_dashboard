@@ -32,6 +32,7 @@ server <- function(input, output, session) {
     size = 14
   )
 
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
@@ -77,8 +78,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
       round(as.numeric(England()$NEET_not_known_percent), 1),
       round(as.numeric(NEET_nk_perc_region), 1),
-      range = c(1.4, 14.7),
-      intervals = c(1.4, 3.0, 3.8, 4.9, 5.9, 14.7),
+      range = c(0.9, 15.2),
+      intervals = c(0.9, 3.1, 4.0, 5.0, 6.6, 15.2),
       needle_length = 1.1,
       accessible = input$acc_colour_scheme
     )
@@ -137,8 +138,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_percent),
       round(as.numeric(England()$NEET_percent), 1),
       round(as.numeric(NEET_perc_region), 1),
-      range = c(0.2, 5.8),
-      intervals = c(0.2, 1.7, 2.1, 2.8, 3.6, 5.8),
+      range = c(0.7, 7.2),
+      intervals = c(0.7, 1.7, 2.3, 3.0, 4.1, 7.2),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -197,8 +198,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$Notknown_percent),
       round(as.numeric(England()$Notknown_percent), 1),
       round(as.numeric(Nk_perc_region), 1),
-      range = c(0.0, 11.8),
-      intervals = c(0.0, 0.7, 1.1, 1.7, 2.9, 11.8),
+      range = c(0.0, 14.3),
+      intervals = c(0.0, 0.5, 0.9, 1.7, 3.4, 14.3),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -286,6 +287,15 @@ server <- function(input, output, session) {
       tooltip = c("text")
     ) %>%
       config(displayModeBar = FALSE)
+  })
+
+  ## create header so users can see the proportion of the cohort in a vulnerable group
+
+  output$vg_cohort <- renderText({
+    vgcohort <- lineLA() %>%
+      pull(as.numeric(VG_cohort_percentage))
+
+    paste0("Please note, in ", input$LA_choice, " local authority ", vgcohort, "%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on Homepage about possible under-reporting)")
   })
 
 
@@ -438,8 +448,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$TOTAL_participating_in_education_and_training_percent),
       round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
       round(as.numeric(participation_region), 1),
-      range = c(84.5, 98.4),
-      intervals = c(84.5, 91.0, 92.4, 93.6, 95.5, 98.4),
+      range = c(78.5, 98.6),
+      intervals = c(78.5, 90.2, 91.9, 93.5, 95.2, 98.6),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -553,8 +563,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$September_guarantee_Offer_made_percent),
       round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
       round(as.numeric(Sept_Guar_region), 1),
-      range = c(67.2, 100.0),
-      intervals = c(67.2, 94.5, 95.8, 96.8, 98.1, 100.0),
+      range = c(61.1, 100.0),
+      intervals = c(61.1, 93.8, 95.7, 97.0, 98.1, 100.0),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -855,18 +865,18 @@ server <- function(input, output, session) {
   ## Population-----------------------------------------------------------
   ### ONS-----------------------------------------------------------------
 
-  output$ONS_pop <- renderValueBox({
-    ONS_population <- lineLA() %>%
-      pull(Age1617_ONS_population) %>%
-      as.numeric()
+  # output$ONS_pop <- renderValueBox({
+  # ONS_population <- lineLA() %>%
+  #  pull(Age1617_ONS_population) %>%
+  # as.numeric()
 
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      format(ONS_population, big.mark = ","),
-      paste0("ONS estimate - January ", latest_year),
-      color = "blue"
-    )
-  })
+  # Put value into box to plug into app
+  # shinydashboard::valueBox(
+  #   format(ONS_population, big.mark = ","),
+  #   paste0("ONS estimate - January ", latest_year),
+  #   color = "blue"
+  #  )
+  # })
 
   ### NCCIS---------------------------------------------------------------
 
@@ -878,7 +888,7 @@ server <- function(input, output, session) {
     # Put value into box to plug into app
     shinydashboard::valueBox(
       format(NCCIS_population, big.mark = ","),
-      paste0("Recorded on CCIS - end ", last_year),
+      paste0("Recorded on CCIS - end ", last_year, " (average of December, January, February)"),
       color = "blue"
     )
   })

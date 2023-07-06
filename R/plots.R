@@ -155,8 +155,8 @@ plot_neetnkgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$NEET_not_known_percent), 1),
     round(as.numeric(NEET_nk_perc_region), 1),
     title = title_string,
-    range = c(1.4, 14.7),
-    intervals = c(1.4, 3.0, 3.8, 4.9, 5.9, 14.7),
+    range = c(0.9, 15.2),
+    intervals = c(0.9, 3.1, 4.0, 5.0, 6.6, 15.2),
     needle_length = 0.9
   )
 }
@@ -179,8 +179,8 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96),
     round(as.numeric(line_england$NEET_percent), 1),
     round(as.numeric(NEET_perc_region), 1),
     title = title_string,
-    range = c(0.2, 5.8),
-    intervals = c(0.2, 1.7, 2.1, 2.8, 3.6, 5.8),
+    range = c(0.7, 7.2),
+    intervals = c(0.7, 1.7, 2.3, 3.0, 4.1, 7.2),
     needle_length = 0.7,
     xdomain = xdomain
   )
@@ -206,8 +206,8 @@ plot_nkgauge <- function(dfla, line_la, line_england,
     round(as.numeric(line_england$Notknown_percent), 1),
     round(as.numeric(nk_perc_region), 1),
     title = title_string,
-    range = c(0.0, 11.8),
-    intervals = c(0.0, 0.7, 1.1, 1.7, 2.9, 11.8),
+    range = c(0.0, 14.3),
+    intervals = c(0.0, 0.5, 0.9, 1.7, 3.4, 14.3),
     needle_length = 0.7,
     fig = fig,
     xdomain = xdomain
@@ -238,6 +238,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
       text = paste(la_name, ": ", .data[[plotcat]], "%")
     )) +
     geom_bar(stat = "identity", na.rm = TRUE) +
+    geom_text(aes(label = paste(.data[[plotcat]], "%")), position = position_stack(vjust = 0.5)) +
     coord_flip() +
     facet_wrap(~la_name, nrow = 3) +
     labs(x = "", y = "") +
@@ -273,8 +274,8 @@ plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
     round(as.numeric(part_perc_region), 1),
     title = title_string,
-    range = c(84.5, 98.4),
-    intervals = c(84.5, 91.0, 92.4, 93.6, 95.5, 98.4),
+    range = c(78.5, 98.6),
+    intervals = c(78.5, 90.2, 91.9, 93.5, 95.2, 98.6),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
@@ -338,8 +339,8 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
     round(as.numeric(Sept_Guar_region), 1),
     title = title_string,
-    range = c(67.2, 100.0),
-    intervals = c(67.2, 94.5, 95.8, 96.8, 98.1, 100.0),
+    range = c(61.1, 100.0),
+    intervals = c(61.1, 93.8, 95.7, 97.0, 98.1, 100.0),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
@@ -377,6 +378,7 @@ plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_
       text = paste(la_name, ": ", .data[[plotcat]], "%")
     )) +
     geom_bar(stat = "identity", na.rm = TRUE) +
+    geom_text(aes(label = .data[[plotcat]]), position = position_stack(vjust = 0.5)) +
     coord_flip() +
     facet_wrap(~la_name, nrow = 3) +
     labs(x = "", y = "") +
