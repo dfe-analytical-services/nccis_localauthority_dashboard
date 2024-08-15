@@ -1,6 +1,6 @@
 technical_notes <- function() {
   tabPanel(
-    "Technical Notes",
+    "Technical notes",
     h2("Technical notes"),
     br("Use this dashboard to view not in education, employment or training (NEET) and participation in education and training figures alongside contextual information for local authorities in England."),
     br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; ie their age on 31 August."),
