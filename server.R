@@ -39,7 +39,7 @@ server <- function(input, output, session) {
     google_analytics_key = google_analytics_key,
     cookie_link_panel = "cookies_panel_ui"
   )
-  
+
   dfeshiny::cookies_panel_server(
     id = "cookie-panel",
     input_cookies = shiny::reactive(input$cookies),
