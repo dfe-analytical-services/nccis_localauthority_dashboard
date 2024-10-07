@@ -78,8 +78,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
       round(as.numeric(England()$NEET_not_known_percent), 1),
       round(as.numeric(NEET_nk_perc_region), 1),
-      range = c(0.9, 15.2),
-      intervals = c(0.9, 3.1, 4.0, 5.0, 6.6, 15.2),
+      range = c(0.9, 22.0),
+      intervals = c(0.9, 3.3, 4.2, 5.4, 6.6, 22.0),
       needle_length = 1.1,
       accessible = input$acc_colour_scheme
     )
