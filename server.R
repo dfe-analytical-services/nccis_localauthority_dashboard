@@ -138,8 +138,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_percent),
       round(as.numeric(England()$NEET_percent), 1),
       round(as.numeric(NEET_perc_region), 1),
-      range = c(0.7, 7.2),
-      intervals = c(0.7, 1.7, 2.3, 3.0, 4.1, 7.2),
+      range = c(0.4, 7.6),
+      intervals = c(0.4, 1.9, 2.6, 3.5, 4.5, 7.6),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -198,8 +198,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$Notknown_percent),
       round(as.numeric(England()$Notknown_percent), 1),
       round(as.numeric(Nk_perc_region), 1),
-      range = c(0.0, 14.3),
-      intervals = c(0.0, 0.5, 0.9, 1.7, 3.4, 14.3),
+      range = c(0.0, 20.7),
+      intervals = c(0.0, 0.5, 0.9, 1.6, 2.7, 20.7),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -448,8 +448,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$TOTAL_participating_in_education_and_training_percent),
       round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
       round(as.numeric(participation_region), 1),
-      range = c(78.5, 98.6),
-      intervals = c(78.5, 90.2, 91.9, 93.5, 95.2, 98.6),
+      range = c(80.7, 98.5),
+      intervals = c(80.7, 89.9, 91.7, 93.1, 95.1, 98.5),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -563,8 +563,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$September_guarantee_Offer_made_percent),
       round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
       round(as.numeric(Sept_Guar_region), 1),
-      range = c(61.1, 100.0),
-      intervals = c(61.1, 93.8, 95.7, 97.0, 98.1, 100.0),
+      range = c(33.0, 100.0),
+      intervals = c(33.0, 93.5, 95.5, 96.6, 97.6, 100.0),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
