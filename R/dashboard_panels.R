@@ -74,7 +74,7 @@ homepage_panel <- function() {
                 p("200 - Alternative provision"),
                 p("210 - Mental health flag"),
                 p(strong("Caution should be used in interpreting these figures due to variation in local authority reporting of these characteristics.
-                    The proportion of the 16/17 cohort classified as being in the vulnerable group ranges from 0.0 percent to 10.0 percent.
+                    The proportion of the 16/17 cohort classified as being in the vulnerable group ranges from 0.0 percent to 10.3 percent.
                    Due to this variation and likely inaccuracy in some local authorities in identifying the full vulnerable group cohort,
                    NEET/not known rates may not be representative for the vulnerable group cohort. The underlying data accompanying this scorecard
                    includes the proportion of each local authority's cohort identified as having one of the vulnerable characteristics (VG_cohort_percentage).")),
@@ -93,9 +93,9 @@ homepage_panel <- function() {
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual - attainment and attendence"),
                 br(
-                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2021-22", "post 16 attainment"), ", ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2021-22", "GCSE attainment"), " and ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2021-22", "school attendance"), " of young people living in each area.
+                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "post 16 attainment"), ", ",
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "GCSE attainment"), " and ",
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "school attendance"), " of young people living in each area.
                   It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority. In previous years we have also included the Office for National Statistics (ONS) population estimate for comparison.
                   However, there is delay to the latest ONS population updates so this information is not available in the dashboard this year."
                 ),
