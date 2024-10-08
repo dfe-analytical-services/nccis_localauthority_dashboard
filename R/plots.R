@@ -155,8 +155,8 @@ plot_neetnkgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$NEET_not_known_percent), 1),
     round(as.numeric(NEET_nk_perc_region), 1),
     title = title_string,
-    range = c(0.9, 15.2),
-    intervals = c(0.9, 3.1, 4.0, 5.0, 6.6, 15.2),
+    range = c(0.9, 22.0),
+    intervals = c(0.9, 3.3, 4.2, 5.4, 6.6, 22.0),
     needle_length = 0.9
   )
 }
@@ -179,8 +179,8 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96),
     round(as.numeric(line_england$NEET_percent), 1),
     round(as.numeric(NEET_perc_region), 1),
     title = title_string,
-    range = c(0.7, 7.2),
-    intervals = c(0.7, 1.7, 2.3, 3.0, 4.1, 7.2),
+    range = c(0.4, 7.6),
+    intervals = c(0.4, 1.9, 2.6, 3.5, 4.5, 7.6),
     needle_length = 0.7,
     xdomain = xdomain
   )
@@ -206,8 +206,8 @@ plot_nkgauge <- function(dfla, line_la, line_england,
     round(as.numeric(line_england$Notknown_percent), 1),
     round(as.numeric(nk_perc_region), 1),
     title = title_string,
-    range = c(0.0, 14.3),
-    intervals = c(0.0, 0.5, 0.9, 1.7, 3.4, 14.3),
+    range = c(0.0, 20.7),
+    intervals = c(0.0, 0.5, 0.9, 1.6, 2.7, 20.7),
     needle_length = 0.7,
     fig = fig,
     xdomain = xdomain
@@ -274,8 +274,8 @@ plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
     round(as.numeric(part_perc_region), 1),
     title = title_string,
-    range = c(78.5, 98.6),
-    intervals = c(78.5, 90.2, 91.9, 93.5, 95.2, 98.6),
+    range = c(80.7, 98.5),
+    intervals = c(80.7, 89.9, 91.7, 93.1, 95.1, 98.5),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
@@ -339,8 +339,8 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
     round(as.numeric(Sept_Guar_region), 1),
     title = title_string,
-    range = c(61.1, 100.0),
-    intervals = c(61.1, 93.8, 95.7, 97.0, 98.1, 100.0),
+    range = c(33.0, 100.0),
+    intervals = c(33.0, 93.5, 95.5, 96.6, 97.6, 100.0),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
