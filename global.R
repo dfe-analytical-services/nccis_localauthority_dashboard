@@ -41,12 +41,12 @@ ees_publication <- "https://explore-education-statistics.service.gov.uk/find-sta
 team_email <- "post16.statistics@education.gov.uk"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2023_final.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2024_final.csv",
   col_types = cols(.default = "c")
 )
 
 # Set year references - TO BE UPDATED EVERY YEAR
-latest_year <- 2023
+latest_year <- 2024
 last_year <- latest_year - 1
 latest_year_end <- latest_year - 1
 previous_year_end <- latest_year - 2
