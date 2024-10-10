@@ -749,9 +749,9 @@ server <- function(input, output, session) {
 
     Persistent_abs <- plotdata %>%
       ggplot(aes(
-        y = sess_overall_percent_pa_10_exact, x = "",
+        y = enrolments_pa_10_exact_percent, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", sess_overall_percent_pa_10_exact, "%")
+        text = paste(la_name, ": ", enrolments_pa_10_exact_percent, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +

@@ -352,7 +352,7 @@ plot_contextualbar <- function(dfcontextual, contextual_la, line_la, contextual_
   figtitles <- data.frame(
     flag = c(
       "Level_3", "L2_em_GCSE_othL2", "avg_att8",
-      "pt_l2basics_94", "sess_overall_percent", "sess_overall_percent_pa_10_exact"
+      "pt_l2basics_94", "sess_overall_percent", "enrolments_pa_10_exact_percent"
     ),
     figtitle = c(
       "% 19 year olds achieving level 3",
