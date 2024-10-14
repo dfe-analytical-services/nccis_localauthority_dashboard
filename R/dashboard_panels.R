@@ -59,7 +59,7 @@ homepage_panel <- function() {
                        who work with young people sharing information with them. There is a risk that young people NEET have not been
                        identified in areas where effective tracking arrangements are not in place."),
                 h3("Vulnerable groups NEET"),
-                br("This section includes experimental data showing the proportion of 16 and 17 year olds living in each area who were not in education,
+                br("This section includes data showing the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
                        and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."),
                 br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
