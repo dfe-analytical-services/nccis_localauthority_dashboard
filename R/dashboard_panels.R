@@ -96,8 +96,7 @@ homepage_panel <- function() {
                   "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "post 16 attainment"), ", ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "GCSE attainment"), " and ",
                   a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "school attendance"), " of young people living in each area.
-                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority. In previous years we have also included the Office for National Statistics (ONS) population estimate for comparison.
-                  However, there is delay to the latest ONS population updates so this information is not available in the dashboard this year."
+                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
