@@ -312,7 +312,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2021-22", "'Level 2 and 3 attainment age 16 to 25: 2021/22'"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "'Level 2 and 3 attainment age 16 to 25: 2021/22'"), " release."),
                 br(),
                 column(
                   6,
@@ -335,7 +335,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("GCSE attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2021-22", "'Key stage 4 performance: 2021/22'"), " release."),
+                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "'Key stage 4 performance: 2021/22'"), " release."),
                 br(),
                 column(
                   6,
@@ -354,7 +354,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following state-funded secondary school attendance figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2021-22", "'Pupil absence in schools in England: 2021/22'"), " release."),
+                br("The following state-funded secondary school attendance figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "'Pupil absence in schools in England: 2021/22'"), " release."),
                 br(),
                 column(
                   6,
