@@ -296,7 +296,7 @@ dashboard_panel <- function() {
               ),
               fluidRow(
                 h2("September Guarantee: % offered an education or training place"),
-                h3("16-17 year olds ", "September" last_year),
+                h3("16-17 year olds ", "September", last_year),
                 column(
                   7,
                   plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
