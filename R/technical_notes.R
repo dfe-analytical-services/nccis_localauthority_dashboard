@@ -3,7 +3,7 @@ technical_notes <- function() {
     "Technical notes",
     h2("Technical notes"),
     br("Use this dashboard to view not in education, employment or training (NEET) and participation in education and training figures alongside contextual information for local authorities in England."),
-    br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; ie their age on 31 August."),
+    br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; i.e. their age on 31 August."),
     br("Data is collected using the National Client Caseload Information System (NCCIS),which draws together local databases used to support young people to engage in education and training and plan services that meet young people's needs."),
     br("The cohort does not include young adult offenders in custody."),
     br("For further information on the data used in this dashboard please see the methodology document on the main release page ", a(
