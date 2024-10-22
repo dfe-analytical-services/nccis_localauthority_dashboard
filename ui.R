@@ -63,6 +63,11 @@ ui <- function(input, output, session) {
       href = "dfefavicon.png"
     )),
     shinyjs::useShinyjs(),
+    dfeshiny::dfe_cookie_script(),
+    dfeshiny::cookie_banner_ui(
+      "cookie-banner",
+      "NEET and participation LA scorecard"
+    ),
     customDisconnectMessage(),
     useShinydashboard(),
     tags$head(includeHTML(("google-analytics.html"))),
@@ -81,17 +86,6 @@ ui <- function(input, output, session) {
       logo_width = 96,
       logo_height = 56
     ),
-    shinyGovstyle::banner(
-      "beta banner",
-      "beta",
-      paste0(
-        "<b>We're looking for volunteers! We've developed several new dashboards ",
-        "in the last 12 months and we'd really like to know what you think of them. ",
-        "If you're interested in helping us improve our products, please sign up ",
-        "using our <a href='https://forms.office.com/e/ZjNxf10uuN'>user-testing volunteer form</a>.</b><br>",
-        "This Dashboard is in beta phase and we are still reviewing performance and reliability. "
-      )
-    ),
     shiny::navlistPanel(
       "",
       id = "navlistPanel",
@@ -101,6 +95,10 @@ ui <- function(input, output, session) {
       dashboard_panel(),
       technical_notes(),
       a11y_panel(),
+      dfeshiny::cookies_panel_ui(
+        id = "cookie-panel",
+        google_analytics_key = google_analytics_key
+      ),
       support_links()
     ),
     tags$script(
