@@ -32,19 +32,17 @@ server <- function(input, output, session) {
     size = 14
   )
 
-  output$cookie_status <- dfeshiny::cookie_banner_server(
-    "cookie-banner",
+  output$cookies_status <- dfeshiny::cookies_banner_server(
     input_cookies = shiny::reactive(input$cookies),
     parent_session = session,
-    google_analytics_key = google_analytics_key,
-    cookie_link_panel = "cookies_panel_ui"
+    google_analytics_key = google_analytics_key
   )
 
   dfeshiny::cookies_panel_server(
-    id = "cookie-panel",
     input_cookies = shiny::reactive(input$cookies),
     google_analytics_key = google_analytics_key
   )
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)

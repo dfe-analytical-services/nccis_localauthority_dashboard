@@ -63,9 +63,8 @@ ui <- function(input, output, session) {
       href = "dfefavicon.png"
     )),
     shinyjs::useShinyjs(),
-    dfeshiny::dfe_cookie_script(),
-    dfeshiny::cookie_banner_ui(
-      "cookie-banner",
+    dfeshiny::dfe_cookies_script(),
+    dfeshiny::cookies_banner_ui(
       "NEET and participation LA scorecard"
     ),
     customDisconnectMessage(),
@@ -95,11 +94,22 @@ ui <- function(input, output, session) {
       dashboard_panel(),
       technical_notes(),
       a11y_panel(),
-      dfeshiny::cookies_panel_ui(
-        id = "cookie-panel",
-        google_analytics_key = google_analytics_key
+      shiny::tabPanel(
+        value = "cookies_panel_ui",
+        "Cookies",
+        cookies_panel_ui(google_analytics_key = google_analytics_key)
       ),
-      support_links()
+      shiny::tabPanel(
+        value = "support_panel",
+        "Support and feedback",
+        support_panel(
+          team_email = "post16.statistics@education.gov.uk",
+          publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
+          publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
+          repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
+          form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+        )
+      )
     ),
     tags$script(
       src = "script.js"
