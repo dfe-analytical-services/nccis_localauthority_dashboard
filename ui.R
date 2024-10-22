@@ -65,7 +65,7 @@ ui <- function(input, output, session) {
     shinyjs::useShinyjs(),
     dfeshiny::dfe_cookies_script(),
     dfeshiny::cookies_banner_ui(
-      "NEET and participation LA scorecard"
+      name = "NEET and participation LA scorecard"
     ),
     customDisconnectMessage(),
     useShinydashboard(),
