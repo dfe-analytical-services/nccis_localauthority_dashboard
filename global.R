@@ -41,7 +41,7 @@ ees_publication <- "https://explore-education-statistics.service.gov.uk/find-sta
 team_email <- "post16.statistics@education.gov.uk"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2024_final.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
   col_types = cols(.default = "c")
 )
 
