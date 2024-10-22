@@ -8,6 +8,9 @@
 #
 # ---------------------------------------------------------
 
+options(styler.cache_root = "styler-perm")
+
+
 source("renv/activate.R")
 
 

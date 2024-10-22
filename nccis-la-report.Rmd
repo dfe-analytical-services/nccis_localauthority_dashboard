@@ -515,12 +515,6 @@ plot_contextualbar(contextual_data, contextual_la, lineLA, contextual_england,
 ```
 
 ### 16-17 LA population
-```{r derive_pop_ons_vbox_values, echo=FALSE}
-ONS_population <- lineLA %>%
-  pull(Age1617_ONS_population) %>%
-  as.numeric()
-```
-
 ```{r derive_pop_nccis_vbox_values, echo=FALSE}
 NCCIS_population <- lineLA %>%
   pull(Cohort_DJFavg) %>%
@@ -529,24 +523,6 @@ NCCIS_population <- lineLA %>%
 
 \makebox[1.00\linewidth]{
 \centering
-
-\begin{tcolorbox}[colback=gssmidblue, 
- leftright skip=0.1cm,
- coltext=white, 
- halign=left, 
- fontupper={\Large \bfseries},
- fontlower={\normalsize \bfseries},
- sharp corners, 
- colframe=gssmidblue,
- width=0.49\linewidth,
- boxrule=0pt,
- equal height group=popbox
- ]
-`r format(ONS_population, big.mark = ",")`
-\tcblower
-`r paste0("ONS estimate")`
-\end{tcolorbox}
-
 
 \begin{tcolorbox}[colback=gssmidblue, 
  leftright skip=0.1cm,
