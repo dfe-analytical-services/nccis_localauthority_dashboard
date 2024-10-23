@@ -1,0 +1,30 @@
+{
+  "input": {
+    "LA_choice": "Barking and Dagenham",
+    "acc_colour_scheme": "FALSE",
+    "navlistPanel": "dashboard",
+    "tabsetpanel": "vulnerable"
+  },
+  "output": {
+    "NEET": {
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>2.8%, up 0.2 ppts<\/h3>\n    <p>London: 1.6%, up 0.1 ppts.<br/>England: 2.8%, up 0.3 ppts.<br/>Annual changes are since end 2022.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-up\" style=\"color: #8c301b\"><\/i>\n  <\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "NEET_nk": {
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>2.9%, stable 0 ppts<\/h3>\n    <p>London: 3.4%, down -0.1 ppts.<br/>England: 5.2%, up 0.5 ppts. <br/>Annual changes are since end 2022.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrows-alt-h\" style=\"color: #ccbf9b\"><\/i>\n  <\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "Not_known": {
+      "html": "<div class=\"small-box bg-blue\">\n  <div class=\"inner\">\n    <h3>0.1%, down -0.2 ppts<\/h3>\n    <p>London: 1.8%, down -0.2 ppts.<br/>England: 2.4%, up 0.3 ppts.<br/>Annual changes are since end 2022.<\/p>\n  <\/div>\n  <div class=\"icon-large\">\n    <i class=\"fa fa-arrow-down\" style=\"color: #28A197\"><\/i>\n  <\/div>\n<\/div>",
+      "deps": [
+
+      ]
+    },
+    "data_description": "Data for Barking and Dagenham",
+    "vg_cohort": "Please note, in Barking and Dagenham local authority 1.1%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on Homepage about possible under-reporting)"
+  }
+}

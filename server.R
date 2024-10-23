@@ -32,19 +32,17 @@ server <- function(input, output, session) {
     size = 14
   )
 
-  output$cookie_status <- dfeshiny::cookie_banner_server(
-    "cookie-banner",
+  output$cookies_status <- dfeshiny::cookies_banner_server(
     input_cookies = shiny::reactive(input$cookies),
     parent_session = session,
-    google_analytics_key = google_analytics_key,
-    cookie_link_panel = "cookies_panel_ui"
+    google_analytics_key = google_analytics_key
   )
 
   dfeshiny::cookies_panel_server(
-    id = "cookie-panel",
     input_cookies = shiny::reactive(input$cookies),
     google_analytics_key = google_analytics_key
   )
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
@@ -90,8 +88,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
       round(as.numeric(England()$NEET_not_known_percent), 1),
       round(as.numeric(NEET_nk_perc_region), 1),
-      range = c(0.9, 15.2),
-      intervals = c(0.9, 3.1, 4.0, 5.0, 6.6, 15.2),
+      range = c(0.9, 22.0),
+      intervals = c(0.9, 3.3, 4.2, 5.4, 6.6, 22.0),
       needle_length = 1.1,
       accessible = input$acc_colour_scheme
     )
@@ -150,8 +148,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_percent),
       round(as.numeric(England()$NEET_percent), 1),
       round(as.numeric(NEET_perc_region), 1),
-      range = c(0.7, 7.2),
-      intervals = c(0.7, 1.7, 2.3, 3.0, 4.1, 7.2),
+      range = c(0.4, 7.6),
+      intervals = c(0.4, 1.9, 2.6, 3.5, 4.5, 7.6),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -210,8 +208,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$Notknown_percent),
       round(as.numeric(England()$Notknown_percent), 1),
       round(as.numeric(Nk_perc_region), 1),
-      range = c(0.0, 14.3),
-      intervals = c(0.0, 0.5, 0.9, 1.7, 3.4, 14.3),
+      range = c(0.0, 20.7),
+      intervals = c(0.0, 0.5, 0.9, 1.6, 2.7, 20.7),
       needle_length = 0.7,
       accessible = input$acc_colour_scheme
     )
@@ -460,8 +458,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$TOTAL_participating_in_education_and_training_percent),
       round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
       round(as.numeric(participation_region), 1),
-      range = c(78.5, 98.6),
-      intervals = c(78.5, 90.2, 91.9, 93.5, 95.2, 98.6),
+      range = c(80.7, 98.5),
+      intervals = c(80.7, 89.9, 91.7, 93.1, 95.1, 98.5),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -575,8 +573,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$September_guarantee_Offer_made_percent),
       round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
       round(as.numeric(Sept_Guar_region), 1),
-      range = c(61.1, 100.0),
-      intervals = c(61.1, 93.8, 95.7, 97.0, 98.1, 100.0),
+      range = c(33.0, 100.0),
+      intervals = c(33.0, 93.5, 95.5, 96.6, 97.6, 100.0),
       needle_length = 0.7,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -761,9 +759,9 @@ server <- function(input, output, session) {
 
     Persistent_abs <- plotdata %>%
       ggplot(aes(
-        y = sess_overall_percent_pa_10_exact, x = "",
+        y = enrolments_pa_10_exact_percent, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", sess_overall_percent_pa_10_exact, "%")
+        text = paste(la_name, ": ", enrolments_pa_10_exact_percent, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +

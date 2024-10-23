@@ -25,8 +25,8 @@ homepage_panel <- function() {
             into the red quintile."),
           br(),
           p(strong("Some caution should be taken if using these figures due to the estimates being based on
-            management information and there being considerable variation at local authority level in
-            how well 16 and 17 year olds are tracked and hence not known proportions can impact on the
+            management information. There is considerable variation at local authority level in
+            how well 16 and 17 year olds are tracked and hence 'activity not known' proportions can impact on the
             estimates of the proportion NEET.")),
           # p(strong("The Department for Education's definitive measures for England
           # of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
@@ -59,7 +59,7 @@ homepage_panel <- function() {
                        who work with young people sharing information with them. There is a risk that young people NEET have not been
                        identified in areas where effective tracking arrangements are not in place."),
                 h3("Vulnerable groups NEET"),
-                br("This section includes experimental data showing the proportion of 16 and 17 year olds living in each area who were not in education,
+                br("This section includes data showing the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
                        and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."),
                 br("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
@@ -74,7 +74,7 @@ homepage_panel <- function() {
                 p("200 - Alternative provision"),
                 p("210 - Mental health flag"),
                 p(strong("Caution should be used in interpreting these figures due to variation in local authority reporting of these characteristics.
-                    The proportion of the 16/17 cohort classified as being in the vulnerable group ranges from 0.0 percent to 10.0 percent.
+                    The proportion of the 16/17 cohort classified as being in the vulnerable group ranges from 0.0 percent to 10.3 percent.
                    Due to this variation and likely inaccuracy in some local authorities in identifying the full vulnerable group cohort,
                    NEET/not known rates may not be representative for the vulnerable group cohort. The underlying data accompanying this scorecard
                    includes the proportion of each local authority's cohort identified as having one of the vulnerable characteristics (VG_cohort_percentage).")),
@@ -93,11 +93,10 @@ homepage_panel <- function() {
                        contacted. These young people are at risk of becoming NEET."),
                 h3("Contextual - attainment and attendence"),
                 br(
-                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2021-22", "post 16 attainment"), ", ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2021-22", "GCSE attainment"), " and ",
-                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2021-22", "school attendance"), " of young people living in each area.
-                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority. In previous years we have also included the Office for National Statistics (ONS) population estimate for comparison.
-                  However, there is delay to the latest ONS population updates so this information is not available in the dashboard this year."
+                  "This section covers ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "post 16 attainment"), ", ",
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "GCSE attainment"), " and ",
+                  a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "school attendance"), " of young people living in each area.
+                  It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
                 ),
                 br("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
                        risk of becoming NEET between the ages of 16 and 18."),
@@ -297,6 +296,7 @@ dashboard_panel <- function() {
               ),
               fluidRow(
                 h2("September Guarantee: % offered an education or training place"),
+                h3("16-17 year olds ", "September", last_year),
                 column(
                   7,
                   plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
@@ -312,7 +312,7 @@ dashboard_panel <- function() {
               gov_row(
                 column(width = 12, br()),
                 h2("Post 16 attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2021-22", "'Level 2 and 3 attainment age 16 to 25: 2021/22'"), " release."),
+                br("The following state-funded figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "'Level 2 and 3 attainment age 16 to 25: 2022/23'"), " release."),
                 br(),
                 column(
                   6,
@@ -335,7 +335,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("GCSE attainment"),
-                br("The following figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2021-22", "'Key stage 4 performance: 2021/22'"), " release."),
+                br("The following state-funded figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "'Key stage 4 performance: 2022/23'"), " release."),
                 br(),
                 column(
                   6,
@@ -354,7 +354,7 @@ dashboard_panel <- function() {
                 column(width = 12, br()),
                 br(),
                 h2("School attendance"),
-                br("The following state-funded secondary school attendance figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2021-22", "'Pupil absence in schools in England: 2021/22'"), " release."),
+                br("The following state-funded secondary school attendance figures can be found in the ", a(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "'Pupil absence in schools in England: 2022/23'"), " release."),
                 br(),
                 column(
                   6,

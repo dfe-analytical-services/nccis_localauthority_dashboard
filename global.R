@@ -44,12 +44,12 @@ team_email <- "post16.statistics@education.gov.uk"
 google_analytics_key <- "4TJQVNWTCK"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2023_final.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
   col_types = cols(.default = "c")
 )
 
 # Set year references - TO BE UPDATED EVERY YEAR
-latest_year <- 2023
+latest_year <- 2024
 last_year <- latest_year - 1
 latest_year_end <- latest_year - 1
 previous_year_end <- latest_year - 2
@@ -255,7 +255,7 @@ vulnerableEng <- vulnerable_data %>% filter(la_name == "England")
 # reshape the data so it plots neatly!
 contextual_data <- la_ud %>%
   # select only contextual info
-  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact) %>%
+  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
   # Put England and region name into LA name
   mutate(la_name = case_when(
     geographic_level == "National" ~ "England",
@@ -265,12 +265,12 @@ contextual_data <- la_ud %>%
 
 
 contextual_data <- contextual_data %>%
-  select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, sess_overall_percent_pa_10_exact)
+  select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent)
 
 contextual_data <- contextual_data %>%
   mutate(
     Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), avg_att8 = as.numeric(avg_att8),
-    pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), sess_overall_percent_pa_10_exact = as.numeric(sess_overall_percent_pa_10_exact)
+    pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), enrolments_pa_10_exact_percent = as.numeric(enrolments_pa_10_exact_percent)
   )
 
 contextEng <- contextual_data %>% filter(la_name == "England")
