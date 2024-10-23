@@ -71,6 +71,9 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 webshot::install_phantomjs()
 source("global.R")
 source("R/plots.R")
+```
+
+```{r vulnerable data, include=FALSE}
 lineLA <- filter(la_ud, la_name == params$input_la_choice)
 England <- la_ud %>% filter(geographic_level == "National")
 
@@ -96,7 +99,9 @@ vulnerable_data <- vulnerable_data %>%
 
 vulnerable_la <- filter(vulnerable_data, la_name == params$input_la_choice)
 vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
+```
 
+```{r participation data, include=FALSE}
 participation_data_fte <- la_ud %>%
   select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
   mutate(la_name = case_when(
@@ -144,7 +149,9 @@ participation_data <- participation_data %>%
 
 participation_la <- filter(participation_data, la_name == params$input_la_choice)
 participation_england <- participation_data %>% filter(la_name == "England")
+```
 
+```{r contextual data, include=FALSE}
 contextual_data <- la_ud %>%
   select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
   mutate(la_name = case_when(
