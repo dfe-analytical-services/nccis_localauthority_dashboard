@@ -224,6 +224,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
     ),
     figtitle = c("Vulnerable group", "No SEND", "SEND (EHCP)", "SEN support")
   )
+  message(plotcat)
   figtitle <- (figtitles %>% filter(flag == plotcat))$figtitle
   Regionname <- line_la %>% pull(region_name)
   vulnerableRegion <- dfvulnerable %>% filter(la_name == Regionname)
@@ -259,6 +260,7 @@ plot_vulnerablebar <- function(dfvulnerable, vulnerable_la, line_la, vulnerable_
 }
 
 plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
+  message(title)
   if (title) {
     title_string <- "Not known"
   } else {
