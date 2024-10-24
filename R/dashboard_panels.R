@@ -339,7 +339,7 @@ dashboard_panel <- function() {
                 br(),
                 column(
                   6,
-                  p(strong("Average attainment 8 score per pupil")),
+                  p(strong("Average attainment 8 score of all pupils")),
                   plotlyOutput("Attainment8_plot") %>% withSpinner(),
                   br()
                 ),
@@ -358,13 +358,13 @@ dashboard_panel <- function() {
                 br(),
                 column(
                   6,
-                  p(strong("Overall absence (% of sessions)")),
+                  p(strong("Overall absence rate")),
                   plotlyOutput("overall_abs_plot") %>% withSpinner(),
                   br()
                 ),
                 column(
                   6,
-                  p(strong("Persistent absentees (% of pupils)")),
+                  p(strong("Percentage of persistent absentees (10% or more missed)")),
                   plotlyOutput("Persistent_abs_plot") %>% withSpinner(),
                   br()
                 )
