@@ -5,9 +5,9 @@ a11y_panel <- function() {
       gov_row(
         column(
           width = 12,
-          h1("Accessibility statement for [service name]"), # TODO
+          h1("Accessibility statement for the NEET and participation LA scorecard"), # TODO
           p(
-            "This accessibility statement applies to the [raw service URL] website. This website is run by the", # TODO
+            "This accessibility statement applies to the https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/ website. This website is run by the", # TODO
             a(
               href = "https://www.gov.uk/government/organisations/department-for-education",
               "Department for Education (DfE)",
@@ -32,13 +32,15 @@ a11y_panel <- function() {
           h2("How accessible this website is"),
           p("We know some parts of this website are not fully accessible:"),
           tags$div(tags$ul(
-            tags$li("list them here") # TODO
+            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), #TODO
+            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
+            
           )),
           h2("Feedback and contact information"),
           p(
             "If you need information on this website in a different format please see the ",
             a(
-              href = "", # TODO
+              href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority/2023-24", # TODO
               "[source publication] on Explore education statistics", # TODO
               .noWS = "after"
             ),
@@ -73,8 +75,8 @@ a11y_panel <- function() {
           p(
             "This website is partially compliant with the", # TODO
             a(
-              href = "https://www.w3.org/TR/WCAG21/",
-              "Web Content Accessibility Guidelines version 2.1 AA standard",
+              href = "https://www.w3.org/TR/WCAG22/",
+              "Web Content Accessibility Guidelines version 2.2 AA standard",
               .noWS = "after"
             ),
             " due to the non-compliances listed below."
@@ -83,13 +85,15 @@ a11y_panel <- function() {
           p("The content listed below is non-accessible for the following reasons.
              We will address these issues to ensure our content is accessible."),
           tags$div(tags$ul(
-            tags$li("list them here") # TODO
+            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), #TODO
+            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
+            
           )),
           h3("Disproportionate burden"),
           p("Not applicable."),
           h2("How we tested this website"),
           p(
-            "The template used for this website was last tested on 12 March 2024 against",
+            "The template used for this website was last tested on XX XXXX 2024 against",
             a(
               href = "https://www.w3.org/TR/WCAG22/",
               "Accessibility Guidelines WCAG2.2",
@@ -110,7 +114,7 @@ a11y_panel <- function() {
             tags$li("charts, maps, and tables")
           )),
           p(
-            "This specific website was was last tested on [date] against", # TODO
+            "This specific website was was last tested on XX XXXX 2024 against", # TODO
             a(
               href = "https://www.w3.org/TR/WCAG22/",
               "Accessibility Guidelines WCAG2.2",
@@ -130,14 +134,14 @@ a11y_panel <- function() {
           p(
             "Our current list of issues to be resolved is available on our ",
             a(
-              href = "", # TODO
-              "[GitHub issues page]", # TODO
+              href = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard/issues", # TODO
+              "GitHub issues page", # TODO
               .noWS = "after"
             ),
             "."
           ),
           h2("Preparation of this accessibility statement"),
-          p("This statement was prepared on 1st July 2024. It was last reviewed on [date]."), # TODO
+          p("This statement was prepared on 1st July 2024. It was last reviewed on XX XXXX 2024."), # TODO
           p(
             "The template used for this website was last testing in March 2024 against the WCAG 2.2 AA standard.
           This test of a representative sample of pages was carried out by the",
