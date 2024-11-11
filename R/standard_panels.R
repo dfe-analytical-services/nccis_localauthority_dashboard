@@ -7,7 +7,9 @@ a11y_panel <- function() {
           width = 12,
           h1("Accessibility statement for the NEET and participation LA scorecard"), # TODO
           p(
-            "This accessibility statement applies to the https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/ website. This website is run by the", # TODO
+            "This accessibility statement applies to the",
+            "https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/",
+            "website. This website is run by the", # TODO
             a(
               href = "https://www.gov.uk/government/organisations/department-for-education",
               "Department for Education (DfE)",
