@@ -34,16 +34,15 @@ a11y_panel <- function() {
           h2("How accessible this website is"),
           p("We know some parts of this website are not fully accessible:"),
           tags$div(tags$ul(
-            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), #TODO
+            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), # TODO
             tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
-            
           )),
           h2("Feedback and contact information"),
           p(
             "If you need information on this website in a different format please see the ",
             a(
               href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority/2023-24", # TODO
-              "[source publication] on Explore education statistics", # TODO
+              "source publication on Explore education statistics", # TODO
               .noWS = "after"
             ),
             ". More details are available on that service for alternative formats of this data.",
@@ -87,9 +86,8 @@ a11y_panel <- function() {
           p("The content listed below is non-accessible for the following reasons.
              We will address these issues to ensure our content is accessible."),
           tags$div(tags$ul(
-            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), #TODO
+            tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), # TODO
             tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
-            
           )),
           h3("Disproportionate burden"),
           p("Not applicable."),
