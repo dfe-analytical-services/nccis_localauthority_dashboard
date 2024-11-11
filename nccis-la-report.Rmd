@@ -16,7 +16,6 @@ header-includes:
 - \usepackage{fancyhdr}
 - \usepackage{xpatch}
 - \usepackage{booktabs}
-- \usepackage{wrapfig}
 - \onehalfspacing
 - \pagestyle{fancy}
 - \definecolor{gssmidblue}{RGB}{32, 115, 188}
@@ -68,6 +67,8 @@ close(connTitle)
 ```{r load packages, include=FALSE}
 knitr::opts_knit$set(root.dir = "./")
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+message("Installing PhantomJS")
+Sys.setenv(OPENSSL_CONF = "/etc/ssl/")
 webshot::install_phantomjs()
 source("global.R")
 source("R/plots.R")
