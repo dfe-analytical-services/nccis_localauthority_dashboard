@@ -67,7 +67,11 @@ ui <- function(input, output, session) {
     dfeshiny::cookies_banner_ui(
       name = "NEET and participation LA scorecard"
     ),
-    customDisconnectMessage(),
+    dfeshiny::custom_disconnect_message(
+      dashboard_title = "NEET and participation LA scorecard",
+      publication_name = ees_pub_name,
+      publication_link = ees_publication
+    ),
     useShinydashboard(),
     tags$head(includeHTML(("google-analytics.html"))),
     tags$head(
