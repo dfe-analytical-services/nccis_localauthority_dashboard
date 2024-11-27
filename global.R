@@ -34,6 +34,7 @@ shhh(library(webshot))
 shhh(library(scales))
 shhh(library(checkmate))
 
+site_title <- "NEET and participation Local Authority scorecard"
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
 sites_list <- c(site_primary) # We can add further mirrors where necessary. Each one can generally handle about 2,500 users simultaneously

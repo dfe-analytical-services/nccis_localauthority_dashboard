@@ -3,12 +3,19 @@ on:
     branches:
       - main
       - development
+  pull_request:
 
 name: shinyapps.io deploy
 
 jobs:
   deployShiny:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.config.os }}
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest, r: 'release'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -54,6 +61,7 @@ jobs:
 # Get in touch with the Stats Development team if you need to add the below secrets to publish to shinyapps.io
           
       - name: Push to shiny.io
+        if: github.event_name != 'pull_request'
         run: >
           Rscript
           -e "rsconnect::setAccountInfo(name = 'department-for-education', token = '${{secrets.SHINYAPPS_TOKEN}}', secret = '${{secrets.SHINYAPPS_SECRET}}')"
