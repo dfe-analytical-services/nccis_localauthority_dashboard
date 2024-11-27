@@ -9,8 +9,14 @@ name: Automated tests
 
 jobs:
   automatedTests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.config.os }}
     
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {os: macOS-latest, r: 'release'}
+
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 

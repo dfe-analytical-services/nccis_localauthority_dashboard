@@ -10,13 +10,12 @@ jobs:
   tidyCode:
     runs-on: ${{ matrix.config.os }}
 
-    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+    name: tidy-code
 
     strategy:
       fail-fast: false
       matrix:
         config:
-        # Running on mac as it's quicker to build
           - {os: macOS-latest, r: 'release'}
 
     env:
@@ -57,7 +56,7 @@ jobs:
       - name: Tidy code
         shell: Rscript {0}
         run: |
-            codeChecks <- tidy_code()
+            codeChecks <- dfeshiny::tidy_code()
             
             if(any(is.na(codeChecks))) {
               stop("There is a breaking error in the code.")
