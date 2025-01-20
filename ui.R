@@ -81,14 +81,7 @@ ui <- function(input, output, session) {
       publication_link = ees_publication
     ),
     useShinydashboard(),
-    shinyGovstyle::header(
-      main_text = "",
-      main_link = "https://www.gov.uk/government/organisations/department-for-education",
-      secondary_text = site_title,
-      logo = "images/DfE_logo_primary.png",
-      logo_width = 96,
-      logo_height = 56
-    ),
+    dfeshiny::header(header = site_title),
     shiny::navlistPanel(
       "",
       id = "navlistPanel",
