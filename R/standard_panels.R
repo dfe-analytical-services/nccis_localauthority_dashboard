@@ -34,8 +34,12 @@ a11y_panel <- function() {
           h2("How accessible this website is"),
           p("We know some parts of this website are not fully accessible:"),
           tags$div(tags$ul(
+            tags$li("An image containing a link in the header banner is not labelled adequately for screen readers, containing neither link text nor alt-text."),
+            tags$li("Charts are rendered using the Plotly package, which does not adequately label tooltip links."),
+            tags$li("The dashboard contains some elements created using the shinyWidgets package, which mis-labels elements in a way that is confusing for screen reader users."),
             tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), # TODO
-            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
+            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested."),
+            tags$li("One of the touch targets does not have sufficient size or spacing.")
           )),
           h2("Feedback and contact information"),
           p(
@@ -87,7 +91,8 @@ a11y_panel <- function() {
              We will address these issues to ensure our content is accessible."),
           tags$div(tags$ul(
             tags$li("Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)"), # TODO
-            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.")
+            tags$li("Whilst the dashboard itself has been tested, the pdf download is not accessibility tested."),
+            tags$li("Several elements produced with R packages for Shiny apps show issues (e.g. Plotly charts, header banner from ShinyGovstyle, buttons produced using shinyWidgets). We are working to either contribute to improving the accessibility of those packages or finding alternative more accessible solutions.")
           )),
           h3("Disproportionate burden"),
           p("Not applicable."),
@@ -114,7 +119,7 @@ a11y_panel <- function() {
             tags$li("charts, maps, and tables")
           )),
           p(
-            "This specific website was was last tested on XX XXXX 2024 against", # TODO
+            "This specific website was was last tested on 19th November 2024 against", # TODO
             a(
               href = "https://www.w3.org/TR/WCAG22/",
               "Accessibility Guidelines WCAG2.2",
@@ -141,7 +146,7 @@ a11y_panel <- function() {
             "."
           ),
           h2("Preparation of this accessibility statement"),
-          p("This statement was prepared on 1st July 2024. It was last reviewed on XX XXXX 2024."), # TODO
+          p("This statement was originally prepared on 1st July 2024. It was last reviewed on 19th November 2024."), # TODO
           p(
             "The template used for this website was last testing in March 2024 against the WCAG 2.2 AA standard.
           This test of a representative sample of pages was carried out by the",

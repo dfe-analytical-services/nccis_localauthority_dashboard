@@ -16,7 +16,6 @@ header-includes:
 - \usepackage{fancyhdr}
 - \usepackage{xpatch}
 - \usepackage{booktabs}
-- \usepackage{wrapfig}
 - \onehalfspacing
 - \pagestyle{fancy}
 - \definecolor{gssmidblue}{RGB}{32, 115, 188}
@@ -68,9 +67,14 @@ close(connTitle)
 ```{r load packages, include=FALSE}
 knitr::opts_knit$set(root.dir = "./")
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+message("Installing PhantomJS")
+Sys.setenv(OPENSSL_CONF = "/etc/ssl/")
 webshot::install_phantomjs()
 source("global.R")
 source("R/plots.R")
+```
+
+```{r vulnerable data, include=FALSE}
 lineLA <- filter(la_ud, la_name == params$input_la_choice)
 England <- la_ud %>% filter(geographic_level == "National")
 
@@ -96,7 +100,9 @@ vulnerable_data <- vulnerable_data %>%
 
 vulnerable_la <- filter(vulnerable_data, la_name == params$input_la_choice)
 vulnerable_england <- vulnerable_data %>% filter(la_name == "England")
+```
 
+```{r participation data, include=FALSE}
 participation_data_fte <- la_ud %>%
   select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
   mutate(la_name = case_when(
@@ -144,7 +150,9 @@ participation_data <- participation_data %>%
 
 participation_la <- filter(participation_data, la_name == params$input_la_choice)
 participation_england <- participation_data %>% filter(la_name == "England")
+```
 
+```{r contextual data, include=FALSE}
 contextual_data <- la_ud %>%
   select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
   mutate(la_name = case_when(
@@ -170,7 +178,7 @@ contextual_england <- contextual_data %>% filter(la_name == "England")
 # NEET and not known
 
 ```{r gauge_chart_neetnk, echo=FALSE, out.width="125%"}
-plot_neetnkgauge(la_ud, lineLA, England, title = TRUE) %>%
+plot_neetnkgauge(la_ud, lineLA, England) %>%
   layout(autosize = F, width = 860, height = 300)
 ```
 
@@ -329,7 +337,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
 # Vulnerable Groups NEET
 
 \begin{wrapfigure}{l}{0.56\textwidth}
-```{r bar_chart_vuln, echo=FALSE, out.width="105%"}
+```{r bar_chart_vuln, echo=FALSE, out.width="96%"}
 plot_vulnerablebar(vulnerable_data, vulnerable_la, lineLA, vulnerable_england,
   plotcat = "VG_NEET_NK_percentage"
 )

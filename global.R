@@ -15,7 +15,6 @@ shhh(library(shiny))
 shhh(library(shinyjs))
 shhh(library(tools))
 shhh(library(testthat))
-shhh(library(shinytest))
 shhh(library(shinydashboard))
 shhh(library(shinyWidgets))
 shhh(library(dfeshiny))
@@ -35,6 +34,7 @@ shhh(library(webshot))
 shhh(library(scales))
 shhh(library(checkmate))
 
+site_title <- "NEET and participation Local Authority scorecard"
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
 sites_list <- c(site_primary) # We can add further mirrors where necessary. Each one can generally handle about 2,500 users simultaneously
@@ -105,25 +105,6 @@ par(mar = c(4, 4, 0.1, 0.1)) # doesn't seem to make a difference
 cs_num <- function(value) {
   format(value, big.mark = ",", trim = TRUE)
 }
-
-# tidy_code_function -------------------------------------------------------------------------------
-# Code to tidy up the scripts.
-
-tidy_code_function <- function() {
-  message("----------------------------------------")
-  message("App scripts")
-  message("----------------------------------------")
-  app_scripts <- eval(styler::style_dir(recursive = FALSE)$changed)
-  message("R scripts")
-  message("----------------------------------------")
-  test_scripts <- eval(styler::style_dir("R/", filetype = "r")$changed)
-  message("Test scripts")
-  message("----------------------------------------")
-  test_scripts <- eval(styler::style_dir("tests/", filetype = "r")$changed)
-  script_changes <- c(app_scripts, test_scripts)
-  return(script_changes)
-}
-
 
 # Conditional colour function for annual changes----------------------------------------------------
 cond_color <- function(condition, true_color = "green") {

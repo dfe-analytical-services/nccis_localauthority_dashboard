@@ -58,17 +58,10 @@
 
 ui <- function(input, output, session) {
   fluidPage(
-    title = tags$head(tags$link(
-      rel = "shortcut icon",
-      href = "dfefavicon.png"
-    )),
-    shinyjs::useShinyjs(),
-    dfeshiny::dfe_cookies_script(),
-    dfeshiny::cookies_banner_ui(
-      name = "NEET and participation LA scorecard"
+    tags$head(
+      HTML(paste0("<title>", site_title, "</title>"))
     ),
-    customDisconnectMessage(),
-    useShinydashboard(),
+    tags$head(tags$link(rel = "shortcut icon", href = "dfefavicon.png")),
     tags$head(includeHTML(("google-analytics.html"))),
     tags$head(
       tags$link(
@@ -77,14 +70,18 @@ ui <- function(input, output, session) {
         href = "dfe_shiny_gov_style.css"
       )
     ),
-    shinyGovstyle::header(
-      main_text = "",
-      main_link = "https://www.gov.uk/government/organisations/department-for-education",
-      secondary_text = "NEET and participation LA scorecard",
-      logo = "images/DfE_logo_primary.png",
-      logo_width = 96,
-      logo_height = 56
+    tags$html(lang = "en"),
+    shinyjs::useShinyjs(),
+    dfeshiny::dfe_cookies_script(),
+    dfeshiny::cookies_banner_ui(
+      name = site_title
     ),
+    dfeshiny::custom_disconnect_message(
+      publication_name = ees_pub_name,
+      publication_link = ees_publication
+    ),
+    useShinydashboard(),
+    dfeshiny::header(header = site_title),
     shiny::navlistPanel(
       "",
       id = "navlistPanel",

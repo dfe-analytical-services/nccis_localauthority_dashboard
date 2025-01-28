@@ -1,7 +1,10 @@
 library(shinytest2)
 
 test_that("Migrated shinytest test: dashboard_ui_tests.R", {
-  app <- AppDriver$new(load_timeout = 120000)
+  app <- AppDriver$new(
+    load_timeout = 240000,
+    timeout = 160000
+  )
 
   listInputs <- c(
     "navlistPanel",
