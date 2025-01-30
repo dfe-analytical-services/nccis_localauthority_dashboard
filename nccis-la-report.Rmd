@@ -334,7 +334,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
 
 \newpage
 
-# Vulnerable Groups NEET
+# Vulnerable Groups NEET and not known
 
 \begin{wrapfigure}{l}{0.56\textwidth}
 ```{r bar_chart_vuln, echo=FALSE, out.width="96%"}
