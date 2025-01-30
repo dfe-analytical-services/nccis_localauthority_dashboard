@@ -58,13 +58,10 @@
 
 ui <- function(input, output, session) {
   fluidPage(
-    title = tags$head(tags$link(
-      rel = "shortcut icon",
-      href = "dfefavicon.png"
-    )),
-    shinyjs::useShinyjs(),
-    customDisconnectMessage(),
-    useShinydashboard(),
+    tags$head(
+      HTML(paste0("<title>", site_title, "</title>"))
+    ),
+    tags$head(tags$link(rel = "shortcut icon", href = "dfefavicon.png")),
     tags$head(includeHTML(("google-analytics.html"))),
     tags$head(
       tags$link(
@@ -73,25 +70,18 @@ ui <- function(input, output, session) {
         href = "dfe_shiny_gov_style.css"
       )
     ),
-    shinyGovstyle::header(
-      main_text = "",
-      main_link = "https://www.gov.uk/government/organisations/department-for-education",
-      secondary_text = "NEET and participation LA scorecard",
-      logo = "images/DfE_logo_primary.png",
-      logo_width = 96,
-      logo_height = 56
+    tags$html(lang = "en"),
+    shinyjs::useShinyjs(),
+    dfeshiny::dfe_cookies_script(),
+    dfeshiny::cookies_banner_ui(
+      name = site_title
     ),
-    shinyGovstyle::banner(
-      "beta banner",
-      "beta",
-      paste0(
-        "<b>We're looking for volunteers! We've developed several new dashboards ",
-        "in the last 12 months and we'd really like to know what you think of them. ",
-        "If you're interested in helping us improve our products, please sign up ",
-        "using our <a href='https://forms.office.com/e/ZjNxf10uuN'>user-testing volunteer form</a>.</b><br>",
-        "This Dashboard is in beta phase and we are still reviewing performance and reliability. "
-      )
+    dfeshiny::custom_disconnect_message(
+      publication_name = ees_pub_name,
+      publication_link = ees_publication
     ),
+    useShinydashboard(),
+    dfeshiny::header(header = site_title),
     shiny::navlistPanel(
       "",
       id = "navlistPanel",
@@ -101,7 +91,22 @@ ui <- function(input, output, session) {
       dashboard_panel(),
       technical_notes(),
       a11y_panel(),
-      support_links()
+      shiny::tabPanel(
+        value = "cookies_panel_ui",
+        "Cookies",
+        cookies_panel_ui(google_analytics_key = google_analytics_key)
+      ),
+      shiny::tabPanel(
+        value = "support_panel",
+        "Support and feedback",
+        support_panel(
+          team_email = "post16.statistics@education.gov.uk",
+          publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
+          publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
+          repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
+          form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+        )
+      )
     ),
     tags$script(
       src = "script.js"

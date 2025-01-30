@@ -3,8 +3,8 @@ technical_notes <- function() {
     "Technical notes",
     h2("Technical notes"),
     br("Use this dashboard to view not in education, employment or training (NEET) and participation in education and training figures alongside contextual information for local authorities in England."),
-    br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; ie their age on 31 August."),
-    br("Data is collected using the National Client Caseload Information System (NCCIS), which draws together local databases used to support young people to engage in education and training and plan services that meet young people's needs."),
+    br("The NEET and participation figures are for young people aged 16 and 17. Young people are measured according to their academic age; i.e. their age on 31 August."),
+    br("Data is collected using the National Client Caseload Information System (NCCIS),which draws together local databases used to support young people to engage in education and training and plan services that meet young people's needs."),
     br("The cohort does not include young adult offenders in custody."),
     br("For further information on the data used in this dashboard please see the methodology document on the main release page ", a(
       href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
@@ -21,9 +21,9 @@ technical_notes <- function() {
     br("The purpose of the quintiles is to compare the relative position of local authority NEET/Not known rates to other local authorities, rather than to make any judgement on national or regional rates."),
     br("Local authorities with no value or a suppressed value are excluded from the quintile calculation."),
     h3("Local authority direction"),
-    br("Each area's performance is compared with the same period of the previous year.  A green arrow denotes those areas whose performance has improved (NEET gone down/participation gone up),
+    br("Each area's performance is compared with the same period of the previous year. A green arrow denotes those areas whose performance has improved (NEET gone down/participation gone up),
       a red arrow where performance is lower (NEET gone up/participation gone down) and a white double headed arrow where performance has stayed the same compared to the previous year.  Year-on-year comparisons,
-      where available,  have been made using data that has not been rounded."),
+      where available, have been made using data that has not been rounded."),
     br()
   )
 }
