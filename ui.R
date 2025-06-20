@@ -57,7 +57,7 @@
 # library(shinya11y)
 
 ui <- function(input, output, session) {
-  fluidPage(
+  page_fluid(
     tags$head(
       HTML(paste0("<title>", site_title, "</title>"))
     ),
@@ -80,37 +80,86 @@ ui <- function(input, output, session) {
       publication_name = ees_pub_name,
       publication_link = ees_publication
     ),
-    useShinydashboard(),
     dfeshiny::header(header = site_title),
-    shiny::navlistPanel(
-      "",
-      id = "navlistPanel",
-      widths = c(2, 8),
-      well = FALSE,
-      homepage_panel(),
-      dashboard_panel(),
-      technical_notes(),
-      a11y_panel(),
-      shiny::tabPanel(
-        value = "cookies_panel_ui",
-        "Cookies",
-        cookies_panel_ui(google_analytics_key = google_analytics_key)
-      ),
-      shiny::tabPanel(
-        value = "support_panel",
-        "Support and feedback",
-        support_panel(
-          team_email = "post16.statistics@education.gov.uk",
-          publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
-          publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
-          repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
-          form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+    gov_main_layout(
+      bslib::navset_hidden(
+        id = "pages",
+        bslib::nav_panel(
+          "dashboard",
+          ## Main dashboard ---------------------------------------------------
+          layout_columns(
+            # Override default wrapping breakpoints to avoid text overlap
+            col_widths = breakpoints(sm = c(4, 8), md = c(3, 9), lg = c(2, 9)),
+            ## Left navigation ------------------------------------------------
+            dfe_contents_links(
+              links_list = c(
+                "Scorecards",
+                "User guide"
+              )
+            ),
+            ## Dashboard panels -----------------------------------------------
+            bslib::navset_hidden(
+              id = "left_nav",
+              bslib::nav_panel(
+                "scorecards",
+                dashboard_panel()
+              ),
+              bslib::nav_panel(
+                "user_guide",
+                homepage_panel()
+              )
+            )
+          )
+        ),
+        ## Footer pages -------------------------------------------------------
+        bslib::nav_panel(
+          "technical_notes",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "technical_notes_to_dashboard", "Back to dashboard"),
+            technical_notes()
+          )
+        ),
+        bslib::nav_panel(
+          "support_and_feedback",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "support_to_dashboard", "Back to dashboard"),
+            support_panel(
+              team_email = "post16.statistics@education.gov.uk",
+              publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
+              publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
+              repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
+              form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+            )
+          )
+        ),
+        bslib::nav_panel(
+          "accessibility_statement",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "accessibility_to_dashboard", "Back to dashboard"),
+            a11y_panel()
+          )
+        ),
+        bslib::nav_panel(
+          "cookies_statement",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "cookies_to_dashboard", "Back to dashboard"),
+            "Cookies",
+            cookies_panel_ui(google_analytics_key = google_analytics_key)
+          )
         )
       )
     ),
-    tags$script(
-      src = "script.js"
-    ),
-    footer(full = TRUE)
+    shinyGovstyle::footer(
+      links = c("Technical notes", "Support and feedback", "Accessibility statement", "Cookies statement"),
+      full = TRUE
+    )
   )
 }

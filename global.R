@@ -33,6 +33,7 @@ shhh(library(markdown))
 shhh(library(webshot))
 shhh(library(scales))
 shhh(library(checkmate))
+shhh(library(bslib))
 
 site_title <- "NEET and participation Local Authority scorecard"
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"

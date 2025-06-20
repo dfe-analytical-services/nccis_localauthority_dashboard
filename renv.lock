@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.1",
+    "Version": "4.4.2",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -244,6 +244,18 @@
       ],
       "Hash": "d7e13f49c19103ece9e58ad2d83a7354"
     },
+    "cellranger": {
+      "Package": "cellranger",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "rematch",
+        "tibble"
+      ],
+      "Hash": "f61dbaec772ccd2e17705c1e872e9e7c"
+    },
     "checkmate": {
       "Package": "checkmate",
       "Version": "2.3.2",
@@ -442,22 +454,25 @@
       "RemoteUsername": "dfe-analytical-services",
       "RemoteRepo": "dfeshiny",
       "RemoteRef": "main",
-      "RemoteSha": "59aae9be4e942f5518b742588d7393e89f06061b",
+      "RemoteSha": "7ae1e74864e8a41ab7d09b18b2e7b70521a9ae77",
       "Requirements": [
         "R",
         "checkmate",
+        "dplyr",
         "glue",
         "htmltools",
         "lubridate",
         "magrittr",
         "reactable",
+        "readr",
         "shiny",
         "shinyGovstyle",
         "shinyjs",
         "stringr",
-        "styler"
+        "styler",
+        "xfun"
       ],
-      "Hash": "e83b22ad00b339299c6d95f9c6ebc5c3"
+      "Hash": "f5c4847e01aec675bf9f3a92f3a4ee0b"
     },
     "diffobj": {
       "Package": "diffobj",
@@ -992,6 +1007,18 @@
       ],
       "Hash": "18e9c28c1d3ca1560ce30658b22ce104"
     },
+    "minty": {
+      "Package": "minty",
+      "Version": "0.0.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cpp11",
+        "tzdb"
+      ],
+      "Hash": "3fe20e661e6ce59e604cb8d470744e79"
+    },
     "munsell": {
       "Package": "munsell",
       "Version": "0.5.1",
@@ -1255,6 +1282,24 @@
       ],
       "Hash": "6069eb2a6597963eae0605c1875ff14c"
     },
+    "readODS": {
+      "Package": "readODS",
+      "Version": "2.3.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cellranger",
+        "cpp11",
+        "minty",
+        "stringi",
+        "tibble",
+        "tools",
+        "vctrs",
+        "zip"
+      ],
+      "Hash": "9c2ce8c5410685d3f941bab43839aee8"
+    },
     "readr": {
       "Package": "readr",
       "Version": "2.1.5",
@@ -1277,6 +1322,13 @@
         "vroom"
       ],
       "Hash": "9de96463d2117f6ac49980577939dfb3"
+    },
+    "rematch": {
+      "Package": "rematch",
+      "Version": "2.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cbff1b666c6fa6d21202f07e2318d4f1"
     },
     "renv": {
       "Package": "renv",
@@ -1408,20 +1460,29 @@
     },
     "shinyGovstyle": {
       "Package": "shinyGovstyle",
-      "Version": "0.1.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "0.1.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "dfe-analytical-services",
+      "RemoteRepo": "shinyGovstyle",
+      "RemoteRef": "master",
+      "RemoteSha": "b926e63455091ca7ffba8d5a9615997e0714d414",
       "Requirements": [
         "R",
         "htmltools",
         "jsonlite",
         "magrittr",
         "purrr",
+        "reactable",
+        "readODS",
+        "readr",
         "shiny",
         "shinyjs",
-        "stringr"
+        "stringr",
+        "writexl"
       ],
-      "Hash": "4a57256cf54590da8a07c53b995c42a8"
+      "Hash": "4b281bb64098b347c8dff066dd04fb0d"
     },
     "shinyWidgets": {
       "Package": "shinyWidgets",
@@ -1843,6 +1904,13 @@
         "graphics"
       ],
       "Hash": "cc2d62c76458d425210d1eb1478b30b4"
+    },
+    "writexl": {
+      "Package": "writexl",
+      "Version": "1.5.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c58dc41b898080efbe58558fe012852c"
     },
     "xfun": {
       "Package": "xfun",

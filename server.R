@@ -43,6 +43,47 @@ server <- function(input, output, session) {
     google_analytics_key = google_analytics_key
   )
 
+  # Sidebar navigation
+  observeEvent(
+    input$scorecards,
+    nav_select("left_nav", "scorecards")
+  )
+
+  observeEvent(
+    input$user_guide,
+    nav_select("left_nav", "user_guide")
+  )
+
+  # Footer navigation
+  observeEvent(
+    input$technical_notes,
+    nav_select("pages", "technical_notes")
+  )
+
+  observeEvent(
+    input$support_and_feedback,
+    nav_select("pages", "support_and_feedback")
+  )
+
+  observeEvent(
+    input$accessibility_statement,
+    nav_select("pages", "accessibility_statement")
+  )
+
+  observeEvent(
+    input$cookies_statement,
+    nav_select("pages", "cookies_statement")
+  )
+
+  ## Back links to main dashboard ---------------------------------------------
+  observeEvent(input$technical_notes_to_dashboard, nav_select("pages", "dashboard"))
+  observeEvent(input$support_to_dashboard, nav_select("pages", "dashboard"))
+  observeEvent(input$cookies_to_dashboard, nav_select("pages", "dashboard"))
+  observeEvent(
+    input$accessibility_to_dashboard,
+    nav_select("pages", "dashboard")
+  )
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
@@ -69,7 +110,7 @@ server <- function(input, output, session) {
   ## create header on the scorecard so users know which LA it is showing
 
   output$data_description <- renderText({
-    paste0("Data for ", input$LA_choice)
+    paste0("Scorecard for :", input$LA_choice)
   })
 
 
@@ -946,10 +987,4 @@ server <- function(input, output, session) {
       )
     }
   )
-
-  # Stop app ---------------------------------------------------------------------------------
-
-  session$onSessionEnded(function() {
-    stopApp()
-  })
 }
