@@ -110,7 +110,7 @@ server <- function(input, output, session) {
   ## create header on the scorecard so users know which LA it is showing
 
   output$data_description <- renderText({
-    paste0("Scorecard for :", input$LA_choice)
+    paste0("Scorecard for ", input$LA_choice)
   })
 
 
@@ -137,43 +137,43 @@ server <- function(input, output, session) {
   })
 
   ### Annual change and national,regional comparison box-------
-
-  output$NEET_nk <- renderValueBox({
-    # Take filtered data, search for rate, pull the value and tidy the number up
+  output$NEET_nk_vb <- renderUI({
     NEET_nk_perc <- lineLA() %>%
       pull(as.numeric(NEET_not_known_percent))
-
     NEET_nk_change <- lineLA() %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
-
-    NEET_nk_perc_Eng <- England() %>%
-      pull(as.numeric(NEET_not_known_percent))
-
-    NEET_nk_change_Eng <- England() %>%
-      pull(as.numeric(annual_change_ppts_NEET_not_known))
-
+    icon <- if (NEET_nk_change > 0) {
+      bs_icon("arrow-up", fill = up_arrow_colour)
+    } else if (NEET_nk_change < 0) {
+      bs_icon("arrow-down", fill = down_arrow_colour)
+    } else {
+      icon <- bs_icon("dash")
+    }
     Regionname <- lineLA() %>%
       pull(region_name)
-
     NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(NEET_not_known_percent))
-
     NEET_nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
-
-    # Put value into box to plug into app
-    shinydashboard::valueBox(
-      HTML(paste0(NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, " ppts")),
-      HTML(paste0(
-        Regionname, ": ", NEET_nk_perc_region, "%, ", change_ed(NEET_nk_change_region), NEET_nk_change_region, " ppts.", br(),
-        "England: ", NEET_nk_perc_Eng, "%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts. ", br(),
-        "Annual changes are since end ", previous_year_end, "."
-      )),
-      color = "blue",
-      icon = icon_change_neet(NEET_nk_change)
+    NEET_nk_perc_Eng <- England() %>%
+      pull(as.numeric(NEET_not_known_percent))
+    NEET_nk_change_Eng <- England() %>%
+      pull(as.numeric(annual_change_ppts_NEET_not_known))
+    layout_columns(
+      col_widths = c(2, 8, 2),
+      "",
+      value_box(
+        title = "NEET and activity not known",
+        value = paste0(NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, "ppts"),
+        showcase = icon,
+        p(paste0(Regionname, ":"), NEET_nk_perc_region, "%,", change_ed(NEET_nk_change_region), NEET_nk_change_region, "ppts"),
+        p("England: ", NEET_nk_perc_Eng, "%,", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, "ppts"),
+        p("Annual changes are since end", previous_year_end),
+        theme = "blue"
+      ),
+      ""
     )
   })
-
 
   ## NEET-------------------------
 
@@ -198,7 +198,7 @@ server <- function(input, output, session) {
 
   ### Annual change and national,regional comparison box-------
 
-  output$NEET <- renderValueBox({
+  output$NEET <- renderUI({
     # Take filtered data, search for rate, pull the value and tidy the number up
     NEET_perc <- lineLA() %>%
       pull(as.numeric(NEET_percent))
@@ -206,6 +206,13 @@ server <- function(input, output, session) {
     NEET_change <- lineLA() %>%
       pull(as.numeric(annualchange_NEET))
 
+    icon <- if (NEET_change > 0) {
+      bs_icon("arrow-up", fill = up_arrow_colour)
+    } else if (NEET_change < 0) {
+      bs_icon("arrow-down", fill = down_arrow_colour)
+    } else {
+      icon <- bs_icon("dash")
+    }
     NEET_perc_Eng <- England() %>%
       pull(as.numeric(NEET_percent))
 
@@ -222,15 +229,14 @@ server <- function(input, output, session) {
       pull(as.numeric(annualchange_NEET))
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
-      HTML(paste0(
-        Regionname, ": ", NEET_perc_region, "%, ", change_ed(NEET_change_region), NEET_change_region, " ppts.", br(),
-        "England: ", NEET_perc_Eng, "%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.", br(),
-        "Annual changes are since end ", previous_year_end, "."
-      )),
-      color = "blue",
-      icon = icon_change_neet(NEET_change)
+    value_box(
+      title = "NEET",
+      value = paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
+      showcase = icon,
+      p(paste0(Regionname, ": "), NEET_perc_region, "%,", change_ed(NEET_change_region), NEET_change_region, "ppts"),
+      p("England: ", NEET_perc_Eng, "%,", change_ed(NEET_change_Eng), NEET_change_Eng, "ppts"),
+      p("Annual changes are since end", previous_year_end),
+      theme = "blue"
     )
   })
 
@@ -258,13 +264,21 @@ server <- function(input, output, session) {
 
   ### Annual change and national,regional comparison box-------
 
-  output$Not_known <- renderValueBox({
+  output$Not_known <- renderUI({
     # Take filtered data, search for rate, pull the value and tidy the number up
     Nk_perc <- lineLA() %>%
       pull(as.numeric(Notknown_percent))
 
     Nk_change <- lineLA() %>%
       pull(as.numeric(annualchange_notknown))
+
+    icon <- if (Nk_change > 0) {
+      bs_icon("arrow-up", fill = up_arrow_colour)
+    } else if (Nk_change < 0) {
+      bs_icon("arrow-down", fill = down_arrow_colour)
+    } else {
+      icon <- bs_icon("dash")
+    }
 
     Nk_perc_Eng <- England() %>%
       pull(as.numeric(Notknown_percent))
@@ -282,15 +296,14 @@ server <- function(input, output, session) {
       pull(as.numeric(annualchange_notknown))
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
-      HTML(paste0(
-        Regionname, ": ", Nk_perc_region, "%, ", change_ed(Nk_change_region), Nk_change_region, " ppts.", br(),
-        "England: ", Nk_perc_Eng, "%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.", br(),
-        "Annual changes are since end ", previous_year_end, "."
-      )),
-      color = "blue",
-      icon = icon_change_neet(Nk_change)
+    value_box(
+      "Activity not known",
+      value = paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
+      showcase = icon,
+      p(paste0(Regionname, ":"), Nk_perc_region, "%,", change_ed(Nk_change_region), Nk_change_region, "ppts"),
+      p("England:", Nk_perc_Eng, "%,", change_ed(Nk_change_Eng), Nk_change_Eng, "ppts"),
+      p("Annual changes are since end", previous_year_end),
+      theme = "blue"
     )
   })
 

@@ -180,7 +180,7 @@ dashboard_panel <- function() {
             card(plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
             card()
           ),
-          valueBoxOutput("NEET_nk", width = 12)
+          uiOutput("NEET_nk_vb"),
         ),
         gov_row(
           layout_columns(
