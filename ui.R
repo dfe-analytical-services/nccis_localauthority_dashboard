@@ -94,7 +94,8 @@ ui <- function(input, output, session) {
             dfe_contents_links(
               links_list = c(
                 "Scorecards",
-                "User guide"
+                "User guide",
+                "Technical notes"
               )
             ),
             ## Dashboard panels -----------------------------------------------
@@ -107,20 +108,15 @@ ui <- function(input, output, session) {
               bslib::nav_panel(
                 "user_guide",
                 homepage_panel()
+              ),
+              bslib::nav_panel(
+                "technical_notes",
+                technical_notes()
               )
             )
           )
         ),
         ## Footer pages -------------------------------------------------------
-        bslib::nav_panel(
-          "technical_notes",
-          layout_columns(
-            col_widths = c(-2, 8, -2),
-            # Add in back link
-            actionLink(class = "govuk-back-link", style = "margin: 0", "technical_notes_to_dashboard", "Back to dashboard"),
-            technical_notes()
-          )
-        ),
         bslib::nav_panel(
           "support_and_feedback",
           layout_columns(
@@ -179,7 +175,7 @@ ui <- function(input, output, session) {
       )
     ),
     shinyGovstyle::footer(
-      links = c("Technical notes", "Support and feedback", "Accessibility statement", "Cookies statement"),
+      links = c("Support and feedback", "Accessibility statement", "Cookies statement"),
       full = TRUE
     )
   )

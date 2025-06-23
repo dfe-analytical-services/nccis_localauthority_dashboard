@@ -73,11 +73,16 @@ homepage_panel <- function() {
     ),
     warning_text(
       inputId = "vulnerablecaution",
-      text = "Caution should be used in interpreting these figures due to variation in local authority reporting of these characteristics.
-                    The proportion of the 2016/17 cohort classified as being in the vulnerable group ranges from 0.0 percent to 10.3 percent.
-                   Due to this variation and likely inaccuracy in some local authorities in identifying the full vulnerable group cohort,
-                   NEET / not known rates may not be representative for the vulnerable group cohort. The underlying data accompanying this scorecard
-                   includes the proportion of each local authority's cohort identified as having one of the vulnerable characteristics (VG_cohort_percentage)."
+      text = paste(
+        "Caution should be used in interpreting these figures due to variation in local authority",
+        "reporting of these characteristics. The proportion of the 16 and 17 year old cohort",
+        "classified as being in the vulnerable group ranges from 0.0 percent to 10.3 percent. Due",
+        "to this variation and likely inaccuracy in some local authorities in identifying the",
+        "full vulnerable group cohort, NEET / not known rates may not be representative for the",
+        "vulnerable group cohort. The underlying data accompanying this scorecard includes the",
+        "proportion of each local authority's cohort identified as having one of the vulnerable",
+        "characteristics (VG_cohort_percentage)."
+      )
     ),
     h3("Contextual - attainment and attendence"),
     p(

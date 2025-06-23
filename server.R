@@ -54,12 +54,12 @@ server <- function(input, output, session) {
     nav_select("left_nav", "user_guide")
   )
 
-  # Footer navigation
   observeEvent(
     input$technical_notes,
-    nav_select("pages", "technical_notes")
+    nav_select("left_nav", "technical_notes")
   )
 
+  # Footer navigation
   observeEvent(
     input$support_and_feedback,
     nav_select("pages", "support_and_feedback")
@@ -76,7 +76,6 @@ server <- function(input, output, session) {
   )
 
   ## Back links to main dashboard ---------------------------------------------
-  observeEvent(input$technical_notes_to_dashboard, nav_select("pages", "dashboard"))
   observeEvent(input$support_to_dashboard, nav_select("pages", "dashboard"))
   observeEvent(input$cookies_to_dashboard, nav_select("pages", "dashboard"))
   observeEvent(
@@ -87,12 +86,12 @@ server <- function(input, output, session) {
   ## Links to tech notes
   observeEvent(
     input$link_to_tech_notes1,
-    nav_select("pages", "technical_notes")
+    nav_select("left_nav", "technical_notes")
   )
 
   observeEvent(
     input$link_to_tech_notes2,
-    nav_select("pages", "technical_notes")
+    nav_select("left_nav", "technical_notes")
   )
 
 
