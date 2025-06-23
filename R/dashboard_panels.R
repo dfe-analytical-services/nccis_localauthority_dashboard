@@ -152,210 +152,197 @@ dashboard_panel <- function() {
       tabPanel(
         value = "neet",
         title = "NEET and activity not known",
-        gov_row(
-          # tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-          p("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."),
-          h2("NEET and activity not known"),
-          h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
-          layout_columns(
-            col_widths = c(2, 8, 2),
-            card(),
-            card(plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
-            card()
-          ),
-          uiOutput("NEET_nk_vb"),
+        # tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        h2("NEET and activity not known"),
+        p(
+          "Gauges below show where the LA rate sits within the",
+          actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."
         ),
-        gov_row(
-          layout_columns(
-            col_widths = c(6, 6),
-            card(
-              card_header(h2("NEET")),
-              card_body(
-                plotlyOutput("NEET_gauge", width = "100%") %>% withSpinner(),
-                uiOutput("NEET", width = 12)
-              )
-            ),
-            card(
-              h2("Activity not known"),
-              plotlyOutput("Nk_gauge", width = "100%") %>% withSpinner(),
-              uiOutput("Not_known", width = 12)
+        h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        layout_columns(
+          col_widths = c(2, 8, 2),
+          card(),
+          card(plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
+          card()
+        ),
+        uiOutput("NEET_nk_vb"),
+        layout_columns(
+          col_widths = c(6, 6),
+          card(
+            card_header(h2("NEET")),
+            card_body(
+              plotlyOutput("NEET_gauge", width = "100%") %>% withSpinner(),
+              uiOutput("NEET", width = 12)
             )
+          ),
+          card(
+            h2("Activity not known"),
+            plotlyOutput("Nk_gauge", width = "100%") %>% withSpinner(),
+            uiOutput("Not_known", width = 12)
           )
         )
       ),
       tabPanel(
         value = "vulnerable",
         title = "Vulnerable Groups NEET",
-        gov_row(
-          h2("Vulnerable group"),
-          h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
-          layout_columns(
-            col_widths = c(6, 6),
-            # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
-            card(
-              card_body(plotlyOutput("vulnerable_plot") %>% withSpinner())
-            ),
-            card(
-              card_body(
-                p("A young person is said to be in a vulnerable group if they have any of the following characteristics
+        h2("Vulnerable group"),
+        h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+        layout_columns(
+          col_widths = c(6, 6),
+          # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+          card(
+            card_body(plotlyOutput("vulnerable_plot") %>% withSpinner())
+          ),
+          card(
+            card_body(
+              p("A young person is said to be in a vulnerable group if they have any of the following characteristics
                        (taken from IC01 of the NCCIS returns):"),
-                tags$ul(
-                  tags$li("110 - Looked after/In care"),
-                  tags$li("130 - Refugee/Asylum seeker"),
-                  tags$li("140 - Carer-not own child"),
-                  tags$li("150 - Disclosed substance misuse"),
-                  tags$li("160 - Care leaver"),
-                  tags$li("170 - Supervised by YOT (Youth Offending Team)"),
-                  tags$li("190 - Parent-not caring for own child"),
-                  tags$li("200 - Alternative provision"),
-                  tags$li("210 - Mental health flag")
-                )
-              ),
-              strong(textOutput("vg_cohort"), style = "color:#28A197")
-            )
+              tags$ul(
+                tags$li("110 - Looked after/In care"),
+                tags$li("130 - Refugee/Asylum seeker"),
+                tags$li("140 - Carer-not own child"),
+                tags$li("150 - Disclosed substance misuse"),
+                tags$li("160 - Care leaver"),
+                tags$li("170 - Supervised by YOT (Youth Offending Team)"),
+                tags$li("190 - Parent-not caring for own child"),
+                tags$li("200 - Alternative provision"),
+                tags$li("210 - Mental health flag")
+              )
+            ),
+            strong(textOutput("vg_cohort"), style = "color:#28A197")
           )
         ),
-        gov_row(
-          layout_columns(
-            col_widths = c(4, 4, 4),
-            card(
-              card_title(h2("No SEND")),
-              card_body(plotlyOutput("No_SEN_plot") %>% withSpinner())
-            ),
-            card(
-              card_title(h2("SEND (EHCP)")),
-              card_body(plotlyOutput("EHCP_plot") %>% withSpinner())
-            ),
-            card(
-              card_title(h2("SEN support")),
-              card_body(plotlyOutput("SEN_support_plot") %>% withSpinner())
-            )
+        layout_columns(
+          col_widths = c(4, 4, 4),
+          card(
+            card_title(h2("No SEND")),
+            card_body(plotlyOutput("No_SEN_plot") %>% withSpinner())
+          ),
+          card(
+            card_title(h2("SEND (EHCP)")),
+            card_body(plotlyOutput("EHCP_plot") %>% withSpinner())
+          ),
+          card(
+            card_title(h2("SEN support")),
+            card_body(plotlyOutput("SEN_support_plot") %>% withSpinner())
           )
         ),
-        gov_row(
-          p(strong("Please note that if the local authority has suppressed data to avoid disclosure or their data is not available, no bar will appear on the plot."))
+        warning_text(
+          inputId = "suppressed_warning",
+          text = "Please note that if the local authority has suppressed data to avoid disclosure or their data is not available, no bar will appear on the plot."
         )
       ),
       tabPanel(
         value = "participation",
         title = "Participation",
         # tags$b("16-17 year olds March ", latest_year),
-        p(strong("Gauges below show where the LA rate sits within the", actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages.")),
         h2("Participating in education and training"),
+        p(
+          "Gauges below show where the LA rate sits within the",
+          actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."
+        ),
         h3("16-17 year olds March ", latest_year),
-        gov_row(
-          layout_columns(
-            col_widths = c(6, 6),
-            card(
-              plotlyOutput("Participation_gauge", width = "92%") %>% withSpinner(),
-              uiOutput("Participating", width = 12)
-            ),
-            card(
-              p(strong(paste0("Type of education or training"))),
-              plotlyOutput("participation_types") %>% withSpinner()
-            )
+        layout_columns(
+          col_widths = c(6, 6),
+          card(
+            plotlyOutput("Participation_gauge", width = "92%") %>% withSpinner(),
+            uiOutput("Participating", width = 12)
+          ),
+          card(
+            p(strong(paste0("Type of education or training"))),
+            plotlyOutput("participation_types") %>% withSpinner()
           )
         ),
-        gov_row(
-          h2("September Guarantee: % offered an education or training place"),
-          h3("16-17 year olds ", "September", last_year),
-          layout_columns(
-            col_widths = c(6),
-            card(
-              plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
-              uiOutput("Sept_Guarantee", width = 12),
-              p("In some instances, a local authority may have slightly over 100% offers made.
+        h2("September Guarantee: % offered an education or training place"),
+        h3("16-17 year olds ", "September", last_year),
+        layout_columns(
+          col_widths = c(6),
+          card(
+            plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
+            uiOutput("Sept_Guarantee", width = 12),
+            p("In some instances, a local authority may have slightly over 100% offers made.
                     This is due to additional young people being added after the September Guarantee cohort is fixed.")
-            )
           )
         )
       ),
       tabPanel(
         value = "contextual",
         title = "Contextual - attainment and attendance",
-        gov_row(
-          h2("Post 16 attainment"),
-          p(
-            "The following state-funded figures can be found in the ",
-            external_link(
-              href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23",
-              "Level 2 and 3 attainment age 16 to 25, 2022/23 release"
-            )
+        h2("Post 16 attainment"),
+        p(
+          "The following state-funded figures can be found in the ",
+          external_link(
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23",
+            "Level 2 and 3 attainment age 16 to 25, 2022/23 release"
+          )
+        ),
+        layout_columns(
+          col_widths = c(6, 6),
+          card(
+            card_title(h3(strong("% 19 year olds achieving level 3"))),
+            card_body(plotlyOutput("level3_plot") %>% withSpinner())
           ),
-          layout_columns(
-            col_widths = c(6, 6),
-            card(
-              card_title(h3(strong("% 19 year olds achieving level 3"))),
-              card_body(plotlyOutput("level3_plot") %>% withSpinner())
-            ),
-            card(
-              card_title(h3("% 19 year olds achieving GCSE 9-4 standard pass in
+          card(
+            card_title(h3("% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
                       for those who had not achieved this level by 16")),
-              card_body(plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner())
-            )
+            card_body(plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner())
           )
         ),
-        gov_row(
-          h2("GCSE attainment"),
-          p(
-            "The following state-funded figures can be found in the ",
-            external_link(
-              href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23",
-              "Key stage 4 performance, 2022/23 release"
-            )
-          ),
-          layout_columns(
-            col_widths = c(6, 6),
-            card(
-              card_title(h3("Average attainment 8 score of all pupils")),
-              card_body(plotlyOutput("Attainment8_plot") %>% withSpinner())
-            ),
-            card(
-              card_title(h3("% 9-4 standard pass in English and maths GCSEs")),
-              card_body(plotlyOutput("EM_pass_plot") %>% withSpinner())
-            )
+        h2("GCSE attainment"),
+        p(
+          "The following state-funded figures can be found in the ",
+          external_link(
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23",
+            "Key stage 4 performance, 2022/23 release"
           )
         ),
-        gov_row(
-          h2("School attendance"),
-          p(
-            "The following state-funded secondary school attendance figures can be found in the ",
-            external_link(
-              href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23",
-              "Pupil absence in schools in England, 2022/23 release"
-            )
+        layout_columns(
+          col_widths = c(6, 6),
+          card(
+            card_title(h3("Average attainment 8 score of all pupils")),
+            card_body(plotlyOutput("Attainment8_plot") %>% withSpinner())
           ),
-          layout_columns(
-            col_widths = c(6, 6),
-            card(
-              card_title(h3("Overall absence rate")),
-              card_body(plotlyOutput("overall_abs_plot") %>% withSpinner())
-            ),
-            card(
-              card_title(h3("Percentage of persistent absentees (10% or more missed)")),
-              card_body(plotlyOutput("Persistent_abs_plot") %>% withSpinner())
-            )
+          card(
+            card_title(h3("% 9-4 standard pass in English and maths GCSEs")),
+            card_body(plotlyOutput("EM_pass_plot") %>% withSpinner())
+          )
+        ),
+        h2("School attendance"),
+        p(
+          "The following state-funded secondary school attendance figures can be found in the ",
+          external_link(
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23",
+            "Pupil absence in schools in England, 2022/23 release"
+          )
+        ),
+        layout_columns(
+          col_widths = c(6, 6),
+          card(
+            card_title(h3("Overall absence rate")),
+            card_body(plotlyOutput("overall_abs_plot") %>% withSpinner())
           ),
-          gov_row(
-            h2("16-17 LA population"),
-            # p("ONS estimate"),
-            layout_columns(
-              col_widths = c(6),
-              card(
-                uiOutput("NCCIS_pop", width = 12)
-              )
-              # column(
-              # 6,
-              # uiOutput("NCCIS_pop", width = 12)
-              # )
-            )
-          ),
-          # ),
-          uiOutput("contextual.bartext")
+          card(
+            card_title(h3("Percentage of persistent absentees (10% or more missed)")),
+            card_body(plotlyOutput("Persistent_abs_plot") %>% withSpinner())
+          )
+        ),
+        h2("16-17 LA population"),
+        # p("ONS estimate"),
+        layout_columns(
+          col_widths = c(6),
+          card(
+            uiOutput("NCCIS_pop", width = 12)
+          )
+          # column(
+          # 6,
+          # uiOutput("NCCIS_pop", width = 12)
+          # )
         )
-        # add box to show user input
-      )
+      ),
+      # ),
+      uiOutput("contextual.bartext")
     )
+    # add box to show user input
   )
 }
