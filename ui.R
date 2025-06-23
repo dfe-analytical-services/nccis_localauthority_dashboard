@@ -142,7 +142,28 @@ ui <- function(input, output, session) {
             col_widths = c(-2, 8, -2),
             # Add in back link
             actionLink(class = "govuk-back-link", style = "margin: 0", "accessibility_to_dashboard", "Back to dashboard"),
-            a11y_panel()
+            dfeshiny::a11y_panel(
+              date_tested = "31/03/2024",
+              date_reviewed = "19/11/2024",
+              date_prepared = "01/07/2024",
+              dashboard_url = "https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/",
+              issues_contact = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard/issues",
+              dashboard_title = site_title,
+              non_accessible_components = c(
+                "Charts have non-accessible components that are inaccessible for keyboard users.",
+                "Chart tooltips are not compatible with screen reader use.",
+                "Some decorative images are not labelled appropriately as yet.",
+                "Some links are not appropriately labelled."
+              ),
+              specific_issues = c(
+                "An image containing a link in the header banner is not labelled adequately for screen readers, containing neither link text nor alt-text.",
+                "Charts are rendered using the Plotly package, which does not adequately label tooltip links.",
+                "The dashboard contains some elements created using the shinyWidgets package, which mis-labels elements in a way that is confusing for screen reader users.",
+                "Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)",
+                "Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.",
+                "One of the touch targets does not have sufficient size or spacing."
+              )
+            )
           )
         ),
         bslib::nav_panel(

@@ -284,11 +284,12 @@
     },
     "chromote": {
       "Package": "chromote",
-      "Version": "0.4.0",
+      "Version": "0.5.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R6",
+        "cli",
         "curl",
         "fastmap",
         "jsonlite",
@@ -298,9 +299,11 @@
         "promises",
         "rlang",
         "utils",
-        "websocket"
+        "websocket",
+        "withr",
+        "zip"
       ],
-      "Hash": "1327bc3ec8e3052b09889fc87de93470"
+      "Hash": "645cd21d708d14c2732a34b2ccba87b8"
     },
     "cli": {
       "Package": "cli",
@@ -1498,23 +1501,6 @@
       ],
       "Hash": "4b281bb64098b347c8dff066dd04fb0d"
     },
-    "shinyWidgets": {
-      "Package": "shinyWidgets",
-      "Version": "0.8.7",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "bslib",
-        "grDevices",
-        "htmltools",
-        "jsonlite",
-        "rlang",
-        "sass",
-        "shiny"
-      ],
-      "Hash": "fd8239886f70daa85c36596214958451"
-    },
     "shinycssloaders": {
       "Package": "shinycssloaders",
       "Version": "1.1.0",
@@ -1529,20 +1515,6 @@
         "shiny"
       ],
       "Hash": "2b45a467a30d6a88a1892a738c0900cf"
-    },
-    "shinydashboard": {
-      "Package": "shinydashboard",
-      "Version": "0.7.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "htmltools",
-        "promises",
-        "shiny",
-        "utils"
-      ],
-      "Hash": "e418b532e9bb4eb22a714b9a9f1acee7"
     },
     "shinyjs": {
       "Package": "shinyjs",

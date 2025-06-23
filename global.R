@@ -15,8 +15,6 @@ shhh(library(shiny))
 shhh(library(shinyjs))
 shhh(library(tools))
 shhh(library(testthat))
-shhh(library(shinydashboard))
-shhh(library(shinyWidgets))
 shhh(library(dfeshiny))
 shhh(library(dfeR))
 shhh(library(shinyGovstyle))
@@ -36,6 +34,8 @@ shhh(library(checkmate))
 shhh(library(bslib))
 shhh(library(bsicons))
 
+source("R/utils.R")
+
 site_title <- "NEET and participation Local Authority scorecard"
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
 site_overflow <- "https://department-for-education.shinyapps.io/nccis_localauthority_overflow/"
@@ -49,9 +49,6 @@ google_analytics_key <- "4TJQVNWTCK"
 la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
   col_types = cols(.default = "c")
 )
-
-up_arrow_colour <- "#85994b"
-down_arrow_colour <- "#d4351c"
 
 # Set year references - TO BE UPDATED EVERY YEAR
 latest_year <- 2024

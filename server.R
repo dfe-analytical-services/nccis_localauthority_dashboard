@@ -84,6 +84,18 @@ server <- function(input, output, session) {
     nav_select("pages", "dashboard")
   )
 
+  ## Links to tech notes
+  observeEvent(
+    input$link_to_tech_notes1,
+    nav_select("pages", "technical_notes")
+  )
+
+  observeEvent(
+    input$link_to_tech_notes2,
+    nav_select("pages", "technical_notes")
+  )
+
+
   # Filters
   lineLA <- reactive({
     la_ud %>% filter(la_name == input$LA_choice)
@@ -142,13 +154,6 @@ server <- function(input, output, session) {
       pull(as.numeric(NEET_not_known_percent))
     NEET_nk_change <- lineLA() %>%
       pull(as.numeric(annual_change_ppts_NEET_not_known))
-    icon <- if (NEET_nk_change > 0) {
-      bs_icon("arrow-up", fill = up_arrow_colour)
-    } else if (NEET_nk_change < 0) {
-      bs_icon("arrow-down", fill = down_arrow_colour)
-    } else {
-      icon <- bs_icon("dash")
-    }
     Regionname <- lineLA() %>%
       pull(region_name)
     NEET_nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
@@ -165,7 +170,7 @@ server <- function(input, output, session) {
       value_box(
         title = "NEET and activity not known",
         value = paste0(NEET_nk_perc, "%, ", change_ed(NEET_nk_change), NEET_nk_change, "ppts"),
-        showcase = icon,
+        showcase = icon_trend(NEET_nk_change),
         p(paste0(Regionname, ":"), NEET_nk_perc_region, "%,", change_ed(NEET_nk_change_region), NEET_nk_change_region, "ppts"),
         p("England: ", NEET_nk_perc_Eng, "%,", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, "ppts"),
         p("Annual changes are since end", previous_year_end),
@@ -206,13 +211,6 @@ server <- function(input, output, session) {
     NEET_change <- lineLA() %>%
       pull(as.numeric(annualchange_NEET))
 
-    icon <- if (NEET_change > 0) {
-      bs_icon("arrow-up", fill = up_arrow_colour)
-    } else if (NEET_change < 0) {
-      bs_icon("arrow-down", fill = down_arrow_colour)
-    } else {
-      icon <- bs_icon("dash")
-    }
     NEET_perc_Eng <- England() %>%
       pull(as.numeric(NEET_percent))
 
@@ -232,7 +230,7 @@ server <- function(input, output, session) {
     value_box(
       title = "NEET",
       value = paste0(NEET_perc, "%, ", change_ed(NEET_change), NEET_change, " ppts"),
-      showcase = icon,
+      showcase = icon_trend(NEET_change),
       p(paste0(Regionname, ": "), NEET_perc_region, "%,", change_ed(NEET_change_region), NEET_change_region, "ppts"),
       p("England: ", NEET_perc_Eng, "%,", change_ed(NEET_change_Eng), NEET_change_Eng, "ppts"),
       p("Annual changes are since end", previous_year_end),
@@ -268,30 +266,16 @@ server <- function(input, output, session) {
     # Take filtered data, search for rate, pull the value and tidy the number up
     Nk_perc <- lineLA() %>%
       pull(as.numeric(Notknown_percent))
-
     Nk_change <- lineLA() %>%
       pull(as.numeric(annualchange_notknown))
-
-    icon <- if (Nk_change > 0) {
-      bs_icon("arrow-up", fill = up_arrow_colour)
-    } else if (Nk_change < 0) {
-      bs_icon("arrow-down", fill = down_arrow_colour)
-    } else {
-      icon <- bs_icon("dash")
-    }
-
     Nk_perc_Eng <- England() %>%
       pull(as.numeric(Notknown_percent))
-
     Nk_change_Eng <- England() %>%
       pull(as.numeric(annualchange_notknown))
-
     Regionname <- lineLA() %>%
       pull(region_name)
-
     Nk_perc_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(Notknown_percent))
-
     Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name == Regionname) %>%
       pull(as.numeric(annualchange_notknown))
 
@@ -299,7 +283,7 @@ server <- function(input, output, session) {
     value_box(
       "Activity not known",
       value = paste0(Nk_perc, "%, ", change_ed(Nk_change), Nk_change, " ppts"),
-      showcase = icon,
+      showcase = icon_trend(Nk_change),
       p(paste0(Regionname, ":"), Nk_perc_region, "%,", change_ed(Nk_change_region), Nk_change_region, "ppts"),
       p("England:", Nk_perc_Eng, "%,", change_ed(Nk_change_Eng), Nk_change_Eng, "ppts"),
       p("Annual changes are since end", previous_year_end),
@@ -522,7 +506,7 @@ server <- function(input, output, session) {
 
 
   ### value box--------------------------------
-  output$Participating <- renderValueBox({
+  output$Participating <- renderUI({
     # Take filtered data, search for rate, pull the value and tidy the number up
     participating_perc <- lineLA() %>%
       pull(as.numeric(TOTAL_participating_in_education_and_training_percent))
@@ -546,15 +530,14 @@ server <- function(input, output, session) {
       pull(as.numeric(annual_change_Participation_in_education_training))
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(participating_perc, "%, ", change_ed(participating_change), participating_change, " ppts"),
-      HTML(paste0(
-        Regionname, ": ", participating_perc_region, "%, ", change_ed(participating_change_region), participating_change_region, " ppts.", br(),
-        "England: ", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts.", br(),
-        "Annual changes are since March ", last_year, "."
-      )),
-      color = "blue",
-      icon = icon_change_part(participating_change)
+    value_box(
+      "Participating in education and training",
+      value = paste0(participating_perc, "%, ", change_ed(participating_change), participating_change, " ppts"),
+      showcase = icon_trend(participating_change, up = "good"),
+      p(paste0(Regionname, ":"), participating_perc_region, "%, ", change_ed(participating_change_region), participating_change_region, "ppts"),
+      p("England:", participating_perc_Eng, "%, ", change_ed(participating_change_Eng), participating_change_Eng, " ppts"),
+      p("Annual changes are since March", last_year),
+      theme = "blue"
     )
   })
 
@@ -636,7 +619,7 @@ server <- function(input, output, session) {
   })
 
   ### Value box-------------------------------------
-  output$Sept_Guarantee <- renderValueBox({
+  output$Sept_Guarantee <- renderUI({
     # Take filtered data, search for rate, pull the value and tidy the number up
     Sept_Guar_perc <- lineLA() %>%
       pull(as.numeric(September_guarantee_Offer_made_percent))
@@ -660,15 +643,14 @@ server <- function(input, output, session) {
       pull(as.numeric(September_guarantee_annual_change_ppts))
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
-      HTML(paste0(
-        Regionname, ": ", Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, " ppts.", br(),
-        "England: ", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, " ppts. ", br(),
-        "Annual changes are since September ", previous_year_end, "."
-      )),
-      color = "blue",
-      icon = icon_change_part(Sept_Guar_change)
+    value_box(
+      "September guarantee",
+      value = paste0(Sept_Guar_perc, "%, ", change_ed(Sept_Guar_change), Sept_Guar_change, " ppts"),
+      showcase = icon_trend(Sept_Guar_change, up = "good"),
+      p(paste0(Regionname, ":"), Sept_Guar_perc_region, "%, ", change_ed(Sept_Guar_change_region), Sept_Guar_change_region, "ppts"),
+      p("England:", Sept_Guar_perc_Eng, "%, ", change_ed(Sept_Guar_change_Eng), Sept_Guar_change_Eng, "ppts"),
+      p("Annual changes are since September ", previous_year_end),
+      theme = "blue"
     )
   })
 
@@ -935,7 +917,7 @@ server <- function(input, output, session) {
   # as.numeric()
 
   # Put value into box to plug into app
-  # shinydashboard::valueBox(
+  # value_box(
   #   format(ONS_population, big.mark = ","),
   #   paste0("ONS estimate - January ", latest_year),
   #   color = "blue"
@@ -944,27 +926,21 @@ server <- function(input, output, session) {
 
   ### NCCIS---------------------------------------------------------------
 
-  output$NCCIS_pop <- renderValueBox({
+  output$NCCIS_pop <- renderUI({
     NCCIS_population <- lineLA() %>%
       pull(Cohort_DJFavg) %>%
       as.numeric()
 
     # Put value into box to plug into app
-    shinydashboard::valueBox(
-      format(NCCIS_population, big.mark = ","),
-      paste0("Recorded on CCIS - end ", last_year, " (average of December, January, February)"),
-      color = "blue"
+    value_box(
+      title = "NCCIS population",
+      value = format(NCCIS_population, big.mark = ","),
+      showcase = bs_icon("person-fill", size = "2em"),
+      p("Recorded on CCIS - end ", last_year, " (average of December, January, February)"),
+      theme = "blue"
     )
   })
 
-  # links to tech notes
-  observeEvent(input$link_to_tech_notes1, {
-    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
-  })
-
-  observeEvent(input$link_to_tech_notes2, {
-    updateTabsetPanel(session, "navlistPanel", selected = "Technical notes")
-  })
 
   # Files for download ------------------------------------------------------
 

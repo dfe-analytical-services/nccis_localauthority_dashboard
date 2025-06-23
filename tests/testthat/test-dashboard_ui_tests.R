@@ -28,18 +28,18 @@ test_that("Migrated shinytest test: dashboard_ui_tests.R", {
   app$expect_values(input = listInputs, output = c())
 
   # 2. Does the first dashboard panel load?
-  app$set_inputs(navlistPanel = "dashboard", wait_ = FALSE, tabsetpanel = "neet", timeout_ = 5000)
+  app$set_inputs(tabsetpanel = "neet", timeout_ = 5000)
   app$expect_values(input = listInputs, output = outputs)
 
   # 3. Does the vulnerable dashboard panel load?
-  app$set_inputs(navlistPanel = "dashboard", tabsetpanel = "vulnerable", timeout_ = 5000)
+  app$set_inputs(tabsetpanel = "vulnerable", timeout_ = 5000)
   app$expect_values(input = listInputs, output = outputs)
 
   # 4. Does the participation dashboard panel load?
-  app$set_inputs(navlistPanel = "dashboard", tabsetpanel = "participation", timeout_ = 5000)
+  app$set_inputs(tabsetpanel = "participation", timeout_ = 5000)
   app$expect_values(input = listInputs, output = outputs)
 
   # 5. Does the contextual dashboard panel load?
-  app$set_inputs(navlistPanel = "dashboard", tabsetpanel = "contextual", timeout_ = 5000)
+  app$set_inputs(tabsetpanel = "contextual", timeout_ = 5000)
   app$expect_values(input = listInputs, output = outputs)
 })
