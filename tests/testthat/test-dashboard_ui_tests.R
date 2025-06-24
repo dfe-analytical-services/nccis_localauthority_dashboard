@@ -1,4 +1,5 @@
 library(shinytest2)
+library(diffviewer)
 
 test_that("Migrated shinytest test: dashboard_ui_tests.R", {
   app <- AppDriver$new(
@@ -17,7 +18,7 @@ test_that("Migrated shinytest test: dashboard_ui_tests.R", {
     "vg_cohort",
     "data_description",
     "NEET",
-    "NEET_nk",
+    "NEET_nk_vb",
     "Not_known",
     "Participating",
     "Sept_Guarantee",
