@@ -112,13 +112,13 @@ dashboard_panel <- function() {
     h1(textOutput("data_description")),
     div(
       class = "well",
-      style = "min-height: 100%; height: 100%; overflow-y: visible",
+      style = "min-height: 100%; height: 100%; overflow-y: visible; background-color: #f3f2f1;",
       gov_row(
         width = 12,
         layout_columns(
           col_widths = c(6, 6, 12),
           card(
-            class = "well",
+            style = "background-color: #f3f2f1;",
             selectInput("LA_choice",
               label = p(strong("Choose a local authority")),
               choices = levels(LA_options),
@@ -138,7 +138,7 @@ dashboard_panel <- function() {
             )
           ),
           card(
-            class = "well",
+            style = "background-color: #f3f2f1;",
             radio_button_Input(
               inputId = "acc_colour_scheme",
               label = "Switch between accessible and hi-vis gauge chart colour schemes",
