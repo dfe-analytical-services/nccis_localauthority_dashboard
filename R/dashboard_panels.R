@@ -41,19 +41,6 @@ homepage_panel <- function() {
     p("Whilst local authorities are responsible for tracking, they depend on schools, colleges and other partners
                        who work with young people sharing information with them. There is a risk that young people NEET have not been
                        identified in areas where effective tracking arrangements are not in place."),
-    h3("Participation"),
-    p("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
-                       at the end of March."),
-    p("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
-                       (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
-    p("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
-                       Guarantee. The September Guarantee is a guarantee of an offer, made by the end of September, of an
-                      appropriate place in post-16 education or training for every young person completing compulsory
-                      education. This is particularly important as it helps young people make a seamless transition into
-                      post-16 learning or employment with training. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
-                       across their area."),
-    p("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
-                       contacted. These young people are at risk of becoming NEET."),
     h3("Vulnerable groups NEET"),
     p("This section includes data showing the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
@@ -84,7 +71,20 @@ homepage_panel <- function() {
         "characteristics (VG_cohort_percentage)."
       )
     ),
-    h3("Contextual - attainment and attendence"),
+    h3("Participation"),
+    p("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
+                       at the end of March."),
+    p("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
+                       (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
+    p("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
+                       Guarantee. The September Guarantee is a guarantee of an offer, made by the end of September, of an
+                      appropriate place in post-16 education or training for every young person completing compulsory
+                      education. This is particularly important as it helps young people make a seamless transition into
+                      post-16 learning or employment with training. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
+                       across their area."),
+    p("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
+                       contacted. These young people are at risk of becoming NEET."),
+    h3("Contextual - attainment and attendance"),
     p(
       "This section covers ",
       external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "post 16 attainment"), ", ",
