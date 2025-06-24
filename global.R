@@ -15,8 +15,6 @@ shhh(library(shiny))
 shhh(library(shinyjs))
 shhh(library(tools))
 shhh(library(testthat))
-shhh(library(shinydashboard))
-shhh(library(shinyWidgets))
 shhh(library(dfeshiny))
 shhh(library(dfeR))
 shhh(library(shinyGovstyle))
@@ -33,6 +31,10 @@ shhh(library(markdown))
 shhh(library(webshot))
 shhh(library(scales))
 shhh(library(checkmate))
+shhh(library(bslib))
+shhh(library(bsicons))
+
+source("R/utils.R")
 
 site_title <- "NEET and participation Local Authority scorecard"
 site_primary <- "https://department-for-education.shinyapps.io/nccis_localauthority_dashboard/"
