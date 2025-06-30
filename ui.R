@@ -57,7 +57,7 @@
 # library(shinya11y)
 
 ui <- function(input, output, session) {
-  fluidPage(
+  page_fluid(
     tags$head(
       HTML(paste0("<title>", site_title, "</title>"))
     ),
@@ -80,37 +80,103 @@ ui <- function(input, output, session) {
       publication_name = ees_pub_name,
       publication_link = ees_publication
     ),
-    useShinydashboard(),
     dfeshiny::header(header = site_title),
-    shiny::navlistPanel(
-      "",
-      id = "navlistPanel",
-      widths = c(2, 8),
-      well = FALSE,
-      homepage_panel(),
-      dashboard_panel(),
-      technical_notes(),
-      a11y_panel(),
-      shiny::tabPanel(
-        value = "cookies_panel_ui",
-        "Cookies",
-        cookies_panel_ui(google_analytics_key = google_analytics_key)
-      ),
-      shiny::tabPanel(
-        value = "support_panel",
-        "Support and feedback",
-        support_panel(
-          team_email = "post16.statistics@education.gov.uk",
-          publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
-          publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
-          repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
-          form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+    gov_main_layout(
+      bslib::navset_hidden(
+        id = "pages",
+        bslib::nav_panel(
+          "dashboard",
+          ## Main dashboard ---------------------------------------------------
+          layout_columns(
+            # Override default wrapping breakpoints to avoid text overlap
+            col_widths = breakpoints(sm = c(4, 8), md = c(3, 9), lg = c(2, 9)),
+            ## Left navigation ------------------------------------------------
+            dfe_contents_links(
+              links_list = c(
+                "Scorecards",
+                "User guide",
+                "Technical notes"
+              )
+            ),
+            ## Dashboard panels -----------------------------------------------
+            bslib::navset_hidden(
+              id = "left_nav",
+              bslib::nav_panel(
+                "scorecards",
+                dashboard_panel()
+              ),
+              bslib::nav_panel(
+                "user_guide",
+                homepage_panel()
+              ),
+              bslib::nav_panel(
+                "technical_notes",
+                technical_notes()
+              )
+            )
+          )
+        ),
+        ## Footer pages -------------------------------------------------------
+        bslib::nav_panel(
+          "support_and_feedback",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "support_to_dashboard", "Back to dashboard"),
+            support_panel(
+              team_email = "post16.statistics@education.gov.uk",
+              publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
+              publication_slug = "participation-in-education-training-and-neet-age-16-to-17-by-local-authority",
+              repo_name = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard",
+              form_url = "https://forms.office.com/Pages/ResponsePage.aspx?id=yXfS-grGoU2187O4s0qC-WPVbuM_P-hDu3_r8-AFqmhUOTRGUDFRRjE3U0xSNjJTSTJTUVFFOUtBRC4u"
+            )
+          )
+        ),
+        bslib::nav_panel(
+          "accessibility_statement",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "accessibility_to_dashboard", "Back to dashboard"),
+            dfeshiny::a11y_panel(
+              date_tested = "31/03/2024",
+              date_reviewed = "19/11/2024",
+              date_prepared = "01/07/2024",
+              dashboard_url = "https://department-for-education.shinyapps.io/neet-comparative-la-scorecard/",
+              issues_contact = "https://github.com/dfe-analytical-services/nccis_localauthority_dashboard/issues",
+              dashboard_title = site_title,
+              non_accessible_components = c(
+                "Charts have non-accessible components that are inaccessible for keyboard users.",
+                "Chart tooltips are not compatible with screen reader use.",
+                "Some decorative images are not labelled appropriately as yet.",
+                "Some links are not appropriately labelled."
+              ),
+              specific_issues = c(
+                "An image containing a link in the header banner is not labelled adequately for screen readers, containing neither link text nor alt-text.",
+                "Charts are rendered using the Plotly package, which does not adequately label tooltip links.",
+                "The dashboard contains some elements created using the shinyWidgets package, which mis-labels elements in a way that is confusing for screen reader users.",
+                "Alternative text in interactive charts is limited to titles and could be more descriptive (although this data is available in csv format)",
+                "Whilst the dashboard itself has been tested, the pdf download is not accessibility tested.",
+                "One of the touch targets does not have sufficient size or spacing."
+              )
+            )
+          )
+        ),
+        bslib::nav_panel(
+          "cookies_statement",
+          layout_columns(
+            col_widths = c(-2, 8, -2),
+            # Add in back link
+            actionLink(class = "govuk-back-link", style = "margin: 0", "cookies_to_dashboard", "Back to dashboard"),
+            "Cookies",
+            cookies_panel_ui(google_analytics_key = google_analytics_key)
+          )
         )
       )
     ),
-    tags$script(
-      src = "script.js"
-    ),
-    footer(full = TRUE)
+    shinyGovstyle::footer(
+      links = c("Support and feedback", "Accessibility statement", "Cookies statement"),
+      full = TRUE
+    )
   )
 }
