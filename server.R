@@ -342,7 +342,7 @@ server <- function(input, output, session) {
     vgcohort <- lineLA() %>%
       pull(as.numeric(VG_cohort_percentage))
 
-    paste0("Please note, in ", input$LA_choice, " local authority ", vgcohort, "%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on Homepage about possible under-reporting)")
+    paste0("Please note, in ", input$LA_choice, " local authority ", vgcohort, "%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on the User guide about possible under-reporting)")
   })
 
 
