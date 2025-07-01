@@ -28,6 +28,9 @@ technical_notes <- function() {
     p("Each area's performance is compared with the same period of the previous year. A green arrow denotes those areas whose performance has improved (NEET gone down/participation gone up),
       a red arrow where performance is lower (NEET gone up/participation gone down) and a white double headed arrow where performance has stayed the same compared to the previous year.  Year-on-year comparisons,
       where available, have been made using data that has not been rounded."),
+    h3("Data suppression"),
+    p("Data will not be presented for a local authority if it is suppressed (c) to avoid disclosure or their data is not available"),
+    p("Luton's participation data has been suppressed for March 2025 due to known quality issues"),
     br()
   )
 }
