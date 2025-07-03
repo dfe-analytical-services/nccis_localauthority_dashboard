@@ -63,7 +63,7 @@ homepage_panel <- function() {
       text = paste(
         "Caution should be used in interpreting these figures due to variation in local authority",
         "reporting of these characteristics. The proportion of the 16 and 17 year old cohort",
-        "classified as being in the vulnerable group ranges from 0.0 percent to 10.3 percent. Due",
+        "classified as being in the vulnerable group ranges from 0.0 percent to 10.7 percent. Due",
         "to this variation and likely inaccuracy in some local authorities in identifying the",
         "full vulnerable group cohort, NEET / not known rates may not be representative for the",
         "vulnerable group cohort. The underlying data accompanying this scorecard includes the",
@@ -87,9 +87,9 @@ homepage_panel <- function() {
     h3("Contextual - attainment and attendance"),
     p(
       "This section covers ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23", "post 16 attainment"), ", ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23", "GCSE attainment"), " and ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23", "school attendance"), " of young people living in each area.
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2023-24", "post 16 attainment"), ", ",
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2023-24", "GCSE attainment"), " and ",
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2023-24", "school attendance"), " of young people living in each area.
                   It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
     ),
     p("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
@@ -277,8 +277,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2022-23",
-            "Level 2 and 3 attainment age 16 to 25, 2022/23 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2023-24",
+            "Level 2 and 3 attainment age 16 to 25, 2023/24 release"
           )
         ),
         layout_columns(
@@ -298,8 +298,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance-revised/2022-23",
-            "Key stage 4 performance, 2022/23 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2023-24",
+            "Key stage 4 performance, 2023/24 release"
           )
         ),
         layout_columns(
@@ -317,8 +317,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded secondary school attendance figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2022-23",
-            "Pupil absence in schools in England, 2022/23 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2023-24",
+            "Pupil absence in schools in England, 2023/24 release"
           )
         ),
         layout_columns(
