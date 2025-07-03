@@ -278,7 +278,7 @@ dashboard_panel <- function() {
           "The following state-funded figures can be found in the ",
           external_link(
             href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2023-24",
-            "Level 2 and 3 attainment age 16 to 25, 2022/23 release"
+            "Level 2 and 3 attainment age 16 to 25, 2023/24 release"
           )
         ),
         layout_columns(
@@ -299,7 +299,7 @@ dashboard_panel <- function() {
           "The following state-funded figures can be found in the ",
           external_link(
             href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2023-24",
-            "Key stage 4 performance, 2022/23 release"
+            "Key stage 4 performance, 2023/24 release"
           )
         ),
         layout_columns(
@@ -318,7 +318,7 @@ dashboard_panel <- function() {
           "The following state-funded secondary school attendance figures can be found in the ",
           external_link(
             href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2023-24",
-            "Pupil absence in schools in England, 2022/23 release"
+            "Pupil absence in schools in England, 2023/24 release"
           )
         ),
         layout_columns(
