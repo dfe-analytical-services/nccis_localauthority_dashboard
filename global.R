@@ -46,7 +46,7 @@ team_email <- "post16.statistics@education.gov.uk"
 google_analytics_key <- "4TJQVNWTCK"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2025.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_dummy.csv",
   col_types = cols(.default = "c")
 )
 
