@@ -29,8 +29,8 @@ technical_notes <- function() {
       a red arrow where performance is lower (NEET gone up/participation gone down) and a white horizontal line where performance has stayed the same compared to the previous year.  Year-on-year comparisons,
       where available, have been made using data that has not been rounded."),
     h3("Data suppression"),
-    p("Local authority data will be missing if it has been suppressed (c) to avoid disclosure, or the LA data is not available"),
-    p("Participation data for Luton has been suppressed due to known quality issues with the March 2025 return"),
+    p("Local authority data will be missing if it has been suppressed (c) to avoid disclosure, or the LA data is not available."),
+    p("Participation data for Luton has been suppressed due to known quality issues with the March 2025 return."),
     br()
   )
 }
