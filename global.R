@@ -66,6 +66,9 @@ change_ed <- function(numA) {
   if (numA == "z") {
     return("")
   }
+  if (numA == "c") {
+    return("")
+  }
   if (numA < 0.0) {
     return("down ")
   }
