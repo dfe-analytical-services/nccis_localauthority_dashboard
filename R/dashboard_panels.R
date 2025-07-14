@@ -284,7 +284,7 @@ dashboard_panel <- function() {
         layout_columns(
           col_widths = c(6, 6),
           card(
-            card_title(h3(strong("% 19 year olds achieving level 3"))),
+            card_title(h3("% 19 year olds achieving level 3")),
             card_body(plotlyOutput("level3_plot") %>% withSpinner())
           ),
           card(
