@@ -1,12 +1,12 @@
 {
   "input": {
-    "LA_choice": "Barking and Dagenham",
+    "LA_choice": "Southwark",
     "acc_colour_scheme": "FALSE",
-    "tabsetpanel": "participation"
+    "tabsetpanel": "vulnerable"
   },
   "output": {
     "NEET": {
-      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-up \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">NEET<\/p>\n        <p class=\"value-box-value\">3.5%, up 0.7 ppts<\/p>\n        <p>\n          London: \n          1.8\n          %,\n          up \n          0.3\n          ppts\n        <\/p>\n        <p>\n          England: \n          3.2\n          %,\n          up \n          0.4\n          ppts\n        <\/p>\n        <p>\n          Annual changes are since end\n          2022\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
+      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-up \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">NEET<\/p>\n        <p class=\"value-box-value\">1.5%, up 0.3 ppts<\/p>\n        <p>\n          London: \n          1.8\n          %,\n          up \n          0.3\n          ppts\n        <\/p>\n        <p>\n          England: \n          3.2\n          %,\n          up \n          0.4\n          ppts\n        <\/p>\n        <p>\n          Annual changes are since end\n          2022\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
       "deps": [
         {
           "name": "htmltools-fill",
@@ -71,7 +71,7 @@
       ]
     },
     "NEET_nk_vb": {
-      "html": "<bslib-layout-columns class=\"bslib-grid grid bslib-mb-spacing html-fill-item\" col-widths-sm=\"2,8,2\" data-require-bs-caller=\"layout_columns()\" data-require-bs-version=\"5\">\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\"><\/div>\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\">\n    <div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n      <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n        <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n          <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-up \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z\"><\/path><\/svg><\/div>\n          <div class=\"value-box-area html-fill-item html-fill-container\">\n            <p class=\"value-box-title\">NEET and activity not known<\/p>\n            <p class=\"value-box-value\">3.6%, up 0.7ppts<\/p>\n            <p>\n              London:\n              3.4\n              %,\n              stable \n              0\n              ppts\n            <\/p>\n            <p>\n              England: \n              5.4\n              %,\n              up \n              0.2\n              ppts\n            <\/p>\n            <p>\n              Annual changes are since end\n              2022\n            <\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n      <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n    <\/div>\n  <\/div>\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\"><\/div>\n<\/bslib-layout-columns>",
+      "html": "<bslib-layout-columns class=\"bslib-grid grid bslib-mb-spacing html-fill-item\" col-widths-sm=\"2,8,2\" data-require-bs-caller=\"layout_columns()\" data-require-bs-version=\"5\">\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\"><\/div>\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\">\n    <div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n      <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n        <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n          <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-up \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z\"><\/path><\/svg><\/div>\n          <div class=\"value-box-area html-fill-item html-fill-container\">\n            <p class=\"value-box-title\">NEET and activity not known<\/p>\n            <p class=\"value-box-value\">3.2%, up 0.6ppts<\/p>\n            <p>\n              London:\n              3.4\n              %,\n              stable \n              0\n              ppts\n            <\/p>\n            <p>\n              England: \n              5.4\n              %,\n              up \n              0.2\n              ppts\n            <\/p>\n            <p>\n              Annual changes are since end\n              2022\n            <\/p>\n          <\/div>\n        <\/div>\n      <\/div>\n      <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n    <\/div>\n  <\/div>\n  <div class=\"bslib-grid-item bslib-gap-spacing html-fill-container\"><\/div>\n<\/bslib-layout-columns>",
       "deps": [
         {
           "name": "bslib-component-js",
@@ -136,7 +136,7 @@
       ]
     },
     "Not_known": {
-      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-down \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#B1C209;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">Activity not known<\/p>\n        <p class=\"value-box-value\">0%, down -0.1 ppts<\/p>\n        <p>\n          London:\n          1.5\n          %,\n          down \n          -0.2\n          ppts\n        <\/p>\n        <p>\n          England:\n          2.2\n          %,\n          down \n          -0.2\n          ppts\n        <\/p>\n        <p>\n          Annual changes are since end\n          2022\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
+      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-up \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">Activity not known<\/p>\n        <p class=\"value-box-value\">1.7%, up 0.3 ppts<\/p>\n        <p>\n          London:\n          1.5\n          %,\n          down \n          -0.2\n          ppts\n        <\/p>\n        <p>\n          England:\n          2.2\n          %,\n          down \n          -0.2\n          ppts\n        <\/p>\n        <p>\n          Annual changes are since end\n          2022\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
       "deps": [
         {
           "name": "htmltools-fill",
@@ -200,137 +200,7 @@
         }
       ]
     },
-    "Participating": {
-      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-down \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">Participating in education and training<\/p>\n        <p class=\"value-box-value\">95.1%, down -0.9 ppts<\/p>\n        <p>\n          London:\n          96\n          %, \n          stable \n          0\n          ppts\n        <\/p>\n        <p>\n          England:\n          92.1\n          %, \n          down \n          -0.2\n           ppts\n        <\/p>\n        <p>\n          Annual changes are since March\n          2023\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
-      "deps": [
-        {
-          "name": "htmltools-fill",
-          "version": "0.5.8.1",
-          "src": {
-            "href": "htmltools-fill-0.5.8.1"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fill.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-component-js",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-component-js-0.8.0"
-          },
-          "meta": null,
-          "script": [
-            {
-              "src": "components.min.js"
-            },
-            {
-              "src": "web-components.min.js",
-              "type": "module"
-            }
-          ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-component-css",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-component-css-0.8.0"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "components.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-tag-require",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-tag-require-0.8.0"
-          },
-          "meta": null,
-          "script": "tag-require.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        }
-      ]
-    },
-    "Sept_Guarantee": {
-      "html": "<div class=\"card bslib-card bslib-mb-spacing html-fill-item html-fill-container bslib-value-box bg-blue showcase-left-center\" data-bslib-card-init data-require-bs-caller=\"card() value_box()\" data-require-bs-version=\"5 5\">\n  <div class=\"card-body bslib-gap-spacing html-fill-item html-fill-container\" style=\"margin-top:auto;margin-bottom:auto;flex:1 1 auto; padding:0;\">\n    <div class=\"value-box-grid html-fill-item\" style=\"--bslib-grid-height:auto;--bslib-grid-height-mobile:auto;---bslib-value-box-showcase-w:30%;---bslib-value-box-showcase-w-fs:1fr;---bslib-value-box-showcase-max-h:100px;---bslib-value-box-showcase-max-h-fs:67%;\">\n      <div class=\"value-box-showcase html-fill-item html-fill-container\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\" class=\"bi bi-arrow-down \" style=\"height:2em;width:2em;fill:currentColor;vertical-align:-0.125em;fill:#d4351c;\" aria-hidden=\"true\" role=\"img\" ><path fill-rule=\"evenodd\" d=\"M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z\"><\/path><\/svg><\/div>\n      <div class=\"value-box-area html-fill-item html-fill-container\">\n        <p class=\"value-box-title\">September guarantee<\/p>\n        <p class=\"value-box-value\">97.6%, down -1.2 ppts<\/p>\n        <p>\n          London:\n          97.2\n          %, \n          up \n          0.5\n          ppts\n        <\/p>\n        <p>\n          England:\n          94.6\n          %, \n          up \n          0.1\n          ppts\n        <\/p>\n        <p>\n          Annual changes are since September \n          2022\n        <\/p>\n      <\/div>\n    <\/div>\n  <\/div>\n  <script data-bslib-card-init>bslib.Card.initializeAllCards();<\/script>\n<\/div>",
-      "deps": [
-        {
-          "name": "htmltools-fill",
-          "version": "0.5.8.1",
-          "src": {
-            "href": "htmltools-fill-0.5.8.1"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "fill.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-component-js",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-component-js-0.8.0"
-          },
-          "meta": null,
-          "script": [
-            {
-              "src": "components.min.js"
-            },
-            {
-              "src": "web-components.min.js",
-              "type": "module"
-            }
-          ],
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-component-css",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-component-css-0.8.0"
-          },
-          "meta": null,
-          "script": null,
-          "stylesheet": "components.css",
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        },
-        {
-          "name": "bslib-tag-require",
-          "version": "0.8.0",
-          "src": {
-            "href": "bslib-tag-require-0.8.0"
-          },
-          "meta": null,
-          "script": "tag-require.js",
-          "stylesheet": null,
-          "head": null,
-          "attachment": null,
-          "all_files": true
-        }
-      ]
-    },
-    "data_description": "Scorecard for Barking and Dagenham",
-    "vg_cohort": "Please note, in Barking and Dagenham local authority 0.8%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on Homepage about possible under-reporting)"
+    "data_description": "Scorecard for Southwark",
+    "vg_cohort": "Please note, in Southwark local authority 0.3%  of the 16-17 year old cohort were reported in a vulnerable group (see caution on Homepage about possible under-reporting)"
   }
 }
