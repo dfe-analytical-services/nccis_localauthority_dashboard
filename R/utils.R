@@ -6,7 +6,9 @@ icon_trend <- function(perc_change, up = "bad") {
     up_arrow_colour <- "#B1C209"
     down_arrow_colour <- "#d4351c"
   }
-  if (perc_change > 0) {
+  if (is.na(as.numeric(perc_change))) {
+    return(bs_icon("bookmark-x-fill", fill = "#fff", size = "2em"))
+  } else if (perc_change > 0) {
     return(bs_icon("arrow-up", fill = up_arrow_colour, size = "2em"))
   } else if (perc_change < 0) {
     return(bs_icon("arrow-down", fill = down_arrow_colour, size = "2em"))
