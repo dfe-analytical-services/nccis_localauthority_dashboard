@@ -51,7 +51,7 @@ la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
 )
 
 # Set year references - TO BE UPDATED EVERY YEAR
-latest_year <- 2024
+latest_year <- 2025
 last_year <- latest_year - 1
 latest_year_end <- latest_year - 1
 previous_year_end <- latest_year - 2
