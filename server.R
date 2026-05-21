@@ -836,9 +836,9 @@ server <- function(input, output, session) {
 
     Attainment8 <- plotdata %>%
       ggplot(aes(
-        y = avg_att8, x = "",
+        y = attainment8_average, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", avg_att8, "%")
+        text = paste(la_name, ": ", attainment8_average, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +
@@ -878,9 +878,9 @@ server <- function(input, output, session) {
 
     EM_pass <- plotdata %>%
       ggplot(aes(
-        y = pt_l2basics_94, x = "",
+        y = engmath_94_percent, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", pt_l2basics_94, "%")
+        text = paste(la_name, ": ", engmath_94_percent, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +
