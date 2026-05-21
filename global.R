@@ -232,7 +232,7 @@ vulnerableEng <- vulnerable_data %>% filter(la_name == "England")
 # reshape the data so it plots neatly!
 contextual_data <- la_ud %>%
   # select only contextual info
-  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
+  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, attainment8_average, engmath_94_percent, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
   # Put England and region name into LA name
   mutate(la_name = case_when(
     geographic_level == "National" ~ "England",
@@ -242,12 +242,12 @@ contextual_data <- la_ud %>%
 
 
 contextual_data <- contextual_data %>%
-  select(la_name, Level_3, L2_em_GCSE_othL2, avg_att8, pt_l2basics_94, sess_overall_percent, enrolments_pa_10_exact_percent)
+  select(la_name, Level_3, L2_em_GCSE_othL2, attainment8_average, engmath_94_percent, sess_overall_percent, enrolments_pa_10_exact_percent)
 
 contextual_data <- contextual_data %>%
   mutate(
-    Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), avg_att8 = as.numeric(avg_att8),
-    pt_l2basics_94 = as.numeric(pt_l2basics_94), sess_overall_percent = as.numeric(sess_overall_percent), enrolments_pa_10_exact_percent = as.numeric(enrolments_pa_10_exact_percent)
+    Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), attainment8_average = as.numeric(attainment8_average),
+    engmath_94_percent = as.numeric(engmath_94_percent), sess_overall_percent = as.numeric(sess_overall_percent), enrolments_pa_10_exact_percent = as.numeric(enrolments_pa_10_exact_percent)
   )
 
 contextEng <- contextual_data %>% filter(la_name == "England")
