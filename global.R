@@ -46,12 +46,12 @@ team_email <- "post16.statistics@education.gov.uk"
 google_analytics_key <- "4TJQVNWTCK"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
+la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_2026.csv",
   col_types = cols(.default = "c")
 )
 
 # Set year references - TO BE UPDATED EVERY YEAR
-latest_year <- 2025
+latest_year <- 2026
 last_year <- latest_year - 1
 latest_year_end <- latest_year - 1
 previous_year_end <- latest_year - 2
@@ -78,7 +78,6 @@ change_ed <- function(numA) {
 cs_num <- function(x) {
   format(x, big.mark = ",", trim = TRUE)
 }
-
 
 
 # Filtering the data----------------------------------------
@@ -144,7 +143,6 @@ myDownloadButton <- function(outputId, label = "Download") {
     target = "_blank", download = NA, NULL, label
   )
 }
-
 
 
 # Reshaping data for plots-----------------------------------------
