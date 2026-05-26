@@ -18,10 +18,9 @@ homepage_panel <- function() {
             into the red quintile."),
     warning_text(
       inputId = "vatiation_warning",
-      text = "Some caution should be taken if using these figures due to the estimates being based on
-            management information. There is considerable variation at local authority level in
-            how well 16 and 17 year olds are tracked and hence 'activity not known' proportions can impact on the
-            estimates of the proportion NEET."
+      text = "Use caution: these figures are estimates based on management information. Reported figures may
+      be inaccurate due to local authority organisational changes or processing issues, resulting in missing
+      or incorrect activity data for some young people."
     ),
     # p(strong("The Department for Education's definitive measures for England
     # of participation and not in education, employment or training (NEET) for 16 to 21 year olds are
