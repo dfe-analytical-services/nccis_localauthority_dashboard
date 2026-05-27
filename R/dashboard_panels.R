@@ -263,9 +263,7 @@ dashboard_panel <- function() {
           col_widths = c(6),
           card(
             plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
-            uiOutput("Sept_Guarantee", width = 12),
-            p("In some instances, a local authority may have slightly over 100% offers made.
-                    This is due to additional young people being added after the September Guarantee cohort is fixed.")
+            uiOutput("Sept_Guarantee", width = 12)
           )
         )
       ),
