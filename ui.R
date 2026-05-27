@@ -80,7 +80,14 @@ ui <- function(input, output, session) {
       publication_name = ees_pub_name,
       publication_link = ees_publication
     ),
-    dfeshiny::header(header = site_title),
+    shinyGovstyle::full_width_overrides(),
+    shinyGovstyle::header(
+      org_name = "Department for Education",
+      service_name = "NEET and participation Local Authority scorecard",
+    ),
+    shinyGovstyle::heading_text("", size = "xl", level = 1),
+    shinyGovstyle::gov_text(""),
+    shinyGovstyle::gov_list(list("")),
     gov_main_layout(
       bslib::navset_hidden(
         id = "pages",
