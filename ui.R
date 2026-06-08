@@ -71,6 +71,7 @@ ui <- function(input, output, session) {
       )
     ),
     tags$html(lang = "en"),
+    shinyGovstyle::full_width_overrides(),
     shinyjs::useShinyjs(),
     dfeshiny::dfe_cookies_script(),
     dfeshiny::cookies_banner_ui(
