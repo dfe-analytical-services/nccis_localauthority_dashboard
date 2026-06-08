@@ -324,7 +324,6 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
 }
 
 
-
 Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
   if (title) {
     title_string <- "Not known"

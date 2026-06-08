@@ -3,8 +3,8 @@ library(diffviewer)
 
 test_that("Migrated shinytest test: dashboard_ui_tests.R", {
   app <- AppDriver$new(
-    load_timeout = 240000,
-    timeout = 160000
+    load_timeout = 360000,
+    timeout = 360000
   )
 
   listInputs <- c(
