@@ -18,7 +18,7 @@ homepage_panel <- function() {
             into the red quintile."),
     warning_text(
       inputId = "vatiation_warning",
-      text = "Use caution: these figures are estimates based on management information. Reported figures may
+      text = "Use caution: NEET and participation estimates are based on management information. Reported figures may
       be inaccurate due to local authority organisational changes or processing issues, resulting in missing
       or incorrect activity data for some young people."
     ),
@@ -60,14 +60,14 @@ homepage_panel <- function() {
     warning_text(
       inputId = "vulnerablecaution",
       text = paste(
-        "Caution should be used in interpreting these figures due to variation in local authority",
-        "reporting of these characteristics. The proportion of the 16 and 17 year old cohort",
-        "classified as being in the vulnerable group ranges from 0.2 percent to 14.7 percent. Due",
-        "to this variation and likely inaccuracy in some local authorities in identifying the",
-        "full vulnerable group cohort, NEET / not known rates may not be representative for the",
-        "vulnerable group cohort. The underlying data accompanying this scorecard includes the",
-        "proportion of each local authority's cohort identified as having one of the vulnerable",
-        "characteristics (VG_cohort_percentage)."
+        "Use caution: when interpreting vulnerable groups figures due to variation in how",
+        "local authorities report these characteristics. The proportion of 16 and 17 year olds",
+        "classified as part of the vulnerable group ranges widely, from 0.2 percent to 14.7 percent.",
+        "This level of variation, along with likely inconsistences in some local authorities' ",
+        "identification of the full vulnerable group cohort, means that NEET / not known rates may ",
+        "not accurately represent outcomes for this group. The underlying data accompanying this ",
+        "scorecard includes, for each local authority, the proportion of the cohort identified as ",
+        "having at least one of the vulnerable characteristics (VG_cohort_percentage)."
       )
     ),
     h3("Participation"),
