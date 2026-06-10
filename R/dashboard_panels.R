@@ -156,13 +156,13 @@ dashboard_panel <- function() {
       tabPanel(
         value = "neet",
         title = "NEET and activity not known",
-        # tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        # tags$b("16-17 year olds at end ", latest_year_end,"/start", latest_year,(average of December, January and February)"),
         h2("NEET and activity not known"),
         p(
           "Gauges below show where the LA rate sits within the",
           actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."
         ),
-        h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        h3("16-17 year olds at end ", latest_year_end,"/start", latest_year, "(average of December, January and February)"),
         layout_columns(
           col_widths = c(2, 8, 2),
           card(),
@@ -190,10 +190,10 @@ dashboard_panel <- function() {
         value = "vulnerable",
         title = "Vulnerable Groups NEET",
         h2("Vulnerable group"),
-        h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+        h3("16-17 year olds NEET or activity not known at end ", latest_year_end,"/start", latest_year,  "(average of December, January and February)"),
         layout_columns(
           col_widths = c(6, 6),
-          # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+          # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end,"/start", latest_year,  "(average of December, January and February)"),
           card(
             card_body(plotlyOutput("vulnerable_plot") %>% withSpinner())
           ),
