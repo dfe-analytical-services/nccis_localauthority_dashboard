@@ -156,7 +156,7 @@ dashboard_panel <- function() {
       tabPanel(
         value = "neet",
         title = "NEET and activity not known",
-        # tags$b("16-17 year olds at end ", latest_year_end,"/start", latest_year, "(average of December, January and February)"),
+        # tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
         h2("NEET and activity not known"),
         p(
           "Gauges below show where the LA rate sits within the",
