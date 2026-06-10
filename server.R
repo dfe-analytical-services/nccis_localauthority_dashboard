@@ -172,7 +172,7 @@ server <- function(input, output, session) {
         showcase = icon_trend(NEET_nk_change),
         p(paste0(Regionname, ":"), NEET_nk_perc_region, "%,", change_ed(NEET_nk_change_region), NEET_nk_change_region, "ppts"),
         p("England: ", NEET_nk_perc_Eng, "%,", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, "ppts"),
-        p("Annual changes are since end", previous_year_end,"/start", latest_year_end),
+        p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
         theme = "blue"
       ),
       ""
@@ -232,7 +232,7 @@ server <- function(input, output, session) {
       showcase = icon_trend(NEET_change),
       p(paste0(Regionname, ": "), NEET_perc_region, "%,", change_ed(NEET_change_region), NEET_change_region, "ppts"),
       p("England: ", NEET_perc_Eng, "%,", change_ed(NEET_change_Eng), NEET_change_Eng, "ppts"),
-      p("Annual changes are since end", previous_year_end,"/start", latest_year_end),
+      p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
       theme = "blue"
     )
   })
@@ -285,7 +285,7 @@ server <- function(input, output, session) {
       showcase = icon_trend(Nk_change),
       p(paste0(Regionname, ":"), Nk_perc_region, "%,", change_ed(Nk_change_region), Nk_change_region, "ppts"),
       p("England:", Nk_perc_Eng, "%,", change_ed(Nk_change_Eng), Nk_change_Eng, "ppts"),
-      p("Annual changes are since end", previous_year_end,"/start", latest_year_end),
+      p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
       theme = "blue"
     )
   })
