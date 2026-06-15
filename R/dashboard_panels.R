@@ -60,14 +60,14 @@ homepage_panel <- function() {
     warning_text(
       inputId = "vulnerablecaution",
       text = paste(
-        "Use caution: when interpreting vulnerable groups figures due to variation in how",
-        "local authorities report these characteristics. The proportion of 16 and 17 year olds",
-        "classified as part of the vulnerable group ranges widely, from 0.2 percent to 14.7 percent.",
-        "This level of variation, along with likely inconsistences in some local authorities' ",
-        "identification of the full vulnerable group cohort, means that NEET / not known rates may ",
-        "not accurately represent outcomes for this group. The underlying data accompanying this ",
-        "scorecard includes, for each local authority, the proportion of the cohort identified as ",
-        "having at least one of the vulnerable characteristics (VG_cohort_percentage)."
+        "Use caution: when interpreting data on vulnerable groups, as reporting practices vary across",
+        "local authorities. The proportion of 16 and 17 year olds classified as part of the",
+        "vulnerable group ranges widely, from 0.2 percent to 14.7 percent. This level of variation,",
+        " along with likely inconsistences in some local authorities' identification of the full",
+        " vulnerable group cohort, means that NEET / not known rates may not accurately represent",
+        "outcomes for this group. The underlying data accompanying this scorecard includes, for",
+        "each local authority, the proportion of the cohort identified as having at least one of ",
+        "the vulnerable characteristics (VG_cohort_percentage)."
       )
     ),
     h3("Participation"),
