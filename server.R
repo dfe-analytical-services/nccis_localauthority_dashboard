@@ -935,7 +935,7 @@ server <- function(input, output, session) {
       title = "NCCIS population",
       value = format(NCCIS_population, big.mark = ","),
       showcase = bs_icon("person-fill", size = "2em"),
-      p("Recorded on CCIS - end ", last_year,"/start", latest_year),
+      p("Recorded on CCIS - end ", last_year, "/start", latest_year),
       p(" (average of December, January, February)"),
       theme = "blue"
     )
