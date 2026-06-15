@@ -178,8 +178,15 @@ contextual_england <- contextual_data %>% filter(la_name == "England")
 # NEET and not known
 
 ```{r gauge_chart_neetnk, echo=FALSE, out.width="125%"}
-plot_neetnkgauge(la_ud, lineLA, England) %>%
-  layout(autosize = F, width = 860, height = 300)
+
+p <- plot_neetnkgauge(la_ud, lineLA, England)
+
+p$width <- 860
+p$height <- 300
+
+p %>% layout(autosize = FALSE)
+
+
 ```
 
 
