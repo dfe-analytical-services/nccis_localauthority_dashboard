@@ -226,7 +226,7 @@ NEET_nk_change_region <- filter(la_ud, geographic_level == "Regional", region_na
 
 `r paste0("England: ", NEET_nk_perc_Eng, "\\%, ", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, " ppts.")`
 
-`r paste0("Annual changes are since end ", previous_year_end, "/start", latest_year, ".")`
+`r paste0("Annual changes are since end ", latest_year_end, "/start ", latest_year, ".")`
 \end{tcolorbox}
 \end{center}
 
@@ -306,7 +306,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
 
 `r paste0("England: ", NEET_perc_Eng, "\\%, ", change_ed(NEET_change_Eng), NEET_change_Eng, " ppts.")`
 
-`r paste0("Annual changes are since end ", previous_year_end, "/start", latest_year, ".")`
+`r paste0("Annual changes are since end ", latest_year_end, "/start ", latest_year, ".")`
 \end{tcolorbox}
 
 
@@ -328,7 +328,7 @@ Nk_change_region <- filter(la_ud, geographic_level == "Regional", region_name ==
 
 `r paste0("England: ", Nk_perc_Eng, "\\%, ", change_ed(Nk_change_Eng), Nk_change_Eng, " ppts.")`
 
-`r paste0("Annual changes are since end ", previous_year_end, "/start", latest_year, ".")`
+`r paste0("Annual changes are since end ", latest_year_end, "/start ", latest_year, ".")`
 \end{tcolorbox}
 }
 
