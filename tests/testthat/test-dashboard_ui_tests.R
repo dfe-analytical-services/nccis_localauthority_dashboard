@@ -30,21 +30,26 @@ test_that("Migrated shinytest test: dashboard_ui_tests.R", {
 
   # 2. Does the LA selection update?
   app$set_inputs(LA_choice = "Southwark")
+  app$wait_for_idle(100)
   app$expect_values(input = listInputs, output = outputs)
 
   # 3. Does the first dashboard panel load?
   app$set_inputs(tabsetpanel = "neet")
+  app$wait_for_idle(100)
   app$expect_values(input = listInputs, output = outputs)
 
   # 4. Does the vulnerable dashboard panel load?
   app$set_inputs(tabsetpanel = "vulnerable")
+  app$wait_for_idle(100)
   app$expect_values(input = listInputs, output = outputs)
 
   # 5. Does the participation dashboard panel load?
   app$set_inputs(tabsetpanel = "participation")
+  app$wait_for_idle(100)
   app$expect_values(input = listInputs, output = outputs)
 
   # 6. Does the contextual dashboard panel load?
   app$set_inputs(tabsetpanel = "contextual")
+  app$wait_for_idle(100)
   app$expect_values(input = listInputs, output = outputs)
 })
