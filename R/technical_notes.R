@@ -30,7 +30,7 @@ technical_notes <- function() {
       year is not possible due to data suppression or data not being available. Year-on-year comparisons, where available, have been made using data that has not been rounded."),
     h3("Data suppression"),
     p("Local authority data will be missing if it has been suppressed (c) to avoid disclosure, or the LA data is not available."),
-    p("Participation data for Luton has been suppressed due to known quality issues with the March 2025 return."),
+    p("NEET/Not known data for Peterborough has been suppressed as complete data returns were not available for the latest reporting period."),
     br()
   )
 }

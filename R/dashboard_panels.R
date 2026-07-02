@@ -18,16 +18,15 @@ homepage_panel <- function() {
             into the red quintile."),
     warning_text(
       inputId = "vatiation_warning",
-      text = "Some caution should be taken if using these figures due to the estimates being based on
-            management information. There is considerable variation at local authority level in
-            how well 16 and 17 year olds are tracked and hence 'activity not known' proportions can impact on the
-            estimates of the proportion NEET."
+      text = "Use caution: NEET and participation estimates are based on management information. Reported figures may
+      be inaccurate due to local authority organisational changes or processing issues, resulting in missing
+      or incorrect activity data for some young people."
     ),
     # p(strong("The Department for Education's definitive measures for England
-    # of participation and not in education, employment or training (NEET) for 16 to 18 year olds are
+    # of participation and not in education, employment or training (NEET) for 16 to 21 year olds are
     # published annually in the national statistics release", a(
     # href = "https://explore-education-statistics.service.gov.uk/find-statistics/participation-in-education-and-training-and-employment",
-    # "'Participation in Education, Training and Employment age 16 to 18'."
+    # "'Participation in Education, Training and Employment age 16 to 21'."
     # )))
 
     ## Left panel -------------------------------------------------------
@@ -61,14 +60,14 @@ homepage_panel <- function() {
     warning_text(
       inputId = "vulnerablecaution",
       text = paste(
-        "Caution should be used in interpreting these figures due to variation in local authority",
-        "reporting of these characteristics. The proportion of the 16 and 17 year old cohort",
-        "classified as being in the vulnerable group ranges from 0.0 percent to 10.7 percent. Due",
-        "to this variation and likely inaccuracy in some local authorities in identifying the",
-        "full vulnerable group cohort, NEET / not known rates may not be representative for the",
-        "vulnerable group cohort. The underlying data accompanying this scorecard includes the",
-        "proportion of each local authority's cohort identified as having one of the vulnerable",
-        "characteristics (VG_cohort_percentage)."
+        "Use caution: when interpreting data on vulnerable groups, due to variation in local authority",
+        "reporting of these characteristics. The proportion of 16 and 17 year olds classified as part",
+        "of the vulnerable group ranges widely, from 0.2 percent to 14.7 percent. This level of variation",
+        "along with likely inconsistences in some local authorities' identification of the full vulnerable",
+        "group cohort, means that NEET / not known rates may not accurately represent outcomes for this",
+        "group. The underlying data accompanying this scorecard includes, for each local authority, the",
+        "proportion of the cohort identified as having at least one of the vulnerable characteristics",
+        "(VG_cohort_percentage)."
       )
     ),
     h3("Participation"),
@@ -87,9 +86,9 @@ homepage_panel <- function() {
     h3("Contextual - attainment and attendance"),
     p(
       "This section covers ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2023-24", "post 16 attainment"), ", ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2023-24", "GCSE attainment"), " and ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2023-24", "school attendance"), " of young people living in each area.
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2024-25", "post 16 attainment"), ", ",
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2024-25", "GCSE attainment"), " and ",
+      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25", "school attendance"), " of young people living in each area.
                   It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
     ),
     p("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
@@ -157,13 +156,13 @@ dashboard_panel <- function() {
       tabPanel(
         value = "neet",
         title = "NEET and activity not known",
-        # tags$b("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        # tags$b("16-17 year olds at end ", latest_year_end, "/start", latest_year,"(average of December, January and February)"),
         h2("NEET and activity not known"),
         p(
           "Gauges below show where the LA rate sits within the",
           actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."
         ),
-        h3("16-17 year olds at end ", latest_year_end, "(average of December, January and February)"),
+        h3("16-17 year olds at end ", latest_year_end, "/start", latest_year, "(average of December, January and February)"),
         layout_columns(
           col_widths = c(2, 8, 2),
           card(),
@@ -191,10 +190,10 @@ dashboard_panel <- function() {
         value = "vulnerable",
         title = "Vulnerable Groups NEET",
         h2("Vulnerable group"),
-        h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+        h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "/start", latest_year, "(average of December, January and February)"),
         layout_columns(
           col_widths = c(6, 6),
-          # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "(average of December, January and February)"),
+          # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "/start", latest_year,  "(average of December, January and February)"),
           card(
             card_body(plotlyOutput("vulnerable_plot") %>% withSpinner())
           ),
@@ -264,9 +263,7 @@ dashboard_panel <- function() {
           col_widths = c(6),
           card(
             plotlyOutput("Sept_Guar_gauge", width = "92%") %>% withSpinner(),
-            uiOutput("Sept_Guarantee", width = 12),
-            p("In some instances, a local authority may have slightly over 100% offers made.
-                    This is due to additional young people being added after the September Guarantee cohort is fixed.")
+            uiOutput("Sept_Guarantee", width = 12)
           )
         )
       ),
@@ -277,8 +274,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2023-24",
-            "Level 2 and 3 attainment age 16 to 25, 2023/24 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2024-25",
+            "Level 2 and 3 attainment age 16 to 25, 2024/25 release"
           )
         ),
         layout_columns(
@@ -298,8 +295,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2023-24",
-            "Key stage 4 performance, 2023/24 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2024-25",
+            "Key stage 4 performance, 2024/25 release"
           )
         ),
         layout_columns(
@@ -317,8 +314,8 @@ dashboard_panel <- function() {
         p(
           "The following state-funded secondary school attendance figures can be found in the ",
           external_link(
-            href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2023-24",
-            "Pupil absence in schools in England, 2023/24 release"
+            href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25",
+            "Pupil absence in schools in England, 2024/25 release"
           )
         ),
         layout_columns(

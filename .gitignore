@@ -6,4 +6,7 @@ server.R
 Rplots.pdf
 R/Rplots.pdf
 file*.log
-
+.positai
+temp*
+file*
+.RDataTmp

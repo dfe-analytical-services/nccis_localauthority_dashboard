@@ -140,8 +140,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_not_known_percent),
       round(as.numeric(England()$NEET_not_known_percent), 1),
       round(as.numeric(NEET_nk_perc_region), 1),
-      range = c(1.0, 21.5),
-      intervals = c(1.0, 3.5, 4.3, 5.5, 6.7, 21.5),
+      range = c(1.2, 49.3),
+      intervals = c(1.2, 3.4, 4.4, 5.4, 6.8, 49.3),
       needle_length = 1.2,
       accessible = input$acc_colour_scheme
     )
@@ -172,7 +172,7 @@ server <- function(input, output, session) {
         showcase = icon_trend(NEET_nk_change),
         p(paste0(Regionname, ":"), NEET_nk_perc_region, "%,", change_ed(NEET_nk_change_region), NEET_nk_change_region, "ppts"),
         p("England: ", NEET_nk_perc_Eng, "%,", change_ed(NEET_nk_change_Eng), NEET_nk_change_Eng, "ppts"),
-        p("Annual changes are since end", previous_year_end),
+        p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
         theme = "blue"
       ),
       ""
@@ -193,8 +193,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$NEET_percent),
       round(as.numeric(England()$NEET_percent), 1),
       round(as.numeric(NEET_perc_region), 1),
-      range = c(0.6, 7.6),
-      intervals = c(0.6, 2.1, 2.8, 3.8, 4.7, 7.6),
+      range = c(0.3, 7.1),
+      intervals = c(0.3, 2.1, 3.0, 3.6, 4.8, 7.1),
       needle_length = 1.0,
       accessible = input$acc_colour_scheme
     )
@@ -232,7 +232,7 @@ server <- function(input, output, session) {
       showcase = icon_trend(NEET_change),
       p(paste0(Regionname, ": "), NEET_perc_region, "%,", change_ed(NEET_change_region), NEET_change_region, "ppts"),
       p("England: ", NEET_perc_Eng, "%,", change_ed(NEET_change_Eng), NEET_change_Eng, "ppts"),
-      p("Annual changes are since end", previous_year_end),
+      p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
       theme = "blue"
     )
   })
@@ -252,8 +252,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$Notknown_percent),
       round(as.numeric(England()$Notknown_percent), 1),
       round(as.numeric(Nk_perc_region), 1),
-      range = c(0.0, 19.1),
-      intervals = c(0.0, 0.5, 0.8, 1.6, 2.7, 19.1),
+      range = c(0.0, 48.3),
+      intervals = c(0.0, 0.4, 0.8, 1.4, 2.6, 48.3),
       needle_length = 1.0,
       accessible = input$acc_colour_scheme
     )
@@ -285,7 +285,7 @@ server <- function(input, output, session) {
       showcase = icon_trend(Nk_change),
       p(paste0(Regionname, ":"), Nk_perc_region, "%,", change_ed(Nk_change_region), Nk_change_region, "ppts"),
       p("England:", Nk_perc_Eng, "%,", change_ed(Nk_change_Eng), Nk_change_Eng, "ppts"),
-      p("Annual changes are since end", previous_year_end),
+      p("Annual changes are since end", previous_year_end, "/start", latest_year_end),
       theme = "blue"
     )
   })
@@ -495,8 +495,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$TOTAL_participating_in_education_and_training_percent),
       round(as.numeric(England()$TOTAL_participating_in_education_and_training_percent), 1),
       round(as.numeric(participation_region), 1),
-      range = c(82.2, 99.0),
-      intervals = c(82.2, 89.7, 91.3, 93.2, 95.4, 99.0),
+      range = c(58.9, 98.5),
+      intervals = c(58.9, 90.0, 91.6, 93.2, 95.5, 98.5),
       needle_length = 0.9,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -609,8 +609,8 @@ server <- function(input, output, session) {
     gauge_plot(as.numeric(lineLA()$September_guarantee_Offer_made_percent),
       round(as.numeric(England()$September_guarantee_Offer_made_percent), 1),
       round(as.numeric(Sept_Guar_region), 1),
-      range = c(74.0, 100.0),
-      intervals = c(74.0, 93.1, 95.0, 96.8, 98.2, 100.0),
+      range = c(61.3, 100.0),
+      intervals = c(61.3, 93.0, 95.1, 97.0, 98.0, 100.0),
       needle_length = 0.9,
       reverse_colour = TRUE,
       accessible = input$acc_colour_scheme
@@ -836,9 +836,9 @@ server <- function(input, output, session) {
 
     Attainment8 <- plotdata %>%
       ggplot(aes(
-        y = avg_att8, x = "",
+        y = attainment8_average, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", avg_att8, "%")
+        text = paste(la_name, ": ", attainment8_average, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +
@@ -878,9 +878,9 @@ server <- function(input, output, session) {
 
     EM_pass <- plotdata %>%
       ggplot(aes(
-        y = pt_l2basics_94, x = "",
+        y = engmath_94_percent, x = "",
         fill = la_name,
-        text = paste(la_name, ": ", pt_l2basics_94, "%")
+        text = paste(la_name, ": ", engmath_94_percent, "%")
       )) +
       geom_bar(stat = "identity", na.rm = TRUE) +
       coord_flip() +
@@ -935,7 +935,8 @@ server <- function(input, output, session) {
       title = "NCCIS population",
       value = format(NCCIS_population, big.mark = ","),
       showcase = bs_icon("person-fill", size = "2em"),
-      p("Recorded on CCIS - end ", last_year, " (average of December, January, February)"),
+      p("Recorded on CCIS - end ", last_year, "/start", latest_year),
+      p(" (average of December, January, February)"),
       theme = "blue"
     )
   })

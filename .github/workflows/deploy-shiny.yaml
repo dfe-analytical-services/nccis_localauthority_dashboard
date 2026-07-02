@@ -5,6 +5,7 @@ on:
       - main
       - development
       - eesp/mot
+      - LB_2026_update
   pull_request:
     branches:
       - main

@@ -155,8 +155,8 @@ plot_neetnkgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$NEET_not_known_percent), 1),
     round(as.numeric(NEET_nk_perc_region), 1),
     title = title_string,
-    range = c(1.0, 21.5),
-    intervals = c(1.0, 3.5, 4.3, 5.5, 6.7, 21.5),
+    range = c(1.2, 49.3),
+    intervals = c(1.2, 3.4, 4.4, 5.4, 6.8, 49.3),
     needle_length = 0.9
   )
 }
@@ -179,8 +179,8 @@ plot_neetgauge <- function(dfla, line_la, line_england, xdomain = c(0, 0.96),
     round(as.numeric(line_england$NEET_percent), 1),
     round(as.numeric(NEET_perc_region), 1),
     title = title_string,
-    range = c(0.6, 7.6),
-    intervals = c(0.6, 2.1, 2.8, 3.8, 4.7, 7.6),
+    range = c(0.3, 7.1),
+    intervals = c(0.3, 2.1, 3.0, 3.6, 4.8, 7.1),
     needle_length = 0.7,
     xdomain = xdomain
   )
@@ -206,8 +206,8 @@ plot_nkgauge <- function(dfla, line_la, line_england,
     round(as.numeric(line_england$Notknown_percent), 1),
     round(as.numeric(nk_perc_region), 1),
     title = title_string,
-    range = c(0.0, 19.1),
-    intervals = c(0.0, 0.5, 0.8, 1.6, 2.7, 19.1),
+    range = c(0.0, 48.3),
+    intervals = c(0.0, 0.4, 0.8, 1.4, 2.6, 48.3),
     needle_length = 0.7,
     fig = fig,
     xdomain = xdomain
@@ -276,8 +276,8 @@ plot_partgauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$TOTAL_participating_in_education_and_training_percent), 1),
     round(as.numeric(part_perc_region), 1),
     title = title_string,
-    range = c(82.2, 99.0),
-    intervals = c(82.2, 89.7, 91.3, 93.2, 95.4, 99.0),
+    range = c(58.9, 98.5),
+    intervals = c(58.9, 90.0, 91.6, 93.2, 95.5, 98.5),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
@@ -324,7 +324,6 @@ plot_participationbar <- function(dfparticipation, participation_la, line_la, pa
 }
 
 
-
 Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
   if (title) {
     title_string <- "Not known"
@@ -341,8 +340,8 @@ Sept_Guar_gauge <- function(dfla, line_la, line_england, title = FALSE) {
     round(as.numeric(line_england$September_guarantee_Offer_made_percent), 1),
     round(as.numeric(Sept_Guar_region), 1),
     title = title_string,
-    range = c(74.0, 100.0),
-    intervals = c(74.0, 93.1, 95.0, 96.8, 98.2, 100.0),
+    range = c(61.3, 100.0),
+    intervals = c(61.3, 93.0, 95.1, 97.0, 98.0, 100.0),
     needle_length = 0.9,
     reverse_colour = TRUE
   )
