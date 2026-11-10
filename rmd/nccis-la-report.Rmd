@@ -51,9 +51,11 @@ fontsize: 12pt
 ---
 
 ```{r write title page, include=FALSE}
-connTitle <- file("title.sty")
+here::i_am("rmd/nccis-la-report.Rmd")
+logo_path <- normalizePath(here::here("www/images/Department_for_Education.png"), winslash = "/")
+connTitle <- file(here::here("rmd/title.sty"))
 writeLines(c(
-  "\\resizebox{48mm}{!}{\\includegraphics{www/images/Department_for_Education.png}}\n",
+  paste0("\\resizebox{48mm}{!}{\\includegraphics{", logo_path, "}}\n"),
   "\\vspace*{0.24\\textheight}\n",
   "\\Huge{\\color{dfeheadingblue}\\raggedright\\textbf{NEET and participation LA scorecard}} \n",
   paste0("\\huge{\\color{dfeheadingblue}\\textbf{", params$input_la_choice, "}}"),
@@ -65,13 +67,14 @@ close(connTitle)
 
 
 ```{r load packages, include=FALSE}
-knitr::opts_knit$set(root.dir = "./")
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 message("Installing PhantomJS")
 Sys.setenv(OPENSSL_CONF = "/etc/ssl/")
 webshot::install_phantomjs()
-source("global.R")
-source("R/plots.R")
+
+here::i_am("rmd/nccis-la-report.Rmd")
+source(here::here("global.R"))
+source(here::here("R/plots.R"))
 ```
 
 ```{r vulnerable data, include=FALSE}
