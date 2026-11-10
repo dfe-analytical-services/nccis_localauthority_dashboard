@@ -2,10 +2,18 @@
 # across dashboards. If you want to change anything in this script, please
 # talk to the DfE Statistics Development team first.
 
-valueBox <- function(value, subtitle, icon = NULL, color = "aqua", width = 4,
-                     href = NULL) {
+valueBox <- function(
+  value,
+  subtitle,
+  icon = NULL,
+  color = "aqua",
+  width = 4,
+  href = NULL
+) {
   validateColor(color)
-  if (!is.null(icon)) tagAssert(icon, type = "i")
+  if (!is.null(icon)) {
+    tagAssert(icon, type = "i")
+  }
 
   boxContent <- div(
     class = paste0("small-box bg-", color),
@@ -35,7 +43,10 @@ validateColor <- function(color) {
   }
 
   stop(
-    "Invalid color: ", color, ". Valid colors are: ",
-    paste(validColors, collapse = ", "), "."
+    "Invalid color: ",
+    color,
+    ". Valid colors are: ",
+    paste(validColors, collapse = ", "),
+    "."
   )
 }

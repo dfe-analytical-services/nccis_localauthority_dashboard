@@ -2,20 +2,18 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [main]
-  pull_request:
+    branches: [main, master]
+  pull_request_target:
 
-name: lintr
+name: Reusable
 
 permissions:
-  actions: write
   contents: read
   packages: write
   pull-requests: write
-  security-events: write
 
 jobs:
-  lint:
-    uses: dfe-analytical-services/dfeshiny/.github/workflows/lintr_reusable.yaml@main
-    with:
-      is_package: "false"
+  air:
+    name: Air
+    uses: dfe-analytical-services/dfeshiny/.github/workflows/air_reusable.yaml@main
+    
