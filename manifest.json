@@ -5274,19 +5274,19 @@
       "checksum": "2c95cb00ebd7546ccec06638cd813767"
     },
     ".github/workflows/air.yml": {
-      "checksum": "3325dee1337dcbdbe33348b7fd275a7e"
+      "checksum": "0c32484aaa4b8575d77629f8aebece5f"
     },
     ".github/workflows/automated-tests.yaml": {
       "checksum": "7fec9834ee9927cf76307a613d0e699e"
     },
     ".github/workflows/deploy-shiny.yaml": {
-      "checksum": "df661f007f88111790e430c7554927d5"
+      "checksum": "13c2fa74c5e79fe946ca5aa7427076dd"
     },
     ".hooks/pre-commit.R": {
       "checksum": "e475f97dc06118c07ff219c416730dfd"
     },
     ".Rprofile": {
-      "checksum": "493f8e5cf35f519a83f57acd63bbc182"
+      "checksum": "d988b6a5ecc7347e6805c95c03a965a2"
     },
     "CODE_OF_CONDUCT.md": {
       "checksum": "7dcf9b0b5bac78fc7d7fe45f8c5102b1"

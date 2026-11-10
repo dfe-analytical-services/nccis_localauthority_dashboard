@@ -5,6 +5,7 @@ on:
       - main
       - development
       - eesp/*
+      - eed*
   pull_request:
     branches:
       - main
