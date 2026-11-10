@@ -5280,13 +5280,13 @@
       "checksum": "7fec9834ee9927cf76307a613d0e699e"
     },
     ".github/workflows/deploy-shiny.yaml": {
-      "checksum": "cf8198a31a111a78741b78144093169f"
+      "checksum": "df661f007f88111790e430c7554927d5"
     },
     ".hooks/pre-commit.R": {
-      "checksum": "b73673ee0975b267b8536d155efd1917"
+      "checksum": "e475f97dc06118c07ff219c416730dfd"
     },
     ".Rprofile": {
-      "checksum": "275cc55e105ba2c3d5af26e7f2ddfd32"
+      "checksum": "493f8e5cf35f519a83f57acd63bbc182"
     },
     "CODE_OF_CONDUCT.md": {
       "checksum": "7dcf9b0b5bac78fc7d7fe45f8c5102b1"

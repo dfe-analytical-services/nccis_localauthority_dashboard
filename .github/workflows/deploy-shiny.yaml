@@ -4,8 +4,7 @@ on:
     branches:
       - main
       - development
-      - eesp/mot
-      - LB_2026_update
+      - eesp/*
   pull_request:
     branches:
       - main
