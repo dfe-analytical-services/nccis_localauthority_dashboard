@@ -7,14 +7,12 @@
 #
 # ---------------------------------------------------------
 
-
 # Library calls ---------------------------------------------------------------------------------
 
 shhh <- suppressPackageStartupMessages # It's a library, so shhh!
 shhh(library(shiny))
 shhh(library(shinyjs))
 shhh(library(tools))
-shhh(library(testthat))
 shhh(library(dfeshiny))
 shhh(library(dfeR))
 shhh(library(shinyGovstyle))
@@ -30,9 +28,14 @@ shhh(library(rmarkdown))
 shhh(library(markdown))
 shhh(library(webshot))
 shhh(library(scales))
-shhh(library(checkmate))
 shhh(library(bslib))
 shhh(library(bsicons))
+
+if (FALSE) {
+  shhh(library(shinytest2))
+  shhh(library(testthat))
+  shhh(library(rsconnect))
+}
 
 source("R/utils.R")
 
@@ -46,7 +49,8 @@ team_email <- "post16.statistics@education.gov.uk"
 google_analytics_key <- "4TJQVNWTCK"
 
 # Load the data required
-la_ud <- read_csv("data/UD_NEETNK_LA_dashboard_final.csv",
+la_ud <- read_csv(
+  "data/UD_NEETNK_LA_dashboard_final.csv",
   col_types = cols(.default = "c")
 )
 
@@ -119,7 +123,6 @@ cond_color <- function(condition, true_color = "green") {
 
 # source("R/filename.r")
 
-
 # appLoadingCSS ----------------------------------------------------------------------------
 # Set up loading screen
 
@@ -139,8 +142,13 @@ appLoadingCSS <- "
 # Create download button without the icon
 myDownloadButton <- function(outputId, label = "Download") {
   tags$a(
-    id = outputId, class = "btn btn-default shiny-download-link", href = "",
-    target = "_blank", download = NA, NULL, label
+    id = outputId,
+    class = "btn btn-default shiny-download-link",
+    href = "",
+    target = "_blank",
+    download = NA,
+    NULL,
+    label
   )
 }
 
@@ -151,15 +159,25 @@ myDownloadButton <- function(outputId, label = "Download") {
 # reshape the data so it plots neatly!
 participation_data_fte <- la_ud %>%
   # select only participation types
-  select(geographic_level, region_name, la_name, Full_time_education_percent) %>%
+  select(
+    geographic_level,
+    region_name,
+    la_name,
+    Full_time_education_percent
+  ) %>%
   # Put England and region name into LA name
-  mutate(la_name = case_when(
-    geographic_level == "National" ~ "England",
-    geographic_level == "Regional" ~ region_name,
-    TRUE ~ la_name
-  ), participation_type = "Full-time education")
+  mutate(
+    la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ),
+    participation_type = "Full-time education"
+  )
 
-colnames(participation_data_fte)[colnames(participation_data_fte) == "Full_time_education_percent"] <- "value"
+colnames(participation_data_fte)[
+  colnames(participation_data_fte) == "Full_time_education_percent"
+] <- "value"
 
 participation_data_fte <- participation_data_fte %>%
   select(la_name, participation_type, value)
@@ -168,34 +186,53 @@ participation_data_app <- la_ud %>%
   # select only participation types
   select(geographic_level, region_name, la_name, Apprenticeship_percent) %>%
   # Put England and region name into LA name
-  mutate(la_name = case_when(
-    geographic_level == "National" ~ "England",
-    geographic_level == "Regional" ~ region_name,
-    TRUE ~ la_name
-  ), participation_type = "Apprenticeship")
+  mutate(
+    la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ),
+    participation_type = "Apprenticeship"
+  )
 
-colnames(participation_data_app)[colnames(participation_data_app) == "Apprenticeship_percent"] <- "value"
+colnames(participation_data_app)[
+  colnames(participation_data_app) == "Apprenticeship_percent"
+] <- "value"
 
 participation_data_app <- participation_data_app %>%
   select(la_name, participation_type, value)
 
 participation_data_other <- la_ud %>%
   # select only participation types
-  select(geographic_level, region_name, la_name, Other_education_and_training_percent) %>%
+  select(
+    geographic_level,
+    region_name,
+    la_name,
+    Other_education_and_training_percent
+  ) %>%
   # Put England and region name into LA name
-  mutate(la_name = case_when(
-    geographic_level == "National" ~ "England",
-    geographic_level == "Regional" ~ region_name,
-    TRUE ~ la_name
-  ), participation_type = "Other")
+  mutate(
+    la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    ),
+    participation_type = "Other"
+  )
 
-colnames(participation_data_other)[colnames(participation_data_other) == "Other_education_and_training_percent"] <- "value"
+colnames(participation_data_other)[
+  colnames(participation_data_other) == "Other_education_and_training_percent"
+] <- "value"
 
 participation_data_other <- participation_data_other %>%
   select(la_name, participation_type, value)
 
 # pull the types together into one file
-participation_data <- bind_rows(participation_data_fte, participation_data_app, participation_data_other)
+participation_data <- bind_rows(
+  participation_data_fte,
+  participation_data_app,
+  participation_data_other
+)
 
 participation_data <- participation_data %>%
   mutate(value = as.numeric(value))
@@ -206,21 +243,39 @@ partEng <- participation_data %>% filter(la_name == "England")
 # reshape the data so it plots neatly!
 vulnerable_data <- la_ud %>%
   # select only vulnerable info
-  select(geographic_level, region_name, la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage) %>%
+  select(
+    geographic_level,
+    region_name,
+    la_name,
+    NEET_NK_noSEN_percent,
+    NEET_NK_EHCP_percent,
+    NEET_NK_SENDsupport_percent,
+    VG_NEET_NK_percentage
+  ) %>%
   # Put England and region name into LA name
-  mutate(la_name = case_when(
-    geographic_level == "National" ~ "England",
-    geographic_level == "Regional" ~ region_name,
-    TRUE ~ la_name
-  ))
+  mutate(
+    la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    )
+  )
 
 
 vulnerable_data <- vulnerable_data %>%
-  select(la_name, NEET_NK_noSEN_percent, NEET_NK_EHCP_percent, NEET_NK_SENDsupport_percent, VG_NEET_NK_percentage)
+  select(
+    la_name,
+    NEET_NK_noSEN_percent,
+    NEET_NK_EHCP_percent,
+    NEET_NK_SENDsupport_percent,
+    VG_NEET_NK_percentage
+  )
 
 vulnerable_data <- vulnerable_data %>%
   mutate(
-    NEET_NK_noSEN_percent = as.numeric(NEET_NK_noSEN_percent), NEET_NK_EHCP_percent = as.numeric(NEET_NK_EHCP_percent), NEET_NK_SENDsupport_percent = as.numeric(NEET_NK_SENDsupport_percent),
+    NEET_NK_noSEN_percent = as.numeric(NEET_NK_noSEN_percent),
+    NEET_NK_EHCP_percent = as.numeric(NEET_NK_EHCP_percent),
+    NEET_NK_SENDsupport_percent = as.numeric(NEET_NK_SENDsupport_percent),
     VG_NEET_NK_percentage = as.numeric(VG_NEET_NK_percentage)
   )
 
@@ -232,22 +287,46 @@ vulnerableEng <- vulnerable_data %>% filter(la_name == "England")
 # reshape the data so it plots neatly!
 contextual_data <- la_ud %>%
   # select only contextual info
-  select(geographic_level, region_name, la_name, Level_3, L2_em_GCSE_othL2, attainment8_average, engmath_94_percent, sess_overall_percent, enrolments_pa_10_exact_percent) %>%
+  select(
+    geographic_level,
+    region_name,
+    la_name,
+    Level_3,
+    L2_em_GCSE_othL2,
+    attainment8_average,
+    engmath_94_percent,
+    sess_overall_percent,
+    enrolments_pa_10_exact_percent
+  ) %>%
   # Put England and region name into LA name
-  mutate(la_name = case_when(
-    geographic_level == "National" ~ "England",
-    geographic_level == "Regional" ~ region_name,
-    TRUE ~ la_name
-  ))
+  mutate(
+    la_name = case_when(
+      geographic_level == "National" ~ "England",
+      geographic_level == "Regional" ~ region_name,
+      TRUE ~ la_name
+    )
+  )
 
 
 contextual_data <- contextual_data %>%
-  select(la_name, Level_3, L2_em_GCSE_othL2, attainment8_average, engmath_94_percent, sess_overall_percent, enrolments_pa_10_exact_percent)
+  select(
+    la_name,
+    Level_3,
+    L2_em_GCSE_othL2,
+    attainment8_average,
+    engmath_94_percent,
+    sess_overall_percent,
+    enrolments_pa_10_exact_percent
+  )
 
 contextual_data <- contextual_data %>%
   mutate(
-    Level_3 = as.numeric(Level_3), L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2), attainment8_average = as.numeric(attainment8_average),
-    engmath_94_percent = as.numeric(engmath_94_percent), sess_overall_percent = as.numeric(sess_overall_percent), enrolments_pa_10_exact_percent = as.numeric(enrolments_pa_10_exact_percent)
+    Level_3 = as.numeric(Level_3),
+    L2_em_GCSE_othL2 = as.numeric(L2_em_GCSE_othL2),
+    attainment8_average = as.numeric(attainment8_average),
+    engmath_94_percent = as.numeric(engmath_94_percent),
+    sess_overall_percent = as.numeric(sess_overall_percent),
+    enrolments_pa_10_exact_percent = as.numeric(enrolments_pa_10_exact_percent)
   )
 
 contextEng <- contextual_data %>% filter(la_name == "England")

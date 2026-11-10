@@ -40,7 +40,6 @@
 #    https://github.com/moj-analytical-services/shinyGovstyle
 #
 
-
 #
 # This is the user-interface definition of a Shiny web application. You can
 # run the application by clicking 'Run App' above.
@@ -127,7 +126,12 @@ ui <- function(input, output, session) {
           layout_columns(
             col_widths = c(-2, 8, -2),
             # Add in back link
-            actionLink(class = "govuk-back-link", style = "margin: 0", "support_to_dashboard", "Back to dashboard"),
+            actionLink(
+              class = "govuk-back-link",
+              style = "margin: 0",
+              "support_to_dashboard",
+              "Back to dashboard"
+            ),
             support_panel(
               team_email = "post16.statistics@education.gov.uk",
               publication_name = "Participation in education, training and NEET age 16 to 17 by local authority",
@@ -142,7 +146,12 @@ ui <- function(input, output, session) {
           layout_columns(
             col_widths = c(-2, 8, -2),
             # Add in back link
-            actionLink(class = "govuk-back-link", style = "margin: 0", "accessibility_to_dashboard", "Back to dashboard"),
+            actionLink(
+              class = "govuk-back-link",
+              style = "margin: 0",
+              "accessibility_to_dashboard",
+              "Back to dashboard"
+            ),
             dfeshiny::a11y_panel(
               date_tested = "31/03/2024",
               date_reviewed = "19/11/2024",
@@ -172,7 +181,12 @@ ui <- function(input, output, session) {
           layout_columns(
             col_widths = c(-2, 8, -2),
             # Add in back link
-            actionLink(class = "govuk-back-link", style = "margin: 0", "cookies_to_dashboard", "Back to dashboard"),
+            actionLink(
+              class = "govuk-back-link",
+              style = "margin: 0",
+              "cookies_to_dashboard",
+              "Back to dashboard"
+            ),
             "Cookies",
             cookies_panel_ui(google_analytics_key = google_analytics_key)
           )
@@ -180,7 +194,11 @@ ui <- function(input, output, session) {
       )
     ),
     shinyGovstyle::footer(
-      links = c("Support and feedback", "Accessibility statement", "Cookies statement"),
+      links = c(
+        "Support and feedback",
+        "Accessibility statement",
+        "Cookies statement"
+      ),
       full = TRUE
     )
   )

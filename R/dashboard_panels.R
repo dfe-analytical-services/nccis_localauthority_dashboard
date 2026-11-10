@@ -2,20 +2,26 @@ homepage_panel <- function() {
   gov_row(
     h1("NEET and participation LA scorecard"),
     h2("Introduction"),
-    p("The Department for Education (DfE) publishes an estimate each year
+    p(
+      "The Department for Education (DfE) publishes an estimate each year
                 of the proportion of young people not in education, employment or
                 training (NEET).  However, evidence shows that there are a range of
                 factors that can affect the proportion NEET, and this scorecard aims
                 to put the headline figure into context by presenting it alongside a
-                range of other related information."),
-    p("There is a separate scorecard for each local authority in England
+                range of other related information."
+    ),
+    p(
+      "There is a separate scorecard for each local authority in England
                 except the City of London and Isles of Scilly. For these two local authorities, data is not available
                 for all indicators and small numbers can result in large changes
-                in percentages from one year to the next."),
-    p("Each area's performance is compared with that of other local authorities in England.
+                in percentages from one year to the next."
+    ),
+    p(
+      "Each area's performance is compared with that of other local authorities in England.
             The best performing with the lowest NEET/highest participation fall into the
             green quintile, whereas local authorities with the highest NEET/lowest participation fall
-            into the red quintile."),
+            into the red quintile."
+    ),
     warning_text(
       inputId = "vatiation_warning",
       text = "Use caution: NEET and participation estimates are based on management information. Reported figures may
@@ -33,19 +39,29 @@ homepage_panel <- function() {
 
     h2("Scorecard Contents"),
     h3("NEET and activity not known"),
-    p("This section shows the proportion of 16 and 17 year olds living in each area who were not in education,
-                       employment or training (NEET) or their activity was not known (NK) at the end of the year."),
-    p("The proportion not known indicator shows how effective the arrangements are in each area for tracking
-                       young people's participation in education and training."),
-    p("Whilst local authorities are responsible for tracking, they depend on schools, colleges and other partners
+    p(
+      "This section shows the proportion of 16 and 17 year olds living in each area who were not in education,
+                       employment or training (NEET) or their activity was not known (NK) at the end of the year."
+    ),
+    p(
+      "The proportion not known indicator shows how effective the arrangements are in each area for tracking
+                       young people's participation in education and training."
+    ),
+    p(
+      "Whilst local authorities are responsible for tracking, they depend on schools, colleges and other partners
                        who work with young people sharing information with them. There is a risk that young people NEET have not been
-                       identified in areas where effective tracking arrangements are not in place."),
+                       identified in areas where effective tracking arrangements are not in place."
+    ),
     h3("Vulnerable groups NEET"),
-    p("This section includes data showing the proportion of 16 and 17 year olds living in each area who were not in education,
+    p(
+      "This section includes data showing the proportion of 16 and 17 year olds living in each area who were not in education,
                        employment or training (NEET) or their activity was not known (NK) at the end of the year with special education needs
-                       and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."),
-    p("A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
-                   the NCCIS returns):"),
+                       and disability (SEND)/education, health and care plan (EHCP), SEN support or those that fall into the vulnerable group."
+    ),
+    p(
+      "A young person is said to be in a vulnerable group if they have any of the following characteristics (taken from IC01 of
+                   the NCCIS returns):"
+    ),
     tags$ul(
       tags$li("110 - Looked after / In care"),
       tags$li("130 - Refugee / Asylum seeker"),
@@ -71,29 +87,53 @@ homepage_panel <- function() {
       )
     ),
     h3("Participation"),
-    p("This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
-                       at the end of March."),
-    p("There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
-                       (this includes part-time education, work based learning and employment with study towards a regulated qualification)."),
-    p("It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
+    p(
+      "This section shows the proportion of 16 and 17 year olds living in each area who were in education or training
+                       at the end of March."
+    ),
+    p(
+      "There is a breakdown of the three main routes that young people choose: full-time education, apprenticeship, and other education or training
+                       (this includes part-time education, work based learning and employment with study towards a regulated qualification)."
+    ),
+    p(
+      "It also shows the proportion of 16 and 17 year olds receiving an offer of a place in education and training under the September
                        Guarantee. The September Guarantee is a guarantee of an offer, made by the end of September, of an
                       appropriate place in post-16 education or training for every young person completing compulsory
                       education. This is particularly important as it helps young people make a seamless transition into
                       post-16 learning or employment with training. Local authorities are responsible for leading the 'September Guarantee' process, working with schools and colleges
-                       across their area."),
-    p("There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
-                       contacted. These young people are at risk of becoming NEET."),
+                       across their area."
+    ),
+    p(
+      "There are some young people who have not yet made a decision about what they want to do next, have other plans, or who cannot be
+                       contacted. These young people are at risk of becoming NEET."
+    ),
     h3("Contextual - attainment and attendance"),
     p(
       "This section covers ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2024-25", "post 16 attainment"), ", ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2024-25", "GCSE attainment"), " and ",
-      external_link(href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25", "school attendance"), " of young people living in each area.
+      external_link(
+        href = "https://explore-education-statistics.service.gov.uk/find-statistics/level-2-and-3-attainment-by-young-people-aged-19/2024-25",
+        "post 16 attainment"
+      ),
+      ", ",
+      external_link(
+        href = "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance/2024-25",
+        "GCSE attainment"
+      ),
+      " and ",
+      external_link(
+        href = "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2024-25",
+        "school attendance"
+      ),
+      " of young people living in each area.
                   It also provides the Client Caseload Information System (CCIS) population of 16 and 17 year olds in the local authority."
     ),
-    p("Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
-                       risk of becoming NEET between the ages of 16 and 18."),
-    p("Young people who have poor attendance or who are excluded from schools are at greater risk of becoming NEET."),
+    p(
+      "Surveys show that higher attainment at age 16 is the factor most closely associated with participation and a lower
+                       risk of becoming NEET between the ages of 16 and 18."
+    ),
+    p(
+      "Young people who have poor attendance or who are excluded from schools are at greater risk of becoming NEET."
+    ),
     # br("Due to the coronavirus (COVID-19) pandemic, all summer 2020 and 2021 exams were cancelled and absence statistics were
     # notably different to previous years. Therefore the contextual information on absence and attainment has not been
     # included in the scorecard this year."),
@@ -118,7 +158,8 @@ dashboard_panel <- function() {
           col_widths = c(6, 6, 12),
           card(
             style = "background-color: #f3f2f1;",
-            selectInput("LA_choice",
+            selectInput(
+              "LA_choice",
               label = p(strong("Choose a local authority")),
               choices = levels(LA_options),
               selected = "Barking and Dagenham"
@@ -145,7 +186,9 @@ dashboard_panel <- function() {
               choiceNames = c("Hi-vis", "Accessible"),
               choiceValues = c(FALSE, TRUE),
             ),
-            tags$p("Different indicators can be viewed by switching between the tabs below.")
+            tags$p(
+              "Different indicators can be viewed by switching between the tabs below."
+            )
           ),
         )
       )
@@ -160,13 +203,23 @@ dashboard_panel <- function() {
         h2("NEET and activity not known"),
         p(
           "Gauges below show where the LA rate sits within the",
-          actionLink("link_to_tech_notes1", "quintile"), "range of all LAs and regional/England averages."
+          actionLink("link_to_tech_notes1", "quintile"),
+          "range of all LAs and regional/England averages."
         ),
-        h3("16-17 year olds at end ", latest_year_end, "/start", latest_year, "(average of December, January and February)"),
+        h3(
+          "16-17 year olds at end ",
+          latest_year_end,
+          "/start",
+          latest_year,
+          "(average of December, January and February)"
+        ),
         layout_columns(
           col_widths = c(2, 8, 2),
           card(),
-          card(plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>% withSpinner()),
+          card(
+            plotlyOutput("NEET_nk_gauge", width = "100%", inline = T) %>%
+              withSpinner()
+          ),
           card()
         ),
         uiOutput("NEET_nk_vb"),
@@ -190,7 +243,13 @@ dashboard_panel <- function() {
         value = "vulnerable",
         title = "Vulnerable Groups NEET",
         h2("Vulnerable group"),
-        h3("16-17 year olds NEET or activity not known at end ", latest_year_end, "/start", latest_year, "(average of December, January and February)"),
+        h3(
+          "16-17 year olds NEET or activity not known at end ",
+          latest_year_end,
+          "/start",
+          latest_year,
+          "(average of December, January and February)"
+        ),
         layout_columns(
           col_widths = c(6, 6),
           # tags$b("16-17 year olds NEET or activity not known at end ", latest_year_end, "/start", latest_year,  "(average of December, January and February)"),
@@ -199,8 +258,10 @@ dashboard_panel <- function() {
           ),
           card(
             card_body(
-              p("A young person is said to be in a vulnerable group if they have any of the following characteristics
-                       (taken from IC01 of the NCCIS returns):"),
+              p(
+                "A young person is said to be in a vulnerable group if they have any of the following characteristics
+                       (taken from IC01 of the NCCIS returns):"
+              ),
               tags$ul(
                 tags$li("110 - Looked after/In care"),
                 tags$li("130 - Refugee/Asylum seeker"),
@@ -243,13 +304,15 @@ dashboard_panel <- function() {
         h2("Participating in education and training"),
         p(
           "Gauges below show where the LA rate sits within the",
-          actionLink("link_to_tech_notes2", "quintile"), "range of all LAs and regional/England averages."
+          actionLink("link_to_tech_notes2", "quintile"),
+          "range of all LAs and regional/England averages."
         ),
         h3("16-17 year olds March ", latest_year),
         layout_columns(
           col_widths = c(6, 6),
           card(
-            plotlyOutput("Participation_gauge", width = "92%") %>% withSpinner(),
+            plotlyOutput("Participation_gauge", width = "92%") %>%
+              withSpinner(),
             uiOutput("Participating", width = 12)
           ),
           card(
@@ -285,9 +348,11 @@ dashboard_panel <- function() {
             card_body(plotlyOutput("level3_plot") %>% withSpinner())
           ),
           card(
-            card_title(h3("% 19 year olds achieving GCSE 9-4 standard pass in
+            card_title(h3(
+              "% 19 year olds achieving GCSE 9-4 standard pass in
                       English and maths (or equivalent) between ages 16 and 19,
-                      for those who had not achieved this level by 16")),
+                      for those who had not achieved this level by 16"
+            )),
             card_body(plotlyOutput("L2_EM_GCSE_plot") %>% withSpinner())
           )
         ),
@@ -325,7 +390,9 @@ dashboard_panel <- function() {
             card_body(plotlyOutput("overall_abs_plot") %>% withSpinner())
           ),
           card(
-            card_title(h3("Percentage of persistent absentees (10% or more missed)")),
+            card_title(h3(
+              "Percentage of persistent absentees (10% or more missed)"
+            )),
             card_body(plotlyOutput("Persistent_abs_plot") %>% withSpinner())
           )
         ),
