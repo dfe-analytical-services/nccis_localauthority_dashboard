@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-server.R
 Rplots.pdf
 R/Rplots.pdf
 file*.log
@@ -10,3 +9,6 @@ file*.log
 temp*
 file*
 .RDataTmp
+.github
+.hooks
+tests

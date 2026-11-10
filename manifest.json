@@ -5286,7 +5286,7 @@
       "checksum": "e475f97dc06118c07ff219c416730dfd"
     },
     ".Rprofile": {
-      "checksum": "cb43d568cd035cfd8603f71cbe56a8ef"
+      "checksum": "7394106b0f13c43c82c8ed39a4d984db"
     },
     "CODE_OF_CONDUCT.md": {
       "checksum": "7dcf9b0b5bac78fc7d7fe45f8c5102b1"
@@ -5401,6 +5401,9 @@
     },
     "rmd/title.sty": {
       "checksum": "82f8e1001824d3dc41318a73377484c4"
+    },
+    "server.R": {
+      "checksum": "b21a39e3c20ddbf14e39e327278a8a8d"
     },
     "temp.log": {
       "checksum": "6b02fc1511fd36df0237c44b44c8c4ac"
