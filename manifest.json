@@ -3,11 +3,11 @@
   "locale": "en_GB",
   "platform": "4.5.3",
   "metadata": {
-    "appmode": "rmd-static",
-    "primary_rmd": "nccis-la-report.Rmd",
+    "appmode": "shiny",
+    "primary_rmd": null,
     "primary_html": null,
     "content_category": null,
-    "has_parameters": true
+    "has_parameters": false
   },
   "environment": {
     "r": {
@@ -1988,6 +1988,42 @@
         "RemoteReposName": "CRAN",
         "RemotePkgPlatform": "x86_64-w64-mingw32",
         "RemoteSha": "0.3.6"
+      }
+    },
+    "here": {
+      "Source": "CRAN",
+      "Repository": "http://cran.rstudio.com",
+      "description": {
+        "Package": "here",
+        "Title": "A Simpler Way to Find Your Files",
+        "Version": "1.0.2",
+        "Date": "2025-09-06",
+        "Authors@R": "\n    c(person(given = \"Kirill\",\n             family = \"M\\u00fcller\",\n             role = c(\"aut\", \"cre\"),\n             email = \"kirill@cynkra.com\",\n             comment = c(ORCID = \"0000-0002-1416-3412\")),\n      person(given = \"Jennifer\",\n             family = \"Bryan\",\n             role = \"ctb\",\n             email = \"jenny@rstudio.com\",\n             comment = c(ORCID = \"0000-0002-6983-2759\")))",
+        "Description": "Constructs paths to your project's files.\n    Declare the relative path of a file within your project with 'i_am()'.\n    Use the 'here()' function as a drop-in replacement for 'file.path()',\n    it will always locate the files relative to your project root.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://here.r-lib.org/, https://github.com/r-lib/here",
+        "BugReports": "https://github.com/r-lib/here/issues",
+        "Imports": "rprojroot (>= 2.1.0)",
+        "Suggests": "conflicted, covr, fs, knitr, palmerpenguins, plyr, readr,\nrlang, rmarkdown, testthat, uuid, withr",
+        "VignetteBuilder": "knitr",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.3.3.9000",
+        "Config/testthat/edition": "3",
+        "Config/Needs/website": "tidyverse/tidytemplate",
+        "NeedsCompilation": "no",
+        "Packaged": "2025-09-14 18:48:53 UTC; kirill",
+        "Author": "Kirill Müller [aut, cre] (ORCID:\n    <https://orcid.org/0000-0002-1416-3412>),\n  Jennifer Bryan [ctb] (ORCID: <https://orcid.org/0000-0002-6983-2759>)",
+        "Maintainer": "Kirill Müller <kirill@cynkra.com>",
+        "Repository": "RSPM",
+        "Date/Publication": "2025-09-15 05:10:09 UTC",
+        "Built": "R 4.5.0; ; 2025-09-16 04:58:36 UTC; windows",
+        "RemoteType": "standard",
+        "RemotePkgRef": "here",
+        "RemoteRef": "here",
+        "RemoteRepos": "https://packagemanager.posit.co/cran/latest",
+        "RemoteReposName": "CRAN",
+        "RemotePkgPlatform": "x86_64-w64-mingw32",
+        "RemoteSha": "1.0.2"
       }
     },
     "highr": {
@@ -5250,7 +5286,7 @@
       "checksum": "b73673ee0975b267b8536d155efd1917"
     },
     ".Rprofile": {
-      "checksum": "4f2af7c53d8f0af88b93b4d157cc9ed7"
+      "checksum": "275cc55e105ba2c3d5af26e7f2ddfd32"
     },
     "CODE_OF_CONDUCT.md": {
       "checksum": "7dcf9b0b5bac78fc7d7fe45f8c5102b1"
@@ -5298,7 +5334,7 @@
       "checksum": "eb44bc0379bfe792e87fea82248aed7f"
     },
     "global.R": {
-      "checksum": "cbf5b58146900621d20581e117d5fc43"
+      "checksum": "2f69162ab5ded9d3ec1ba9d793c0ecdc"
     },
     "google-analytics.html": {
       "checksum": "eb5354acba58446677c650164180e4cd"
@@ -5330,12 +5366,6 @@
     "mockup/Vulnerable groups tab.pptx": {
       "checksum": "0baeff12280fa02a719843ba32d1b977"
     },
-    "nccis-la-report.pdf": {
-      "checksum": "0a8af5a400bf4b95213eb361be417347"
-    },
-    "nccis-la-report.Rmd": {
-      "checksum": "6486968bceaec7f2777fd25f6e7dfa4f"
-    },
     "PULL_REQUEST_TEMPLATE.md": {
       "checksum": "33bce00050768810c97392bb0bb418da"
     },
@@ -5364,7 +5394,13 @@
       "checksum": "facb485c040bcee44392026a81f9fba2"
     },
     "renv.lock": {
-      "checksum": "151c324d6fa5880338d948888b304438"
+      "checksum": "36499383af4120d00d920edc511ed33d"
+    },
+    "rmd/nccis-la-report.Rmd": {
+      "checksum": "17af8f18a2cc2f8ccd36979c8d0d53bc"
+    },
+    "rmd/title.sty": {
+      "checksum": "82f8e1001824d3dc41318a73377484c4"
     },
     "temp.log": {
       "checksum": "6b02fc1511fd36df0237c44b44c8c4ac"
@@ -5413,9 +5449,6 @@
     },
     "tests/testthat/test-dashboard_ui_tests.R": {
       "checksum": "ebc44f3197139f0f4369114dbac7674b"
-    },
-    "title.sty": {
-      "checksum": "78ed1f2187d9785b0718a81365722e2c"
     },
     "ui.R": {
       "checksum": "4eac7977d3e2a8555dc20c85f3bf2fda"

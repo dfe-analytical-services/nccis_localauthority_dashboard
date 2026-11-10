@@ -118,7 +118,7 @@ if (system.file(package = "git2r") == "") {
 }
 if (system.file(package = "rsconnect") != "" & system.file(package = "git2r") != "") {
   if (!any(grepl("manifest.json", git2r::status()))) {
-    rsconnect::writeManifest()
+    rsconnect::writeManifest(appMode = "shiny")
     git2r::add(path = "manifest.json")
   }
   message("...manifest.json rebuilt\n")

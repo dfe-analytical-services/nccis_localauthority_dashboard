@@ -968,10 +968,11 @@ server <- function(input, output, session) {
       params <- list(input_la_choice = input$LA_choice)
       print(params)
       # Render the pdf file from the rmarkdown template
-      rmarkdown::render("nccis-la-report.Rmd",
+      rmarkdown::render("rmd/nccis-la-report.Rmd",
         output_file = file,
         params = params,
         output_format = "pdf_document",
+        knit_root_dir = getwd(),
         envir = new.env(parent = globalenv())
       )
     }
